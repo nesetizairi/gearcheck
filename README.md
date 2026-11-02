@@ -20,26 +20,28 @@ Der Ordnername `happypicks` ist noch vom alten Projektnamen, der Inhalt ist komp
 - Basis Schwarz/Weiss, Akzent Orange `#ff5a1f`. Alle Farben stehen oben in `assets/css/style.css`.
 - Jede Rubrik hat eine eigene Farbe, gesetzt über eine Klasse am `<main>` oder an der Karte:
 
-| Rubrik | Klasse | Farbe | Phase |
+| Sportart | Ordner | Klasse | Farbe |
 |---|---|---|---|
-| Home-Gym & Fitness | `cat-fitness` | Orange | Start |
-| Kampfsport | `cat-kampfsport` | Rot | Start |
-| Fussball | `cat-fussball` | Grün | Start |
-| Running | `cat-running` | Gelb-Grün | 2 |
-| Radsport | `cat-radsport` | Lila | 2 |
-| Schwimmen | `cat-schwimmen` | Blau | 3 |
-| Wintersport | `cat-wintersport` | Hellblau | 3 |
-| Tennis & Padel | `cat-racket` | Türkis | 3 |
+| Home-Gym & Fitness | `home-gym/` | `cat-fitness` | Orange |
+| Kampfsport | `kampfsport/` | `cat-kampfsport` | Rot |
+| Fussball | `fussball/` | `cat-fussball` | Grün |
+| Running | `running/` | `cat-running` | Gelb-Grün |
+| Radsport | `radsport/` | `cat-radsport` | Lila |
+| Schwimmen | `schwimmen/` | `cat-schwimmen` | Blau |
+| Wintersport | `wintersport/` | `cat-wintersport` | Hellblau |
+| Tennis & Padel | `tennis-padel/` | `cat-racket` | Türkis |
+
+Jede Sportart-Seite ist eine komplette Ausrüstungsübersicht (Karten `.gear-item` in Gruppen mit Sprungmarken), darunter die ausführlichen Ratgeber. Die Sportarten-Leiste (`.sportbar`) steht in der Kopfzeile jeder Seite.
 
 Nur Sport-Themen, keine anderen Nischen.
 
 ## Neuen Artikel veröffentlichen
 
 1. `_vorlagen/artikel.html` nach `ratgeber/<slug>/index.html` kopieren, alle `[Platzhalter]` ersetzen (inkl. Rubrik-Klasse `cat-…`).
-2. Karte auf der Rubrik-Seite (`home-gym/`, `kampfsport/` oder `fussball/`) und auf `ratgeber/index.html` ergänzen.
+2. Karte auf der Sportart-Seite (unter „Ausführliche Ratgeber“) und auf `ratgeber/index.html` ergänzen, passende Produktkarten mit `gear-guide`-Link auf den Artikel verweisen lassen.
 3. Bei den neuesten Artikeln auch auf `index.html` unter „Neueste Ratgeber“.
 4. URL in `sitemap.xml` eintragen.
-5. Bei der ersten Fussball-Story: den Block „Die ersten Ratgeber sind in Arbeit“ auf `fussball/` durch die Karte ersetzen, auf der Startseite „Erste Ratgeber in Arbeit“ zu „Ratgeber ansehen“ ändern.
+5. Bei der ersten Ratgeber-Story einer neuen Sportart: den Block „Ratgeber in Arbeit“ auf deren Seite durch die Artikel-Karte ersetzen.
 
 ## Regeln für Inhalte (gilt auch für Claude-Routinen)
 
