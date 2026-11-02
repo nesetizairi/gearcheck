@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 320" aria-hidden="true">
+  <!-- Running: Laufbahn in der Kurve und Laufschuh -->
+  <path d="M160 320C260 210 420 160 600 150V320Z" fill="#a3cf1c" opacity="0.35"/>
+  <g fill="none" stroke="#ffffff" stroke-width="4">
+    <path d="M200 320C290 226 440 184 600 176"/>
+    <path d="M250 320C330 244 460 210 600 204"/>
+    <path d="M300 320C370 262 480 236 600 232"/>
+    <path d="M350 320C410 282 500 264 600 262"/>
+  </g>
+  <g transform="rotate(-8 420 150)" stroke="#0d0d0d" stroke-width="6" stroke-linejoin="round">
+    <path d="M300 196C300 172 316 156 340 160L372 166C386 146 412 142 432 154L478 182C506 196 534 202 548 212 560 220 560 236 546 238L314 240C304 240 300 232 300 222Z" fill="#a3cf1c"/>
+    <path d="M298 222H552C556 236 548 252 532 254L316 256C304 256 296 246 298 222Z" fill="#ffffff"/>
+    <path d="M384 172 404 196M402 162 422 186M420 158 440 180" fill="none" stroke-width="5" stroke-linecap="round"/>
+    <path d="M478 182C468 196 470 212 482 222" fill="none" stroke-width="4" opacity="0.4"/>
+  </g>
+  <g stroke="#0d0d0d" stroke-width="5" stroke-linecap="round" opacity="0.5">
+    <path d="M200 168h60M180 196h70M204 224h44"/>
+  </g>
+</svg>

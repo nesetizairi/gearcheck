@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 320" aria-hidden="true">
+  <!-- Kampfsport: hängender Boxsack und Boxhandschuh -->
+  <polygon points="250,0 600,0 600,320 150,320" fill="#e0262b" opacity="0.1"/>
+  <polygon points="520,0 600,0 600,320 440,320" fill="#e0262b" opacity="0.12"/>
+  <g stroke="#0d0d0d" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M440 0V34M440 34 404 70M440 34 476 70" fill="none" stroke-width="6"/>
+    <rect x="392" y="66" width="96" height="228" rx="44" fill="#0d0d0d" stroke-width="0"/>
+    <rect x="392" y="110" width="96" height="14" fill="#e0262b" stroke-width="0"/>
+    <rect x="392" y="240" width="96" height="14" fill="#e0262b" stroke-width="0"/>
+    <rect x="408" y="84" width="12" height="190" rx="6" fill="#ffffff" opacity="0.14" stroke-width="0"/>
+  </g>
+  <g transform="rotate(-14 320 220)" stroke="#0d0d0d" stroke-width="6" stroke-linejoin="round">
+    <rect x="272" y="268" width="92" height="44" rx="8" fill="#ffffff"/>
+    <path d="M272 268c-14-30-16-74 0-100 16-26 42-36 72-36 38 0 60 22 60 60v34c0 24-14 40-38 42z" fill="#e0262b"/>
+    <path d="M308 236c-28 8-50-4-52-24-2-18 14-28 32-22l26 10" fill="#e0262b"/>
+    <path d="M318 166c22-8 52-6 70 6" fill="none" stroke-width="4" opacity="0.35"/>
+    <path d="M280 286h76" fill="none" stroke-width="4"/>
+  </g>
+  <g stroke="#0d0d0d" stroke-width="5" stroke-linecap="round" opacity="0.5">
+    <path d="M196 150h44M180 176h52M200 202h36"/>
+  </g>
+</svg>

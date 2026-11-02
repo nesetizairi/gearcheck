@@ -24,14 +24,15 @@
   --max: 1120px;
 }
 
-.cat-fitness { --cat: var(--c-fitness); }
-.cat-kampfsport { --cat: var(--c-kampfsport); }
-.cat-fussball { --cat: var(--c-fussball); }
-.cat-running { --cat: var(--c-running); }
-.cat-radsport { --cat: var(--c-radsport); }
-.cat-schwimmen { --cat: var(--c-schwimmen); }
-.cat-wintersport { --cat: var(--c-wintersport); }
-.cat-racket { --cat: var(--c-racket); }
+/* --art: Illustration im Kopf der Sportart-Seite */
+.cat-fitness { --cat: var(--c-fitness); --art: url("/assets/img/sport/home-gym.svg"); }
+.cat-kampfsport { --cat: var(--c-kampfsport); --art: url("/assets/img/sport/kampfsport.svg"); }
+.cat-fussball { --cat: var(--c-fussball); --art: url("/assets/img/sport/fussball.svg"); }
+.cat-running { --cat: var(--c-running); --art: url("/assets/img/sport/running.svg"); }
+.cat-radsport { --cat: var(--c-radsport); --art: url("/assets/img/sport/radsport.svg"); }
+.cat-schwimmen { --cat: var(--c-schwimmen); --art: url("/assets/img/sport/schwimmen.svg"); }
+.cat-wintersport { --cat: var(--c-wintersport); --art: url("/assets/img/sport/wintersport.svg"); }
+.cat-racket { --cat: var(--c-racket); --art: url("/assets/img/sport/tennis-padel.svg"); }
 
 *, *::before, *::after { box-sizing: border-box; }
 
@@ -354,9 +355,30 @@ a.card:hover .more { color: var(--accent-dark); }
 
 /* Rubrik-Seiten */
 .rubric-head {
+  position: relative;
+  overflow: hidden;
   background: var(--soft);
   border-bottom: 6px solid var(--cat);
   padding-bottom: 40px;
+  min-height: 300px;
+}
+.rubric-head > .wrap { position: relative; z-index: 1; }
+.rubric-head::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(55%, 720px);
+  background: var(--art, none) right bottom / contain no-repeat;
+  pointer-events: none;
+}
+@media (max-width: 1100px) {
+  .rubric-head::after { opacity: 0.35; }
+}
+@media (max-width: 760px) {
+  .rubric-head { min-height: 0; }
+  .rubric-head::after { width: 100%; opacity: 0.16; }
 }
 .rubric-head h1 { margin: 4px 0 12px; }
 .rubric-head .lead { margin: 0; }

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 320" aria-hidden="true">
+  <!-- Wintersport: Berge mit Schneegipfeln, Skispuren und Schneeflocken -->
+  <polygon points="250,0 600,0 600,320 150,320" fill="#38bdf8" opacity="0.14"/>
+  <polygon points="170,320 330,110 410,210 470,140 600,300 600,320" fill="#0d0d0d"/>
+  <polygon points="330,110 368,160 350,154 334,172 316,150 300,150" fill="#ffffff"/>
+  <polygon points="470,140 502,180 486,176 472,190 458,176 444,174" fill="#ffffff"/>
+  <path d="M170 320 410 210 600 300V320Z" fill="#ffffff"/>
+  <path d="M260 320C320 290 360 290 420 262S500 250 560 272" fill="none" stroke="#38bdf8" stroke-width="4"/>
+  <path d="M276 320C336 294 376 296 436 268S516 258 576 280" fill="none" stroke="#38bdf8" stroke-width="4"/>
+  <g stroke="#38bdf8" stroke-width="4" stroke-linecap="round">
+    <g transform="translate(250 70)"><path d="M0-18V18M-15.6-9 15.6 9M-15.6 9 15.6-9"/></g>
+    <g transform="translate(560 60)"><path d="M0-14V14M-12-7 12 7M-12 7 12-7"/></g>
+    <g transform="translate(420 50)"><path d="M0-10V10M-8.7-5 8.7 5M-8.7 5 8.7-5"/></g>
+  </g>
+</svg>

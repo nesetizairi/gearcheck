@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 320" aria-hidden="true">
+  <!-- Tennis & Padel: Platz in Perspektive, Schläger und Ball -->
+  <polygon points="250,0 600,0 600,320 150,320" fill="#14b8a6" opacity="0.1"/>
+  <polygon points="300,200 600,200 600,320 180,320" fill="#14b8a6" opacity="0.35"/>
+  <g fill="none" stroke="#ffffff" stroke-width="4">
+    <path d="M300 200 180 320M600 200V320M300 200H600M260 240H600M220 280H600"/>
+    <path d="M450 200 410 320"/>
+  </g>
+  <path d="M290 190H600" stroke="#0d0d0d" stroke-width="5"/>
+  <path d="M290 190V214" stroke="#0d0d0d" stroke-width="5"/>
+  <g transform="rotate(32 430 120)">
+    <ellipse cx="430" cy="90" rx="58" ry="74" fill="#ffffff" fill-opacity="0.5" stroke="#0d0d0d" stroke-width="10"/>
+    <g stroke="#0d0d0d" stroke-width="2" opacity="0.5">
+      <path d="M394 40V140M412 24V156M430 18V162M448 24V156M466 40V140"/>
+      <path d="M380 54H480M374 72H486M372 90H488M374 108H486M380 126H480"/>
+    </g>
+    <path d="M430 164V184" stroke="#0d0d0d" stroke-width="12"/>
+    <rect x="420" y="182" width="20" height="78" rx="6" fill="#14b8a6" stroke="#0d0d0d" stroke-width="6"/>
+  </g>
+  <g transform="translate(270 120)">
+    <circle r="26" fill="#d9f24a" stroke="#0d0d0d" stroke-width="5"/>
+    <path d="M-18-18C-6-6-6 6-18 18M18-18C6-6 6 6 18 18" fill="none" stroke="#ffffff" stroke-width="4"/>
+  </g>
+  <g stroke="#0d0d0d" stroke-width="5" stroke-linecap="round" opacity="0.5">
+    <path d="M196 108h34M186 132h40"/>
+  </g>
+</svg>

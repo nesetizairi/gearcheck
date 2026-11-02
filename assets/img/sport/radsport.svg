@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 320" aria-hidden="true">
+  <!-- Radsport: Rennvelo auf Strasse -->
+  <polygon points="250,0 600,0 600,320 150,320" fill="#7c3aed" opacity="0.1"/>
+  <rect x="160" y="290" width="440" height="30" fill="#0d0d0d" opacity="0.1"/>
+  <path d="M190 305H240M290 305H340M390 305H440M490 305H540" stroke="#ffffff" stroke-width="5"/>
+  <g fill="none" stroke="#0d0d0d" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="310" cy="216" r="70" stroke-width="10"/>
+    <circle cx="510" cy="216" r="70" stroke-width="10"/>
+    <g stroke-width="2" opacity="0.3">
+      <path d="M310 146V286M240 216H380M260 166 360 266M360 166 260 266"/>
+      <path d="M510 146V286M440 216H580M460 166 560 266M560 166 460 266"/>
+    </g>
+    <path d="M310 216 380 136H486L510 216M380 136 412 216H310M412 216 486 136" stroke="#7c3aed" stroke-width="12"/>
+    <path d="M380 136 370 110M346 106H392" stroke-width="10"/>
+    <path d="M486 136 478 104H504C516 104 518 120 508 124" stroke-width="8"/>
+    <circle cx="412" cy="216" r="12" fill="#0d0d0d" stroke-width="0"/>
+  </g>
+  <g stroke="#0d0d0d" stroke-width="5" stroke-linecap="round" opacity="0.5">
+    <path d="M176 176h44M164 204h48M180 232h34"/>
+  </g>
+</svg>

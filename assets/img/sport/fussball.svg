@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 320" aria-hidden="true">
+  <!-- Fussball: Rasen mit Streifen, Tor mit Netz, Ball -->
+  <rect x="0" y="236" width="600" height="84" fill="#16a34a" opacity="0.28"/>
+  <g fill="#16a34a" opacity="0.22">
+    <polygon points="60,236 120,236 90,320 30,320"/>
+    <polygon points="180,236 240,236 210,320 150,320"/>
+    <polygon points="300,236 360,236 330,320 270,320"/>
+    <polygon points="420,236 480,236 450,320 390,320"/>
+    <polygon points="540,236 600,236 570,320 510,320"/>
+  </g>
+  <path d="M0 270H600" stroke="#ffffff" stroke-width="5"/>
+  <g stroke="#0d0d0d" stroke-width="2" opacity="0.22">
+    <path d="M330 92V236M352 92V236M374 92V236M396 92V236M418 92V236M440 92V236M462 92V236M484 92V236M506 92V236M528 92V236M550 92V236"/>
+    <path d="M310 112H570M310 134H570M310 156H570M310 178H570M310 200H570M310 222H570"/>
+  </g>
+  <path d="M310 236V88H570V236" fill="none" stroke="#0d0d0d" stroke-width="12" stroke-linejoin="round"/>
+  <path d="M310 236V88H570V236" fill="none" stroke="#ffffff" stroke-width="5" stroke-linejoin="round"/>
+  <g transform="translate(236 244)">
+    <circle r="40" fill="#ffffff" stroke="#0d0d0d" stroke-width="6"/>
+    <path d="M0-14 13-4 8 12H-8L-13-4Z" fill="#0d0d0d"/>
+    <path d="M0-14V-38M13-4 36-12M8 12 22 32M-8 12-22 32M-13-4-36-12" stroke="#0d0d0d" stroke-width="4"/>
+  </g>
+  <g stroke="#0d0d0d" stroke-width="5" stroke-linecap="round" opacity="0.45">
+    <path d="M150 222h44M136 246h50M154 270h36"/>
+  </g>
+</svg>

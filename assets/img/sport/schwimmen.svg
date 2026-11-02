@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 320" aria-hidden="true">
+  <!-- Schwimmen: Wasser mit Wellen, Bahnleine und Schwimmbrille -->
+  <path d="M150 200C190 186 230 214 270 200S350 186 390 200 470 214 510 200 570 186 600 196V320H150Z" fill="#1d6fe0" opacity="0.18"/>
+  <path d="M150 240C190 226 230 254 270 240S350 226 390 240 470 254 510 240 570 226 600 236V320H150Z" fill="#1d6fe0" opacity="0.25"/>
+  <path d="M150 280C190 266 230 294 270 280S350 266 390 280 470 294 510 280 570 266 600 276V320H150Z" fill="#1d6fe0" opacity="0.35"/>
+  <path d="M170 262 600 214" stroke="#0d0d0d" stroke-width="3"/>
+  <g stroke="#0d0d0d" stroke-width="3">
+    <ellipse cx="200" cy="259" rx="14" ry="9" fill="#ffffff"/>
+    <ellipse cx="240" cy="254" rx="14" ry="9" fill="#1d6fe0"/>
+    <ellipse cx="280" cy="250" rx="14" ry="9" fill="#ffffff"/>
+    <ellipse cx="320" cy="245" rx="14" ry="9" fill="#1d6fe0"/>
+    <ellipse cx="360" cy="241" rx="14" ry="9" fill="#ffffff"/>
+    <ellipse cx="400" cy="236" rx="14" ry="9" fill="#1d6fe0"/>
+    <ellipse cx="440" cy="232" rx="14" ry="9" fill="#ffffff"/>
+    <ellipse cx="480" cy="227" rx="14" ry="9" fill="#1d6fe0"/>
+    <ellipse cx="520" cy="223" rx="14" ry="9" fill="#ffffff"/>
+    <ellipse cx="560" cy="218" rx="14" ry="9" fill="#1d6fe0"/>
+  </g>
+  <g transform="rotate(-10 430 110)" stroke="#0d0d0d" stroke-width="6" stroke-linejoin="round">
+    <path d="M300 112C320 96 346 96 360 104M500 104C514 96 540 96 560 112" fill="none" stroke-width="8" stroke-linecap="round"/>
+    <rect x="356" y="80" width="64" height="52" rx="24" fill="#1d6fe0"/>
+    <rect x="440" y="80" width="64" height="52" rx="24" fill="#1d6fe0"/>
+    <path d="M420 104C426 96 434 96 440 104" fill="none"/>
+    <path d="M368 96C376 90 388 88 396 90M452 96C460 90 472 88 480 90" fill="none" stroke="#ffffff" stroke-width="5" stroke-linecap="round" opacity="0.6"/>
+  </g>
+</svg>
