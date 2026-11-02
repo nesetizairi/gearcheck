@@ -350,6 +350,45 @@ a.card:hover .more { color: var(--accent-dark); }
 .planned li { margin-bottom: 0.3em; }
 .planned p:last-child { margin-bottom: 0; color: var(--muted); }
 
+/* Ausrüstungsliste auf den Rubrik-Seiten */
+.gear-nav { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 8px; }
+.gear-nav a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border: 1.5px solid var(--line);
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--ink);
+  text-decoration: none;
+}
+.gear-nav a::before { content: ""; width: 10px; height: 10px; border-radius: 50%; background: var(--cat); }
+.gear-nav a:hover { border-color: var(--ink); }
+.gear-group { scroll-margin-top: 90px; }
+.gear-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1.3rem;
+  margin: 40px 0 16px;
+}
+.gear-title::before {
+  content: "";
+  width: 30px;
+  height: 6px;
+  background: var(--cat);
+  transform: skewX(-20deg);
+  flex-shrink: 0;
+}
+.gear-grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); }
+.gear-item { padding: 20px; }
+.gear-item h4 { font-size: 1.08rem; font-weight: 800; line-height: 1.2; letter-spacing: -0.01em; margin: 0 0 6px; }
+.gear-item p { font-size: 0.92rem; line-height: 1.5; margin: 0 0 8px; }
+.gear-item .gear-price { color: var(--ink); font-weight: 800; font-size: 0.88rem; margin-bottom: 14px; }
+.gear-guide { display: block; margin-top: 10px; text-align: center; font-weight: 700; font-size: 0.88rem; }
+
 /* Artikel */
 .breadcrumb { font-size: 0.88rem; color: var(--muted); padding-top: 28px; margin: 0 0 14px; }
 .breadcrumb a { color: var(--muted); }
