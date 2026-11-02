@@ -1,26 +1,139 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 320" aria-hidden="true">
-  <!-- Fussball: Rasen mit Streifen, Tor mit Netz, Ball -->
-  <rect x="0" y="236" width="600" height="84" fill="#16a34a" opacity="0.28"/>
-  <g fill="#16a34a" opacity="0.22">
-    <polygon points="60,236 120,236 90,320 30,320"/>
-    <polygon points="180,236 240,236 210,320 150,320"/>
-    <polygon points="300,236 360,236 330,320 270,320"/>
-    <polygon points="420,236 480,236 450,320 390,320"/>
-    <polygon points="540,236 600,236 570,320 510,320"/>
+  <!-- Fussball: Stadion mit Flutlicht, gemähter Rasen, Tor mit Netz, Ball im Flug, Fussballschuh nach dem Schuss -->
+  <defs>
+    <clipPath id="panel"><polygon points="190,0 600,0 600,320 100,320"/></clipPath>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#cdeed9"/>
+      <stop offset="1" stop-color="#f1faf4"/>
+    </linearGradient>
+    <pattern id="crowd" width="12" height="10" patternUnits="userSpaceOnUse">
+      <rect width="12" height="10" fill="#1e3327"/>
+      <circle cx="3" cy="3" r="2" fill="#e0262b" opacity="0.75"/>
+      <circle cx="9" cy="4" r="2" fill="#f4f4f4" opacity="0.65"/>
+      <circle cx="6" cy="8" r="2" fill="#3fd07a" opacity="0.8"/>
+    </pattern>
+    <pattern id="net" width="9" height="9" patternUnits="userSpaceOnUse">
+      <path d="M0 0 9 9M9 0 0 9" stroke="#ffffff" stroke-width="1.2"/>
+    </pattern>
+    <radialGradient id="flood" cx="556" cy="24" r="160" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.95"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="ball" cx="0.36" cy="0.3" r="0.8">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="0.65" stop-color="#ececec"/>
+      <stop offset="1" stop-color="#a9a9a9"/>
+    </radialGradient>
+    <clipPath id="ballclip"><circle r="40"/></clipPath>
+    <g id="seg">
+      <polygon points="0,-28 -13.3,-37.7 -8.2,-53.3 8.2,-53.3 13.3,-37.7" fill="#161616"/>
+      <path d="M0-15V-28M13.3-37.7 31.7-24.3" stroke="#161616" stroke-width="2.5"/>
+    </g>
+    <linearGradient id="boot" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#4be487"/>
+      <stop offset="0.55" stop-color="#16a34a"/>
+      <stop offset="1" stop-color="#0b6a30"/>
+    </linearGradient>
+    <linearGradient id="soleplate" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#cfcfcf"/>
+    </linearGradient>
+  </defs>
+
+  <g clip-path="url(#panel)">
+    <rect width="600" height="320" fill="url(#sky)"/>
+    <!-- Flutlicht -->
+    <circle cx="556" cy="24" r="160" fill="url(#flood)"/>
+    <rect x="553" y="34" width="6" height="56" fill="#0d0d0d"/>
+    <rect x="526" y="8" width="60" height="30" rx="3" fill="#0d0d0d"/>
+    <g fill="#fffbe2">
+      <circle cx="536" cy="16" r="4.5"/><circle cx="549" cy="16" r="4.5"/><circle cx="562" cy="16" r="4.5"/><circle cx="575" cy="16" r="4.5"/>
+      <circle cx="536" cy="29" r="4.5"/><circle cx="549" cy="29" r="4.5"/><circle cx="562" cy="29" r="4.5"/><circle cx="575" cy="29" r="4.5"/>
+    </g>
+    <!-- Tribüne mit Zuschauern -->
+    <polygon points="0,98 600,86 600,174 0,180" fill="url(#crowd)"/>
+    <polygon points="0,90 600,78 600,88 0,100" fill="#16a34a"/>
+    <path d="M0 100 600 88" stroke="#0d0d0d" stroke-width="3"/>
+    <polygon points="0,170 600,162 600,176 0,182" fill="#0d0d0d" opacity="0.55"/>
+    <!-- Rasen mit Mähstreifen -->
+    <rect y="172" width="600" height="148" fill="#2fb35a"/>
+    <g fill="#26a14e">
+      <rect y="182" width="600" height="14"/>
+      <rect y="214" width="600" height="24"/>
+      <rect y="268" width="600" height="38"/>
+    </g>
+    <!-- Linien -->
+    <g fill="none" stroke="#ffffff" stroke-width="3" stroke-linejoin="round">
+      <path d="M0 198H600"/>
+      <path d="M392 198 380 224H560L548 198"/>
+      <path d="M322 198 296 268H600"/>
+      <path d="M432 268Q470 286 508 268"/>
+    </g>
+    <ellipse cx="470" cy="248" rx="4" ry="2" fill="#ffffff"/>
+    <!-- Tor -->
+    <polygon points="405,120 535,120 535,198 405,198" fill="#0d0d0d" opacity="0.12"/>
+    <rect x="418" y="128" width="104" height="58" fill="url(#net)"/>
+    <polygon points="405,120 418,128 418,186 405,198" fill="url(#net)"/>
+    <polygon points="535,120 522,128 522,186 535,198" fill="url(#net)"/>
+    <polygon points="405,120 535,120 522,128 418,128" fill="url(#net)"/>
+    <path d="M418 186V128H522V186H418M405 198 418 186M535 198 522 186" fill="none" stroke="#ffffff" stroke-width="2"/>
+    <path d="M405 198V120H535V198" fill="none" stroke="#0d0d0d" stroke-width="10" stroke-linejoin="round"/>
+    <path d="M405 198V120H535V198" fill="none" stroke="#ffffff" stroke-width="5" stroke-linejoin="round"/>
+    <ellipse cx="380" cy="262" rx="30" ry="5" fill="#000000" opacity="0.18"/>
   </g>
-  <path d="M0 270H600" stroke="#ffffff" stroke-width="5"/>
-  <g stroke="#0d0d0d" stroke-width="2" opacity="0.22">
-    <path d="M330 92V236M352 92V236M374 92V236M396 92V236M418 92V236M440 92V236M462 92V236M484 92V236M506 92V236M528 92V236M550 92V236"/>
-    <path d="M310 112H570M310 134H570M310 156H570M310 178H570M310 200H570M310 222H570"/>
+  <polygon points="177,0 190,0 100,320 87,320" fill="#16a34a"/>
+  <polygon points="163,0 168,0 78,320 73,320" fill="#0d0d0d"/>
+
+  <!-- Flugbahn -->
+  <g fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="round" opacity="0.9">
+    <path d="M336 214C318 224 300 232 280 238"/>
+    <path d="M346 226C332 236 316 244 298 250" opacity="0.7"/>
+    <path d="M330 202C314 208 300 212 286 214" opacity="0.6"/>
   </g>
-  <path d="M310 236V88H570V236" fill="none" stroke="#0d0d0d" stroke-width="12" stroke-linejoin="round"/>
-  <path d="M310 236V88H570V236" fill="none" stroke="#ffffff" stroke-width="5" stroke-linejoin="round"/>
-  <g transform="translate(236 244)">
-    <circle r="40" fill="#ffffff" stroke="#0d0d0d" stroke-width="6"/>
-    <path d="M0-14 13-4 8 12H-8L-13-4Z" fill="#0d0d0d"/>
-    <path d="M0-14V-38M13-4 36-12M8 12 22 32M-8 12-22 32M-13-4-36-12" stroke="#0d0d0d" stroke-width="4"/>
+
+  <!-- Ball -->
+  <g transform="translate(372 182)">
+    <g clip-path="url(#ballclip)">
+      <circle r="40" fill="url(#ball)"/>
+      <g transform="rotate(18) scale(0.87)">
+        <polygon points="0,-15 14.3,-4.6 8.8,12.1 -8.8,12.1 -14.3,-4.6" fill="#161616"/>
+        <use href="#seg"/>
+        <use href="#seg" transform="rotate(72)"/>
+        <use href="#seg" transform="rotate(144)"/>
+        <use href="#seg" transform="rotate(216)"/>
+        <use href="#seg" transform="rotate(288)"/>
+      </g>
+      <circle r="40" fill="none" stroke="#000000" stroke-width="14" opacity="0.08"/>
+    </g>
+    <circle r="40" fill="none" stroke="#0d0d0d" stroke-width="4"/>
+    <ellipse cx="-14" cy="-20" rx="10" ry="6" transform="rotate(-30 -14 -20)" fill="#ffffff" opacity="0.85"/>
   </g>
-  <g stroke="#0d0d0d" stroke-width="5" stroke-linecap="round" opacity="0.45">
-    <path d="M150 222h44M136 246h50M154 270h36"/>
+
+  <!-- Fussballschuh -->
+  <g transform="translate(80 178) rotate(-16 130 60)" stroke-linejoin="round">
+    <g fill="#e6e6e6" stroke="#0d0d0d" stroke-width="3">
+      <polygon points="32,119 48,119 45,134 35,134"/>
+      <polygon points="62,119 78,119 75,134 65,134"/>
+      <polygon points="142,119 158,119 155,134 145,134"/>
+      <polygon points="172,119 188,119 185,134 175,134"/>
+      <polygon points="204,119 220,119 217,134 207,134"/>
+      <polygon points="228,117 242,117 239,131 231,131"/>
+    </g>
+    <path d="M20 104H248C256 104 260 110 256 115 252 119 246 120 238 120H28C18 120 14 112 20 104Z" fill="url(#soleplate)" stroke="#0d0d0d" stroke-width="4"/>
+    <path d="M14 92C10 60 12 30 30 16 40 10 52 10 58 16 70 30 90 36 108 30L118 26C160 44 210 62 236 70 254 76 262 88 260 98 258 104 252 106 244 106H24C16 106 13 100 14 92Z" fill="url(#boot)" stroke="#0d0d0d" stroke-width="4"/>
+    <path d="M14 92C10 64 12 36 26 22 34 46 40 74 40 104H24C16 106 13 100 14 92Z" fill="#0d0d0d" opacity="0.88"/>
+    <path d="M58 16C70 30 90 36 108 30" fill="none" stroke="#0d0d0d" stroke-width="7" stroke-linecap="round"/>
+    <path d="M44 96C92 70 146 68 204 86L200 96C146 80 96 82 50 104Z" fill="#0d0d0d"/>
+    <path d="M58 94C100 76 148 74 196 88" fill="none" stroke="#ffffff" stroke-width="2.5"/>
+    <path d="M122 34 228 70" stroke="#0d0d0d" stroke-width="13" stroke-linecap="round"/>
+    <g stroke="#ffffff" stroke-width="3" stroke-linecap="round">
+      <path d="M127 27 141 40M141 27 127 40"/>
+      <path d="M147 34 161 47M161 34 147 47"/>
+      <path d="M168 41 182 54M182 41 168 54"/>
+      <path d="M189 48 203 61M203 48 189 61"/>
+      <path d="M210 55 224 68M224 55 210 68"/>
+    </g>
+    <path d="M232 74C248 78 256 86 258 94" fill="none" stroke="#ffffff" stroke-width="5" stroke-linecap="round" opacity="0.5"/>
+    <path d="M30 26C26 40 24 60 26 80" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" opacity="0.35"/>
   </g>
 </svg>

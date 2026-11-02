@@ -1,21 +1,97 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 320" aria-hidden="true">
-  <!-- Radsport: Rennvelo auf Strasse -->
-  <polygon points="250,0 600,0 600,320 150,320" fill="#7c3aed" opacity="0.1"/>
-  <rect x="160" y="290" width="440" height="30" fill="#0d0d0d" opacity="0.1"/>
-  <path d="M190 305H240M290 305H340M390 305H440M490 305H540" stroke="#ffffff" stroke-width="5"/>
-  <g fill="none" stroke="#0d0d0d" stroke-linecap="round" stroke-linejoin="round">
-    <circle cx="310" cy="216" r="70" stroke-width="10"/>
-    <circle cx="510" cy="216" r="70" stroke-width="10"/>
-    <g stroke-width="2" opacity="0.3">
-      <path d="M310 146V286M240 216H380M260 166 360 266M360 166 260 266"/>
-      <path d="M510 146V286M440 216H580M460 166 560 266M560 166 460 266"/>
+  <!-- Radsport: Alpenpass mit Bergen und Serpentinen, Rennvelo auf der Strasse -->
+  <defs>
+    <clipPath id="panel"><polygon points="190,0 600,0 600,320 100,320"/></clipPath>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#e3d8ff"/>
+      <stop offset="1" stop-color="#faf8ff"/>
+    </linearGradient>
+    <linearGradient id="frame" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#a77bff"/>
+      <stop offset="0.5" stop-color="#7c3aed"/>
+      <stop offset="1" stop-color="#4c1d95"/>
+    </linearGradient>
+    <g id="spokes" stroke="#9e9e9e" stroke-width="1.2">
+      <path d="M0-48V48"/>
+      <path d="M0-48V48" transform="rotate(18)"/>
+      <path d="M0-48V48" transform="rotate(36)"/>
+      <path d="M0-48V48" transform="rotate(54)"/>
+      <path d="M0-48V48" transform="rotate(72)"/>
+      <path d="M0-48V48" transform="rotate(90)"/>
+      <path d="M0-48V48" transform="rotate(108)"/>
+      <path d="M0-48V48" transform="rotate(126)"/>
+      <path d="M0-48V48" transform="rotate(144)"/>
+      <path d="M0-48V48" transform="rotate(162)"/>
     </g>
-    <path d="M310 216 380 136H486L510 216M380 136 412 216H310M412 216 486 136" stroke="#7c3aed" stroke-width="12"/>
-    <path d="M380 136 370 110M346 106H392" stroke-width="10"/>
-    <path d="M486 136 478 104H504C516 104 518 120 508 124" stroke-width="8"/>
-    <circle cx="412" cy="216" r="12" fill="#0d0d0d" stroke-width="0"/>
+    <g id="wheel">
+      <circle r="66" fill="none" stroke="#141414" stroke-width="10"/>
+      <circle r="69" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-dasharray="3 5"/>
+      <circle r="55" fill="none" stroke="#1c1c1c" stroke-width="14"/>
+      <circle r="61" fill="none" stroke="#c4c4c4" stroke-width="1.5"/>
+      <path d="M-38-38A54 54 0 0 1-10-53M38 38A54 54 0 0 1 10 53" fill="none" stroke="#ffffff" stroke-width="4"/>
+      <use href="#spokes"/>
+      <circle r="7" fill="#d6d6d6" stroke="#0d0d0d" stroke-width="2"/>
+    </g>
+  </defs>
+
+  <g clip-path="url(#panel)">
+    <rect width="600" height="320" fill="url(#sky)"/>
+    <circle cx="300" cy="58" r="24" fill="#ffffff" opacity="0.9"/>
+    <circle cx="300" cy="58" r="34" fill="none" stroke="#ffffff" stroke-width="3" opacity="0.5"/>
+    <!-- Berge -->
+    <polygon points="100,212 200,112 250,146 340,74 420,138 480,98 600,168 600,230 100,230" fill="#b6a9e6"/>
+    <polygon points="340,74 362,98 350,95 340,106 330,95 318,100" fill="#ffffff"/>
+    <polygon points="200,112 216,128 206,125 198,132 188,126" fill="#ffffff"/>
+    <polygon points="480,98 500,120 490,116 480,124 470,116 460,121" fill="#ffffff"/>
+    <path d="M340 74 372 160M480 98 470 170" stroke="#9a8bd4" stroke-width="3"/>
+    <path d="M100 236C200 196 300 214 400 194S560 204 600 196V262H100Z" fill="#8f80cf"/>
+    <path d="M560 200C520 216 470 208 432 224S362 238 330 252" fill="none" stroke="#f4f2ff" stroke-width="4" opacity="0.85"/>
+    <g fill="#5b4aa6">
+      <path d="M150 238l8-22 8 22zM170 236l7-18 7 18zM540 214l7-20 7 20zM556 216l6-16 6 16z"/>
+    </g>
+    <!-- Strasse -->
+    <polygon points="0,262 600,256 600,320 0,320" fill="#3a3942"/>
+    <path d="M0 268 600 262" stroke="#ffffff" stroke-width="3"/>
+    <path d="M0 298 600 292" stroke="#ffffff" stroke-width="4" stroke-dasharray="30 22"/>
+    <ellipse cx="398" cy="296" rx="150" ry="7" fill="#000000" opacity="0.35"/>
   </g>
-  <g stroke="#0d0d0d" stroke-width="5" stroke-linecap="round" opacity="0.5">
-    <path d="M176 176h44M164 204h48M180 232h34"/>
+  <polygon points="177,0 190,0 100,320 87,320" fill="#7c3aed"/>
+  <polygon points="163,0 168,0 78,320 73,320" fill="#0d0d0d"/>
+
+  <g stroke="#0d0d0d" stroke-width="5" stroke-linecap="round" opacity="0.55">
+    <path d="M118 176H186M104 204H176M124 232H180"/>
   </g>
+
+  <!-- Velo -->
+  <use href="#wheel" x="290" y="228"/>
+  <use href="#wheel" x="500" y="228"/>
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="290" cy="228" r="13" stroke="#2a2a2a" stroke-width="3" stroke-dasharray="2.5 2"/>
+    <path d="M380 214H290M380 256 290 241" stroke="#5a5a5a" stroke-width="2.5" stroke-dasharray="2 1.5"/>
+    <path d="M290 228 380 236" stroke="url(#frame)" stroke-width="8"/>
+    <path d="M290 228 358 136" stroke="url(#frame)" stroke-width="7"/>
+    <path d="M380 236 356 124" stroke="url(#frame)" stroke-width="11"/>
+    <path d="M358 130 468 124" stroke="url(#frame)" stroke-width="11"/>
+    <path d="M380 236 478 152" stroke="url(#frame)" stroke-width="13"/>
+    <path d="M468 120 478 152" stroke="#4c1d95" stroke-width="15"/>
+    <path d="M478 152Q486 196 500 228" stroke="url(#frame)" stroke-width="9"/>
+    <path d="M362 126 466 120M386 222 470 152" stroke="#ffffff" stroke-width="2" opacity="0.45"/>
+    <path d="M356 124 352 102" stroke="#1c1c1c" stroke-width="7"/>
+    <path d="M468 120 492 114" stroke="#1c1c1c" stroke-width="8"/>
+    <path d="M490 112C508 108 520 114 520 130 520 146 508 154 498 148" stroke="#141414" stroke-width="7"/>
+  </g>
+  <path d="M322 102C338 92 370 92 388 98 380 106 346 106 322 102Z" fill="#141414"/>
+  <path d="M500 110 512 104 518 118Z" fill="#141414"/>
+  <text transform="translate(410 214) rotate(-40)" font-family="Arial Black, Arial, Helvetica, sans-serif" font-weight="900" font-style="italic" font-size="10" fill="#ffffff" letter-spacing="0.5">GEARCHECK</text>
+  <g transform="translate(424 178) rotate(50)">
+    <rect x="-9" y="-26" width="18" height="50" rx="6" fill="#ffffff" stroke="#0d0d0d" stroke-width="2.5"/>
+    <rect x="-6" y="-34" width="12" height="9" rx="2" fill="#7c3aed" stroke="#0d0d0d" stroke-width="2"/>
+    <path d="M-9-6H9" stroke="#7c3aed" stroke-width="5"/>
+  </g>
+  <circle cx="380" cy="236" r="22" fill="none" stroke="#2a2a2a" stroke-width="4"/>
+  <circle cx="380" cy="236" r="25" fill="none" stroke="#2a2a2a" stroke-width="3" stroke-dasharray="3 2.6"/>
+  <circle cx="380" cy="236" r="7" fill="#c9c9c9" stroke="#0d0d0d" stroke-width="2"/>
+  <path d="M380 236 394 270" stroke="#1c1c1c" stroke-width="7" stroke-linecap="round"/>
+  <rect x="384" y="266" width="24" height="7" rx="2" fill="#1c1c1c"/>
+  <path d="M286 238 278 254 292 256" fill="none" stroke="#1c1c1c" stroke-width="4" stroke-linejoin="round"/>
 </svg>
