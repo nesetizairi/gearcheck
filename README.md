@@ -49,6 +49,7 @@ Nur Sport-Themen, keine anderen Nischen.
 - **Jeder Amazon-Link:** `target="_blank" rel="sponsored nofollow noopener" data-amazon`, Linktext mit Stern (*), Hinweis-Box oben im Artikel.
 - **Keine Link-Kürzer** (bit.ly usw.), immer direkte amazon.de-Links.
 - **Zuerst erklären, dann empfehlen.** Jeder Artikel beantwortet eine echte Kauffrage.
+- **Schnellauswahl oben:** Direkt nach „Kurz und knapp“ steht eine Schnellauswahl (`#schnellauswahl`) mit 2–4 Empfehlungen und Amazon-Button, für alle, die nicht lange lesen wollen. Pins und TikToks können direkt auf `…/#schnellauswahl` verlinken.
 
 ## Partner-Tag nach der Aufnahme
 
