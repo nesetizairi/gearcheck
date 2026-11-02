@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 484 112" role="img" aria-labelledby="t">
+  <title id="t">GearCheck</title>
+  <rect width="484" height="112" rx="14" fill="#0d0d0d"/>
+  <path d="M26 58 L42 74 L78 34" fill="none" stroke="#ff5a1f" stroke-width="12" stroke-linecap="square"/>
+  <g transform="translate(110 31) skewX(-12)" fill="none" stroke-width="10" stroke-linecap="square">
+    <g stroke="#ffffff">
+      <path d="M27 5H5V45H27V26H17"/>
+      <path transform="translate(40 0)" d="M27 5H5V45H27M5 25H23"/>
+      <path transform="translate(80 0)" d="M5 45V16L16 5H27V45M5 28H27"/>
+      <path transform="translate(120 0)" d="M5 45V5H27V25H5"/>
+      <polygon transform="translate(120 0)" points="9,30 20.5,30 32,50 20.5,50" fill="#ffffff" stroke="none"/>
+    </g>
+    <g stroke="#ff5a1f">
+      <path transform="translate(160 0)" d="M27 5H5V45H27"/>
+      <path transform="translate(200 0)" d="M5 5V45M27 5V45M5 25H27"/>
+      <path transform="translate(240 0)" d="M27 5H5V45H27M5 25H23"/>
+      <path transform="translate(280 0)" d="M27 5H5V45H27"/>
+      <path transform="translate(320 0)" d="M5 5V45M27 5V12L16 25L27 38V45"/>
+    </g>
+  </g>
+</svg>

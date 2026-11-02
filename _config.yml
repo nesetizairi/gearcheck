@@ -1,0 +1,5 @@
+# GitHub Pages: diese Dateien nicht veröffentlichen
+exclude:
+  - README.md
+  - tools
+  - .claude
