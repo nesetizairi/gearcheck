@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="de-CH">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pin-Paket GearCheck</title>
+<link rel="icon" href="/favicon.ico">
+<style>
+  :root { --ink: #0d0d0d; --accent: #ff5a1f; --soft: #f4f4f2; --line: #e2e2de; --muted: #5a5a5a; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--soft); color: var(--ink); font-family: "Segoe UI", system-ui, Arial, sans-serif; font-size: 16px; line-height: 1.5; }
+  header { background: var(--ink); color: #fff; padding: 20px 24px; border-bottom: 3px solid var(--accent); }
+  header img { height: 32px; display: block; margin-bottom: 10px; }
+  header p { margin: 0; color: #c4c4c4; }
+  main { max-width: 1100px; margin: 0 auto; padding: 24px 16px 60px; }
+  h1, h2 { font-weight: 900; font-style: italic; text-transform: uppercase; letter-spacing: -0.01em; }
+  h1 { font-size: 28px; margin: 0 0 4px; color: #fff; }
+  h2 { font-size: 22px; margin: 36px 0 12px; }
+  .steps { background: #fff; border: 1.5px solid var(--line); border-radius: 10px; padding: 16px 20px; }
+  .steps ol { margin: 0; padding-left: 1.3em; }
+  .steps li { margin-bottom: 6px; }
+  .boards { display: grid; gap: 12px; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); }
+  .box { background: #fff; border: 1.5px solid var(--line); border-radius: 10px; padding: 14px 16px; }
+  .field { margin-top: 10px; }
+  .field label { display: flex; justify-content: space-between; align-items: center; font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 4px; }
+  .field div { background: var(--soft); border-radius: 6px; padding: 8px 10px; word-break: break-word; }
+  button { font: inherit; font-size: 13px; font-weight: 800; border: 0; border-radius: 5px; padding: 4px 10px; background: var(--ink); color: #fff; cursor: pointer; }
+  button.ok { background: var(--accent); color: var(--ink); }
+  .pin { display: grid; grid-template-columns: 220px 1fr; gap: 20px; background: #fff; border: 1.5px solid var(--line); border-top: 6px solid var(--cat); border-radius: 10px; padding: 16px; margin-bottom: 16px; }
+  .pin img { width: 220px; height: 330px; border-radius: 8px; display: block; box-shadow: 0 2px 10px rgba(0,0,0,0.15); }
+  .pin .num { font-weight: 900; font-style: italic; font-size: 20px; }
+  .pin a.dl { display: inline-block; margin-top: 10px; font-weight: 800; color: var(--ink); }
+  .done { margin-top: 12px; font-weight: 700; display: flex; align-items: center; gap: 8px; }
+  .done input { width: 20px; height: 20px; accent-color: var(--accent); }
+  .pin.is-done { opacity: 0.55; }
+  @media (max-width: 640px) { .pin { grid-template-columns: 1fr; } .pin img { width: 100%; height: auto; } }
+</style>
+<script src="pins.js"></script>
+</head>
+<body>
+<header>
+  <img src="/assets/img/logo.svg" alt="GearCheck">
+  <h1>Pin-Paket</h1>
+  <p>16 Pins für Pinterest, mit Titel, Beschreibung, Pinnwand und Link zum Kopieren.</p>
+</header>
+<main>
+  <div class="steps">
+    <strong>So lädst du einen Pin hoch</strong>
+    <ol>
+      <li>Auf Pinterest oben <b>„Erstellen“ → „Pin“</b> klicken.</li>
+      <li>Das Bild hochladen (Bild hier per Rechtsklick → „Bild speichern unter“, oder Link „Bild herunterladen“).</li>
+      <li><b>Titel, Beschreibung und Link</b> mit den Kopieren-Knöpfen übernehmen.</li>
+      <li>Die passende <b>Pinnwand</b> wählen und beim Alternativtext den Text aus „Alt-Text“ einfügen.</li>
+      <li>Veröffentlichen und hier abhaken. Tipp: lieber 2–3 Pins pro Tag als alle auf einmal.</li>
+    </ol>
+  </div>
+
+  <h2>Zuerst: die 8 Pinnwände anlegen</h2>
+  <div class="boards" id="boards"></div>
+
+  <h2>Die Pins</h2>
+  <div id="pins"></div>
+</main>
+<script>
+  function field(label, text) {
+    const id = 'f' + Math.random().toString(36).slice(2);
+    return '<div class="field"><label>' + label + ' <button data-copy="' + id + '">Kopieren</button></label><div id="' + id + '">' + text + '</div></div>';
+  }
+  document.getElementById('boards').innerHTML = BOARDS.map(b =>
+    '<div class="box">' + field('Name der Pinnwand', b.name) + field('Beschreibung', b.description) + '</div>').join('');
+
+  const done = (() => { try { return JSON.parse(localStorage.getItem('gc-pins-done') || '{}'); } catch (e) { return {}; } })();
+  document.getElementById('pins').innerHTML = PINS.map((p, i) => {
+    const file = 'bilder/' + String(i + 1).padStart(2, '0') + '-' + p.id + '.png';
+    return '<div class="pin' + (done[p.id] ? ' is-done' : '') + '" style="--cat:' + SPORTS[p.sport].color + '" data-id="' + p.id + '">' +
+      '<div><img src="' + file + '" alt="' + p.alt + '"><a class="dl" href="' + file + '" download>Bild herunterladen</a></div>' +
+      '<div><span class="num">Pin ' + (i + 1) + '</span>' +
+      field('Titel', p.title) + field('Beschreibung', p.description) + field('Link', p.link) +
+      field('Pinnwand', p.board) + field('Alt-Text', p.alt) +
+      '<label class="done"><input type="checkbox"' + (done[p.id] ? ' checked' : '') + '> Hochgeladen</label></div></div>';
+  }).join('');
+
+  document.addEventListener('click', e => {
+    const b = e.target.closest('button[data-copy]');
+    if (!b) return;
+    const text = document.getElementById(b.dataset.copy).textContent;
+    navigator.clipboard.writeText(text).then(() => {
+      b.textContent = 'Kopiert ✓'; b.classList.add('ok');
+      setTimeout(() => { b.textContent = 'Kopieren'; b.classList.remove('ok'); }, 1500);
+    });
+  });
+  document.addEventListener('change', e => {
+    const box = e.target.closest('.done input');
+    if (!box) return;
+    const pin = box.closest('.pin');
+    done[pin.dataset.id] = box.checked;
+    pin.classList.toggle('is-done', box.checked);
+    try { localStorage.setItem('gc-pins-done', JSON.stringify(done)); } catch (e) {}
+  });
+</script>
+</body>
+</html>

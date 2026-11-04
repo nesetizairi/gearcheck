@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="de-CH">
+<head>
+<meta charset="utf-8">
+<title>Pin-Vorlage</title>
+<!-- Rendert einen Pin (1000 × 1500) aus pins.js. Aufruf: vorlage.html?id=boxhandschuhe -->
+<style>
+  :root { --ink: #0d0d0d; --accent: #ff5a1f; --soft: #f4f4f2; --muted: #4f4f4f; --line: #e2e2de; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    width: 1000px; height: 1500px; overflow: hidden; background: #fff; color: var(--ink);
+    font-family: "Segoe UI", "Segoe UI Variable Display", system-ui, Arial, sans-serif;
+  }
+  .pin { width: 1000px; height: 1500px; display: flex; flex-direction: column; }
+
+  .bar { flex: 0 0 88px; background: var(--ink); display: flex; align-items: center; justify-content: space-between; padding: 0 48px; }
+  .bar img { height: 46px; margin-left: -9px; }
+  .bar span { color: #b9b9b9; font-weight: 700; font-size: 27px; letter-spacing: 0.02em; }
+
+  .art { position: relative; flex: 0 0 440px; overflow: hidden; background: var(--soft); }
+  .art img { position: absolute; width: 1150px; height: 613px; left: -150px; top: -150px; }
+  .stripe { flex: 0 0 14px; background: var(--cat); }
+
+  .body { flex: 1 1 auto; padding: 40px 56px 0; display: flex; flex-direction: column; min-height: 0; }
+  .tag {
+    display: inline-flex; align-items: center; gap: 12px; align-self: flex-start;
+    background: var(--ink); color: #fff; font-size: 22px; font-weight: 800; letter-spacing: 0.1em;
+    text-transform: uppercase; padding: 9px 18px 9px 14px; border-radius: 6px;
+  }
+  .tag::before { content: ""; width: 16px; height: 16px; border-radius: 3px; background: var(--cat); }
+  h1 {
+    font-size: 74px; line-height: 0.98; font-weight: 900; font-style: italic; text-transform: uppercase;
+    letter-spacing: -0.02em; margin: 22px 0 0;
+  }
+  h1 em { font-style: inherit; color: var(--cat-text); }
+
+  .content { margin-top: 32px; }
+  table { width: 100%; border-collapse: separate; border-spacing: 0; border: 3px solid var(--ink); border-radius: 14px; overflow: hidden; font-size: 31px; }
+  th { background: var(--ink); color: #fff; text-align: left; padding: 13px 22px; font-size: 22px; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 800; }
+  td { padding: 13px 22px; border-top: 2px solid var(--line); font-weight: 600; }
+  tr:first-child td { border-top: 0; }
+  td:first-child { font-weight: 900; }
+  tbody tr:nth-child(even) td { background: #f7f7f5; }
+  td.key { color: var(--cat-text); }
+
+  .checks { list-style: none; padding: 0; margin: 0; display: grid; gap: 20px; }
+  .checks.two { grid-template-columns: 1fr 1fr; column-gap: 24px; gap: 18px 24px; }
+  .checks li {
+    position: relative; padding: 0 0 0 66px; min-height: 48px; display: flex; flex-direction: column; justify-content: center;
+    font-size: 34px; font-weight: 800; line-height: 1.15;
+  }
+  .checks.two li { font-size: 31px; }
+  .checks li::before { content: ""; position: absolute; left: 0; top: 50%; width: 48px; height: 48px; margin-top: -24px; border-radius: 10px; background: var(--ink); }
+  .checks li::after {
+    content: ""; position: absolute; left: 17px; top: 50%; width: 12px; height: 23px; margin-top: -16px;
+    border: solid var(--cat); border-width: 0 6px 6px 0; transform: rotate(45deg);
+  }
+  .checks li small { font-size: 25px; font-weight: 600; color: var(--muted); margin-top: 3px; }
+
+  .note { margin-top: 26px; font-size: 27px; line-height: 1.35; color: var(--muted); border-left: 7px solid var(--cat); padding: 4px 0 4px 20px; font-weight: 600; }
+
+  .cta { flex: 0 0 116px; background: var(--ink); display: flex; align-items: center; justify-content: space-between; padding: 0 56px; margin-top: 24px; }
+  .cta b { color: #fff; font-size: 34px; font-weight: 900; font-style: italic; text-transform: uppercase; letter-spacing: -0.01em; }
+  .cta span { color: var(--accent); font-size: 32px; font-weight: 900; }
+</style>
+<script src="pins.js"></script>
+</head>
+<body>
+<div class="pin" id="pin">
+  <div class="bar"><img src="../../assets/img/logo.svg" alt=""><span>gearcheck.ch</span></div>
+  <div class="art"><img id="art" alt=""></div>
+  <div class="stripe"></div>
+  <div class="body" id="body">
+    <span class="tag" id="tag"></span>
+    <h1 id="headline"></h1>
+    <div class="content" id="content"></div>
+    <p class="note" id="note"></p>
+  </div>
+  <div class="cta"><b id="cta"></b><span>gearcheck.ch →</span></div>
+</div>
+<script>
+  const id = new URLSearchParams(location.search).get('id') || PINS[0].id;
+  const p = PINS.find(x => x.id === id);
+  const s = SPORTS[p.sport];
+  const root = document.documentElement.style;
+  root.setProperty('--cat', s.color);
+  root.setProperty('--cat-text', s.text);
+  document.getElementById('art').src = '../../assets/img/sport/' + s.art + '.svg';
+  document.getElementById('tag').textContent = p.tag;
+  document.getElementById('headline').innerHTML = p.headline;
+  document.getElementById('note').textContent = p.note;
+  document.getElementById('cta').textContent = p.cta;
+
+  const content = document.getElementById('content');
+  if (p.table) {
+    const t = document.createElement('table');
+    t.innerHTML = '<thead><tr>' + p.table.head.map(h => '<th>' + h + '</th>').join('') + '</tr></thead><tbody>' +
+      p.table.rows.map(r => '<tr>' + r.map((c, i) => '<td' + (i === 0 ? ' class="key"' : '') + '>' + c + '</td>').join('') + '</tr>').join('') + '</tbody>';
+    content.appendChild(t);
+  } else {
+    const ul = document.createElement('ul');
+    ul.className = 'checks' + (p.two ? ' two' : '');
+    ul.innerHTML = p.checks.map(([a, b]) => '<li>' + a + (b ? '<small>' + b + '</small>' : '') + '</li>').join('');
+    content.appendChild(ul);
+  }
+
+  // Passt die Schrift an, falls ein Pin mehr Inhalt hat, als Platz da ist
+  const body = document.getElementById('body');
+  const h1 = document.getElementById('headline');
+  let size = 74;
+  while (body.scrollHeight > body.clientHeight && size > 54) {
+    size -= 2;
+    h1.style.fontSize = size + 'px';
+  }
+
+  // Bleibt unten Platz frei, wachsen die Abstände in Tabelle bzw. Checkliste, bis die Fläche gefüllt ist
+  const note = document.getElementById('note');
+  const slack = () => body.getBoundingClientRect().bottom - note.getBoundingClientRect().bottom;
+  const list = content.querySelector('.checks');
+  const cells = content.querySelectorAll('td');
+  const baseFont = p.two ? 31 : 34;
+  let step = 0;
+  const spread = n => {
+    if (list) {
+      list.style.rowGap = ((p.two ? 18 : 20) + n * 3) + 'px';
+      list.querySelectorAll('li').forEach(li => { li.style.fontSize = (baseFont + Math.min(n, 6)) + 'px'; });
+    }
+    cells.forEach(td => { td.style.paddingTop = td.style.paddingBottom = (13 + n) + 'px'; });
+    content.style.marginTop = (32 + Math.min(n, 10)) + 'px';
+  };
+  while (step < 24 && slack() > 40) { step++; spread(step); }
+  if (slack() < 20 && step > 0) spread(step - 1);
+</script>
+</body>
+</html>
