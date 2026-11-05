@@ -57,7 +57,7 @@ Nur Sport-Themen, keine anderen Nischen.
 
 ## Partner-Tag nach der Aufnahme
 
-Alle Links mit `data-amazon` bekommen den Partner-Tag als Parameter `tag=<deine-id>-21`.
+Partner-ID: **gearcheck02-21** (seit 05.11.2026). Jeder Amazon-Link endet auf `&amp;tag=gearcheck02-21`, auch in neuen Artikeln (die Vorlage enthält ihn schon). Amazon prüft das Konto nach den ersten 3 Verkäufen (innerhalb von 180 Tagen).
 
 ## Vor dem Livegang (TODO)
 
