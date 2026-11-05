@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 350" aria-hidden="true">
+  <!-- Ratgeber Boxsack: Wohnraum mit Fenster, hängender Boxsack an Deckenfeder, Standboxsack, Masse und Abstand -->
+  <defs>
+    <linearGradient id="wall" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f4eee7"/><stop offset="1" stop-color="#e2d7ca"/></linearGradient>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9fd4ff"/><stop offset="1" stop-color="#e6f5ff"/></linearGradient>
+    <linearGradient id="floor" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#cf9f6d"/><stop offset="1" stop-color="#a87445"/></linearGradient>
+    <linearGradient id="bag" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#8f1014"/><stop offset="0.3" stop-color="#e0262b"/><stop offset="0.45" stop-color="#ff6166"/><stop offset="0.75" stop-color="#c41d22"/><stop offset="1" stop-color="#7a0d11"/></linearGradient>
+    <linearGradient id="dark" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#050505"/><stop offset="0.35" stop-color="#3c3c3c"/><stop offset="0.5" stop-color="#4a4a4a"/><stop offset="1" stop-color="#080808"/></linearGradient>
+    <pattern id="mat" width="40" height="40" patternUnits="userSpaceOnUse"><rect width="40" height="40" fill="#2a2a2a"/><path d="M0 0H40V40" fill="none" stroke="#111" stroke-width="2"/><circle cx="12" cy="14" r="1.2" fill="#555"/><circle cx="28" cy="30" r="1.2" fill="#e0262b" opacity="0.7"/></pattern>
+  </defs>
+
+  <rect width="800" height="350" fill="url(#wall)"/>
+  <rect width="800" height="26" fill="#cbc4bb"/>
+  <path d="M0 26H800" stroke="#0d0d0d" stroke-width="3"/>
+
+  <!-- Fenster mit Pflanze -->
+  <rect x="44" y="64" width="168" height="160" rx="4" fill="url(#sky)" stroke="#0d0d0d" stroke-width="4"/>
+  <path d="M60 196c20-30 40-14 60-34s40-6 76 4V220H60z" fill="#b7dba3" opacity="0.8"/>
+  <path d="M128 64v160M44 144h168" stroke="#ffffff" stroke-width="8"/>
+  <path d="M128 64v160M44 144h168" stroke="#0d0d0d" stroke-width="2" opacity="0.4"/>
+  <rect x="36" y="224" width="184" height="10" rx="3" fill="#ffffff" stroke="#0d0d0d" stroke-width="3"/>
+
+  <!-- Boden und Matte -->
+  <rect y="290" width="800" height="60" fill="url(#floor)"/>
+  <path d="M0 290H800" stroke="#0d0d0d" stroke-width="3"/>
+  <g stroke="#7d5330" stroke-width="2" opacity="0.6"><path d="M0 310H800M0 332H800M120 290v20M340 290v20M560 290v20M230 310v22M450 310v22M670 310v22"/></g>
+  <ellipse cx="106" cy="332" rx="30" ry="5" fill="#000000" opacity="0.2"/>
+  <path d="M106 290c-4-30-30-40-34-60 20 4 34 24 34 60zM106 290c2-36 22-52 40-58-4 22-22 38-40 58zM106 290c-10-22-30-26-46-24 14 12 30 18 46 24z" fill="#2e8b57" stroke="#0d0d0d" stroke-width="2.5" stroke-linejoin="round"/>
+  <path d="M84 288h44l-6 44H90z" fill="#e0262b" stroke="#0d0d0d" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M86 298h40" stroke="#8f1014" stroke-width="3"/>
+  <polygon points="380,300 720,300 760,346 340,346" fill="url(#mat)" stroke="#0d0d0d" stroke-width="3"/>
+
+  <!-- Hängender Boxsack an Feder -->
+  <rect x="500" y="22" width="44" height="10" rx="2" fill="#9a9a9a" stroke="#0d0d0d" stroke-width="3"/>
+  <path d="M522 32l-10 4 20 6-20 6 20 6-20 6 10 4" fill="none" stroke="#5a5a5a" stroke-width="4" stroke-linejoin="round"/>
+  <circle cx="522" cy="70" r="6" fill="#d0d0d0" stroke="#0d0d0d" stroke-width="2.5"/>
+  <path d="M522 74 486 100M522 74 508 98M522 74 536 98M522 74 558 100" stroke="#2a2a2a" stroke-width="3.5" stroke-linecap="round"/>
+  <path d="M480 108q0-10 10-10h64q10 0 10 10v146q0 34-42 34t-42-34z" fill="url(#bag)" stroke="#0d0d0d" stroke-width="3.5"/>
+  <ellipse cx="522" cy="100" rx="42" ry="7" fill="#5e0a0d" stroke="#0d0d0d" stroke-width="3"/>
+  <rect x="480" y="122" width="84" height="16" fill="#0d0d0d"/>
+  <rect x="480" y="236" width="84" height="16" fill="#0d0d0d"/>
+  <path d="M480 126h84M480 134h84M480 240h84M480 248h84" stroke="#ffffff" stroke-width="1.3" stroke-dasharray="4 4" opacity="0.45"/>
+  <rect x="490" y="108" width="9" height="170" rx="4.5" fill="#ffffff" opacity="0.18"/>
+  <rect x="506" y="168" width="32" height="32" rx="6" fill="#0d0d0d" stroke="#ff5a1f" stroke-width="2"/>
+  <path d="M513 185l6 6 12-14" fill="none" stroke="#ff5a1f" stroke-width="3.5" stroke-linecap="square"/>
+  <ellipse cx="522" cy="322" rx="140" ry="16" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-dasharray="8 7" opacity="0.8"/>
+
+  <!-- Masse -->
+  <g stroke="#0d0d0d" stroke-width="2.5" fill="#0d0d0d">
+    <path d="M600 100v188" fill="none"/>
+    <path d="M594 108l6-10 6 10zM594 280l6 10 6-10z"/>
+    <path d="M592 100h16M592 288h16" fill="none"/>
+  </g>
+  <rect x="612" y="178" width="108" height="30" rx="6" fill="#ffffff" stroke="#0d0d0d" stroke-width="3"/>
+  <text x="666" y="199" text-anchor="middle" font-family="Arial Black, Arial, sans-serif" font-weight="900" font-size="16" fill="#0d0d0d">80–180 cm</text>
+  <path d="M566 98l26 22" stroke="#bdbdbd" stroke-width="2"/>
+  <g transform="translate(588 116) rotate(12)"><path d="M0 0h70l10 14-10 14H0z" fill="#e0262b" stroke="#0d0d0d" stroke-width="3" stroke-linejoin="round"/><text x="8" y="20" font-family="Arial Black, Arial, sans-serif" font-weight="900" font-size="14" fill="#ffffff">30–50 kg</text></g>
+  <text x="680" y="342" font-family="Arial Black, Arial, sans-serif" font-weight="900" font-size="13" fill="#ffffff">≈ 1 m Platz</text>
+
+  <!-- Standboxsack -->
+  <ellipse cx="330" cy="294" rx="64" ry="12" fill="#000000" opacity="0.25"/>
+  <path d="M276 290c0-22 24-34 54-34s54 12 54 34z" fill="url(#dark)" stroke="#0d0d0d" stroke-width="3.5"/>
+  <rect x="312" y="236" width="36" height="24" fill="#1a1a1a" stroke="#0d0d0d" stroke-width="3"/>
+  <rect x="298" y="104" width="64" height="136" rx="28" fill="url(#dark)" stroke="#0d0d0d" stroke-width="3.5"/>
+  <path d="M298 132h64" stroke="#e0262b" stroke-width="10"/>
+  <path d="M298 214h64" stroke="#e0262b" stroke-width="10"/>
+  <rect x="308" y="112" width="8" height="118" rx="4" fill="#ffffff" opacity="0.16"/>
+</svg>

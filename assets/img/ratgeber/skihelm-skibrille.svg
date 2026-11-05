@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 350" aria-hidden="true">
+  <!-- Ratgeber Skihelm und Skibrille: Gipfelpanorama in der Sonne, Skihelm mit aufgesetzter Brille im Schnee, Stöcke -->
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2f86d6"/><stop offset="1" stop-color="#c8ecff"/></linearGradient>
+    <radialGradient id="sun" cx="690" cy="62" r="150" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#ffffff"/><stop offset="0.25" stop-color="#fff7d1" stop-opacity="0.8"/><stop offset="1" stop-color="#ffffff" stop-opacity="0"/></radialGradient>
+    <linearGradient id="helmet" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8fe0ff"/><stop offset="0.5" stop-color="#38bdf8"/><stop offset="1" stop-color="#0e7fb6"/></linearGradient>
+    <linearGradient id="lens" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffcf4a"/><stop offset="0.35" stop-color="#ff6a3d"/><stop offset="0.7" stop-color="#d43d9a"/><stop offset="1" stop-color="#3b5bff"/></linearGradient>
+    <clipPath id="lensclip"><rect x="250" y="206" width="160" height="50" rx="24"/></clipPath>
+  </defs>
+
+  <rect width="800" height="350" fill="url(#sky)"/>
+  <circle cx="690" cy="62" r="150" fill="url(#sun)"/>
+  <circle cx="690" cy="62" r="26" fill="#ffffff"/>
+  <g stroke="#ffffff" stroke-width="3" opacity="0.7" stroke-linecap="round"><path d="M690 16v-10M690 118v10M644 62h-10M746 62h10M658 30l-7-7M722 94l7 7M722 30l7-7M658 94l-7 7"/></g>
+  <!-- Berge -->
+  <polygon points="0,200 90,120 150,160 230,80 300,150 360,110 440,170 800,170 800,230 0,230" fill="#a9cfe2"/>
+  <polygon points="230,80 256,112 244,108 232,120 220,108 206,112" fill="#ffffff"/>
+  <polygon points="90,120 110,140 100,138 90,146 80,138 72,140" fill="#ffffff"/>
+  <polygon points="520,50 380,230 540,230 548,120" fill="#f6fbff"/>
+  <polygon points="520,50 548,120 540,230 720,230" fill="#b5d4e5"/>
+  <path d="M526 70 534 96M540 112 548 136M556 150 566 176" stroke="#7fa5ba" stroke-width="3" stroke-linecap="round"/>
+  <polygon points="660,110 600,230 660,230" fill="#f6fbff"/>
+  <polygon points="660,110 660,230 800,230 800,200" fill="#b5d4e5"/>
+  <!-- Schnee -->
+  <path d="M0 350V246C140 226 300 240 420 232S660 220 800 230V350z" fill="#ffffff"/>
+  <path d="M0 300C160 282 300 296 460 286S700 276 800 284" fill="none" stroke="#d5ecf7" stroke-width="3"/>
+  <path d="M60 330C200 316 340 326 500 318" fill="none" stroke="#d5ecf7" stroke-width="3"/>
+
+  <!-- Stöcke -->
+  <g stroke-linecap="round">
+    <path d="M610 120 648 312" stroke="#0d0d0d" stroke-width="8"/><path d="M610 120 648 312" stroke="#c9c9c9" stroke-width="4"/>
+    <path d="M672 112 640 312" stroke="#0d0d0d" stroke-width="8"/><path d="M672 112 640 312" stroke="#c9c9c9" stroke-width="4"/>
+  </g>
+  <rect x="598" y="98" width="20" height="34" rx="6" fill="#0d0d0d" transform="rotate(-11 608 115)"/>
+  <rect x="664" y="90" width="20" height="34" rx="6" fill="#0d0d0d" transform="rotate(9 674 107)"/>
+  <path d="M596 128c8 10 20 10 26 0M660 120c8 10 20 10 26 0" fill="none" stroke="#38bdf8" stroke-width="4"/>
+  <ellipse cx="644" cy="300" rx="30" ry="7" fill="#ffffff" stroke="#a9d4ea" stroke-width="2"/>
+
+  <!-- Skihelm mit Brille -->
+  <ellipse cx="330" cy="272" rx="150" ry="14" fill="#7fb6d3" opacity="0.5"/>
+  <path d="M206 262C196 176 250 110 330 110S464 176 454 262z" fill="url(#helmet)" stroke="#0d0d0d" stroke-width="4.5" stroke-linejoin="round"/>
+  <path d="M206 262h248" stroke="#0d0d0d" stroke-width="4.5"/>
+  <path d="M212 236c70-14 166-14 236 0" fill="none" stroke="#ffffff" stroke-width="10"/>
+  <path d="M212 236c70-14 166-14 236 0" fill="none" stroke="#0d0d0d" stroke-width="2" opacity="0.3"/>
+  <g fill="#0d0d0d">
+    <rect x="296" y="122" width="14" height="38" rx="7" transform="rotate(-10 303 141)"/>
+    <rect x="323" y="118" width="14" height="40" rx="7"/>
+    <rect x="350" y="122" width="14" height="38" rx="7" transform="rotate(10 357 141)"/>
+  </g>
+  <path d="M236 160c18-28 50-42 84-42" fill="none" stroke="#ffffff" stroke-width="12" stroke-linecap="round" opacity="0.4"/>
+  <!-- Brillenband und Brille -->
+  <path d="M208 214c80-10 164-10 244 0v28c-80-10-164-10-244 0z" fill="#0d0d0d"/>
+  <text x="330" y="234" text-anchor="middle" font-family="Arial Black, Arial, sans-serif" font-weight="900" font-style="italic" font-size="12" fill="#ffffff" letter-spacing="1" opacity="0">GEARCHECK</text>
+  <rect x="238" y="194" width="184" height="74" rx="34" fill="#0d0d0d"/>
+  <rect x="250" y="206" width="160" height="50" rx="24" fill="url(#lens)"/>
+  <g clip-path="url(#lensclip)">
+    <polygon points="250,256 290,222 312,240 344,210 372,236 410,214 410,256" fill="#ffffff" opacity="0.35"/>
+    <circle cx="378" cy="220" r="10" fill="#ffffff" opacity="0.7"/>
+    <path d="M262 222c20-10 50-12 72-8" fill="none" stroke="#ffffff" stroke-width="5" stroke-linecap="round" opacity="0.8"/>
+  </g>
+  <path d="M314 268c4-14 28-14 32 0z" fill="#ffffff"/>
+  <path d="M276 270h4M380 270h4" stroke="#0d0d0d" stroke-width="2"/>
+  <!-- Glitzer im Schnee -->
+  <g fill="#ffffff" stroke="#9fd8f2" stroke-width="1.5">
+    <path d="M120 300l3 7 7 3-7 3-3 7-3-7-7-3 7-3z"/><path d="M520 300l2 5 5 2-5 2-2 5-2-5-5-2 5-2z"/><path d="M740 320l3 6 6 3-6 3-3 6-3-6-6-3 6-3z"/>
+  </g>
+</svg>

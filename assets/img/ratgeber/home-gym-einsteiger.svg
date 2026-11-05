@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 350" aria-hidden="true">
+  <!-- Ratgeber Home-Gym Einsteiger: Wohnzimmer-Ecke mit Klimmzugstange im Türrahmen, Matte, Widerstandsbändern, Springseil und Notiz "Start ca. 100 €" -->
+  <defs>
+    <linearGradient id="wall" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fbf5ee"/><stop offset="1" stop-color="#eadfd1"/></linearGradient>
+    <linearGradient id="floor" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e3bf92"/><stop offset="1" stop-color="#c39463"/></linearGradient>
+    <linearGradient id="hall" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4a423b"/><stop offset="1" stop-color="#211d19"/></linearGradient>
+    <linearGradient id="mat" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ff7a45"/><stop offset="1" stop-color="#e14a12"/></linearGradient>
+    <linearGradient id="roll" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#c43c0c"/><stop offset="0.4" stop-color="#ff7a45"/><stop offset="1" stop-color="#b8380b"/></linearGradient>
+  </defs>
+
+  <rect width="800" height="350" fill="url(#wall)"/>
+  <rect y="266" width="800" height="10" fill="#ffffff" stroke="#0d0d0d" stroke-width="2.5"/>
+  <rect y="276" width="800" height="74" fill="url(#floor)"/>
+  <g stroke="#a87a4c" stroke-width="2" opacity="0.55"><path d="M0 298H800M0 322H800M90 276v22M310 276v22M530 276v22M200 298v24M420 298v24M640 298v24M120 322v28M360 322v28M600 322v28"/></g>
+
+  <!-- Bild an der Wand -->
+  <rect x="170" y="54" width="120" height="86" rx="4" fill="#0d0d0d" stroke="#0d0d0d" stroke-width="4"/>
+  <rect x="178" y="62" width="104" height="70" fill="#1d1d1d"/>
+  <path d="M206 98l16 16 34-38" fill="none" stroke="#ff5a1f" stroke-width="10" stroke-linecap="square"/>
+
+  <!-- Notiz -->
+  <g transform="translate(420 66) rotate(-4)">
+    <rect width="118" height="76" fill="#ffe066" stroke="#0d0d0d" stroke-width="3"/>
+    <path d="M0 62h118" stroke="#e8c84a" stroke-width="2"/>
+    <circle cx="59" cy="6" r="6" fill="#e0262b" stroke="#0d0d0d" stroke-width="2"/>
+    <text x="59" y="36" text-anchor="middle" font-family="Arial Black, Arial, sans-serif" font-weight="900" font-size="15" fill="#0d0d0d">START</text>
+    <text x="59" y="56" text-anchor="middle" font-family="Arial Black, Arial, sans-serif" font-weight="900" font-size="17" fill="#e14a12">≈ 100 €</text>
+  </g>
+
+  <!-- Türrahmen mit Klimmzugstange -->
+  <rect x="596" y="34" width="168" height="236" fill="#ffffff" stroke="#0d0d0d" stroke-width="4"/>
+  <rect x="616" y="54" width="128" height="212" fill="url(#hall)" stroke="#0d0d0d" stroke-width="3"/>
+  <path d="M636 266l18-40h52l18 40z" fill="#5a5048" opacity="0.6"/>
+  <rect x="604" y="92" width="152" height="12" rx="6" fill="#2a2a2a" stroke="#0d0d0d" stroke-width="3"/>
+  <rect x="616" y="90" width="34" height="16" rx="6" fill="#0d0d0d"/>
+  <rect x="710" y="90" width="34" height="16" rx="6" fill="#0d0d0d"/>
+  <rect x="598" y="88" width="10" height="20" rx="3" fill="#ff5a1f" stroke="#0d0d0d" stroke-width="2.5"/>
+  <rect x="752" y="88" width="10" height="20" rx="3" fill="#ff5a1f" stroke="#0d0d0d" stroke-width="2.5"/>
+  <path d="M660 98h40" stroke="#ffffff" stroke-width="2" opacity="0.4"/>
+
+  <!-- Pflanze -->
+  <ellipse cx="80" cy="330" rx="34" ry="6" fill="#000" opacity="0.18"/>
+  <path d="M80 262c-6-40-40-56-44-84 26 6 44 34 44 84zM80 262c4-48 30-70 52-78-4 30-28 52-52 78zM80 262c-14-28-40-34-60-30 18 14 40 22 60 30zM80 262c10-30 34-38 54-36-16 16-34 26-54 36z" fill="#2e8b57" stroke="#0d0d0d" stroke-width="2.5" stroke-linejoin="round"/>
+  <path d="M56 260h48l-7 70H63z" fill="#ffffff" stroke="#0d0d0d" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M58 274h44" stroke="#ff5a1f" stroke-width="5"/>
+
+  <!-- Aufgerollte Matte an der Wand -->
+  <rect x="536" y="168" width="36" height="104" rx="18" fill="url(#roll)" stroke="#0d0d0d" stroke-width="3.5"/>
+  <ellipse cx="554" cy="176" rx="18" ry="8" fill="#ff8f62" stroke="#0d0d0d" stroke-width="3"/>
+  <path d="M554 176m-9 0a9 4 0 1 0 18 0a5 2.5 0 1 0-10 0" fill="none" stroke="#c43c0c" stroke-width="2"/>
+  <path d="M536 214h36M536 230h36" stroke="#0d0d0d" stroke-width="3"/>
+
+  <!-- Matte am Boden -->
+  <ellipse cx="350" cy="342" rx="220" ry="8" fill="#000" opacity="0.16"/>
+  <polygon points="190,294 500,294 540,338 150,338" fill="url(#mat)" stroke="#0d0d0d" stroke-width="3.5" stroke-linejoin="round"/>
+  <path d="M176 322h352" stroke="#c43c0c" stroke-width="2" opacity="0.6"/>
+
+  <!-- Widerstandsbänder -->
+  <g fill="none" stroke-linecap="round">
+    <path d="M222 308c20 22 70 26 96 6" stroke="#0d0d0d" stroke-width="10"/>
+    <path d="M222 308c20 22 70 26 96 6" stroke="#e0262b" stroke-width="6"/>
+    <path d="M250 300c30 16 80 18 104 0" stroke="#0d0d0d" stroke-width="10"/>
+    <path d="M250 300c30 16 80 18 104 0" stroke="#ffd21f" stroke-width="6"/>
+  </g>
+  <g fill="#0d0d0d">
+    <rect x="204" y="300" width="26" height="12" rx="6" transform="rotate(-20 217 306)"/>
+    <rect x="310" y="306" width="26" height="12" rx="6" transform="rotate(15 323 312)"/>
+    <rect x="234" y="292" width="24" height="11" rx="5.5" transform="rotate(-15 246 297)"/>
+    <rect x="346" y="292" width="24" height="11" rx="5.5" transform="rotate(20 358 297)"/>
+  </g>
+
+  <!-- Springseil -->
+  <g fill="none" stroke="#0d0d0d" stroke-width="4">
+    <ellipse cx="440" cy="318" rx="44" ry="12"/>
+    <ellipse cx="444" cy="314" rx="34" ry="9"/>
+    <path d="M404 318c-14 4-24 6-34 4M480 316c12 4 22 4 32 0"/>
+  </g>
+  <rect x="356" y="314" width="20" height="9" rx="4.5" fill="#ff5a1f" stroke="#0d0d0d" stroke-width="2.5"/>
+  <rect x="508" y="310" width="20" height="9" rx="4.5" fill="#ff5a1f" stroke="#0d0d0d" stroke-width="2.5"/>
+</svg>

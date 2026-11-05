@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 350" aria-hidden="true">
+  <!-- Ratgeber Schläger: Padelplatz am Abend mit Glaswand, Gitter und Flutlicht; Tennis- und Padelschläger lehnen an der Bank, Bälle und Dose -->
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0b2e2b"/><stop offset="1" stop-color="#145a53"/></linearGradient>
+    <radialGradient id="flood" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#ffffff" stop-opacity="0.9"/><stop offset="1" stop-color="#ffffff" stop-opacity="0"/></radialGradient>
+    <linearGradient id="glass" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#9ff0e6" stop-opacity="0.45"/><stop offset="1" stop-color="#4fd1c5" stop-opacity="0.18"/></linearGradient>
+    <pattern id="mesh" width="12" height="12" patternUnits="userSpaceOnUse"><path d="M0 6 6 0 12 6 6 12Z" fill="none" stroke="#2f8a7e" stroke-width="1.2"/></pattern>
+    <pattern id="turf" width="8" height="8" patternUnits="userSpaceOnUse"><rect width="8" height="8" fill="#118d80"/><circle cx="2" cy="3" r="0.8" fill="#e8d9a8" opacity="0.7"/><circle cx="6" cy="6" r="0.7" fill="#e8d9a8" opacity="0.6"/></pattern>
+    <pattern id="strings" width="8" height="8" patternUnits="userSpaceOnUse"><path d="M4 0V8M0 4H8" stroke="#f4f4f4" stroke-width="1.4"/></pattern>
+    <pattern id="holes" width="11" height="11" patternUnits="userSpaceOnUse"><circle cx="5.5" cy="5.5" r="2.4" fill="#0d0d0d"/></pattern>
+    <pattern id="grip" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(30)"><rect width="10" height="10" fill="#f4f4f4"/><rect width="10" height="3" fill="#14b8a6"/></pattern>
+    <radialGradient id="ballG" cx="0.35" cy="0.3" r="0.8"><stop offset="0" stop-color="#f6ff7a"/><stop offset="0.6" stop-color="#d6ec3a"/><stop offset="1" stop-color="#9fb51a"/></radialGradient>
+    <linearGradient id="padel" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2a2a2a"/><stop offset="1" stop-color="#0d0d0d"/></linearGradient>
+    <linearGradient id="wood" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d7a06b"/><stop offset="1" stop-color="#9a6a3c"/></linearGradient>
+    <clipPath id="padelface"><path d="M0-86C52-86 66-40 62 0 58 40 30 62 0 62-30 62-58 40-62 0-66-40-52-86 0-86Z"/></clipPath>
+    <g id="ball"><circle r="16" fill="url(#ballG)" stroke="#0d0d0d" stroke-width="3"/><path d="M-11-11C-1-4-1 4-11 11M11-11C1-4 1 4 11 11" fill="none" stroke="#ffffff" stroke-width="2.5"/></g>
+  </defs>
+
+  <rect width="800" height="350" fill="url(#sky)"/>
+  <circle cx="120" cy="30" r="70" fill="url(#flood)"/><circle cx="680" cy="30" r="70" fill="url(#flood)"/>
+  <rect x="100" y="14" width="40" height="16" rx="3" fill="#0d0d0d"/><rect x="660" y="14" width="40" height="16" rx="3" fill="#0d0d0d"/>
+  <!-- Seitengitter -->
+  <polygon points="0,30 140,60 140,170 0,210" fill="url(#mesh)"/>
+  <polygon points="800,30 660,60 660,170 800,210" fill="url(#mesh)"/>
+  <!-- Glaswand hinten -->
+  <rect x="140" y="60" width="520" height="110" fill="url(#glass)"/>
+  <g stroke="#0d0d0d" stroke-width="6"><path d="M140 60v110M270 60v110M400 60v110M530 60v110M660 60v110M140 60h520"/></g>
+  <g stroke="#ffffff" stroke-width="3" opacity="0.5"><path d="M160 150 200 76M290 150 330 76M420 150 460 76M550 150 590 76"/></g>
+  <!-- Platz -->
+  <polygon points="140,170 660,170 800,260 800,350 0,350 0,260" fill="url(#turf)"/>
+  <g fill="none" stroke="#ffffff" stroke-width="3"><path d="M140 170h520M108 190h584M400 190v70M38 236h724"/></g>
+  <!-- Netz -->
+  <rect x="0" y="232" width="800" height="30" fill="url(#mesh)" opacity="0.9"/>
+  <rect x="0" y="226" width="800" height="7" fill="#ffffff" stroke="#0d0d0d" stroke-width="1.5"/>
+  <rect x="20" y="214" width="9" height="56" fill="#dcdcdc" stroke="#0d0d0d" stroke-width="2"/><rect x="771" y="214" width="9" height="56" fill="#dcdcdc" stroke="#0d0d0d" stroke-width="2"/>
+
+  <!-- Bank -->
+  <rect x="80" y="296" width="640" height="16" rx="4" fill="url(#wood)" stroke="#0d0d0d" stroke-width="3"/>
+  <rect x="120" y="312" width="14" height="38" fill="#5e3c20" stroke="#0d0d0d" stroke-width="2.5"/>
+  <rect x="666" y="312" width="14" height="38" fill="#5e3c20" stroke="#0d0d0d" stroke-width="2.5"/>
+
+  <!-- Padelschläger -->
+  <g transform="translate(300 160) rotate(-12) scale(0.9)">
+    <path d="M-20 58C-12 70-10 80-10 96H10C10 80 12 70 20 58Z" fill="#1a1a1a" stroke="#0d0d0d" stroke-width="2.5"/>
+    <rect x="-11" y="94" width="22" height="72" rx="5" fill="#1a1a1a" stroke="#0d0d0d" stroke-width="2.5"/>
+    <path d="M-11 104H11M-11 116H11M-11 128H11M-11 140H11M-11 152H11" stroke="#14b8a6" stroke-width="2"/>
+    <path d="M0 166C-24 196 22 210 6 170" fill="none" stroke="#14b8a6" stroke-width="4"/>
+    <path d="M0-86C52-86 66-40 62 0 58 40 30 62 0 62-30 62-58 40-62 0-66-40-52-86 0-86Z" fill="url(#padel)"/>
+    <g clip-path="url(#padelface)">
+      <circle cx="0" cy="-12" r="44" fill="#14b8a6" opacity="0.9"/>
+      <circle cx="0" cy="-12" r="30" fill="#0d0d0d"/>
+      <path d="M-14-12-2 0 18-24" fill="none" stroke="#ff5a1f" stroke-width="7" stroke-linecap="square"/>
+      <g transform="scale(0.8)"><rect x="-70" y="-100" width="140" height="160" fill="url(#holes)" opacity="0.8"/></g>
+    </g>
+    <path d="M0-86C52-86 66-40 62 0 58 40 30 62 0 62-30 62-58 40-62 0-66-40-52-86 0-86Z" fill="none" stroke="#0d0d0d" stroke-width="7"/>
+    <path d="M-40-70C-24-82 20-84 40-70" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" opacity="0.35"/>
+  </g>
+
+  <!-- Tennisschläger -->
+  <g transform="translate(500 136) rotate(14) scale(0.8)">
+    <ellipse rx="52" ry="70" fill="url(#strings)"/>
+    <path d="M-30 72C-18 88-10 100-8 120M30 72C18 88 10 100 8 120" fill="none" stroke="#141414" stroke-width="9" stroke-linecap="round"/>
+    <path d="M-26 70C-10 78 10 78 26 70" fill="none" stroke="#141414" stroke-width="7"/>
+    <ellipse rx="60" ry="78" fill="none" stroke="#141414" stroke-width="12"/>
+    <ellipse rx="60" ry="78" fill="none" stroke="#ff5a1f" stroke-width="4" stroke-dasharray="70 46 40 400"/>
+    <rect x="-8" y="118" width="16" height="20" fill="#141414"/>
+    <rect x="-11" y="136" width="22" height="92" rx="4" fill="url(#grip)" stroke="#0d0d0d" stroke-width="2.5"/>
+    <rect x="-12" y="226" width="24" height="10" rx="3" fill="#141414"/>
+  </g>
+
+  <!-- Balldose und Bälle -->
+  <rect x="602" y="236" width="38" height="62" rx="6" fill="#14b8a6" stroke="#0d0d0d" stroke-width="3"/>
+  <rect x="600" y="230" width="42" height="10" rx="3" fill="#ffffff" stroke="#0d0d0d" stroke-width="2.5"/>
+  <path d="M608 256h26M608 266h26" stroke="#ffffff" stroke-width="3"/>
+  <use href="#ball" x="672" y="282"/>
+  <use href="#ball" x="190" y="330"/>
+  <use href="#ball" x="224" y="336"/>
+</svg>

@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 350" aria-hidden="true">
+  <!-- Ratgeber Kurzhanteln: Hantelablage mit zwei Dreh-Kurzhanteln, Scheibenhantel mit Sternverschluss am Boden, angelehnte Scheiben -->
+  <defs>
+    <linearGradient id="wall" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1b1b1b"/><stop offset="1" stop-color="#2f2f2f"/></linearGradient>
+    <radialGradient id="glow" cx="400" cy="40" r="380" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#ff7a45" stop-opacity="0.35"/><stop offset="1" stop-color="#ff5a1f" stop-opacity="0"/></radialGradient>
+    <pattern id="rubber" width="14" height="14" patternUnits="userSpaceOnUse"><rect width="14" height="14" fill="#262626"/><circle cx="3" cy="4" r="1.1" fill="#555"/><circle cx="10" cy="9" r="1" fill="#ff5a1f" opacity="0.7"/></pattern>
+    <linearGradient id="housing" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4a4a4a"/><stop offset="0.5" stop-color="#262626"/><stop offset="1" stop-color="#0e0e0e"/></linearGradient>
+    <linearGradient id="steel" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fafafa"/><stop offset="0.45" stop-color="#9c9c9c"/><stop offset="0.6" stop-color="#e6e6e6"/><stop offset="1" stop-color="#666"/></linearGradient>
+    <radialGradient id="iron" cx="0.38" cy="0.32" r="0.75"><stop offset="0" stop-color="#4a4a4a"/><stop offset="1" stop-color="#0f0f0f"/></radialGradient>
+    <pattern id="knurl" width="5" height="5" patternUnits="userSpaceOnUse"><path d="M0 0 5 5M5 0 0 5" stroke="#555" stroke-width="0.8"/></pattern>
+    <g id="dial">
+      <rect x="-30" y="-8" width="60" height="16" fill="url(#steel)" stroke="#0d0d0d" stroke-width="2.5"/>
+      <rect x="-22" y="-8" width="44" height="16" fill="url(#knurl)" opacity="0.8"/>
+      <g stroke="#0d0d0d" stroke-width="3">
+        <rect x="-86" y="-36" width="56" height="72" rx="12" fill="url(#housing)"/>
+        <rect x="30" y="-36" width="56" height="72" rx="12" fill="url(#housing)"/>
+      </g>
+      <path d="M-78-36v72M-70-36v72M-62-36v72M-54-36v72M-46-36v72M-38-36v72M38-36v72M46-36v72M54-36v72M62-36v72M70-36v72M78-36v72" stroke="#6a6a6a" stroke-width="1.5"/>
+      <rect x="-36" y="-30" width="8" height="60" rx="3" fill="#ff5a1f" stroke="#0d0d0d" stroke-width="2"/>
+      <rect x="28" y="-30" width="8" height="60" rx="3" fill="#ff5a1f" stroke="#0d0d0d" stroke-width="2"/>
+      <path d="M-92-18a18 18 0 0 0 0 36M92-18a18 18 0 0 1 0 36" fill="#ff5a1f" stroke="#0d0d0d" stroke-width="3"/>
+      <path d="M-80-30h44M36-30h44" stroke="#fff" stroke-width="2" opacity="0.25"/>
+    </g>
+  </defs>
+
+  <rect width="800" height="350" fill="url(#wall)"/>
+  <rect width="800" height="350" fill="url(#glow)"/>
+  <rect y="112" width="800" height="16" fill="#ff5a1f"/>
+  <rect y="128" width="800" height="4" fill="#0d0d0d"/>
+  <rect y="258" width="800" height="92" fill="url(#rubber)"/>
+  <path d="M0 258H800" stroke="#0d0d0d" stroke-width="3"/>
+  <g stroke="#0d0d0d" stroke-width="2" opacity="0.7"><path d="M170 258 130 350M400 258v92M630 258l40 92"/></g>
+
+  <!-- Hantelablage -->
+  <g stroke="#0d0d0d" stroke-width="3.5" stroke-linejoin="round">
+    <path d="M230 214v66M570 214v66" stroke-width="10"/>
+    <path d="M200 284h70M530 284h70" stroke-width="8" stroke-linecap="round"/>
+    <rect x="190" y="200" width="420" height="16" rx="4" fill="#3a3a3a"/>
+  </g>
+  <path d="M196 204h408" stroke="#ffffff" stroke-width="2" opacity="0.18"/>
+  <use href="#dial" x="300" y="162"/>
+  <use href="#dial" x="500" y="162"/>
+  <g font-family="Arial Black, Arial, sans-serif" font-weight="900" font-size="11" fill="#ffffff" text-anchor="middle">
+    <text x="242" y="128">24 KG</text><text x="358" y="128">24 KG</text><text x="442" y="128">24 KG</text><text x="558" y="128">24 KG</text>
+  </g>
+  <g transform="translate(560 226) rotate(4)">
+    <path d="M0 0h78l10 14-10 14H0z" fill="#ff5a1f" stroke="#0d0d0d" stroke-width="3" stroke-linejoin="round"/>
+    <text x="8" y="20" font-family="Arial Black, Arial, sans-serif" font-weight="900" font-size="14" fill="#0d0d0d">2–24 kg</text>
+  </g>
+
+  <!-- Angelehnte Scheiben -->
+  <g transform="translate(130 222)">
+    <circle r="44" fill="url(#iron)" stroke="#0d0d0d" stroke-width="3"/>
+    <circle r="36" fill="none" stroke="#000" stroke-width="3"/>
+    <circle r="9" fill="#0d0d0d" stroke="#888" stroke-width="2"/>
+    <text y="30" text-anchor="middle" font-family="Arial Black, Arial, sans-serif" font-weight="900" font-size="13" fill="#ff5a1f">5 KG</text>
+  </g>
+  <g transform="translate(76 238)">
+    <circle r="32" fill="url(#iron)" stroke="#0d0d0d" stroke-width="3"/>
+    <circle r="25" fill="none" stroke="#000" stroke-width="2.5"/>
+    <circle r="7" fill="#0d0d0d" stroke="#888" stroke-width="2"/>
+    <text y="22" text-anchor="middle" font-family="Arial Black, Arial, sans-serif" font-weight="900" font-size="10" fill="#ff5a1f">2.5</text>
+  </g>
+
+  <!-- Scheibenhantel mit Sternverschluss -->
+  <ellipse cx="420" cy="334" rx="170" ry="9" fill="#000" opacity="0.45"/>
+  <g transform="translate(420 300)">
+    <rect x="-150" y="-6" width="300" height="12" fill="url(#steel)" stroke="#0d0d0d" stroke-width="2.5"/>
+    <rect x="-46" y="-6" width="92" height="12" fill="url(#knurl)" opacity="0.8"/>
+    <g stroke="#0d0d0d" stroke-width="3">
+      <ellipse cx="-86" rx="14" ry="36" fill="url(#iron)"/>
+      <ellipse cx="-104" rx="14" ry="36" fill="url(#iron)"/>
+      <ellipse cx="-120" rx="11" ry="27" fill="url(#iron)"/>
+      <ellipse cx="86" rx="14" ry="36" fill="url(#iron)"/>
+      <ellipse cx="104" rx="14" ry="36" fill="url(#iron)"/>
+      <ellipse cx="120" rx="11" ry="27" fill="url(#iron)"/>
+    </g>
+    <g fill="#ff5a1f" stroke="#0d0d0d" stroke-width="2.5" stroke-linejoin="round">
+      <path d="M-140-14l5 6 6-4-1 8 7 2-7 2 1 8-6-4-5 6-2-8h-6l4-6-4-6h6z"/>
+      <path d="M140-14l-5 6-6-4 1 8-7 2 7 2-1 8 6-4 5 6 2-8h6l-4-6 4-6h-6z"/>
+    </g>
+    <path d="M-92-30v10M80-30v10" stroke="#fff" stroke-width="2" opacity="0.3"/>
+  </g>
+</svg>

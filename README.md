@@ -33,7 +33,7 @@ Der Ordnername `happypicks` ist noch vom alten Projektnamen, der Inhalt ist komp
 
 Jede Sportart-Seite ist eine komplette Ausrüstungsübersicht (Karten `.gear-item` in Gruppen mit Sprungmarken), darunter die ausführlichen Ratgeber. Die Sportarten-Leiste (`.sportbar`) steht in der Kopfzeile jeder Seite.
 
-Produktkarten haben oben ein gezeichnetes Symbol aus `assets/img/icons.svg`, eingebunden mit `<span class="gear-icon"><svg viewBox="0 0 48 48"><use href="/assets/img/icons.svg#glove"/></svg></span>`. Neue Symbole dort als `<symbol>` ergänzen; Flächen mit `style="fill:var(--ia)"` übernehmen die Farbe der Sportart. Achtung: In Kommentaren der SVG-Datei keine doppelten Bindestriche, sonst lädt die ganze Datei nicht. Ratgeber zeigen oben die Szene ihrer Sportart (`.article-art`).
+Produktkarten haben oben ein gezeichnetes Symbol aus `assets/img/icons.svg`, eingebunden mit `<span class="gear-icon"><svg viewBox="0 0 48 48"><use href="/assets/img/icons.svg#glove"/></svg></span>`. Neue Symbole dort als `<symbol>` ergänzen; Flächen mit `style="fill:var(--ia)"` übernehmen die Farbe der Sportart. Achtung: In Kommentaren der SVG-Datei keine doppelten Bindestriche, sonst lädt die ganze Datei nicht. Jeder Ratgeber hat oben eine eigene, zu seinem Thema gezeichnete Szene (`assets/img/ratgeber/<slug>.svg`, 800 × 350, als `.article-art`). Sie soll sich bewusst von der Szene der Sportart-Seite (`assets/img/sport/`) unterscheiden; für neue Ratgeber also immer eine neue Szene zeichnen.
 
 Nur Sport-Themen, keine anderen Nischen.
 

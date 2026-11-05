@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 350" aria-hidden="true">
+  <!-- Ratgeber Schwimmbrille: unter Wasser im Becken, Lichtstrahlen, Bahnmarkierung am Boden, Luftblasen, grosse verspiegelte Schwimmbrille -->
+  <defs>
+    <linearGradient id="water" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7cd0ff"/><stop offset="0.5" stop-color="#2b86ea"/><stop offset="1" stop-color="#0d3f9e"/></linearGradient>
+    <linearGradient id="ray" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity="0.35"/><stop offset="1" stop-color="#ffffff" stop-opacity="0"/></linearGradient>
+    <linearGradient id="lens" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffb04a"/><stop offset="0.35" stop-color="#ff4f8b"/><stop offset="0.7" stop-color="#7b5cff"/><stop offset="1" stop-color="#2bd4ff"/></linearGradient>
+    <linearGradient id="strap" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4f9bff"/><stop offset="1" stop-color="#1d6fe0"/></linearGradient>
+    <pattern id="caustic" width="90" height="50" patternUnits="userSpaceOnUse"><path d="M0 25C15 12 30 36 45 24S70 10 90 22M22 0C30 12 18 22 28 34S26 46 32 50M64 0C72 14 60 24 70 36S68 46 74 50" fill="none" stroke="#ffffff" stroke-width="2" opacity="0.3"/></pattern>
+  </defs>
+
+  <rect width="800" height="350" fill="url(#water)"/>
+  <rect width="800" height="350" fill="url(#caustic)"/>
+  <!-- Oberfläche -->
+  <path d="M0 0H800V22C760 30 720 14 680 22S600 30 560 22 480 14 440 22 360 30 320 22 240 14 200 22 120 30 80 22 20 16 0 20z" fill="#d6f1ff" opacity="0.6"/>
+  <!-- Lichtstrahlen -->
+  <g fill="url(#ray)"><polygon points="140,0 200,0 300,350 180,350"/><polygon points="360,0 400,0 470,350 390,350"/><polygon points="600,0 650,0 720,350 620,350"/></g>
+  <!-- Beckenboden mit Bahnmarkierung -->
+  <polygon points="0,270 800,270 800,350 0,350" fill="#1a56b8"/>
+  <g stroke="#3f7fd6" stroke-width="2"><path d="M0 286H800M0 306H800M0 330H800M100 270 60 350M220 270 200 350M340 270v80M460 270v80M580 270 600 350M700 270 740 350"/></g>
+  <polygon points="360,270 440,270 470,350 330,350" fill="#0d1f4a"/>
+  <polygon points="320,270 480,270 482,282 318,282" fill="#0d1f4a"/>
+  <!-- Bahnleine oben -->
+  <g stroke="#0d0d0d" stroke-width="1.5">
+    <path d="M0 60H800" stroke-width="2"/>
+    <g fill="#e0262b"><ellipse cx="20" cy="60" rx="9" ry="14"/><ellipse cx="80" cy="60" rx="9" ry="14"/><ellipse cx="140" cy="60" rx="9" ry="14"/><ellipse cx="660" cy="60" rx="9" ry="14"/><ellipse cx="720" cy="60" rx="9" ry="14"/><ellipse cx="780" cy="60" rx="9" ry="14"/></g>
+    <g fill="#ffffff"><ellipse cx="50" cy="60" rx="9" ry="14"/><ellipse cx="110" cy="60" rx="9" ry="14"/><ellipse cx="170" cy="60" rx="9" ry="14"/><ellipse cx="690" cy="60" rx="9" ry="14"/><ellipse cx="750" cy="60" rx="9" ry="14"/></g>
+    <g fill="#1d6fe0"><ellipse cx="200" cy="60" rx="9" ry="14"/><ellipse cx="260" cy="60" rx="9" ry="14"/><ellipse cx="320" cy="60" rx="9" ry="14"/><ellipse cx="380" cy="60" rx="9" ry="14"/><ellipse cx="440" cy="60" rx="9" ry="14"/><ellipse cx="500" cy="60" rx="9" ry="14"/><ellipse cx="560" cy="60" rx="9" ry="14"/><ellipse cx="620" cy="60" rx="9" ry="14"/></g>
+    <g fill="#ffffff"><ellipse cx="230" cy="60" rx="9" ry="14"/><ellipse cx="290" cy="60" rx="9" ry="14"/><ellipse cx="350" cy="60" rx="9" ry="14"/><ellipse cx="410" cy="60" rx="9" ry="14"/><ellipse cx="470" cy="60" rx="9" ry="14"/><ellipse cx="530" cy="60" rx="9" ry="14"/><ellipse cx="590" cy="60" rx="9" ry="14"/></g>
+  </g>
+
+  <!-- Luftblasen -->
+  <g fill="#ffffff" fill-opacity="0.25" stroke="#ffffff" stroke-width="2" stroke-opacity="0.8">
+    <circle cx="560" cy="120" r="12"/><circle cx="584" cy="96" r="7"/><circle cx="570" cy="76" r="5"/><circle cx="600" cy="140" r="9"/>
+    <circle cx="210" cy="150" r="9"/><circle cx="196" cy="120" r="5"/><circle cx="224" cy="104" r="6"/>
+    <circle cx="700" cy="220" r="8"/><circle cx="90" cy="230" r="10"/><circle cx="104" cy="200" r="6"/>
+  </g>
+
+  <!-- Schwimmbrille -->
+  <g transform="translate(400 182) rotate(-6)">
+    <path d="M-170 6C-200-6-210-44-176-56M170 6C200-6 210-44 176-56" fill="none" stroke="#0d0d0d" stroke-width="16" stroke-linecap="round"/>
+    <path d="M-170 6C-200-6-210-44-176-56M170 6C200-6 210-44 176-56" fill="none" stroke="url(#strap)" stroke-width="10" stroke-linecap="round"/>
+    <path d="M-176-56C-90-80 90-80 176-56" fill="none" stroke="#0d0d0d" stroke-width="16" stroke-linecap="round"/>
+    <path d="M-176-56C-90-80 90-80 176-56" fill="none" stroke="url(#strap)" stroke-width="10" stroke-linecap="round"/>
+    <g stroke="#0d0d0d" stroke-width="4">
+      <rect x="-170" y="-48" width="140" height="92" rx="44" fill="#1a1a1a"/>
+      <rect x="30" y="-48" width="140" height="92" rx="44" fill="#1a1a1a"/>
+      <rect x="-158" y="-37" width="116" height="70" rx="34" fill="url(#lens)"/>
+      <rect x="42" y="-37" width="116" height="70" rx="34" fill="url(#lens)"/>
+    </g>
+    <path d="M-30-6C-14-22 14-22 30-6" fill="none" stroke="#0d0d0d" stroke-width="10" stroke-linecap="round"/>
+    <path d="M-30-6C-14-22 14-22 30-6" fill="none" stroke="#1d6fe0" stroke-width="4" stroke-linecap="round"/>
+    <path d="M-140-16C-118-28-92-30-72-24M60-16C82-28 108-30 128-24" fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="round" opacity="0.85"/>
+    <path d="M-150 14-120-4-96 10-74-6-52 12M50 14 80-4 104 10 126-6 148 12" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linejoin="round" opacity="0.55"/>
+  </g>
+</svg>

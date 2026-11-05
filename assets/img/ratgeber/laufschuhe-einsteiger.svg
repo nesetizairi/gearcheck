@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 350" aria-hidden="true">
+  <!-- Ratgeber Laufschuhe: Morgenlauf im Park, Weg in die Hügel, Wegweiser "5 km", ein Paar Laufschuhe im Vordergrund -->
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#bfe3ff"/><stop offset="0.6" stop-color="#ffe9b8"/><stop offset="1" stop-color="#ffd59a"/></linearGradient>
+    <radialGradient id="sun" cx="560" cy="170" r="120" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#fff6d5"/><stop offset="0.35" stop-color="#ffe48a" stop-opacity="0.8"/><stop offset="1" stop-color="#ffd59a" stop-opacity="0"/></radialGradient>
+    <linearGradient id="path" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f0dcb4"/><stop offset="1" stop-color="#d9b98a"/></linearGradient>
+    <linearGradient id="upper" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#d8d8d8"/></linearGradient>
+    <linearGradient id="upper2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3a3a3a"/><stop offset="1" stop-color="#121212"/></linearGradient>
+    <pattern id="mesh" width="6" height="6" patternUnits="userSpaceOnUse"><circle cx="3" cy="3" r="1.1" fill="#0d0d0d" opacity="0.12"/></pattern>
+    <g id="tree"><rect x="-4" y="-6" width="8" height="30" fill="#6b4a2f"/><circle cy="-22" r="22" fill="#5aa33c"/><circle cx="-10" cy="-30" r="12" fill="#7cc44f"/></g>
+    <g id="shoe">
+      <path d="M12 120c0 12 10 18 24 18l216-8c24-2 42-14 48-30l-4-4c-8 14-24 24-46 26L34 128c-12 0-20-4-22-12z" fill="#161616"/>
+      <path d="M10 96c-4 12 0 28 24 30l216-6c22-2 40-12 48-24-6-4-18-4-30-2-68 6-148 6-228 2z" fill="#ffffff" stroke="#0d0d0d" stroke-width="3.5"/>
+      <path d="M30 112c70 4 140 2 220-4" stroke="#a3cf1c" stroke-width="5"/>
+      <path d="M14 96C6 70 10 40 24 24c6-6 14-8 20-4 10 10 22 18 36 18 8-10 16-18 28-20 8 0 12 4 16 8 36 16 82 36 116 44 26 6 50 16 58 26-18-2-58 2-98 4-60 2-120 0-160-2-12 0-22 0-26-2z" fill="var(--up)" stroke="#0d0d0d" stroke-width="3.5" stroke-linejoin="round"/>
+      <path d="M14 96C6 70 10 40 24 24c6-6 14-8 20-4 10 10 22 18 36 18 8-10 16-18 28-20 8 0 12 4 16 8 36 16 82 36 116 44 26 6 50 16 58 26-18-2-58 2-98 4-60 2-120 0-160-2-12 0-22 0-26-2z" fill="url(#mesh)"/>
+      <path d="M14 96C6 70 10 40 24 24c12 20 22 46 22 74h-6c-12 0-22 0-26-2z" fill="#a3cf1c" stroke="#0d0d0d" stroke-width="3"/>
+      <path d="M56 94c44-28 104-38 170-22l-4 10c-62-12-114-4-156 16z" fill="#a3cf1c" stroke="#0d0d0d" stroke-width="2.5"/>
+      <path d="M100 22c2-14 12-20 24-18 6 2 8 8 6 18z" fill="var(--up)" stroke="#0d0d0d" stroke-width="3"/>
+      <g stroke-linecap="round" transform="translate(-4 9) scale(1 0.8)">
+        <path d="M129 21 143 42M143 28 129 35M149 28 163 49M163 35 149 42M169 35 183 56M183 42 169 49M189 43 203 64M203 50 189 57" stroke="#0d0d0d" stroke-width="7"/>
+        <path d="M129 21 143 42M143 28 129 35M149 28 163 49M163 35 149 42M169 35 183 56M183 42 169 49M189 43 203 64M203 50 189 57" stroke="#a3cf1c" stroke-width="3.5"/>
+      </g>
+      <path d="M26 24 18 6c-1-3 1-5 4-5l8 1c3 0 5 2 5 5l3 15z" fill="#0d0d0d"/>
+    </g>
+  </defs>
+
+  <rect width="800" height="350" fill="url(#sky)"/>
+  <circle cx="560" cy="130" r="130" fill="url(#sun)" transform="translate(0 -40)"/>
+  <circle cx="560" cy="118" r="30" fill="#fff6d5"/>
+  <circle cx="560" cy="118" r="40" fill="none" stroke="#fff6d5" stroke-width="3" opacity="0.6"/>
+  <!-- Hügel -->
+  <path d="M0 190C120 150 220 170 320 160S520 130 640 150 760 170 800 160V350H0z" fill="#b9dc8b"/>
+  <path d="M0 220C140 190 260 210 380 196S620 176 800 200V350H0z" fill="#8cc63f"/>
+  <path d="M0 260C160 236 320 250 460 240S680 230 800 246V350H0z" fill="#6aa82c"/>
+  <use href="#tree" x="120" y="190"/><use href="#tree" x="160" y="200"/><use href="#tree" x="700" y="200"/><use href="#tree" x="740" y="210"/><use href="#tree" x="300" y="176"/>
+  <!-- Weg -->
+  <path d="M250 350C330 300 420 270 520 230 560 214 590 200 600 194L612 196C600 206 572 222 534 240 440 284 380 316 340 350z" fill="url(#path)" stroke="#bf9a66" stroke-width="2"/>
+  <!-- Wegweiser -->
+  <rect x="646" y="196" width="8" height="70" fill="#6b4a2f" stroke="#0d0d0d" stroke-width="2.5"/>
+  <path d="M620 196h76l12 14-12 14h-76z" fill="#ffffff" stroke="#0d0d0d" stroke-width="3" stroke-linejoin="round"/>
+  <text x="656" y="216" text-anchor="middle" font-family="Arial Black, Arial, sans-serif" font-weight="900" font-size="15" fill="#0d0d0d">5 km</text>
+
+  <!-- Laufschuhe -->
+  <ellipse cx="250" cy="330" rx="200" ry="12" fill="#000" opacity="0.22"/>
+  <g transform="translate(130 182) scale(0.9)" style="--up:url(#upper2)"><use href="#shoe"/></g>
+  <g transform="translate(60 196)" style="--up:url(#upper)"><use href="#shoe"/></g>
+</svg>
