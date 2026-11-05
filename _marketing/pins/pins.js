@@ -225,6 +225,60 @@ window.PINS = [
     description: 'Was du für Tennis und Padel brauchst: Schläger für Einsteiger, Bälle, Tennis- und Padelschuhe, Griffband, Tasche und Schweissbänder. Zu jedem Teil Tipps und Preisspannen. Auf gearcheck.ch',
     alt: 'Checkliste: komplette Tennis- und Padel-Ausrüstung'
   }
+  ,
+  {
+    id: 'boxsack', sport: 'kampfsport', board: 'Kampfsport Ausrüstung: Boxen, MMA, Thaiboxen',
+    tag: 'Kampfsport · Kaufberatung',
+    headline: 'Welcher <em>Boxsack</em> für zu Hause?',
+    table: { head: ['Training', 'Länge', 'Gewicht'], rows: [
+      ['Boxen', '80–120 cm', '25–40 kg'], ['Kick & Thai', '150–180 cm', '35–50 kg'], ['Kinder', '60–80 cm', '10–20 kg']] },
+    note: 'Faustregel: etwa die Hälfte des Körpergewichts.',
+    cta: 'Hängend oder stehend?',
+    link: 'https://gearcheck.ch/ratgeber/boxsack-kaufen/',
+    title: 'Boxsack für zu Hause: Welche Länge und welches Gewicht?',
+    description: 'Welcher Boxsack passt zu deinem Training? Länge und Gewicht für Boxen, Kickboxen und Thaiboxen auf einen Blick. Plus: hängend oder Standboxsack, gefüllt oder ungefüllt und wie du ihn sicher an der Decke montierst. Auf gearcheck.ch',
+    alt: 'Tabelle: Boxsack-Länge und Gewicht für Boxen, Kickboxen und Kinder'
+  },
+  {
+    id: 'zwiebelprinzip', sport: 'wintersport', board: 'Wintersport: Ski & Snowboard Ausrüstung',
+    tag: 'Wintersport · Kaufberatung',
+    headline: 'Skifahren: Das <em>Zwiebelprinzip</em>',
+    checks: [
+      ['Basisschicht', 'Merino oder Synthetik auf der Haut'], ['Mittelschicht', 'Fleece oder leichte Daune'],
+      ['Aussenschicht', 'wasserdicht und atmungsaktiv'], ['Keine Baumwolle', 'sie wird nass und kühlt aus']],
+    note: 'Lieber eine Schicht mehr, die du ausziehen kannst.',
+    cta: 'Richtig anziehen',
+    link: 'https://gearcheck.ch/ratgeber/skibekleidung-zwiebelprinzip/',
+    title: 'Skibekleidung: Das Zwiebelprinzip in 3 Schichten erklärt',
+    description: 'Warm und trocken auf der Piste: Basisschicht aus Merino, Mittelschicht aus Fleece oder Daune und eine wasserdichte Skijacke. Dazu, was je nach Temperatur passt und warum zwei Paar Socken keine gute Idee sind. Auf gearcheck.ch',
+    alt: 'Checkliste: Zwiebelprinzip mit drei Schichten für Skibekleidung'
+  },
+  {
+    id: 'schienbeinschoner', sport: 'fussball', board: 'Fussball Ausrüstung',
+    tag: 'Fussball · Kaufberatung',
+    headline: 'Welche Grösse <em>Schienbeinschoner?</em>',
+    table: { head: ['Körpergrösse', 'Grösse'], rows: [
+      ['bis 120 cm', 'XS'], ['120–140 cm', 'S'], ['140–160 cm', 'M'], ['160–180 cm', 'L'], ['über 180 cm', 'XL']] },
+    note: 'Typische Werte. Im Zweifel die Herstellertabelle prüfen.',
+    cta: 'Grösse & Arten',
+    link: 'https://gearcheck.ch/ratgeber/schienbeinschoner-groesse/',
+    title: 'Schienbeinschoner: Welche Grösse? Tabelle nach Körpergrösse',
+    description: 'Welche Grösse Schienbeinschoner brauchst du oder dein Kind? Die Tabelle nach Körpergrösse, dazu: mit oder ohne Knöchelschutz, Einschiebe-Schoner oder Klettband und wie sie nicht verrutschen. Auf gearcheck.ch',
+    alt: 'Tabelle: Schienbeinschoner-Grösse nach Körpergrösse'
+  },
+  {
+    id: 'kurzhanteln', sport: 'fitness', board: 'Home-Gym & Fitness Ausrüstung',
+    tag: 'Home-Gym · Kaufberatung',
+    headline: 'Verstellbare <em>Kurzhanteln:</em> welches System?',
+    table: { head: ['System', 'Wechsel', 'Paar'], rows: [
+      ['Scheiben', 'langsam', '40–120 €'], ['Stecksystem', 'schnell', '100–300 €'], ['Drehsystem', 'Sekunden', '150–400 €']] },
+    note: 'Für den Start reichen oft 20–24 kg pro Hand.',
+    cta: 'Systeme erklärt',
+    link: 'https://gearcheck.ch/ratgeber/kurzhanteln-verstellbar/',
+    title: 'Verstellbare Kurzhanteln: Scheiben, Steck- oder Drehsystem?',
+    description: 'Ein Paar verstellbare Kurzhanteln ersetzt einen ganzen Hantelständer. Welches System passt zu dir, wie schwer sie sein müssen und worauf du beim Kauf achten solltest. Für dein Home-Gym auf gearcheck.ch',
+    alt: 'Tabelle: Systeme verstellbarer Kurzhanteln mit Wechselzeit und Preis'
+  }
 ];
 
 window.SPORTS = {

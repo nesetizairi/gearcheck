@@ -1,0 +1,125 @@
+<svg xmlns="http://www.w3.org/2000/svg">
+  <!-- Symbole für die Produktkarten. Einbinden: <svg viewBox="0 0 48 48"><use href="/assets/img/icons.svg#glove"/></svg>
+       Linien übernehmen stroke/color vom einbindenden svg, Flächen nehmen über die CSS-Variable "ia" die Farbe der Sportart an. -->
+
+  <!-- Kampfsport -->
+  <symbol id="glove" viewBox="0 0 48 48"><path style="fill:var(--ia)" d="M14 31V17a10 10 0 0 1 10-10h4a10 10 0 0 1 10 10v8c0 4-2 7-5 8v3H17v-3c-2-1-3-2-3-2z"/><path style="fill:var(--ia)" d="M14 23h5a4 4 0 0 1 0 8h-5"/><path d="M17 36h16v6H17z"/><path d="M22 12c3-1 7-1 10 2" style="stroke:#fff"/></symbol>
+  <symbol id="wrap" viewBox="0 0 48 48"><path d="M24 34l14 7 4-7-14-6"/><circle style="fill:var(--ia)" cx="20" cy="24" r="11"/><circle cx="20" cy="24" r="4" style="fill:#fff"/></symbol>
+  <symbol id="mouthguard" viewBox="0 0 48 48"><path style="fill:var(--ia)" d="M8 16c0 14 7 24 16 24s16-10 16-24c-4 0-7 3-8 7-2-5-5-7-8-7s-6 2-8 7c-1-4-4-7-8-7z"/><path d="M14 26c3 6 6 8 10 8s7-2 10-8"/></symbol>
+  <symbol id="cup" viewBox="0 0 48 48"><path d="M6 12c8 5 28 5 36 0"/><path style="fill:var(--ia)" d="M12 15c7 2 17 2 24 0 0 13-5 21-12 24-7-3-12-11-12-24z"/><path d="M18 22c4 1 8 1 12 0" style="stroke:#fff"/></symbol>
+  <symbol id="shinguard" viewBox="0 0 48 48"><path style="fill:var(--ia)" d="M16 5h16v27l6 6v5H20l-4-7z"/><path d="M16 14h16M16 23h16"/></symbol>
+  <symbol id="headgear" viewBox="0 0 48 48"><path style="fill:var(--ia)" d="M9 26a15 15 0 0 1 30 0v9a4 4 0 0 1-4 4h-4V28H17v11h-4a4 4 0 0 1-4-4z"/><path d="M17 28h14M14 18c3-4 7-6 10-6" /></symbol>
+  <symbol id="mmaglove" viewBox="0 0 48 48"><path d="M16 23v-9M21 22V10M26 22V10M31 23v-9"/><path style="fill:var(--ia)" d="M13 22h22v10a7 7 0 0 1-7 7h-8a7 7 0 0 1-7-7z"/><path d="M15 39h18v5H15z"/></symbol>
+  <symbol id="mitt" viewBox="0 0 48 48"><path style="fill:var(--ia)" d="M9 20c0-8 7-13 15-13s15 5 15 13c0 7-5 11-11 11h-8C14 31 9 27 9 20z"/><circle cx="24" cy="19" r="5" style="fill:#fff"/><path d="M18 31v8h12v-8"/></symbol>
+  <symbol id="thaipad" viewBox="0 0 48 48"><path d="M35 15h5v16h-5"/><rect style="fill:var(--ia)" x="12" y="5" width="23" height="36" rx="6"/><path d="M18 12h11M18 34h11"/></symbol>
+  <symbol id="bag" viewBox="0 0 48 48"><path d="M24 2v6M24 8l-8 5M24 8l8 5"/><rect style="fill:var(--ia)" x="14" y="13" width="20" height="31" rx="6"/><path d="M14 20h20M14 37h20"/></symbol>
+  <symbol id="freebag" viewBox="0 0 48 48"><rect style="fill:var(--ia)" x="16" y="4" width="16" height="29" rx="7"/><path d="M24 33v3"/><path d="M11 44c0-5 5-8 13-8s13 3 13 8z"/></symbol>
+  <symbol id="rope" viewBox="0 0 48 48"><path d="M12 17c0 26 24 26 24 0"/><rect style="fill:var(--ia)" x="9" y="4" width="6" height="15" rx="3"/><rect style="fill:var(--ia)" x="33" y="4" width="6" height="15" rx="3"/></symbol>
+
+  <!-- Bekleidung und Allgemeines -->
+  <symbol id="shirt" viewBox="0 0 48 48"><path style="fill:var(--ia)" d="M17 6 7 11l4 9 5-3v24h16V17l5 3 4-9-10-5c-1 3-4 5-7 5s-6-2-7-5z"/></symbol>
+  <symbol id="shorts" viewBox="0 0 48 48"><path style="fill:var(--ia)" d="M11 9h26l3 28H28l-4-14-4 14H8z"/><path d="M11 15h26"/></symbol>
+  <symbol id="pants" viewBox="0 0 48 48"><path style="fill:var(--ia)" d="M14 5h20l2 38h-9l-3-25-3 25h-9z"/><path d="M14 11h20"/></symbol>
+  <symbol id="jacket" viewBox="0 0 48 48"><path style="fill:var(--ia)" d="M16 5 7 10 5 40h13v3h12v-3h13l-2-30-9-5-4 3h-8z"/><path d="M24 9v34M18 5l6 6 6-6M12 24h5M31 24h5"/></symbol>
+  <symbol id="vest" viewBox="0 0 48 48"><path style="fill:var(--ia)" d="M16 5 9 9v32h13V23l2-4 2 4v18h13V9l-7-4c0 6-4 9-8 9s-8-3-8-9z"/><path d="M9 29h13M26 29h13"/></symbol>
+  <symbol id="socks" viewBox="0 0 48 48"><path style="fill:var(--ia)" d="M15 4h13v20l8 8a6.5 6.5 0 0 1-9 9L15 29z"/><path d="M15 10h13"/></symbol>
+  <symbol id="beanie" viewBox="0 0 48 48"><circle cx="24" cy="10" r="3"/><path style="fill:var(--ia)" d="M9 30a15 15 0 0 1 30 0z"/><rect x="7" y="30" width="34" height="8" rx="3"/></symbol>
+  <symbol id="cap" viewBox="0 0 48 48"><path style="fill:var(--ia)" d="M7 29a15 14 0 0 1 30 0z"/><path d="M7 29h35a4 4 0 0 1-4 4H7zM22 15v-2"/></symbol>
+  <symbol id="sneaker" viewBox="0 0 48 48"><path style="fill:var(--ia)" d="M5 33V20l9-6 6 5c6 2 13 4 18 6 4 1 6 3 6 8z"/><path d="M5 33v5h39v-5M14 20l2 3M18 18l2 3"/></symbol>
+  <symbol id="boot" viewBox="0 0 48 48"><path style="fill:var(--ia)" d="M5 31V19l9-6 6 5c6 2 13 4 18 6 4 1 6 3 6 7z"/><path d="M5 31h39M10 31v5M18 31v5M30 31v5M38 31v5M14 19l2 3M18 17l2 3"/></symbol>
+  <symbol id="runshoe" viewBox="0 0 48 48"><path style="fill:var(--ia)" d="M6 29V19l8-6 6 5c7 2 14 4 18 6 3 1 5 3 5 5z"/><path d="M6 29c0 5 2 7 5 7h28c3 0 4-2 4-7M14 19l2 3M18 17l2 3"/></symbol>
+  <symbol id="gymbag" viewBox="0 0 48 48"><path d="M17 20v-4a4 4 0 0 1 4-4h6a4 4 0 0 1 4 4v4"/><path style="fill:var(--ia)" d="M5 20h38v18a3 3 0 0 1-3 3H8a3 3 0 0 1-3-3z"/><path d="M5 28h38"/></symbol>
+  <symbol id="longbag" viewBox="0 0 48 48"><path d="M15 18v-4h18v4"/><rect style="fill:var(--ia)" x="3" y="18" width="42" height="15" rx="6"/><path d="M3 25h42"/></symbol>
+  <symbol id="backpack" viewBox="0 0 48 48"><path d="M20 6h8"/><path style="fill:var(--ia)" d="M13 15a11 11 0 0 1 22 0v25a3 3 0 0 1-3 3H16a3 3 0 0 1-3-3z"/><path d="M18 28h12v8H18z"/></symbol>
+  <symbol id="bottle" viewBox="0 0 48 48"><path d="M20 14V9h8v5M22 9V5h4v4"/><path style="fill:var(--ia)" d="M17 14h14v26a3 3 0 0 1-3 3h-8a3 3 0 0 1-3-3z"/><path d="M17 24h14"/></symbol>
+  <symbol id="flask" viewBox="0 0 48 48"><path d="M21 9V5h6v4"/><path style="fill:var(--ia)" d="M15 14c0-3 4-5 9-5s9 2 9 5v22c0 5-4 8-9 8s-9-3-9-8z"/><path d="M19 24h10"/></symbol>
+  <symbol id="towel" viewBox="0 0 48 48"><rect style="fill:var(--ia)" x="10" y="7" width="28" height="34" rx="3"/><path d="M10 32h28M10 36h28"/></symbol>
+  <symbol id="tape" viewBox="0 0 48 48"><path d="M33 31l11 6"/><circle style="fill:var(--ia)" cx="21" cy="24" r="14"/><circle cx="21" cy="24" r="6" style="fill:#fff"/></symbol>
+  <symbol id="hand" viewBox="0 0 48 48"><path style="fill:var(--ia)" d="M14 43V25l-3-6a2.7 2.7 0 0 1 5-2l2 5V9a2.7 2.7 0 0 1 5.4 0v11V7a2.7 2.7 0 0 1 5.4 0v13V9a2.7 2.7 0 0 1 5.4 0v15c0 9-3 15-8 19z"/><path d="M14 36h16"/></symbol>
+  <symbol id="mitten" viewBox="0 0 48 48"><path style="fill:var(--ia)" d="M16 31l-7-8a3.6 3.6 0 0 1 6-4l5 6"/><path style="fill:var(--ia)" d="M15 43V16a9 9 0 0 1 18 0v27z"/><path d="M15 36h18"/></symbol>
+  <symbol id="brace" viewBox="0 0 48 48"><path d="M24 3v6M24 39v6"/><rect style="fill:var(--ia)" x="13" y="9" width="22" height="30" rx="7"/><path d="M13 18h22M13 30h22"/></symbol>
+  <symbol id="sweatband" viewBox="0 0 48 48"><ellipse style="fill:var(--ia)" cx="24" cy="24" rx="17" ry="12"/><ellipse cx="24" cy="24" rx="9" ry="5" style="fill:#fff"/></symbol>
+  <symbol id="sunglasses" viewBox="0 0 48 48"><path d="M3 20h42"/><path style="fill:var(--ia)" d="M5 20h16v6a7 7 0 0 1-7 7h-2a7 7 0 0 1-7-7zM27 20h16v6a7 7 0 0 1-7 7h-2a7 7 0 0 1-7-7z"/></symbol>
+  <symbol id="watch" viewBox="0 0 48 48"><path d="M18 14l2-9h8l2 9M18 34l2 9h8l2-9"/><rect style="fill:var(--ia)" x="13" y="13" width="22" height="22" rx="6"/><path d="M24 19v5l3 3"/></symbol>
+  <symbol id="headphones" viewBox="0 0 48 48"><path d="M9 28v-4a15 15 0 0 1 30 0v4"/><rect style="fill:var(--ia)" x="6" y="26" width="9" height="13" rx="3"/><rect style="fill:var(--ia)" x="33" y="26" width="9" height="13" rx="3"/></symbol>
+
+  <!-- Home-Gym -->
+  <symbol id="mat" viewBox="0 0 48 48"><path style="fill:var(--ia)" d="M14 14h29v18H14"/><circle style="fill:var(--ia)" cx="14" cy="23" r="9"/><circle cx="14" cy="23" r="4" style="fill:#fff"/></symbol>
+  <symbol id="band" viewBox="0 0 48 48"><path d="M12 11c3 22 21 22 24 0" style="stroke-width:4"/><rect style="fill:var(--ia)" x="5" y="5" width="14" height="7" rx="3.5"/><rect style="fill:var(--ia)" x="29" y="5" width="14" height="7" rx="3.5"/></symbol>
+  <symbol id="loop" viewBox="0 0 48 48"><ellipse style="fill:var(--ia)" cx="24" cy="28" rx="18" ry="9"/><ellipse cx="24" cy="28" rx="11" ry="4" style="fill:#fff"/><path d="M10 18c4-4 24-4 28 0"/></symbol>
+  <symbol id="pullup" viewBox="0 0 48 48"><path d="M10 44V5h28v39"/><rect style="fill:var(--ia)" x="5" y="14" width="38" height="6" rx="3"/></symbol>
+  <symbol id="abroller" viewBox="0 0 48 48"><path d="M4 30h10M34 30h10"/><circle style="fill:var(--ia)" cx="24" cy="30" r="10"/><circle cx="24" cy="30" r="3" style="fill:#fff"/></symbol>
+  <symbol id="dumbbell" viewBox="0 0 48 48"><path d="M16 24h16M5 19v10M43 19v10"/><rect style="fill:var(--ia)" x="8" y="13" width="8" height="22" rx="2"/><rect style="fill:var(--ia)" x="32" y="13" width="8" height="22" rx="2"/></symbol>
+  <symbol id="kettlebell" viewBox="0 0 48 48"><path d="M16 19c-3-11 19-11 16 0"/><path style="fill:var(--ia)" d="M11 30a13 13 0 1 1 26 0c0 5-2 9-5 12H16c-3-3-5-7-5-12z"/></symbol>
+  <symbol id="barbell" viewBox="0 0 48 48"><path d="M3 24h42"/><rect style="fill:var(--ia)" x="9" y="11" width="6" height="26" rx="2"/><rect style="fill:var(--ia)" x="33" y="11" width="6" height="26" rx="2"/><rect x="15" y="16" width="4" height="16" rx="1"/><rect x="29" y="16" width="4" height="16" rx="1"/></symbol>
+  <symbol id="bench" viewBox="0 0 48 48"><path d="M12 24v16M36 24v16M8 40h8M32 40h8M30 18l7-10"/><rect style="fill:var(--ia)" x="5" y="18" width="38" height="6" rx="3"/></symbol>
+  <symbol id="rack" viewBox="0 0 48 48"><path d="M12 8v34M36 8v34M6 42h12M30 42h12M12 20h5M36 20h-5"/><rect style="fill:var(--ia)" x="3" y="14" width="42" height="5" rx="2.5"/></symbol>
+  <symbol id="dip" viewBox="0 0 48 48"><path d="M10 18v24M38 18v24M6 42h10M32 42h10"/><rect style="fill:var(--ia)" x="5" y="13" width="15" height="6" rx="3"/><rect style="fill:var(--ia)" x="28" y="13" width="15" height="6" rx="3"/></symbol>
+  <symbol id="tiles" viewBox="0 0 48 48"><rect style="fill:var(--ia)" x="6" y="6" width="17" height="17" rx="2"/><rect x="25" y="6" width="17" height="17" rx="2"/><rect x="6" y="25" width="17" height="17" rx="2"/><rect style="fill:var(--ia)" x="25" y="25" width="17" height="17" rx="2"/></symbol>
+  <symbol id="roller" viewBox="0 0 48 48"><rect style="fill:var(--ia)" x="5" y="15" width="38" height="18" rx="9"/><path d="M15 16v16M24 15v18M33 16v16"/></symbol>
+  <symbol id="massagegun" viewBox="0 0 48 48"><circle cx="6" cy="18" r="3"/><path d="M9 18h3"/><path style="fill:var(--ia)" d="M12 11h20a7 7 0 0 1 0 14H12z"/><rect x="21" y="25" width="9" height="18" rx="3"/></symbol>
+  <symbol id="sling" viewBox="0 0 48 48"><path d="M24 3v7M24 10l-11 22M24 10l11 22"/><rect style="fill:var(--ia)" x="7" y="32" width="13" height="7" rx="3.5"/><rect style="fill:var(--ia)" x="28" y="32" width="13" height="7" rx="3.5"/></symbol>
+
+  <!-- Fussball -->
+  <symbol id="ball" viewBox="0 0 48 48"><circle cx="24" cy="24" r="19" style="fill:#fff"/><path style="fill:var(--ia)" d="M24 15l7.6 5.5-2.9 9h-9.4l-2.9-9z"/><path d="M24 15V5.5M31.6 20.5l9-3M28.7 29.5l5.5 7.6M19.3 29.5l-5.5 7.6M16.4 20.5l-9-3"/></symbol>
+  <symbol id="pump" viewBox="0 0 48 48"><path d="M24 12V6M18 6h12M24 40v5"/><rect style="fill:var(--ia)" x="18" y="12" width="12" height="28" rx="3"/></symbol>
+  <symbol id="cones" viewBox="0 0 48 48"><path d="M5 39h38"/><path style="fill:var(--ia)" d="M9 39l7-22h4l7 22zM27 39l5-15h3l5 15z"/></symbol>
+  <symbol id="ladder" viewBox="0 0 48 48"><rect style="fill:var(--ia)" x="4" y="11" width="40" height="5" rx="2.5"/><rect style="fill:var(--ia)" x="4" y="32" width="40" height="5" rx="2.5"/><path d="M11 16v16M20 16v16M29 16v16M38 16v16"/></symbol>
+  <symbol id="goal" viewBox="0 0 48 48"><path style="fill:var(--ia)" d="M10 16h28v24H10z"/><path d="M17 16v24M24 16v24M31 16v24M10 24h28M10 32h28" style="stroke-width:1.4"/><path d="M5 41V11h38v30"/></symbol>
+  <symbol id="rebounder" viewBox="0 0 48 48"><path d="M7 42l9-30h16l9 30"/><path style="fill:var(--ia)" d="M13 36l5-20h12l5 20z"/><path d="M15 26h18" style="stroke:#fff"/></symbol>
+
+  <!-- Running -->
+  <symbol id="heartstrap" viewBox="0 0 48 48"><path d="M3 24h11M34 24h11"/><path style="fill:var(--ia)" d="M24 35s-11-6-11-14a5.5 5.5 0 0 1 11-2 5.5 5.5 0 0 1 11 2c0 8-11 14-11 14z"/></symbol>
+  <symbol id="belt" viewBox="0 0 48 48"><path d="M3 24h42"/><rect style="fill:var(--ia)" x="13" y="17" width="22" height="15" rx="4"/><path d="M17 22h14"/></symbol>
+  <symbol id="headlamp" viewBox="0 0 48 48"><ellipse cx="24" cy="22" rx="19" ry="8"/><rect style="fill:var(--ia)" x="16" y="22" width="16" height="11" rx="3"/><path d="M24 37v6M17 37l-4 4M31 37l4 4"/></symbol>
+
+  <!-- Radsport -->
+  <symbol id="bikehelmet" viewBox="0 0 48 48"><path style="fill:var(--ia)" d="M5 31c0-13 10-21 21-21 10 0 17 7 17 15v2a4 4 0 0 1-4 4z"/><path d="M14 23c4-4 8-6 14-6M22 31v-6M31 31v-8M13 31l4 10h10"/></symbol>
+  <symbol id="bikelight" viewBox="0 0 48 48"><rect style="fill:var(--ia)" x="6" y="15" width="24" height="18" rx="5"/><path d="M35 17l8-4M35 24h9M35 31l8 4"/></symbol>
+  <symbol id="lock" viewBox="0 0 48 48"><path d="M16 22V12a8 8 0 0 1 16 0v10"/><rect style="fill:var(--ia)" x="9" y="22" width="30" height="20" rx="4"/><circle cx="24" cy="32" r="3" style="fill:#fff"/></symbol>
+  <symbol id="floorpump" viewBox="0 0 48 48"><path d="M12 6h20M22 6v4M10 43h24M22 38v5M28 30h6"/><rect style="fill:var(--ia)" x="18" y="10" width="8" height="28" rx="2"/><circle cx="38" cy="30" r="5" style="fill:#fff"/></symbol>
+  <symbol id="multitool" viewBox="0 0 48 48"><path d="M14 20 9 9M21 20l2-13M29 20l7-11"/><rect style="fill:var(--ia)" x="8" y="20" width="32" height="11" rx="5.5"/></symbol>
+  <symbol id="patch" viewBox="0 0 48 48"><path d="M17 12V8h14v4"/><rect style="fill:var(--ia)" x="8" y="12" width="32" height="25" rx="4"/><path d="M17 24.5h14M24 17.5v14" style="stroke:#fff;stroke-width:3.2"/></symbol>
+  <symbol id="drop" viewBox="0 0 48 48"><path style="fill:var(--ia)" d="M24 5c7 9 13 16 13 23a13 13 0 0 1-26 0c0-7 6-14 13-23z"/><path d="M18 30a6 6 0 0 0 6 6" style="stroke:#fff"/></symbol>
+  <symbol id="bikecomputer" viewBox="0 0 48 48"><rect style="fill:var(--ia)" x="11" y="7" width="26" height="34" rx="5"/><rect x="15" y="12" width="18" height="13" rx="2" style="fill:#fff"/><path d="M18 33h12"/></symbol>
+  <symbol id="saddlebag" viewBox="0 0 48 48"><path d="M7 10c9-5 25-5 34 0M20 12V9M28 12V9"/><path style="fill:var(--ia)" d="M11 13h26l-4 20H15z"/></symbol>
+  <symbol id="trainer" viewBox="0 0 48 48"><circle cx="15" cy="27" r="11"/><circle cx="15" cy="27" r="3"/><path d="M15 27h14"/><path style="fill:var(--ia)" d="M26 42l6-20h6l5 20z"/></symbol>
+  <symbol id="bell" viewBox="0 0 48 48"><path d="M24 9v5M21 35a3 3 0 0 0 6 0"/><path style="fill:var(--ia)" d="M11 31c0-11 5-17 13-17s13 6 13 17z"/><path d="M7 31h34"/></symbol>
+  <symbol id="repairstand" viewBox="0 0 48 48"><path d="M22 14v26M12 42h20M22 14h10"/><rect style="fill:var(--ia)" x="31" y="9" width="10" height="10" rx="2"/><path d="M16 42l6-6 6 6"/></symbol>
+
+  <!-- Schwimmen -->
+  <symbol id="goggles" viewBox="0 0 48 48"><path d="M3 23c2-5 6-5 7-5M45 23c-2-5-6-5-7-5M22 24h4"/><rect style="fill:var(--ia)" x="8" y="17" width="14" height="13" rx="6.5"/><rect style="fill:var(--ia)" x="26" y="17" width="14" height="13" rx="6.5"/></symbol>
+  <symbol id="swimcap" viewBox="0 0 48 48"><path style="fill:var(--ia)" d="M7 33a17 17 0 0 1 34 0z"/><path d="M7 33h34M17 19c2-3 5-4 9-4" style="stroke:#fff"/></symbol>
+  <symbol id="swimsuit" viewBox="0 0 48 48"><path style="fill:var(--ia)" d="M15 5v9c0 4 3 6 3 10s-4 6-4 10l4 9h12l4-9c0-4-4-6-4-10s3-6 3-10V5h-3c0 6-3 10-6 10s-6-4-6-10z"/></symbol>
+  <symbol id="slides" viewBox="0 0 48 48"><path style="fill:var(--ia)" d="M10 41c-3 0-4-3-4-6V14a8 8 0 0 1 16 0v21c0 3-1 6-4 6zM30 41c-3 0-4-3-4-6V14a8 8 0 0 1 16 0v21c0 3-1 6-4 6z"/><path d="M6 22h16M26 22h16"/></symbol>
+  <symbol id="noseclip" viewBox="0 0 48 48"><path d="M15 11c-5 9-5 17 0 26M33 11c5 9 5 17 0 26"/><rect style="fill:var(--ia)" x="13" y="21" width="22" height="6" rx="3"/></symbol>
+  <symbol id="pullbuoy" viewBox="0 0 48 48"><path style="fill:var(--ia)" d="M14 5h20a6 6 0 0 1 6 6v5a6 6 0 0 1-6 6 6 6 0 0 1 6 6v5a6 6 0 0 1-6 6H14a6 6 0 0 1-6-6v-5a6 6 0 0 1 6-6 6 6 0 0 1-6-6v-5a6 6 0 0 1 6-6z"/><path d="M14 22h20"/></symbol>
+  <symbol id="kickboard" viewBox="0 0 48 48"><path style="fill:var(--ia)" d="M9 12c0-4 7-7 15-7s15 3 15 7v27a4 4 0 0 1-4 4H13a4 4 0 0 1-4-4z"/><rect x="17" y="12" width="14" height="6" rx="3" style="fill:#fff"/></symbol>
+  <symbol id="paddles" viewBox="0 0 48 48"><path style="fill:var(--ia)" d="M14 5h16a4 4 0 0 1 4 4v22c0 7-5 12-12 12s-12-5-12-12V9a4 4 0 0 1 4-4z"/><g style="fill:#fff;stroke:none"><circle cx="17" cy="13" r="2"/><circle cx="27" cy="13" r="2"/><circle cx="17" cy="22" r="2"/><circle cx="27" cy="22" r="2"/></g></symbol>
+  <symbol id="fins" viewBox="0 0 48 48"><path style="fill:var(--ia)" d="M18 5h12v15l9 21H9l9-21z"/><path d="M18 13h12M24 26v12" /></symbol>
+  <symbol id="snorkel" viewBox="0 0 48 48"><path d="M31 9v23a9 9 0 0 1-9 9h-7"/><rect style="fill:var(--ia)" x="26" y="2" width="10" height="9" rx="2"/><rect style="fill:var(--ia)" x="7" y="36" width="9" height="9" rx="2"/></symbol>
+  <symbol id="buoy" viewBox="0 0 48 48"><path d="M24 9V3M4 45c4-2 8-2 12 0s8 2 12 0 8-2 12 0"/><path style="fill:var(--ia)" d="M12 9h24a4 4 0 0 1 4 4v13a12 12 0 0 1-12 12h-8A12 12 0 0 1 8 26V13a4 4 0 0 1 4-4z"/></symbol>
+  <symbol id="wetsuit" viewBox="0 0 48 48"><path style="fill:var(--ia)" d="M17 4h14l7 6-3 14-4-2v22h-5V29h-4v15h-5V22l-4 2-3-14z"/><path d="M24 6v13"/></symbol>
+  <symbol id="meshbag" viewBox="0 0 48 48"><path d="M16 14c0-7 16-7 16 0"/><path style="fill:var(--ia)" d="M11 14h26l-3 29H14z"/><path d="M13 22h22M12 31h24M18 14l2 29M30 14l-2 29" style="stroke-width:1.4"/></symbol>
+  <symbol id="spray" viewBox="0 0 48 48"><path d="M20 16v-5h8v5M28 11h6M38 8l4-2M38 12h5M38 16l4 2"/><rect style="fill:var(--ia)" x="16" y="16" width="16" height="27" rx="3"/></symbol>
+
+  <!-- Wintersport -->
+  <symbol id="skihelmet" viewBox="0 0 48 48"><path style="fill:var(--ia)" d="M7 31a17 17 0 0 1 34 0v6H7z"/><rect x="11" y="22" width="26" height="9" rx="4" style="fill:#fff"/><path d="M14 37v5M34 37v5"/></symbol>
+  <symbol id="skigoggles" viewBox="0 0 48 48"><path d="M2 25h4M42 25h4"/><rect style="fill:var(--ia)" x="6" y="15" width="36" height="20" rx="9"/><path d="M19 35c1-5 9-5 10 0z" style="fill:#fff"/><path d="M12 22c4-2 10-3 16-2" style="stroke:#fff"/></symbol>
+  <symbol id="backprotector" viewBox="0 0 48 48"><path style="fill:var(--ia)" d="M13 5h22v31l-11 7-11-7z"/><path d="M13 14h22M13 22h22M13 30h22"/></symbol>
+  <symbol id="shovel" viewBox="0 0 48 48"><path d="M24 4v20M18 4h12"/><path style="fill:var(--ia)" d="M13 24h22v8c0 7-5 11-11 11s-11-4-11-11z"/></symbol>
+  <symbol id="neckwarmer" viewBox="0 0 48 48"><ellipse cx="24" cy="12" rx="12" ry="4"/><path style="fill:var(--ia)" d="M12 12v21c0 3 5 6 12 6s12-3 12-6V12c0 3-5 4-12 4s-12-1-12-4z"/></symbol>
+  <symbol id="dryer" viewBox="0 0 48 48"><path d="M34 6c-2 3 2 5 0 8M40 6c-2 3 2 5 0 8"/><path style="fill:var(--ia)" d="M12 6h13v22l11 4v11H12z"/></symbol>
+  <symbol id="wax" viewBox="0 0 48 48"><rect style="fill:var(--ia)" x="9" y="15" width="30" height="16" rx="3" transform="rotate(-15 24 23)"/><path d="M10 38h28"/></symbol>
+  <symbol id="handwarmer" viewBox="0 0 48 48"><path d="M18 5c-2 2 2 4 0 7M24 4c-2 3 2 5 0 8M30 5c-2 2 2 4 0 7"/><rect style="fill:var(--ia)" x="11" y="14" width="26" height="29" rx="7"/></symbol>
+
+  <!-- Tennis und Padel -->
+  <symbol id="tennisracket" viewBox="0 0 48 48"><path d="M28 31l13 13" style="stroke-width:5"/><ellipse style="fill:var(--ia)" cx="19" cy="18" rx="13" ry="15"/><path d="M13 9v18M19 4v28M25 9v18M8 13h22M7 19h24M8 25h22" style="stroke-width:1.3"/></symbol>
+  <symbol id="padelracket" viewBox="0 0 48 48"><path d="M24 32v13" style="stroke-width:5"/><path style="fill:var(--ia)" d="M24 3c9 0 14 6 14 15s-6 15-14 15-14-6-14-15S15 3 24 3z"/><g style="fill:#fff;stroke:none"><circle cx="19" cy="13" r="2"/><circle cx="29" cy="13" r="2"/><circle cx="24" cy="19" r="2"/><circle cx="19" cy="25" r="2"/><circle cx="29" cy="25" r="2"/></g></symbol>
+  <symbol id="tennisball" viewBox="0 0 48 48"><circle style="fill:var(--ia)" cx="24" cy="24" r="17"/><path d="M11 12c7 7 7 17 0 24M37 12c-7 7-7 17 0 24" style="stroke:#fff"/></symbol>
+  <symbol id="grip" viewBox="0 0 48 48"><rect style="fill:var(--ia)" x="17" y="3" width="14" height="42" rx="3"/><path d="M17 11l14 6M17 20l14 6M17 29l14 6M17 38l14 6"/></symbol>
+  <symbol id="dampener" viewBox="0 0 48 48"><path d="M6 15h36M6 24h36M6 33h36M15 6v36M24 6v36M33 6v36" style="stroke-width:1.4"/><rect style="fill:var(--ia)" x="18" y="18" width="12" height="12" rx="4"/></symbol>
+  <symbol id="trainerball" viewBox="0 0 48 48"><path d="M27 22c-4 8 6 12 0 17"/><circle style="fill:var(--ia)" cx="30" cy="14" r="8"/><rect x="11" y="38" width="26" height="6" rx="2"/></symbol>
+  <symbol id="basket" viewBox="0 0 48 48"><path d="M16 18c0-8 16-8 16 0"/><path style="fill:var(--ia)" d="M9 18h30l-3 24H12z"/><path d="M11 26h26M12 34h24M18 18l1 24M30 18l-1 24" style="stroke-width:1.4"/></symbol>
+  <symbol id="strings" viewBox="0 0 48 48"><circle cx="24" cy="24" r="18"/><circle style="fill:var(--ia)" cx="24" cy="24" r="12"/><circle cx="24" cy="24" r="6" style="fill:#fff"/><path d="M42 24h4"/></symbol>
+</svg>
