@@ -1,0 +1,10 @@
+<!doctype html><html lang="de-CH"><head><meta charset="utf-8"><title>Pin-Szenen</title>
+<script src="pins.js"></script><script src="art-teile.js"></script><script src="art-szenen.js"></script>
+<style>body{margin:0;background:#888;font:14px Segoe UI}div{margin:10px}b{display:block;color:#fff}svg{display:block;width:1000px;height:440px}</style></head>
+<body><script>
+const only = new URLSearchParams(location.search).get('ids');
+PINS.forEach((p,i)=>{ if(only && !only.split(',').includes(p.id)) return;
+  const d=document.createElement('div');
+  try { d.innerHTML='<b>'+(i+1)+' '+p.id+'</b><img style="width:780px" src="'+URL.createObjectURL(new Blob([ART[p.id]()],{type:'image/svg+xml'}))+'">'; } catch(e){ d.innerHTML='<b>'+p.id+' FEHLER '+e.message+'</b>'; }
+  document.body.appendChild(d); });
+</script></body></html>

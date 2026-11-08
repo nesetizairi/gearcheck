@@ -1,0 +1,231 @@
+# Zusatzinfos für die Produktkarten der Sportseiten. Wird von tools/build.pl gelesen.
+# Zeilenformat:  sportart | Produktname (wie die Überschrift der Karte) | Geeignet für | Worauf achten | Vorteil | Nachteil
+# Umbenennen:    => sportart | alter Name | neuer Name
+# Neue Kurzbeschreibung:  ~ sportart | Name | neuer Text
+# Regeln: Alles beschreibt den Produkttyp, keine erfundenen Tests oder Modellangaben.
+
+# ---------- Umbenennungen für den ganzen DACH-Raum ----------
+=> radsport | Velohelm | Fahrradhelm (Velohelm)
+=> radsport | Velohandschuhe | Fahrradhandschuhe
+=> radsport | Velobrille | Fahrradbrille
+=> radsport | Veloglocke | Fahrradklingel (Veloglocke)
+=> radsport | Regenjacke fürs Velo | Regenjacke fürs Rad
+=> radsport | Velocomputer mit GPS | Fahrradcomputer mit GPS
+~ radsport | Fahrradklingel (Veloglocke) | In der Schweiz, in Deutschland und in Österreich gehört eine Klingel zur vorgeschriebenen Ausrüstung. Klein, laut und gut erreichbar.
+~ tennis-padel | Tennisschuhe | Für seitliche Bewegungen gebaut, Laufschuhe knicken dabei leicht um. Im DACH-Raum wird viel auf Sand gespielt, dafür gibt es eigene Sohlen.
+
+# ---------- Kampfsport ----------
+kampfsport | Boxhandschuhe | Einsteiger in Boxen, Kickboxen und Thaiboxen | Unzen nach Gewicht, Klett, fester Daumen | Ein Paar reicht für Sack, Pratzen und Sparring | Zu leichte Modelle sind fürs Sparring ungeeignet
+kampfsport | Handbandagen | Alle, die mit Handschuhen trainieren | 4–4,5 m, elastisch, Daumenschlaufe | Günstiger Schutz für Handgelenk und Knöchel | Das Wickeln braucht anfangs etwas Übung
+kampfsport | Mundschutz | Sparring und Wettkampf | Boil &amp; Bite, passende Grösse, Aufbewahrungsbox | Schützt Zähne und Kiefer für wenig Geld | Nutzt sich ab und muss irgendwann ersetzt werden
+kampfsport | Tiefschutz | Kickboxen, Thaiboxen und MMA | Modell für Männer oder Frauen, fester Sitz | Schützt eine sehr empfindliche Stelle | Harte Schalen sind anfangs ungewohnt
+kampfsport | Schienbeinschoner | Thaiboxen, Kickboxen und Sparring mit Tritten | Spannschutz, Grösse, Klett- oder Sockenform | Schont Schienbein und Partner bei Tritten | Dicke Polster tragen etwas auf
+kampfsport | Kopfschutz | Regelmässiges Sparring | Sichtfeld, Wangenschutz, Grösse | Dämpft Treffer und schützt vor Cuts | Schränkt die Sicht etwas ein
+kampfsport | MMA-Handschuhe | MMA-Training mit Schlägen und Griffen | Polsterung, Daumenschutz, Klettband | Greifen und Schlagen ohne Wechsel | Beim Sparring weniger Schutz als Boxhandschuhe
+kampfsport | Boxpratzen | Partnertraining und Kombinationen | Gebogene Form, guter Griff, Polsterung | Trainiert Technik und Timing zu zweit | Allein bringen sie nichts
+kampfsport | Thaipads | Thaiboxen und Kickboxen | Als Paar, Unterarmgurte, dicke Polsterung | Fangen auch harte Tritte und Knie ab | Schwerer und teurer als Pratzen
+kampfsport | Boxsack, hängend | Training zu Hause mit tragfähiger Decke | Länge, Gewicht, passender Deckenhaken | Fühlt sich am echtesten an | Braucht Bohren und eine stabile Decke
+kampfsport | Standboxsack | Mietwohnungen ohne Deckenmontage | Füllung mit Wasser oder Sand, Höhe, breiter Fuss | Kein Bohren, schnell umgestellt | Kann bei harten Tritten wandern
+kampfsport | Springseil | Kondition und Fussarbeit | Kugellager, einstellbare Länge | Günstig und passt in jede Tasche | Braucht Platz nach oben
+kampfsport | Puzzlematten für Bodenarbeit | Grappling, Ringen und Fallschule zu Hause | Dicke ab 2–4 cm, rutschfeste Oberfläche | Schützt Rücken und Boden | Braucht viel Fläche
+kampfsport | Rashguard | MMA, Grappling und Ringen | Enger Schnitt, flache Nähte | Schützt vor Abrieb und Mattenkontakt | Der enge Schnitt ist anfangs ungewohnt
+kampfsport | MMA- und Thai-Shorts | Kampfsport mit Tritten und Bodenarbeit | Seitenschlitze oder Stretch, fester Bund | Volle Bewegungsfreiheit | Thai-Shorts sind sehr kurz geschnitten
+kampfsport | Ringerschuhe | Ringen und Grappling auf der Matte | Passform, dünne Sohle, Knöchelhalt | Griff auf der Matte und Halt am Knöchel | Nur auf der Matte sinnvoll
+kampfsport | Sporttasche mit Nassfach | Alle, die regelmässig ins Gym gehen | Separates Nassfach, passende Grösse | Trennt Nasses von Trockenem | Ersetzt das Auslüften zu Hause nicht
+
+# ---------- Home-Gym & Fitness ----------
+home-gym | Trainingsmatte | Bodenübungen, Dehnen und Yoga | 10–15 mm Dicke, rutschfeste Unterseite | Schont Gelenke und Boden | Dicke Matten sind beim Stehen wackliger
+home-gym | Widerstandsbänder mit Griffen | Einsteiger und kleine Wohnungen | Set mit Türanker, mehrere Stärken | Viele Übungen auf wenig Platz | Der Widerstand lässt sich schwerer dosieren als bei Hanteln
+home-gym | Mini-Bänder (Loop Bands) | Beine, Po und Aufwärmen | Set mit mehreren Stärken, Stoff rollt weniger | Klein, günstig, überall dabei | Latexbänder rollen sich gern ein
+home-gym | Klimmzugstange | Rücken- und Armtraining ohne Bohren | Breite des Türrahmens, Belastbarkeit, Zierleisten | Eines der wirksamsten Geräte für zu Hause | Passt nicht in jeden Türrahmen
+home-gym | Springseil | Ausdauertraining auf wenig Platz | Kugellager, einstellbare Länge | Günstig und sehr wirksam | In der Mietwohnung nicht leise
+home-gym | Bauchroller | Training der Körpermitte | Breite Rolle, Kniepolster | Klein und günstig | Anfangs schwer, den Rücken vorsichtig belasten
+home-gym | Schlingentrainer | Training mit dem eigenen Körpergewicht | Türanker, Belastbarkeit, Griffe | Ganzkörpertraining, passt in jede Schublade | Braucht eine stabile Befestigung
+home-gym | Verstellbare Kurzhanteln | Krafttraining zu Hause | Wechselsystem, Maximalgewicht | Ersetzen einen ganzen Hantelständer | Gute Systeme kosten mehr
+home-gym | Kettlebell | Schwungübungen und Ganzkörpertraining | Gewicht, Gusseisen, glatter Griff | Fast unverwüstlich | Ein Gewicht passt nicht für alle Übungen
+home-gym | Langhantel-Set | Kniebeugen, Bankdrücken und Kreuzheben | Stangenlänge, Scheibendurchmesser, stabiler Boden | Schwere Grundübungen werden möglich | Braucht Platz und Bodenschutz
+home-gym | Hantelbank | Drücken, Rudern und Kurzhantelübungen | Belastbarkeit, verstellbare Lehne | Erweitert die Übungsauswahl stark | Braucht Stellfläche
+home-gym | Gewichtsweste | Körpergewichtstraining mit mehr Gewicht | Verstellbares Gewicht, guter Sitz | Die Hände bleiben frei | Kann bei langen Einheiten drücken
+home-gym | Kniebeugenständer | Schweres Langhanteltraining ohne Partner | Sicherheitsablagen, Belastbarkeit | Sicheres Training allein | Braucht Platz und Deckenhöhe
+home-gym | Dip-Station | Dips, Beinheben und Rudern | Standfestigkeit, Belastbarkeit | Keine Wandmontage nötig | Nimmt etwas Fläche ein
+home-gym | Bodenschutzmatten | Home-Gyms mit freien Gewichten | Dicke, Material, Steckverbindung | Schützt den Boden und dämpft Lärm | Neue Matten riechen anfangs oft
+home-gym | Faszienrolle | Erholung nach dem Training | Härte, Oberfläche glatt oder gerillt | Günstige Selbstmassage | Harte Rollen sind anfangs unangenehm
+home-gym | Massagepistole | Gezieltes Lockern einzelner Muskeln | Lautstärke, Akkulaufzeit, Aufsätze | Erreicht Stellen, die die Rolle verfehlt | Deutlich teurer als eine Faszienrolle
+
+# ---------- Fussball ----------
+fussball | Multi-Ground-Schuh (MG) | Spieler auf Rasen und Kunstrasen | Passform, Material, MG-Sohle | Ein Schuh für beide Beläge | Auf keinem Belag ganz optimal
+fussball | Kunstrasenschuh (AG) | Spieler, die fast nur auf Kunstrasen spielen | AG-Sohle, Passform | Schont Gelenke auf Kunstrasen | Auf nassem Naturrasen wenig Halt
+fussball | Turf-Schuh (TF) | Hartplatz, Kleinfeld und alter Kunstrasen | Gumminoppen, Dämpfung | Bequem und vielseitig | Auf Rasen zu wenig Grip
+fussball | Hallenschuh (IN) | Futsal und Hallentraining | Helle, abriebfreie Sohle | Greift auf dem Hallenboden | Draussen schnell abgenutzt
+fussball | Schienbeinschoner | Jedes Spiel und Training | Grösse nach Körpergrösse, Befestigung | Pflicht und günstig | Einfache Modelle verrutschen leicht
+fussball | Torwarthandschuhe | Torhüter in Training und Spiel | Latex, Grösse, Fingerschutz | Mehr Grip und Schutz beim Fangen | Weiches Latex nutzt sich schnell ab
+fussball | Grip-Socken | Spieler, die im Schuh rutschen | Noppen an der Sohle, passende Grösse | Besserer Halt im Schuh | Kommen zusätzlich zu den Stutzen dazu
+fussball | Trainingsball | Training im Verein und zu Hause | Grösse 4 oder 5, Material | Hält viel aus | Einfache Bälle verlieren schnell die Form
+fussball | Ballpumpe | Alle mit eigenem Ball | Ersatznadeln, Druckanzeige | Der richtige Druck schont den Ball | Nadeln gehen leicht verloren
+fussball | Markierungshütchen | Dribbel- und Passübungen | Flache Teller, Anzahl im Set | Schnell aufgestellt und günstig | Fliegen bei Wind gern weg
+fussball | Koordinationsleiter | Schnelligkeit und Fussarbeit | Länge, verstellbare Sprossen | Vielseitige Übungen | Verrutscht auf Rasen leicht
+fussball | Minitore | Garten und Kindertraining | Pop-up oder fest, Standfestigkeit | In Sekunden aufgebaut | Pop-up-Tore sind weniger stabil
+fussball | Rebounder | Allein Passen und Ballannahme üben | Verstellbarer Winkel, Netzspannung | Ein Trainingspartner, der nie müde wird | Braucht Platz im Garten
+fussball | Sporttasche mit Schuhfach | Spieler im Verein | Separates Schuhfach, Grösse | Dreck bleibt im Schuhfach | Das Schuhfach muss ab und zu ausgewaschen werden
+fussball | Sporttape | Fixieren und leichtes Stützen | Breite, Klebkraft | Vielseitig einsetzbar | Ersetzt keine Behandlung bei Verletzungen
+fussball | Trainingsleibchen | Trainer und Teams | Farben, Grössen, Anzahl im Set | Teams sind sofort erkennbar | Einheitsgrössen passen nicht allen
+fussball | Trinkflasche | Training und Spiel | Sportverschluss, Volumen | Du siehst, wie viel du trinkst | Einfache Flaschen schmecken nach Kunststoff
+fussball | Feldspielerhandschuhe | Training und Spiel bei Kälte | Dünnes Material, Noppen auf der Innenseite, Grösse | Warme Hände, ohne dass sie stören | Nur an kalten Tagen nötig
+
+# ---------- Running ----------
+running | Laufschuhe für die Strasse | Einsteiger und Strassenläufer | Passform, Dämpfung, Sprengung | Das wichtigste Teil der Laufausrüstung | Muss nach einigen Hundert Kilometern ersetzt werden
+running | Trailschuhe | Waldwege, Schotter und Berge | Profil, Seitenhalt, Zehenschutz | Sicherer Halt im Gelände | Auf Asphalt härter und lauter
+running | Laufsocken | Alle Läuferinnen und Läufer | Nahtlos, Funktionsmaterial | Beugen Blasen vor | Teurer als normale Socken
+running | Laufshirt | Jedes Training | Funktionsstoff, flache Nähte | Trocknet schnell | Synthetik riecht schneller als Merino
+running | Lauftights | Kühle Tage und lange Läufe | Passform, Taschen, Wintervariante | Scheuert nicht | Der enge Schnitt ist Geschmackssache
+running | Laufjacke | Wind, Regen und Dämmerung | Gewicht, Reflektoren, Belüftung | Leicht und klein verpackbar | Wasserdichte Modelle werden innen warm
+running | Stirnband und Laufhandschuhe | Kalte Tage | Dünnes Material, Touchscreen-Finger | Wenig Gewicht, viel Komfort | Bei mildem Wetter schnell zu warm
+running | Reflektorweste | Läufe im Dunkeln | Reflektorflächen, Gewicht | Deutlich besser sichtbar | Optisch kein Highlight
+running | Laufcap | Sonne und Regen | Gewicht, Belüftung | Schützt Augen und Gesicht | Im Winter zu dünn
+running | Sportsonnenbrille | Sonnige Läufe | UV-Schutz, fester Sitz | Schützt vor Sonne, Wind und Insekten | Kann bei Wärme beschlagen
+running | GPS-Laufuhr | Alle, die Fortschritte messen wollen | Akkulaufzeit, GPS, Pulsmessung | Tempo und Distanz immer im Blick | Für den Anfang nicht nötig
+running | Brustgurt | Training nach Pulsbereichen | Kompatibel mit deiner Uhr | Genauer als die Messung am Handgelenk | Empfinden manche als unbequem
+running | Sportkopfhörer | Läufe mit Musik oder Podcasts | Fester Sitz, Open-Ear für die Strasse | Motivation auf langen Läufen | In-Ear-Modelle dämpfen den Verkehr
+running | Laufgürtel | Handy, Schlüssel und Gel | Grösse, sitzt ohne zu hüpfen | Die Hände bleiben frei | Wenig Stauraum
+running | Stirnlampe | Läufe im Dunkeln | Fester Sitz, Akku, Helligkeit | Du siehst und wirst gesehen | Der Akku muss geladen sein
+running | Laufweste | Lange Läufe und Trails | Volumen, Flaschenhalter, Passform | Wasser und Jacke immer dabei | Für kurze Läufe überdimensioniert
+running | Soft Flask | Trinken unterwegs | Volumen, Mundstück | Schwappt nicht, lässt sich klein rollen | Steht nicht von allein
+running | Faszienrolle | Erholung nach dem Lauf | Härte, Grösse | Lockert Waden und Oberschenkel | Ersetzt keine Pause bei Schmerzen
+
+# ---------- Radsport ----------
+radsport | Fahrradhelm (Velohelm) | Jede Fahrt, egal wie kurz | Passform, Drehrad, MIPS | Schützt bei Stürzen | Muss nach einem Aufprall ersetzt werden
+radsport | Licht-Set vorne und hinten | Fahrten in Dämmerung und Dunkelheit | Akku, Seitensichtbarkeit, in Deutschland StVZO-Zulassung | Mehr Sicherheit, nachts vorgeschrieben | Der Akku muss regelmässig geladen werden
+radsport | Bügelschloss | Abstellen in der Stadt | Sicherheitsstufe, Halterung | Deutlich sicherer als ein Kabelschloss | Schwer
+radsport | Fahrradhandschuhe | Längere Fahrten | Polsterung, Passform | Entlastet die Hände | Kurzfinger-Modelle schützen bei Stürzen weniger
+radsport | Fahrradbrille | Wind, Insekten und Sonne | Wechselgläser, guter Sitz | Schützt die Augen | Kann beschlagen
+radsport | Fahrradklingel (Veloglocke) | Jedes Rad im Strassenverkehr | Laut, gut erreichbar | Günstig und in DE, AT und CH vorgeschrieben | Kleine Klingeln sind oft zu leise
+radsport | Radhose mit Sitzpolster | Fahrten ab etwa einer Stunde | Polsterqualität, Träger oder Bund | Deutlich mehr Komfort | Ohne Unterhose tragen ist ungewohnt
+radsport | Radtrikot | Sportliche Fahrten | Rückentaschen, Reissverschluss | Flattert nicht, Taschen hinten | Enger Schnitt
+radsport | Regenjacke fürs Rad | Pendeln und Touren | Rückenlänge, Packmass, Belüftung | Hält trocken und ist klein verstaut | Man schwitzt darin schneller
+radsport | Standpumpe mit Manometer | Zu Hause | Ventilkopf für Presta und Schrader, Manometer | Richtiger Druck in Sekunden | Zu gross für unterwegs
+radsport | Minipumpe | Unterwegs | Passende Ventilart, Halterung | Klein und leicht | Pumpen dauert länger
+radsport | Multitool | Pannen unterwegs | Inbusgrössen, Kettennieter | Viele Werkzeuge in einem | Weniger Hebel als richtiges Werkzeug
+radsport | Flickzeug und Reifenheber | Jede Ausfahrt | Mit Kleber oder selbstklebend | Günstig, rettet die Heimfahrt | Flicken braucht etwas Übung
+radsport | Kettenöl und Pflegeset | Alle mit Kettenschaltung | Öl für trockenes oder nasses Wetter | Schont Kette und Schaltung | Muss regelmässig gemacht werden
+radsport | Montageständer | Alle, die selbst schrauben | Klemme, Standfestigkeit, Höhe | Reparaturen auf Arbeitshöhe | Braucht Platz
+radsport | Fahrradcomputer mit GPS | Sportliche Fahrten und Navigation | Akku, Karten, Halterung | Tempo, Strecke und Navigation im Blick | Gute Modelle kosten viel
+radsport | Trinkflasche und Halter | Fahrten ab etwa 30 Minuten | Einhand-Verschluss, Position am Rahmen | Trinken ohne anzuhalten | Der Halter braucht Gewindeösen am Rahmen
+radsport | Satteltasche | Ersatzschlauch und Werkzeug | Grösse, Befestigung | Das Nötigste ist immer dabei | Wenig Platz
+radsport | Rollentrainer | Training im Winter zu Hause | Lautstärke, smart oder klassisch | Training unabhängig vom Wetter | Smarte Modelle sind teuer
+
+# ---------- Schwimmen ----------
+schwimmen | Schwimmbrille | Jedes Training | Passform (Saugtest), Glasfarbe, Anti-Fog | Klare Sicht, keine geröteten Augen | Die Anti-Fog-Beschichtung lässt mit der Zeit nach
+schwimmen | Badekappe | Lange Haare und Bäder mit Kappenpflicht | Silikon statt Latex | Schützt die Haare vor Chlor | Manche Modelle drücken
+schwimmen | Trainingsbadeanzug | Regelmässiges Schwimmen | Chlorresistentes Material | Bleibt lange in Form | Teurer als Freizeitmodelle
+schwimmen | Badehose (Jammer) | Sportliches Schwimmen | Chlorresistent, Passform | Weniger Wasserwiderstand | Der enge Schnitt ist ungewohnt
+schwimmen | Mikrofaser-Handtuch | Hallenbad und Reisen | Grösse, Trocknungszeit | Leicht und trocknet schnell | Fühlt sich anders an als Frottee
+schwimmen | Badeschuhe | Dusche und Beckenrand | Rutschfeste Sohle | Hygienisch und rutschfest | Einfache Modelle sind wenig bequem
+schwimmen | Nasenklammer und Ohrstöpsel | Empfindliche Nasen und Ohren | Passform, Silikon | Angenehmeres Schwimmen | Gehen leicht verloren
+schwimmen | Anti-Fog-Spray | Beschlagene Brillen | Für deine Brille geeignet | Frischt die Beschichtung auf | Muss regelmässig aufgetragen werden
+schwimmen | Pull Buoy | Armtraining | Grösse, Material | Fördert Zugtechnik und Wasserlage | Ersetzt kein Beintraining
+schwimmen | Schwimmbrett | Beintraining | Grösse, Auftrieb | Einfaches Technikwerkzeug | Kann bei falscher Haltung den Nacken belasten
+schwimmen | Hand-Paddles | Kraft und Zugtechnik | Grösse, Riemen | Wirksames Krafttraining im Wasser | Zu grosse Paddles belasten die Schultern
+schwimmen | Kurze Trainingsflossen | Beinschlag und Tempo | Grösse, Blattlänge | Mehr Tempo und bessere Wasserlage | Druckstellen bei falscher Grösse
+schwimmen | Frontschnorchel | Techniktraining | Kopfband, Mundstück | Volle Konzentration auf die Arme | Das Atmen braucht Gewöhnung
+schwimmen | Netzbeutel für Trainingshilfen | Alle mit Trainingshilfen | Grösse, Kordelzug | Alles beisammen, trocknet schnell | Schützt die Kleidung nicht vor Nässe
+schwimmen | Schwimmuhr | Ambitionierte Schwimmerinnen und Schwimmer | Wasserdichtigkeit, Bahnzählung | Zählt Bahnen automatisch | Teuer für gelegentliches Schwimmen
+schwimmen | Unterwasser-Kopfhörer | Lange Trainingseinheiten | Eigener Speicher, Wasserdichtigkeit | Musik beim Bahnenziehen | Bluetooth funktioniert unter Wasser nicht
+schwimmen | Schwimmboje | Freiwasser und Seen | Signalfarbe, Hüftgurt | Sichtbarkeit und Sicherheit | Zieht etwas im Wasser
+schwimmen | Neoprenanzug zum Schwimmen | Kaltes Freiwasser und Triathlon | Schwimm-Neopren, Passform | Wärme und Auftrieb | Teuer und braucht Pflege
+
+# ---------- Wintersport ----------
+wintersport | Skihelm | Jeden Pistentag | Grösse, Passform mit der Brille | Schützt den Kopf | Nach einem harten Aufprall ersetzen
+wintersport | Skibrille | Jedes Wetter auf der Piste | Filterkategorie, passt zum Helm | Klare Sicht und UV-Schutz | Ein Glas passt nicht für jedes Licht
+wintersport | Rückenprotektor | Park, Gelände und schnelles Fahren | Norm EN 1621-2, Passform | Schützt die Wirbelsäule | Etwas wärmer unter der Jacke
+wintersport | Handgelenkschoner | Snowboard-Anfänger | Grösse, Schiene | Schützt bei Stürzen auf die Hände | Passt nicht unter jeden Handschuh
+wintersport | Lawinen-Notfallset | Touren und Freeride abseits der Piste | LVS-Gerät mit drei Antennen, Kurs besuchen | Kann im Ernstfall Leben retten | Nur mit Ausbildung sinnvoll
+wintersport | Protektorenshorts | Snowboard-Anfänger | Polster an Steissbein und Hüfte | Weniger blaue Flecken beim Lernen | Trägt unter der Hose etwas auf
+wintersport | Skijacke | Pistentage bei jedem Wetter | Wassersäule, Atmungsaktivität, Schneefang | Hält trocken und warm | Gute Jacken sind teuer
+wintersport | Skihose | Skifahren und Snowboarden | Gamaschen, Kantenschutz | Schutz vor Nässe und Kälte | Gefütterte Modelle sind bei Sonne schnell zu warm
+wintersport | Funktionsunterwäsche | Die erste Schicht auf der Haut | Merino oder Synthetik | Hält warm und trocken | Merino ist teurer
+wintersport | Skisocken | Jeden Skitag | Polster, Länge, nur ein Paar tragen | Verhindern Druckstellen | Zu dicke Socken drücken in engen Skischuhen
+wintersport | Skihandschuhe | Kalte Pistentage | Wasserdicht, Fäustling oder Finger | Warme Hände | Fäustlinge sind weniger griffig
+wintersport | Halswärmer | Sessellift und Wind | Material, Länge | Klein, aber sehr wirksam | Wird bei Anstrengung feucht
+wintersport | Skitasche | Transport der Ski | Länge, Polsterung | Schützt Ski und Auto | Sperrig
+wintersport | Skischuhtasche | Der Weg zur Piste | Fächer, Rucksackträger | Schuhe, Helm und Handschuhe in einer Tasche | Nur im Winter in Gebrauch
+wintersport | Schuhtrockner | Mehrtägige Skiferien | Sanfte Wärme, Timer | Trockene Schuhe am Morgen | Braucht eine Steckdose
+wintersport | Skiwachs-Set | Besseres Gleiten | Flüssig- oder Heisswachs | Mehr Gleiten, schont den Belag | Heisswachsen braucht Werkzeug
+wintersport | Handwärmer | Sehr kalte Tage | Wiederverwendbar oder Einweg | Schnelle Wärme | Einweg-Wärmer erzeugen Abfall
+wintersport | Skirucksack | Pistentage mit etwas Gepäck | 15–25 Liter, Hüftgurt | Wechselglas, Getränk und Snack dabei | Im Sessellift etwas sperrig
+
+# ---------- Tennis & Padel ----------
+tennis-padel | Tennisschläger für Einsteiger | Tennis-Einsteiger | Kopfgrösse, Gewicht, Griffstärke | Verzeiht unsaubere Treffer | Fortgeschrittenen fehlt oft die Kontrolle
+tennis-padel | Tennisbälle | Training und Match | Druckbälle, passend zum Belag | Günstig in der Dose | Verlieren mit der Zeit Druck
+tennis-padel | Tennisschuhe | Regelmässiges Spielen | Sohle für Sand oder Hartplatz | Halt bei seitlichen Bewegungen | Pro Belag eigene Sohle sinnvoll
+tennis-padel | Griffband (Overgrip) | Alle Spielerinnen und Spieler | Dicke, Saugfähigkeit | Besserer Halt, günstig | Muss oft gewechselt werden
+tennis-padel | Vibrationsdämpfer | Alle, die das Pling stört | Grösse, Position in der Bespannung | Angenehmeres Treffgefühl | Reine Geschmackssache
+tennis-padel | Tennistasche | Spieler mit mehreren Schlägern | Anzahl Schläger, Schuhfach | Alles geschützt an einem Ort | Für Gelegenheitsspieler gross
+tennis-padel | Ersatzsaite | Vielspieler | Material, Stärke | Du weisst, was drin ist | Das Bespannen kostet extra
+tennis-padel | Padelschläger für Einsteiger | Padel-Einsteiger | Runde Form, Gewicht, weicher Kern | Grosser Sweetspot | Weniger Power als die Diamantform
+tennis-padel | Padelbälle | Padel-Training und Match | Padel- statt Tennisbälle | Richtiges Sprungverhalten | Verlieren mit der Zeit Druck
+tennis-padel | Padelschuhe | Padel auf Kunstrasen | Fischgrät-Sohle | Halt auf sandigem Kunstrasen | Auf anderen Belägen weniger geeignet
+tennis-padel | Padeltasche | Padelspielerinnen und -spieler | Gepolstertes Schlägerfach, Schuhfach | Der Schläger ist geschützt | Grösser als eine einfache Schlägerhülle
+tennis-padel | Kantenschutz für den Padelschläger | Alle Padelschläger | Passende Form und Breite | Schützt den Rahmen | Macht den Schlägerkopf etwas schwerer
+tennis-padel | Tennis-Trainer mit Gummiseil | Schlagtraining allein | Gewicht der Basis, Seillänge | Training ohne Partner | Ersetzt kein echtes Spiel
+tennis-padel | Ballkorb | Aufschlagtraining | Fassungsvermögen, Griffe | Bälle schnell aufgesammelt | Lohnt sich erst mit vielen Bällen
+tennis-padel | Schweissbänder | Schwitzige Hände und Stirn | Material, Breite | Der Griff bleibt trocken | Müssen oft gewaschen werden
+tennis-padel | Ellbogenbandage | Spieler mit Tennisarm-Beschwerden | Druckpolster, Grösse | Kann entlasten | Ersetzt keinen Arztbesuch
+tennis-padel | Cap für den Platz | Spiele bei Sonne | Belüftung, Schirm | Schützt vor Blendung | Bei bedecktem Himmel überflüssig
+
+# ---------- Selbst getestet ----------
+# Format:  + sportart | Produktname
+# Nur Produkttypen, die Neset selbst im Training benutzt hat (Angaben von Neset, 8. und 9. November 2026).
++ home-gym | Trainingsmatte
++ home-gym | Widerstandsbänder mit Griffen
++ home-gym | Mini-Bänder (Loop Bands)
++ home-gym | Klimmzugstange
++ home-gym | Springseil
++ home-gym | Schlingentrainer
++ home-gym | Kettlebell
++ home-gym | Langhantel-Set
++ home-gym | Hantelbank
++ home-gym | Dip-Station
++ home-gym | Faszienrolle
++ home-gym | Massagepistole
++ home-gym | Verstellbare Kurzhanteln
++ home-gym | Gewichtsweste
++ kampfsport | Boxhandschuhe
++ kampfsport | Mundschutz
++ kampfsport | Tiefschutz
++ kampfsport | Schienbeinschoner
++ kampfsport | Kopfschutz
++ kampfsport | MMA-Handschuhe
++ kampfsport | Boxpratzen
++ kampfsport | Springseil
++ kampfsport | Rashguard
++ kampfsport | MMA- und Thai-Shorts
++ kampfsport | Ringerschuhe
++ kampfsport | Handbandagen
++ kampfsport | Thaipads
++ fussball | Kunstrasenschuh (AG)
++ fussball | Hallenschuh (IN)
++ fussball | Schienbeinschoner
++ fussball | Grip-Socken
++ fussball | Koordinationsleiter
++ fussball | Sporttasche mit Schuhfach
++ fussball | Sporttape
++ fussball | Torwarthandschuhe
++ fussball | Feldspielerhandschuhe
++ running | Laufschuhe für die Strasse
++ running | Sportsonnenbrille
++ running | Laufweste
++ running | Faszienrolle
++ schwimmen | Schwimmbrille
++ schwimmen | Badekappe
++ wintersport | Skihelm
++ wintersport | Skibrille
++ wintersport | Skijacke
++ wintersport | Skihose
++ wintersport | Skisocken
++ wintersport | Skihandschuhe
++ wintersport | Halswärmer
++ wintersport | Handwärmer
++ tennis-padel | Tennisschläger für Einsteiger
++ tennis-padel | Tennisbälle
++ tennis-padel | Padelschläger für Einsteiger
++ tennis-padel | Schweissbänder

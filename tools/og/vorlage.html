@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>Vorschaubild</title>
+<!-- Rendert ein Vorschaubild (1200 × 630) für Facebook, WhatsApp, Pinterest usw. Aufruf: vorlage.html?key=boxhandschuhe-groesse
+     Die Daten erzeugt tools/build.pl in daten.js, die Bilder macht render.ps1. -->
+<style>
+  :root { --ink: #0d0d0d; --accent: #ff5a1f; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body { width: 1200px; height: 630px; overflow: hidden; font-family: "Segoe UI", "Segoe UI Variable Display", system-ui, Arial, sans-serif; background: var(--ink); }
+  .og { position: relative; width: 1200px; height: 630px; display: grid; grid-template-columns: 640px 560px; }
+  .text { position: relative; z-index: 2; background: var(--ink); color: #fff; padding: 52px 40px 48px 60px; display: flex; flex-direction: column; }
+  .text > img { height: 44px; width: auto; margin-left: -8px; align-self: flex-start; }
+  .kicker { margin-top: auto; display: inline-flex; align-items: center; gap: 12px; font-size: 22px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.12em; color: var(--cat); }
+  .kicker::before { content: ""; width: 34px; height: 6px; background: var(--cat); transform: skewX(-20deg); }
+  h1 { margin: 16px 0 0; font-size: 60px; line-height: 1.04; font-weight: 900; letter-spacing: -0.02em; }
+  h1.big { font-size: 84px; font-style: italic; text-transform: uppercase; line-height: 0.95; }
+  h1 em { font-style: inherit; color: var(--accent); }
+  .url { margin-top: 30px; font-size: 24px; font-weight: 800; color: #9a9a9a; }
+  .url b { color: var(--accent); }
+  .art { position: relative; background: var(--soft); overflow: hidden; }
+  .art::before { content: ""; position: absolute; left: -60px; top: 0; bottom: 0; width: 110px; background: var(--ink); transform: skewX(-8deg); z-index: 1; }
+  .art { background-image: radial-gradient(rgba(13,13,13,0.09) 1.5px, transparent 1.5px); background-size: 22px 22px; }
+  .art > img { position: absolute; left: 76px; right: 28px; top: 50%; width: calc(100% - 104px); height: auto; transform: translateY(-50%); filter: drop-shadow(0 18px 30px rgba(0,0,0,0.28)); z-index: 1; }
+  .stripe { position: absolute; left: 0; right: 0; bottom: 0; height: 14px; background: var(--cat); z-index: 3; }
+  .tiles { position: absolute; inset: 40px 34px 52px 92px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .tiles div { border-radius: 26px; background: #fff; display: grid; place-items: center; box-shadow: 0 8px 24px rgba(0,0,0,0.12); }
+  .tiles div img { width: 78%; }
+  .tiles .check { background: var(--ink); box-shadow: 0 0 0 7px var(--accent); }
+  .tiles .check svg { width: 52%; color: var(--accent); }
+</style>
+<script src="daten.js"></script>
+</head>
+<body>
+<div class="og" id="og">
+  <div class="text">
+    <img src="../../assets/img/logo.svg" alt="">
+    <span class="kicker" id="kicker"></span>
+    <h1 id="title"></h1>
+    <div class="url" id="url"><b>gearcheck.ch</b> · Erst checken. Dann kaufen.</div>
+  </div>
+  <div class="art" id="art"></div>
+  <div class="stripe"></div>
+</div>
+<script>
+  var COL = { fitness: '#ff5a1f', kampfsport: '#e0262b', fussball: '#16a34a', running: '#a3cf1c', radsport: '#7c3aed', schwimmen: '#1d6fe0', wintersport: '#38bdf8', racket: '#14b8a6' };
+  var key = new URLSearchParams(location.search).get('key') || 'start';
+  var p = (window.OG || []).filter(function (x) { return x.key === key; })[0] || { title: 'GearCheck', kicker: 'Kaufberatung', cat: 'fitness', art: '' };
+  var c = COL[p.cat] || '#ff5a1f';
+  document.documentElement.style.setProperty('--cat', c);
+  document.documentElement.style.setProperty('--soft', 'color-mix(in srgb, ' + c + ' 14%, #fff)');
+  document.getElementById('kicker').textContent = p.kicker;
+  var t = document.getElementById('title');
+  if (p.key === 'start') { t.className = 'big'; t.innerHTML = 'Erst checken.<br><em>Dann kaufen.</em>'; document.getElementById('url').innerHTML = '<b>gearcheck.ch</b> · für Deutschland, Österreich und die Schweiz'; }
+  else { t.textContent = p.title; }
+  // Titel verkleinern, bis er in drei bis vier Zeilen passt
+  var size = parseInt(getComputedStyle(t).fontSize, 10);
+  while (t.scrollHeight > 300 && size > 40) { size -= 2; t.style.fontSize = size + 'px'; }
+  var art = document.getElementById('art');
+  if (p.art) {
+    // Ganze Szene zeigen, auf getönter Fläche
+    art.innerHTML = '<img src="../..' + p.art + '" alt="">';
+  } else {
+    var s = ['home-gym', 'kampfsport', 'fussball', 'running', 'radsport', 'schwimmen', 'wintersport', 'tennis-padel'];
+    var html = s.map(function (x) { return '<div><img src="../../assets/img/gear/' + x + '.svg" alt=""></div>'; });
+    html.splice(4, 0, '<div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="square"><path d="M4 12.5l5 5L20 6.5"/></svg></div>');
+    art.innerHTML = '<div class="tiles">' + html.join('') + '</div>';
+  }
+</script>
+</body>
+</html>

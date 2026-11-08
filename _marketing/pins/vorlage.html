@@ -19,7 +19,7 @@
   .bar span { color: #b9b9b9; font-weight: 700; font-size: 27px; letter-spacing: 0.02em; }
 
   .art { position: relative; flex: 0 0 440px; overflow: hidden; background: var(--soft); }
-  .art img { position: absolute; width: 1150px; height: 613px; left: -150px; top: -150px; }
+  .art svg { display: block; width: 1000px; height: 440px; }
   .stripe { flex: 0 0 14px; background: var(--cat); }
 
   .body { flex: 1 1 auto; padding: 40px 56px 0; display: flex; flex-direction: column; min-height: 0; }
@@ -65,11 +65,13 @@
   .cta span { color: var(--accent); font-size: 32px; font-weight: 900; }
 </style>
 <script src="pins.js"></script>
+<script src="art-teile.js"></script>
+<script src="art-szenen.js"></script>
 </head>
 <body>
 <div class="pin" id="pin">
   <div class="bar"><img src="../../assets/img/logo.svg" alt=""><span>gearcheck.ch</span></div>
-  <div class="art"><img id="art" alt=""></div>
+  <div class="art" id="art"></div>
   <div class="stripe"></div>
   <div class="body" id="body">
     <span class="tag" id="tag"></span>
@@ -86,7 +88,7 @@
   const root = document.documentElement.style;
   root.setProperty('--cat', s.color);
   root.setProperty('--cat-text', s.text);
-  document.getElementById('art').src = '../../assets/img/sport/' + s.art + '.svg';
+  document.getElementById('art').innerHTML = ART[p.reuse || p.id]();
   document.getElementById('tag').textContent = p.tag;
   document.getElementById('headline').innerHTML = p.headline;
   document.getElementById('note').textContent = p.note;

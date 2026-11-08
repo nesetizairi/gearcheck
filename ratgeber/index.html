@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="de-CH">
+<html lang="de" class="no-js">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,199 +10,156 @@
   <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="/assets/img/favicon-192.png" type="image/png" sizes="192x192">
   <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
-  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/style.css?v=3b5b3d0f">
+  <script>document.documentElement.className = document.documentElement.className.replace('no-js', 'js');</script>
+  <script src="/assets/js/gc.js?v=6b8cb3f6" defer></script>
   <meta name="theme-color" content="#0d0d0d">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="GearCheck">
+  <meta property="og:locale" content="de_DE">
+  <meta property="og:locale:alternate" content="de_AT">
+  <meta property="og:locale:alternate" content="de_CH">
+  <meta property="og:title" content="Alle Ratgeber">
+  <meta property="og:description" content="Alle Kaufratgeber von GearCheck auf einen Blick: Home-Gym &amp; Fitness, Kampfsport und Fussball.">
+  <meta property="og:url" content="https://gearcheck.ch/ratgeber/">
+  <meta property="og:image" content="https://gearcheck.ch/assets/img/og/ratgeber.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Alle Ratgeber">
+  <meta name="twitter:card" content="summary_large_image">
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://gearcheck.ch/","name":"Start","position":2},{"@type":"ListItem","item":"https://gearcheck.ch/ratgeber/","name":"Alle Ratgeber","position":2}]}]}</script>
 </head>
+
 <body>
   <a class="skip" href="#inhalt">Zum Inhalt springen</a>
   <header class="site-header">
-    <div class="wrap">
+    <div class="wrap header-bar">
       <a class="brand" href="/"><img src="/assets/img/logo.svg" alt="GearCheck – zur Startseite" width="156" height="36"></a>
-      <nav class="nav" aria-label="Hauptnavigation">
+      <nav class="main-nav" aria-label="Hauptnavigation">
+        <details class="nav-drop">
+          <summary>Sportarten</summary>
+          <div class="mega">
+            <a class="mega-item cat-fitness" href="/home-gym/"><img src="/assets/img/gear/home-gym.svg" alt="" width="46" height="46" loading="lazy"><span><b>Home-Gym &amp; Fitness</b><small>Hanteln, Matten, Bänder</small></span></a>
+            <a class="mega-item cat-kampfsport" href="/kampfsport/"><img src="/assets/img/gear/kampfsport.svg" alt="" width="46" height="46" loading="lazy"><span><b>Kampfsport</b><small>Boxen, Thaiboxen, MMA, Ringen</small></span></a>
+            <a class="mega-item cat-fussball" href="/fussball/"><img src="/assets/img/gear/fussball.svg" alt="" width="46" height="46" loading="lazy"><span><b>Fussball</b><small>Schuhe, Schutz, Training</small></span></a>
+            <a class="mega-item cat-running" href="/running/"><img src="/assets/img/gear/running.svg" alt="" width="46" height="46" loading="lazy"><span><b>Running</b><small>Laufschuhe, Bekleidung, Technik</small></span></a>
+            <a class="mega-item cat-radsport" href="/radsport/"><img src="/assets/img/gear/radsport.svg" alt="" width="46" height="46" loading="lazy"><span><b>Radsport</b><small>Helm, Licht, Werkzeug</small></span></a>
+            <a class="mega-item cat-schwimmen" href="/schwimmen/"><img src="/assets/img/gear/schwimmen.svg" alt="" width="46" height="46" loading="lazy"><span><b>Schwimmen</b><small>Brille, Training, Freiwasser</small></span></a>
+            <a class="mega-item cat-wintersport" href="/wintersport/"><img src="/assets/img/gear/wintersport.svg" alt="" width="46" height="46" loading="lazy"><span><b>Wintersport</b><small>Helm, Brille, Bekleidung</small></span></a>
+            <a class="mega-item cat-racket" href="/tennis-padel/"><img src="/assets/img/gear/tennis-padel.svg" alt="" width="46" height="46" loading="lazy"><span><b>Tennis &amp; Padel</b><small>Schläger, Bälle, Schuhe</small></span></a>
+            <div class="mega-foot"><span>8 Sportarten, 142 Produkte erklärt</span><a href="/ratgeber/">Alle Ratgeber →</a></div>
+          </div>
+        </details>
         <a href="/ratgeber/" aria-current="page">Ratgeber</a>
+        <a href="/vergleiche/">Vergleiche</a>
         <a href="/ueber-uns/">Über uns</a>
       </nav>
-    </div>
-    <nav class="sportbar" aria-label="Sportarten">
-      <div class="wrap">
-        <a class="cat-fitness" href="/home-gym/">Home-Gym &amp; Fitness</a>
-        <a class="cat-kampfsport" href="/kampfsport/">Kampfsport</a>
-        <a class="cat-fussball" href="/fussball/">Fussball</a>
-        <a class="cat-running" href="/running/">Running</a>
-        <a class="cat-radsport" href="/radsport/">Radsport</a>
-        <a class="cat-schwimmen" href="/schwimmen/">Schwimmen</a>
-        <a class="cat-wintersport" href="/wintersport/">Wintersport</a>
-        <a class="cat-racket" href="/tennis-padel/">Tennis &amp; Padel</a>
+      <div class="header-actions">
+        <button class="icon-btn js-only" type="button" data-search-open aria-label="Suche öffnen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="7"/><path d="m16 16 5 5"/></svg></button>
+        <details class="menu-drop">
+          <summary class="icon-btn" aria-label="Menü"><svg class="i-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg><svg class="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></summary>
+          <nav class="mobile-menu" aria-label="Menü">
+            <p class="mm-title">Sportarten</p>
+            <div class="mm-sports">
+              <a class="cat-fitness" href="/home-gym/"><img src="/assets/img/gear/home-gym.svg" alt="" width="34" height="34" loading="lazy">Home-Gym &amp; Fitness</a>
+              <a class="cat-kampfsport" href="/kampfsport/"><img src="/assets/img/gear/kampfsport.svg" alt="" width="34" height="34" loading="lazy">Kampfsport</a>
+              <a class="cat-fussball" href="/fussball/"><img src="/assets/img/gear/fussball.svg" alt="" width="34" height="34" loading="lazy">Fussball</a>
+              <a class="cat-running" href="/running/"><img src="/assets/img/gear/running.svg" alt="" width="34" height="34" loading="lazy">Running</a>
+              <a class="cat-radsport" href="/radsport/"><img src="/assets/img/gear/radsport.svg" alt="" width="34" height="34" loading="lazy">Radsport</a>
+              <a class="cat-schwimmen" href="/schwimmen/"><img src="/assets/img/gear/schwimmen.svg" alt="" width="34" height="34" loading="lazy">Schwimmen</a>
+              <a class="cat-wintersport" href="/wintersport/"><img src="/assets/img/gear/wintersport.svg" alt="" width="34" height="34" loading="lazy">Wintersport</a>
+              <a class="cat-racket" href="/tennis-padel/"><img src="/assets/img/gear/tennis-padel.svg" alt="" width="34" height="34" loading="lazy">Tennis &amp; Padel</a>
+            </div>
+            <div class="mm-links"><a href="/ratgeber/">Alle Ratgeber</a><a href="/vergleiche/">Vergleiche</a><a href="/ueber-uns/">Über uns</a></div>
+          </nav>
+        </details>
       </div>
-    </nav>
+    </div>
   </header>
 
   <main id="inhalt">
-    <section class="rubric-head">
+    <section class="page-hero">
       <div class="wrap">
         <p class="breadcrumb"><a href="/">Start</a> › Alle Ratgeber</p>
-        <span class="tag">Übersicht</span>
-        <h1>Alle Ratgeber</h1>
-        <p class="lead">Jeder Ratgeber erklärt zuerst, worauf es ankommt, und empfiehlt erst dann.</p>
+        <span class="kicker">Kaufberatung</span>
+        <h1 class="display">Alle Ratgeber</h1>
+        <p class="lead">Jeder Ratgeber erklärt zuerst, worauf es ankommt, und empfiehlt erst dann. 12 Ratgeber zu 8 Sportarten, dazu <a href="/vergleiche/">Vergleiche</a> der wichtigsten Ausrüstungstypen.</p>
+        <div class="filter-bar js-only" role="group" aria-label="Nach Sportart filtern"><button type="button" class="chip" data-filter="alle" aria-pressed="true">Alle</button><button type="button" class="chip cat-fitness" data-filter="fitness" aria-pressed="false">Home-Gym</button><button type="button" class="chip cat-kampfsport" data-filter="kampfsport" aria-pressed="false">Kampfsport</button><button type="button" class="chip cat-fussball" data-filter="fussball" aria-pressed="false">Fussball</button><button type="button" class="chip cat-running" data-filter="running" aria-pressed="false">Running</button><button type="button" class="chip cat-radsport" data-filter="radsport" aria-pressed="false">Radsport</button><button type="button" class="chip cat-schwimmen" data-filter="schwimmen" aria-pressed="false">Schwimmen</button><button type="button" class="chip cat-wintersport" data-filter="wintersport" aria-pressed="false">Wintersport</button><button type="button" class="chip cat-racket" data-filter="racket" aria-pressed="false">Tennis &amp; Padel</button></div>
       </div>
     </section>
 
-    <section class="section">
+    <section class="section guide-section cat-fitness" data-cat="fitness" id="home-gym">
       <div class="wrap">
-        <div class="section-title">
-          <h2>Home-Gym &amp; Fitness</h2>
-          <a href="/home-gym/">Zur Ausrüstung →</a>
-        </div>
-        <div class="grid">
-          <a class="card cat-fitness" href="/ratgeber/home-gym-einsteiger/">
-            <span class="tag">Home-Gym</span>
-            <h3>Home-Gym für Einsteiger: Was du wirklich brauchst</h3>
-            <p>Grundausstattung in drei Budget-Stufen, mit Tipps für Mietwohnungen.</p>
-            <span class="more">Weiterlesen →</span>
-          </a>
-          <a class="card cat-fitness" href="/ratgeber/kurzhanteln-verstellbar/">
-            <span class="tag">Home-Gym</span>
-            <h3>Verstellbare Kurzhanteln: Welches System und wie schwer?</h3>
-            <p>Scheiben, Steck- oder Drehsystem und das richtige Maximalgewicht.</p>
-            <span class="more">Weiterlesen →</span>
-          </a>
+        <div class="section-head"><div><span class="kicker">2 Ratgeber</span><h2>Home-Gym &amp; Fitness</h2></div><a class="more-link" href="/home-gym/">Zur kompletten Ausrüstung →</a></div>
+        <div class="guide-grid">
+          <a class="card guide-card cat-fitness" href="/ratgeber/kurzhanteln-verstellbar/"><div class="gc-art"><img src="/assets/img/ratgeber/kurzhanteln-verstellbar.svg" alt="" width="800" height="350" loading="lazy"></div><div class="gc-body"><span class="tag">Home-Gym</span><h3>Verstellbare Kurzhanteln: Welches System und wie schwer?</h3><p>Scheiben, Steck- oder Drehsystem und das richtige Maximalgewicht.</p><div class="gc-meta"><span class="time">6 Min. Lesezeit</span><span class="read">Lesen →</span></div></div></a>
+          <a class="card guide-card cat-fitness" href="/ratgeber/home-gym-einsteiger/"><div class="gc-art"><img src="/assets/img/ratgeber/home-gym-einsteiger.svg" alt="" width="800" height="350" loading="lazy"></div><div class="gc-body"><span class="tag">Home-Gym</span><h3>Home-Gym für Einsteiger: Was du wirklich brauchst</h3><p>Grundausstattung in drei Budget-Stufen, mit Tipps für Mietwohnungen.</p><div class="gc-meta"><span class="time">7 Min. Lesezeit</span><span class="read">Lesen →</span></div></div></a>
         </div>
       </div>
     </section>
 
-    <section class="section section-soft">
+    <section class="section guide-section cat-kampfsport section-soft" data-cat="kampfsport" id="kampfsport">
       <div class="wrap">
-        <div class="section-title">
-          <h2>Kampfsport</h2>
-          <a href="/kampfsport/">Zur Ausrüstung →</a>
-        </div>
-        <div class="grid">
-          <a class="card cat-kampfsport" href="/ratgeber/boxhandschuhe-groesse/">
-            <span class="tag">Kampfsport</span>
-            <h3>Boxhandschuhe: Welche Grösse (Unzen) brauche ich?</h3>
-            <p>Unzen-Tabelle nach Körpergewicht und Trainingsart.</p>
-            <span class="more">Weiterlesen →</span>
-          </a>
-          <a class="card cat-kampfsport" href="/ratgeber/boxsack-kaufen/">
-            <span class="tag">Kampfsport</span>
-            <h3>Boxsack für zu Hause: hängend oder stehend, welches Gewicht?</h3>
-            <p>Länge und Gewicht nach Training, gefüllt oder ungefüllt und sicher montieren.</p>
-            <span class="more">Weiterlesen →</span>
-          </a>
+        <div class="section-head"><div><span class="kicker">2 Ratgeber</span><h2>Kampfsport</h2></div><a class="more-link" href="/kampfsport/">Zur kompletten Ausrüstung →</a></div>
+        <div class="guide-grid">
+          <a class="card guide-card cat-kampfsport" href="/ratgeber/boxsack-kaufen/"><div class="gc-art"><img src="/assets/img/ratgeber/boxsack-kaufen.svg" alt="" width="800" height="350" loading="lazy"></div><div class="gc-body"><span class="tag">Kampfsport</span><h3>Boxsack für zu Hause: hängend oder stehend, welches Gewicht?</h3><p>Länge und Gewicht nach Training, gefüllt oder ungefüllt und sicher montieren.</p><div class="gc-meta"><span class="time">6 Min. Lesezeit</span><span class="read">Lesen →</span></div></div></a>
+          <a class="card guide-card cat-kampfsport" href="/ratgeber/boxhandschuhe-groesse/"><div class="gc-art"><img src="/assets/img/ratgeber/boxhandschuhe-groesse.svg" alt="" width="800" height="350" loading="lazy"></div><div class="gc-body"><span class="tag">Kampfsport</span><h3>Boxhandschuhe: Welche Grösse (Unzen) brauche ich?</h3><p>Unzen-Tabelle nach Körpergewicht und Trainingsart.</p><div class="gc-meta"><span class="time">6 Min. Lesezeit</span><span class="read">Lesen →</span></div></div></a>
         </div>
       </div>
     </section>
 
-    <section class="section">
+    <section class="section guide-section cat-fussball" data-cat="fussball" id="fussball">
       <div class="wrap">
-        <div class="section-title">
-          <h2>Fussball</h2>
-          <a href="/fussball/">Zur Ausrüstung →</a>
-        </div>
-        <div class="grid">
-          <a class="card cat-fussball" href="/ratgeber/fussballschuhe-sohle/">
-            <span class="tag">Fussball</span>
-            <h3>Fussballschuhe: Welche Sohle für welchen Platz?</h3>
-            <p>FG, AG, MG, TF oder IN, plus Tipps zu Grösse und Material.</p>
-            <span class="more">Weiterlesen →</span>
-          </a>
-          <a class="card cat-fussball" href="/ratgeber/schienbeinschoner-groesse/">
-            <span class="tag">Fussball</span>
-            <h3>Schienbeinschoner: Welche Grösse und welche Art?</h3>
-            <p>Grösse nach Körpergrösse, mit oder ohne Knöchelschutz, und wie nichts verrutscht.</p>
-            <span class="more">Weiterlesen →</span>
-          </a>
+        <div class="section-head"><div><span class="kicker">2 Ratgeber</span><h2>Fussball</h2></div><a class="more-link" href="/fussball/">Zur kompletten Ausrüstung →</a></div>
+        <div class="guide-grid">
+          <a class="card guide-card cat-fussball" href="/ratgeber/schienbeinschoner-groesse/"><div class="gc-art"><img src="/assets/img/ratgeber/schienbeinschoner-groesse.svg" alt="" width="800" height="350" loading="lazy"></div><div class="gc-body"><span class="tag">Fussball</span><h3>Schienbeinschoner: Welche Grösse und welche Art?</h3><p>Grösse nach Körpergrösse, mit oder ohne Knöchelschutz, und wie nichts verrutscht.</p><div class="gc-meta"><span class="time">5 Min. Lesezeit</span><span class="read">Lesen →</span></div></div></a>
+          <a class="card guide-card cat-fussball" href="/ratgeber/fussballschuhe-sohle/"><div class="gc-art"><img src="/assets/img/ratgeber/fussballschuhe-sohle.svg" alt="" width="800" height="350" loading="lazy"></div><div class="gc-body"><span class="tag">Fussball</span><h3>Fussballschuhe: Welche Sohle für welchen Platz?</h3><p>FG, AG, MG, TF oder IN, plus Tipps zu Grösse und Material.</p><div class="gc-meta"><span class="time">6 Min. Lesezeit</span><span class="read">Lesen →</span></div></div></a>
         </div>
       </div>
     </section>
 
-    <section class="section section-soft">
+    <section class="section guide-section cat-running section-soft" data-cat="running" id="running">
       <div class="wrap">
-        <div class="section-title">
-          <h2>Running</h2>
-          <a href="/running/">Zur Ausrüstung →</a>
-        </div>
-        <div class="grid">
-          <a class="card cat-running" href="/ratgeber/laufschuhe-einsteiger/">
-            <span class="tag">Running</span>
-            <h3>Laufschuhe für Einsteiger: Worauf es beim Kauf ankommt</h3>
-            <p>Dämpfung, Sprengung, Grösse und Preisklassen für den ersten Laufschuh.</p>
-            <span class="more">Weiterlesen →</span>
-          </a>
+        <div class="section-head"><div><span class="kicker">1 Ratgeber</span><h2>Running</h2></div><a class="more-link" href="/running/">Zur kompletten Ausrüstung →</a></div>
+        <div class="guide-grid">
+          <a class="card guide-card cat-running" href="/ratgeber/laufschuhe-einsteiger/"><div class="gc-art"><img src="/assets/img/ratgeber/laufschuhe-einsteiger.svg" alt="" width="800" height="350" loading="lazy"></div><div class="gc-body"><span class="tag">Running</span><h3>Laufschuhe für Einsteiger: Worauf es beim Kauf ankommt</h3><p>Dämpfung, Sprengung, Grösse und Preisklassen für den ersten Laufschuh.</p><div class="gc-meta"><span class="time">6 Min. Lesezeit</span><span class="read">Lesen →</span></div></div></a>
         </div>
       </div>
     </section>
 
-    <section class="section">
+    <section class="section guide-section cat-radsport" data-cat="radsport" id="radsport">
       <div class="wrap">
-        <div class="section-title">
-          <h2>Radsport</h2>
-          <a href="/radsport/">Zur Ausrüstung →</a>
-        </div>
-        <div class="grid">
-          <a class="card cat-radsport" href="/ratgeber/velohelm-kaufen/">
-            <span class="tag">Radsport</span>
-            <h3>Velohelm kaufen: Welche Grösse und welcher Typ passt?</h3>
-            <p>Kopfumfang messen, Helm richtig einstellen und den passenden Typ finden.</p>
-            <span class="more">Weiterlesen →</span>
-          </a>
+        <div class="section-head"><div><span class="kicker">1 Ratgeber</span><h2>Radsport</h2></div><a class="more-link" href="/radsport/">Zur kompletten Ausrüstung →</a></div>
+        <div class="guide-grid">
+          <a class="card guide-card cat-radsport" href="/ratgeber/velohelm-kaufen/"><div class="gc-art"><img src="/assets/img/ratgeber/velohelm-kaufen.svg" alt="" width="800" height="350" loading="lazy"></div><div class="gc-body"><span class="tag">Radsport</span><h3>Fahrradhelm (Velohelm) kaufen: Welche Grösse und welcher Typ passt?</h3><p>Kopfumfang messen, Helm richtig einstellen und den passenden Typ finden.</p><div class="gc-meta"><span class="time">6 Min. Lesezeit</span><span class="read">Lesen →</span></div></div></a>
         </div>
       </div>
     </section>
 
-    <section class="section section-soft">
+    <section class="section guide-section cat-schwimmen section-soft" data-cat="schwimmen" id="schwimmen">
       <div class="wrap">
-        <div class="section-title">
-          <h2>Schwimmen</h2>
-          <a href="/schwimmen/">Zur Ausrüstung →</a>
-        </div>
-        <div class="grid">
-          <a class="card cat-schwimmen" href="/ratgeber/schwimmbrille-kaufen/">
-            <span class="tag">Schwimmen</span>
-            <h3>Schwimmbrille kaufen: Welche passt und beschlägt nicht?</h3>
-            <p>Saugtest, Glasfarben und Pflegetipps gegen beschlagene Gläser.</p>
-            <span class="more">Weiterlesen →</span>
-          </a>
+        <div class="section-head"><div><span class="kicker">1 Ratgeber</span><h2>Schwimmen</h2></div><a class="more-link" href="/schwimmen/">Zur kompletten Ausrüstung →</a></div>
+        <div class="guide-grid">
+          <a class="card guide-card cat-schwimmen" href="/ratgeber/schwimmbrille-kaufen/"><div class="gc-art"><img src="/assets/img/ratgeber/schwimmbrille-kaufen.svg" alt="" width="800" height="350" loading="lazy"></div><div class="gc-body"><span class="tag">Schwimmen</span><h3>Schwimmbrille kaufen: Welche passt und beschlägt nicht?</h3><p>Saugtest, Glasfarben und Pflegetipps gegen beschlagene Gläser.</p><div class="gc-meta"><span class="time">5 Min. Lesezeit</span><span class="read">Lesen →</span></div></div></a>
         </div>
       </div>
     </section>
 
-    <section class="section">
+    <section class="section guide-section cat-wintersport" data-cat="wintersport" id="wintersport">
       <div class="wrap">
-        <div class="section-title">
-          <h2>Wintersport</h2>
-          <a href="/wintersport/">Zur Ausrüstung →</a>
-        </div>
-        <div class="grid">
-          <a class="card cat-wintersport" href="/ratgeber/skihelm-skibrille/">
-            <span class="tag">Wintersport</span>
-            <h3>Skihelm und Skibrille: Grösse, Passform und Filterkategorie</h3>
-            <p>Helm in der richtigen Grösse, Brille mit passender Filterkategorie, beides ohne Lücke.</p>
-            <span class="more">Weiterlesen →</span>
-          </a>
-          <a class="card cat-wintersport" href="/ratgeber/skibekleidung-zwiebelprinzip/">
-            <span class="tag">Wintersport</span>
-            <h3>Skibekleidung: Das Zwiebelprinzip richtig angewendet</h3>
-            <p>Drei Schichten, die zusammenarbeiten, plus was je nach Temperatur passt.</p>
-            <span class="more">Weiterlesen →</span>
-          </a>
+        <div class="section-head"><div><span class="kicker">2 Ratgeber</span><h2>Wintersport</h2></div><a class="more-link" href="/wintersport/">Zur kompletten Ausrüstung →</a></div>
+        <div class="guide-grid">
+          <a class="card guide-card cat-wintersport" href="/ratgeber/skibekleidung-zwiebelprinzip/"><div class="gc-art"><img src="/assets/img/ratgeber/skibekleidung-zwiebelprinzip.svg" alt="" width="800" height="350" loading="lazy"></div><div class="gc-body"><span class="tag">Wintersport</span><h3>Skibekleidung: Das Zwiebelprinzip richtig angewendet</h3><p>Drei Schichten, die zusammenarbeiten, plus was je nach Temperatur passt.</p><div class="gc-meta"><span class="time">6 Min. Lesezeit</span><span class="read">Lesen →</span></div></div></a>
+          <a class="card guide-card cat-wintersport" href="/ratgeber/skihelm-skibrille/"><div class="gc-art"><img src="/assets/img/ratgeber/skihelm-skibrille.svg" alt="" width="800" height="350" loading="lazy"></div><div class="gc-body"><span class="tag">Wintersport</span><h3>Skihelm und Skibrille: Grösse, Passform und Filterkategorie</h3><p>Helm in der richtigen Grösse, Brille mit passender Filterkategorie, beides ohne Lücke.</p><div class="gc-meta"><span class="time">6 Min. Lesezeit</span><span class="read">Lesen →</span></div></div></a>
         </div>
       </div>
     </section>
 
-    <section class="section section-soft">
+    <section class="section guide-section cat-racket section-soft" data-cat="racket" id="tennis-padel">
       <div class="wrap">
-        <div class="section-title">
-          <h2>Tennis &amp; Padel</h2>
-          <a href="/tennis-padel/">Zur Ausrüstung →</a>
-        </div>
-        <div class="grid">
-          <a class="card cat-racket" href="/ratgeber/schlaeger-einsteiger/">
-            <span class="tag">Tennis &amp; Padel</span>
-            <h3>Tennis- und Padelschläger für Einsteiger: Worauf es ankommt</h3>
-            <p>Kopfgrösse, Gewicht und Griffstärke beim Tennis, Form und Kern beim Padel.</p>
-            <span class="more">Weiterlesen →</span>
-          </a>
+        <div class="section-head"><div><span class="kicker">1 Ratgeber</span><h2>Tennis &amp; Padel</h2></div><a class="more-link" href="/tennis-padel/">Zur kompletten Ausrüstung →</a></div>
+        <div class="guide-grid">
+          <a class="card guide-card cat-racket" href="/ratgeber/schlaeger-einsteiger/"><div class="gc-art"><img src="/assets/img/ratgeber/schlaeger-einsteiger.svg" alt="" width="800" height="350" loading="lazy"></div><div class="gc-body"><span class="tag">Tennis &amp; Padel</span><h3>Tennis- und Padelschläger für Einsteiger: Worauf es ankommt</h3><p>Kopfgrösse, Gewicht und Griffstärke beim Tennis, Form und Kern beim Padel.</p><div class="gc-meta"><span class="time">6 Min. Lesezeit</span><span class="read">Lesen →</span></div></div></a>
         </div>
       </div>
     </section>
@@ -212,10 +169,11 @@
     <div class="wrap">
       <div class="footer-grid">
         <div class="footer-brand">
-          <img src="/assets/img/logo.svg" alt="GearCheck" width="139" height="32">
-          <p>Sportausrüstung, ehrlich gecheckt.<br><a href="mailto:hello@gearcheck.ch">hello@gearcheck.ch</a></p>
+          <img src="/assets/img/logo.svg" alt="GearCheck" width="139" height="32" loading="lazy">
+          <p>Unabhängige Kaufberatung für Sportausrüstung. Gemacht in der Schweiz, für Deutschland, Österreich und die Schweiz.</p>
+          <p><a href="mailto:hello@gearcheck.ch">hello@gearcheck.ch</a></p>
         </div>
-        <nav class="footer-col" aria-label="Sportarten">
+        <nav class="footer-col" aria-label="Sportarten in der Fusszeile">
           <strong>Sportarten</strong>
           <a href="/home-gym/">Home-Gym &amp; Fitness</a>
           <a href="/kampfsport/">Kampfsport</a>
@@ -226,16 +184,38 @@
           <a href="/wintersport/">Wintersport</a>
           <a href="/tennis-padel/">Tennis &amp; Padel</a>
         </nav>
-        <nav class="footer-col" aria-label="Rechtliches">
+        <nav class="footer-col" aria-label="Beliebte Ratgeber">
+          <strong>Beliebte Ratgeber</strong>
+          <a href="/ratgeber/boxhandschuhe-groesse/">Welche Boxhandschuhe brauche ich?</a>
+          <a href="/ratgeber/laufschuhe-einsteiger/">Welcher Laufschuh passt zu mir?</a>
+          <a href="/ratgeber/fussballschuhe-sohle/">Welche Fussballschuhe brauche ich?</a>
+          <a href="/ratgeber/kurzhanteln-verstellbar/">Welche Kurzhanteln lohnen sich?</a>
+          <a href="/ratgeber/schwimmbrille-kaufen/">Welche Schwimmbrille ist die richtige?</a>
+        </nav>
+        <nav class="footer-col" aria-label="Über GearCheck">
           <strong>GearCheck</strong>
           <a href="/ratgeber/">Alle Ratgeber</a>
+          <a href="/vergleiche/">Vergleiche</a>
           <a href="/ueber-uns/">Über uns</a>
+          <a href="/ueber-uns/#methode">So empfehlen wir</a>
           <a href="/impressum/">Impressum</a>
           <a href="/datenschutz/">Datenschutz</a>
         </nav>
       </div>
-      <p class="disclosure">* Mit Stern markierte Links sind Affiliate-Links. Als Amazon-Partner verdiene ich an qualifizierten Verkäufen. Für dich ändert sich am Preis nichts.</p>
+      <div class="footer-bottom">
+        <p class="disclosure">* Mit Stern markierte Links sind Affiliate-Links. Als Amazon-Partner verdiene ich an qualifizierten Verkäufen. Für dich ändert sich am Preis nichts.</p>
+        <div class="country js-only" role="group" aria-label="Land wählen"><span class="country-label">Dein Land</span><span class="seg"><button type="button" data-country="DE" aria-pressed="false" title="Deutschland"><svg class="flag" viewBox="0 0 5 3" aria-hidden="true"><rect width="5" height="1" fill="#000"/><rect y="1" width="5" height="1" fill="#DD0000"/><rect y="2" width="5" height="1" fill="#FFCE00"/></svg>DE</button><button type="button" data-country="AT" aria-pressed="false" title="Österreich"><svg class="flag" viewBox="0 0 3 2" aria-hidden="true"><rect width="3" height="2" fill="#ED2939"/><rect y="0.667" width="3" height="0.667" fill="#fff"/></svg>AT</button><button type="button" data-country="CH" aria-pressed="false" title="Schweiz"><svg class="flag flag-ch" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" fill="#D52B1E"/><path d="M13 6h6v7h7v6h-7v7h-6v-7H6v-6h7z" fill="#fff"/></svg>CH</button></span></div>
+      </div>
     </div>
   </footer>
+  <dialog class="search-dialog" id="suche" aria-label="Suche">
+    <form class="search-form" role="search" method="dialog">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="7"/><path d="m16 16 5 5"/></svg>
+      <input type="search" id="suche-feld" placeholder="Wonach suchst du? z. B. Boxhandschuhe" autocomplete="off" aria-label="Suchbegriff">
+      <button class="icon-btn" value="close" aria-label="Suche schliessen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+    </form>
+    <div class="search-results" id="suche-treffer" aria-live="polite"></div>
+  </dialog>
+
 </body>
 </html>

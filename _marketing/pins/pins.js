@@ -302,3 +302,77 @@ window.BOARDS = [
   { name: 'Wintersport: Ski & Snowboard Ausrüstung', description: 'Skihelm, Skibrille, Protektoren, Skibekleidung und Zubehör. Packlisten und Kaufberatung für die Skisaison.' },
   { name: 'Tennis & Padel Ausrüstung', description: 'Tennis- und Padelschläger für Einsteiger, Bälle, Schuhe und Zubehör. Worauf es beim Kauf ankommt.' }
 ];
+
+// Markierte Themen (Pinterest: Feld „Markierte Themen“ beim Erstellen). Pro Pin eintippen und den passenden Vorschlag auswählen, max. 10.
+window.TOPICS = {
+  'boxhandschuhe':      ['Boxen', 'Boxhandschuhe', 'Kampfsport', 'Kickboxen', 'Muay Thai', 'Boxtraining', 'Sportausrüstung'],
+  'home-gym':           ['Home Gym', 'Fitness zu Hause', 'Workout zu Hause', 'Fitnessgeräte', 'Krafttraining', 'Fitness für Anfänger'],
+  'fussballschuhe':     ['Fussball', 'Fussballschuhe', 'Fussballtraining', 'Kunstrasen', 'Sportausrüstung', 'Fussballspieler'],
+  'laufschuhe':         ['Laufen', 'Laufschuhe', 'Joggen', 'Laufen für Anfänger', 'Lauftraining', 'Running'],
+  'velohelm':           ['Fahrrad', 'Fahrradhelm', 'Radfahren', 'Velo', 'Fahrradzubehör', 'Sicherheit'],
+  'schwimmbrille':      ['Schwimmen', 'Schwimmbrille', 'Schwimmtraining', 'Hallenbad', 'Freiwasserschwimmen', 'Triathlon'],
+  'skibrille':          ['Skifahren', 'Skibrille', 'Snowboarden', 'Skiurlaub', 'Wintersport', 'Skiausrüstung'],
+  'schlaeger':          ['Tennis', 'Padel', 'Tennisschläger', 'Padel Tennis', 'Tennis für Anfänger', 'Sportausrüstung'],
+  'kampfsport-liste':   ['Kampfsport', 'Boxen', 'MMA', 'Muay Thai', 'Kickboxen', 'Boxhandschuhe', 'Sportausrüstung'],
+  'fussball-liste':     ['Fussball', 'Fussballtraining', 'Fussballschuhe', 'Torwart', 'Fussball Kinder', 'Sportausrüstung'],
+  'home-gym-liste':     ['Home Gym', 'Fitnessgeräte', 'Kurzhanteln', 'Kettlebell', 'Fitness zu Hause', 'Krafttraining'],
+  'running-liste':      ['Laufen', 'Running', 'Laufschuhe', 'Laufbekleidung', 'Joggen', 'Trailrunning'],
+  'radsport-liste':     ['Radfahren', 'Fahrrad', 'Rennrad', 'Fahrradzubehör', 'Mountainbike', 'Velo'],
+  'schwimmen-liste':    ['Schwimmen', 'Schwimmtraining', 'Schwimmbrille', 'Triathlon', 'Hallenbad', 'Sportausrüstung'],
+  'wintersport-liste':  ['Skifahren', 'Skiurlaub', 'Packliste', 'Snowboarden', 'Wintersport', 'Skiausrüstung'],
+  'tennis-padel-liste': ['Tennis', 'Padel', 'Padel Tennis', 'Tennisschläger', 'Tennisschuhe', 'Sportausrüstung'],
+  'boxsack':            ['Boxsack', 'Boxen', 'Kampfsport', 'Home Gym', 'Kickboxen', 'Boxtraining'],
+  'zwiebelprinzip':     ['Skifahren', 'Skibekleidung', 'Zwiebellook', 'Skiurlaub', 'Wintersport', 'Funktionskleidung'],
+  'schienbeinschoner':  ['Fussball', 'Schienbeinschoner', 'Fussball Kinder', 'Fussballtraining', 'Sportausrüstung', 'Fussballspieler'],
+  'kurzhanteln':        ['Kurzhanteln', 'Home Gym', 'Krafttraining', 'Hanteltraining', 'Fitnessgeräte', 'Fitness zu Hause']
+};
+
+// Neue Versionen von Pin 1–6 (die alten bleiben online). Gleiches neues Bild, neuer Titel, neue Beschreibung,
+// Link auf die Schnellauswahl, damit Pinterest sie nicht als Duplikat sieht.
+(function () {
+  const again = (base, extra) => Object.assign({}, window.PINS.find(p => p.id === base), { reuse: base }, extra);
+  window.PINS.push(
+    again('boxhandschuhe', {
+      id: 'boxhandschuhe-2',
+      link: 'https://gearcheck.ch/ratgeber/boxhandschuhe-groesse/#schnellauswahl',
+      title: 'Boxhandschuhe kaufen: 10, 12, 14 oder 16 Unzen? So findest du deine Grösse',
+      description: '10, 12, 14 oder 16 oz? Welche Unzen-Zahl du brauchst, hängt von deinem Körpergewicht und vom Training ab: Fürs Sparring nimmst du meist schwerere Handschuhe als für Sandsack und Pratzen. Mit Tabelle, Klett oder Schnürung und den typischen Fehlern beim ersten Kauf. Auf gearcheck.ch',
+      alt: 'Illustration: Personenwaage mit 72 kg, Pfeil zu einem Paar roter Boxhandschuhe mit 16 oz'
+    }),
+    again('home-gym', {
+      id: 'home-gym-2',
+      link: 'https://gearcheck.ch/ratgeber/home-gym-einsteiger/#schnellauswahl',
+      title: 'Training zu Hause: 4 Geräte, die für den Anfang reichen',
+      description: 'Kein Platz, kein grosses Budget? Für den Start reichen eine Matte, Widerstandsbänder, ein Springseil und eine Klimmzugstange für den Türrahmen, zusammen etwa 100 €. Was du danach ergänzen kannst und worauf du in der Mietwohnung achten solltest. Auf gearcheck.ch',
+      alt: 'Illustration: Klimmzugstange im Türrahmen, Trainingsmatte mit Springseil und Widerstandsbändern, Preisschild ca. 100 Euro'
+    }),
+    again('fussballschuhe', {
+      id: 'fussballschuhe-2',
+      link: 'https://gearcheck.ch/ratgeber/fussballschuhe-sohle/#schnellauswahl',
+      title: 'FG, AG oder TF? So erkennst du die richtige Fussballschuh-Sohle',
+      description: 'Falsche Sohle, falscher Halt: Auf Kunstrasen rutschen FG-Stollen schneller weg oder bleiben hängen. Welche Sohle zu Naturrasen, Kunstrasen, Hartplatz und Halle passt und warum MG oft die beste Wahl ist, wenn du auf beidem spielst. Auf gearcheck.ch',
+      alt: 'Illustration: drei Fussballschuh-Sohlen FG, AG und TF auf Naturrasen, Kunstrasen und Hartplatz'
+    }),
+    again('laufschuhe', {
+      id: 'laufschuhe-2',
+      link: 'https://gearcheck.ch/ratgeber/laufschuhe-einsteiger/#schnellauswahl',
+      title: 'Laufschuhe: Wie viel Platz vorne? Die Daumenregel',
+      description: 'Zu kleine Laufschuhe sind der häufigste Fehler: Vorne gehört etwa eine Daumenbreite Platz hin, darum meist eine halbe bis ganze Nummer grösser. Am besten nachmittags mit Laufsocken anprobieren. Dazu Dämpfung, Sprengung und wann du neue Schuhe brauchst. Auf gearcheck.ch',
+      alt: 'Illustration: Laufschuh mit einer Daumenbreite Platz vorne, Massband und Uhr auf Nachmittag'
+    }),
+    again('velohelm', {
+      id: 'velohelm-2',
+      link: 'https://gearcheck.ch/ratgeber/velohelm-kaufen/#schnellauswahl',
+      title: 'Velohelm-Check in 30 Sekunden: 2 Finger, V-Form, 1 Finger',
+      description: 'So prüfst du vor jeder Fahrt, ob dein Velohelm richtig sitzt: zwei Finger über den Augenbrauen, die Riemen bilden ein V unter dem Ohr, ein Finger Platz am Kinn. Dazu: die richtige Grösse messen, MIPS erklärt und wann der Helm ersetzt werden muss. Auf gearcheck.ch',
+      alt: 'Illustration: Kopf mit Velohelm und den Markierungen 2 Finger, V-Form und 1 Finger'
+    }),
+    again('schwimmbrille', {
+      id: 'schwimmbrille-2',
+      link: 'https://gearcheck.ch/ratgeber/schwimmbrille-kaufen/#schnellauswahl',
+      title: 'Hallenbad oder See? Die richtige Glasfarbe für deine Schwimmbrille',
+      description: 'Klare Gläser fürs Hallenbad, getönte oder verspiegelte für Freibad und See: So wählst du die passende Schwimmbrille. Plus der Saugtest für die Passform und Tipps, damit nichts beschlägt. Ehrliche Kaufberatung auf gearcheck.ch',
+      alt: 'Illustration: vier Schwimmbrillen mit klaren, leicht getönten, dunklen und verspiegelten Gläsern vom Hallenbad bis zum See'
+    })
+  );
+})();

@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><title>Gear-Symbole erzeugen</title>
+<!-- Erzeugt assets/img/gear/<sport>.svg aus den Pin-Bauteilen. Aufruf über tools/gen/gear.ps1 -->
+<script src="../../_marketing/pins/art-teile.js"></script>
+</head><body>
+<script>
+const { at, defs, T } = window.ARTKIT;
+const COL = {
+  fitness: ['#ff9a6b', '#ff5a1f', '#b83a0a'], kampfsport: ['#ff5c61', '#e0262b', '#8f1014'],
+  fussball: ['#4ade80', '#16a34a', '#0c6b30'], running: ['#d9f566', '#a3cf1c', '#5f8100'],
+  radsport: ['#a78bfa', '#7c3aed', '#4c1d95'], schwimmen: ['#60a5fa', '#1d6fe0', '#0f3f8f'],
+  wintersport: ['#8fe0ff', '#38bdf8', '#0e7fb6'], racket: ['#5eead4', '#14b8a6', '#0b7266']
+};
+const shadow = (cx, cy, rx) => `<ellipse cx="${cx}" cy="${cy}" rx="${rx}" ry="${(rx * 0.16).toFixed(1)}" fill="#0d0d0d" opacity="0.14"/>`;
+const ITEMS = {
+  'home-gym':     ['fitness',     shadow(100, 170, 70) + at(100, 98, 0.92, -18, T.dumbbell())],
+  'kampfsport':   ['kampfsport',  shadow(100, 182, 52) + at(100, 96, 0.9, -12, T.glove())],
+  'fussball':     ['fussball',    shadow(100, 178, 58) + at(100, 100, 1.38, 0, T.ball())],
+  'running':      ['running',     shadow(100, 160, 74) + at(100, 112, 0.74, -6, T.runshoe())],
+  'radsport':     ['radsport',    shadow(100, 176, 70) + at(100, 96, 0.8, 0, T.bikehelmet())],
+  'schwimmen':    ['schwimmen',   shadow(100, 150, 70) + at(100, 104, 0.72, -10, T.swimgoggles('url(#gm)', 'url(#gk)'))],
+  'wintersport':  ['wintersport', shadow(100, 172, 70) + at(102, 104, 0.82, 0, T.skihelmet())],
+  'tennis-padel': ['racket',      shadow(100, 182, 56) + at(92, 104, 0.6, 32, T.tennisracket()) + at(150, 156, 0.85, 0, T.tennisball())]
+};
+for (const [slug, [sport, body]] of Object.entries(ITEMS)) {
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200" aria-hidden="true">${defs(COL[sport])}${body}</svg>`;
+  const t = document.createElement('textarea');
+  t.id = 'out-' + slug;
+  t.textContent = svg;
+  document.body.appendChild(t);
+}
+</script>
+</body></html>

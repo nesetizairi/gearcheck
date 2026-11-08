@@ -33,6 +33,9 @@
   .done { margin-top: 12px; font-weight: 700; display: flex; align-items: center; gap: 8px; }
   .done input { width: 20px; height: 20px; accent-color: var(--accent); }
   .pin.is-done { opacity: 0.55; }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; }
+  .chips button { background: #fff; color: var(--ink); border: 1.5px solid var(--ink); border-radius: 999px; padding: 3px 12px; font-weight: 700; }
+  .chips button.ok { background: var(--accent); border-color: var(--accent); }
   @media (max-width: 640px) { .pin { grid-template-columns: 1fr; } .pin img { width: 100%; height: auto; } }
 </style>
 <script src="pins.js"></script>
@@ -41,7 +44,7 @@
 <header>
   <img src="/assets/img/logo.svg" alt="GearCheck">
   <h1>Pin-Paket</h1>
-  <p>16 Pins für Pinterest, mit Titel, Beschreibung, Pinnwand und Link zum Kopieren.</p>
+  <p>26 Pins für Pinterest (21–26 sind neue Versionen von 1–6, die alten bleiben online), mit Titel, Beschreibung, Link, Pinnwand, Alt-Text und markierten Themen zum Kopieren.</p>
 </header>
 <main>
   <div class="steps">
@@ -51,6 +54,7 @@
       <li>Das Bild hochladen (Bild hier per Rechtsklick → „Bild speichern unter“, oder Link „Bild herunterladen“).</li>
       <li><b>Titel, Beschreibung und Link</b> mit den Kopieren-Knöpfen übernehmen.</li>
       <li>Die passende <b>Pinnwand</b> wählen und beim Alternativtext den Text aus „Alt-Text“ einfügen.</li>
+      <li>Bei <b>„Markierte Themen“</b> jedes Thema eintippen (oder hier anklicken, dann ist es kopiert) und den passenden Vorschlag von Pinterest auswählen.</li>
       <li>Veröffentlichen und hier abhaken. Tipp: lieber 2–3 Pins pro Tag als alle auf einmal.</li>
     </ol>
   </div>
@@ -74,13 +78,20 @@
     const file = 'bilder/' + String(i + 1).padStart(2, '0') + '-' + p.id + '.png';
     return '<div class="pin' + (done[p.id] ? ' is-done' : '') + '" style="--cat:' + SPORTS[p.sport].color + '" data-id="' + p.id + '">' +
       '<div><img src="' + file + '" alt="' + p.alt + '"><a class="dl" href="' + file + '" download>Bild herunterladen</a></div>' +
-      '<div><span class="num">Pin ' + (i + 1) + '</span>' +
+      '<div><span class="num">Pin ' + (i + 1) + (p.reuse ? ' · neue Version von Pin ' + (PINS.findIndex(x => x.id === p.reuse) + 1) : '') + '</span>' +
       field('Titel', p.title) + field('Beschreibung', p.description) + field('Link', p.link) +
       field('Pinnwand', p.board) + field('Alt-Text', p.alt) +
+      '<div class="field"><label>Markierte Themen</label><div class="chips">' +
+      (TOPICS[p.reuse || p.id] || []).map(t => '<button data-topic="' + t + '">' + t + '</button>').join('') + '</div></div>' +
       '<label class="done"><input type="checkbox"' + (done[p.id] ? ' checked' : '') + '> Hochgeladen</label></div></div>';
   }).join('');
 
   document.addEventListener('click', e => {
+    const c = e.target.closest('button[data-topic]');
+    if (c) {
+      navigator.clipboard.writeText(c.dataset.topic).then(() => { c.classList.add('ok'); setTimeout(() => c.classList.remove('ok'), 1500); });
+      return;
+    }
     const b = e.target.closest('button[data-copy]');
     if (!b) return;
     const text = document.getElementById(b.dataset.copy).textContent;
