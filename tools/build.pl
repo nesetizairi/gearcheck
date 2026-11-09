@@ -722,9 +722,16 @@ sub build_guide {
   # Kurztext dauerhaft an der Seite speichern
   if ($html !~ /<main[^>]*data-teaser=/) { my $t = h($g->{teaser}); $html =~ s{<main ([^>]*)>}{<main $1 data-teaser="$t">}; }
 
-  # Lieferhinweis je Land wie auf den Sportseiten, direkt unter dem Affiliate-Hinweis
-  $html =~ s{\s*<p class="ship-note"[^>]*>.*?</p>}{}s;
-  $html =~ s{(<p class="notice">.*?</p>)}{$1\n    $SHIP_NOTE}s if !$is_cmp && $html =~ /data-amazon/;
+  # Ratgeber: Affiliate- und Lieferhinweis stehen am Ende des Artikels (vor "Passend dazu"), damit Besucher
+  # direkt beim Inhalt landen. Die Amazon-Knöpfe bleiben mit Stern (*) gekennzeichnet.
+  my $notes = '';
+  if (!$is_cmp) {
+    my ($notice) = $html =~ m{(<p class="notice">.*?</p>)}s;
+    $html =~ s{\s*<div class="page-notes">.*?</div><!-- /page-notes -->}{}s;
+    $html =~ s{\s*<p class="ship-note"[^>]*>.*?</p>}{}s;
+    $html =~ s{\s*<p class="notice">.*?</p>}{}s;
+    $notes = qq(<div class="page-notes">$notice) . ($html =~ /data-amazon/ ? "\n    $SHIP_NOTE" : '') . qq(</div><!-- /page-notes -->\n\n    ) if $notice;
+  }
 
   # Meta-Zeile einheitlich
   my $meta = qq(<p class="meta"><span>Aktualisiert am <time datetime="$g->{date}">) . date_de($g->{date}) . qq(</time></span><span>ca. $g->{min} Minuten Lesezeit</span><span>von <a href="/ueber-uns/">Neset</a></span></p>);
@@ -779,7 +786,7 @@ sub build_guide {
   $html =~ s{\s*<!-- gc:share -->.*?<!-- /gc:share -->}{}s;
   my $passend = $is_cmp ? '' : passend_html($g);
   $passend = "$passend\n\n    " if $passend;
-  $html =~ s{(\s*<div class="author">)}{\n\n    $passend$share$1}s;
+  $html =~ s{(\s*<div class="author">)}{\n\n    $notes$passend$share$1}s;
 
   # Weiterlesen: bei Ratgebern zuerst gleiche Sportart, bei Vergleichen zuerst andere Vergleiche derselben Sportart
   my @rel;
