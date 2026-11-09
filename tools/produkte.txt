@@ -397,3 +397,4 @@ tennis-padel | Cap für den Platz | Spiele bei Sonne | Belüftung, Schirm | Sch�
 ! fussball | Grip-Socken | Gehören für mich zum Standard.
 ! fussball | Sporttape | Ich nutze Tape auch im Kampfsport, um die Hände über den Bandagen zusätzlich zu stabilisieren.
 ! running | Laufweste | Nutze ich gerne beim Joggen.
+! home-gym | Klimmzugstange | Ich habe Stangen für den Türrahmen und für die Wand getestet. Heute trainiere ich an der Wandstange, weil sie mehrere Griffe hat.

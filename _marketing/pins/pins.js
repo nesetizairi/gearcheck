@@ -417,7 +417,7 @@ window.PINS.push(
     cta: 'Varianten & Sicherheit',
     link: 'https://gearcheck.ch/ratgeber/klimmzugstange/',
     title: 'Klimmzugstange kaufen: Türrahmen, Wand, Decke oder Turm?',
-    description: 'Welche Klimmzugstange passt zu deinem Home-Gym? Türrahmen ohne Bohren, verschraubt an Wand oder Decke oder ein freistehender Turm mit Dip-Griffen. Worauf du bei Belastbarkeit, Montage und Griffen achten solltest und welche Fehlkäufe häufig sind. Auf gearcheck.ch',
+    description: 'Welche Klimmzugstange passt zu deinem Home-Gym? Türrahmen ohne Bohren, verschraubt an Wand oder Decke oder ein freistehender Turm mit Dip-Griffen. Worauf du bei Belastbarkeit, Montage und Griffen achten solltest und welche Fehlkäufe häufig sind. Mit eigener Erfahrung an Türrahmen- und Wandstange, auf gearcheck.ch',
     alt: 'Illustration: Türrahmen mit Klimmzugstange, ein Massband misst die Breite, Hinweis auf die Wandstärke'
   },
   {

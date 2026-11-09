@@ -26,7 +26,7 @@ Legende: **P1** zuerst schreiben, **P2** danach, **P3** später, **fertig** = am
 | Prio | Thema | Kaufabsicht | Eigene Erfahrung | Verlinkt auf |
 |---|---|---|---|---|
 | fertig | Klimmzugstange: Türrahmen, Wand oder Decke? | hoch | ✓ | Klimmzugstange |
-| P1 | Kettlebell: welches Gewicht für den Start? | hoch | ✓ | Kettlebell, Vergleich Kettlebell/Kurzhantel |
+| fertig | Kettlebell: welches Gewicht für den Start? | hoch | ✓ | Kettlebell, Vergleich Kettlebell/Kurzhantel |
 | P1 | Hantelbank: flach oder verstellbar, Belastbarkeit | hoch | ✓ | Hantelbank |
 | P2 | Home-Gym in der Garage: Boden, Lärm, Temperatur | mittel | ✓ | Bodenschutzmatten, Langhantel-Set |
 | P2 | Widerstandsbänder: Stärken und Arten | mittel | ✓ | Widerstandsbänder, Mini-Bänder |
@@ -93,7 +93,7 @@ Hinweis: Beim Licht unterscheiden sich die Vorschriften je Land. Vor dem Schreib
 | P2 | Griffstärke beim Tennisschläger messen | mittel | ✓ | Tennisschläger, Griffband |
 | P3 | Padelbälle oder Tennisbälle? (als Vergleich) | mittel | ✓ | beide Karten |
 
-**Stand nach dem 9. November 2026:** Jede Sportart hat mindestens zwei Ratgeber (insgesamt 19). **Empfohlen als Nächstes:** Torwarthandschuhe und Kettlebell-Gewicht (beide mit eigener Erfahrung) sowie Fahrradlicht, solange es früh dunkel ist (Vorschriften für DE, AT und CH vorher prüfen und mit Datum angeben).
+**Stand nach dem 9. November 2026:** Jede Sportart hat mindestens zwei Ratgeber (insgesamt 20). **Empfohlen als Nächstes:** Fahrradlicht, solange es früh dunkel ist (Vorschriften für DE, AT und CH vorher prüfen und mit Datum angeben), und Boxhandschuhe fürs Sparring (eigene Erfahrung). Torwarthandschuhe nur als recherchierter Ratgeber, Neset hat dazu wenig eigene Aussagen.
 
 ---
 
@@ -136,7 +136,7 @@ Tipps:
 
 ## 4. Offene Entscheidungen
 
-1. **Klimmzugstange:** Welche Variante hattest du (Türrahmen zum Einhängen, Teleskop, Wand, Decke oder Turm)? Dann kann der Ratgeber einen Satz „Aus meinem Training“ und die Kennzeichnung „selbst getestet“ an der richtigen Variante bekommen.
+1. **Klimmzugstange:** erledigt. Neset hat Türrahmen- und Wandstange getestet und trainiert an der Wandstange; Decke und Turm nicht getestet.
 2. **Foto für „Über uns“:** Ein quadratisches Foto als `assets/img/neset.jpg` ablegen, dann erscheint es automatisch auf „Über uns“ und in allen Autorenboxen.
 3. **Schweizer Händler:** Prüfen, ob grosse Schweizer Shops ein eigenes Partnerprogramm anbieten. Dann lassen sich pro Produkt Schweizer Angebote hinterlegen (`data-offer-ch`), statt Amazon.de mit Versand und Einfuhrabgaben.
 4. **Rechtliche Prüfung:** Impressum und Datenschutz beschreiben den technischen Stand. Für Deutschland und Österreich (DSGVO, Impressumspflicht, Werbekennzeichnung) lohnt eine Prüfung durch eine Fachperson.

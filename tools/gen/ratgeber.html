@@ -231,6 +231,28 @@ ART['tennisschuhe-padelschuhe'] = () => {
    ${at(742, 252, 0.6, 0, T.tennisball())}`);
 };
 
+// Kettlebell mit Gewichtsangabe
+const kb = (num, fill = 'url(#gm)') => `<g>
+  <path d="M-36-30C-40-66-26-82 0-82S40-66 36-30" fill="none" stroke="${K}" stroke-width="24"/>
+  <path d="M-36-30C-40-66-26-82 0-82S40-66 36-30" fill="none" stroke="url(#gk)" stroke-width="15"/>
+  <path d="M-56 10C-56-28-30-44 0-44S56-28 56 10C56 40 40 60 30 62H-30C-40 60-56 40-56 10Z" fill="${fill}" ${o()}/>
+  <rect x="-34" y="56" width="68" height="12" rx="4" fill="url(#gk)" ${o(3)}/>
+  <text y="20" text-anchor="middle" font-family="Segoe UI, Arial" font-weight="900" font-style="italic" font-size="26" fill="#fff" opacity="0.92">${num}</text>
+  ${shine('M-40-6C-38-24-24-34-10-36', 7, 0.4)}</g>`;
+
+ART['kettlebell-gewicht'] = () => {
+  const c = COL.fitness;
+  const bells = [[112, 8, 0.66, 1], [252, 12, 0.76, 0], [402, 16, 0.86, 1], [560, 20, 0.96, 0], [716, 24, 1.06, 0]];
+  return scene('fitness', 'Ratgeber Kettlebell-Gewicht: fünf Kettlebells von 8 bis 24 Kilogramm nebeneinander, eine leichte mit 8 und eine schwere mit 16 Kilogramm hervorgehoben',
+  `<pattern id="rub" width="64" height="64" patternUnits="userSpaceOnUse"><rect width="64" height="64" fill="#232323"/><circle cx="12" cy="14" r="1.6" fill="#3d3d3d"/><circle cx="44" cy="40" r="1.6" fill="${c[1]}" opacity="0.6"/></pattern>`,
+  `<rect y="292" width="800" height="58" fill="url(#rub)"/><rect y="288" width="800" height="6" fill="url(#gm)"/>
+   ${tick(586, 70, c[1])}
+   ${bells.map(([x, n, s, hi]) => `<ellipse cx="${x}" cy="292" rx="${46 * s}" ry="6" fill="#000" opacity="0.35"/>` + at(x, 292 - 68 * s, s, 0, kb(n, hi ? 'url(#gm)' : 'url(#gk)'))).join('')}
+   ${label(112, 292 - 162 * 0.66 - 30, 'LEICHT', { size: 17, bg: K, stroke: true, wf: 0.72 })}
+   ${label(402, 292 - 162 * 0.86 - 30, 'SCHWER', { size: 17, bg: c[1], stroke: true, wf: 0.72 })}
+   <g font-family="Segoe UI, Arial" font-weight="800" font-size="16" fill="#cfcfcf" text-anchor="middle">${bells.map(([x, n]) => `<text x="${x}" y="326">${n} kg</text>`).join('')}</g>`);
+};
+
 // Ausgabe
 for (const slug of Object.keys(ART)) {
   const ta = document.createElement('textarea');
