@@ -80,6 +80,7 @@ running | Laufshirt | Jedes Training | Funktionsstoff, flache Nähte | Trocknet 
 running | Lauftights | Kühle Tage und lange Läufe | Passform, Taschen, Wintervariante | Scheuert nicht | Der enge Schnitt ist Geschmackssache
 running | Laufjacke | Wind, Regen und Dämmerung | Gewicht, Reflektoren, Belüftung | Leicht und klein verpackbar | Wasserdichte Modelle werden innen warm
 running | Stirnband und Laufhandschuhe | Kalte Tage | Dünnes Material, Touchscreen-Finger | Wenig Gewicht, viel Komfort | Bei mildem Wetter schnell zu warm
+running | Schlauchschal | Kalte Tage und Winterläufe | Atmungsaktives Material, Länge | Wärmt den Hals, vor Mund und Nase wird kalte Luft angenehmer | Wird bei langen Läufen feucht
 running | Reflektorweste | Läufe im Dunkeln | Reflektorflächen, Gewicht | Deutlich besser sichtbar | Optisch kein Highlight
 running | Laufcap | Sonne und Regen | Gewicht, Belüftung | Schützt Augen und Gesicht | Im Winter zu dünn
 running | Sportsonnenbrille | Sonnige Läufe | UV-Schutz, fester Sitz | Schützt vor Sonne, Wind und Insekten | Kann bei Wärme beschlagen
@@ -218,6 +219,7 @@ tennis-padel | Cap für den Platz | Spiele bei Sonne | Belüftung, Schirm | Sch�
 + running | Laufshirt
 + running | Lauftights
 + running | GPS-Laufuhr
++ running | Schlauchschal
 + radsport | Fahrradhelm (Velohelm)
 + radsport | Bügelschloss
 + radsport | Fahrradbrille
@@ -299,6 +301,7 @@ tennis-padel | Cap für den Platz | Spiele bei Sonne | Belüftung, Schirm | Sch�
 ^ running | Lauftights | plus | Heisse Sommertage
 ^ running | Laufjacke | plus | Trockene, warme Tage
 ^ running | Stirnband und Laufhandschuhe | bedarf | Milde Temperaturen
+^ running | Schlauchschal | plus | Warme Tage | Winter-Tipp | Über Mund und Nase gezogen, wird kalte Luft beim Einatmen angenehmer.
 ^ running | Reflektorweste | plus | Läufe nur bei Tageslicht | Preis-Leistungs-Tipp | Für wenig Geld deutlich besser sichtbar, sobald du in der Dämmerung oder im Dunkeln läufst.
 ^ running | Laufcap | bedarf | Läufe im Winter
 ^ running | Sportsonnenbrille | bedarf | Läufe im Wald und in der Dämmerung
@@ -412,3 +415,4 @@ tennis-padel | Cap für den Platz | Spiele bei Sonne | Belüftung, Schirm | Sch�
 ! running | Laufshirt | Laufshirts trage ich bei fast jedem Lauftraining.
 ! running | Lauftights | Richtig gut finde ich Tights mit Handytasche: Das Handy sitzt fest am Bein und springt beim Laufen nicht herum. Eine starke Empfehlung von mir.
 ! running | GPS-Laufuhr | Ich habe mehrere GPS-Laufuhren benutzt. Sie helfen sehr, das Tempo zu checken: Bin ich im Zieltempo oder sollte ich schneller oder langsamer laufen?
+! running | Schlauchschal | Ich benutze ihn sehr oft, gerade weil ich auch im Winter joggen gehe. Er filtert die kalte Luft, und das Einatmen tut nicht so weh.

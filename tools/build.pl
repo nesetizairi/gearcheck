@@ -96,7 +96,7 @@ my %FINDER = (
     ratgeber => [['fussballschuhe-sohle', ''], ['schienbeinschoner-groesse', 'verein']] },
   'running' => { ort => ['Wo läufst du meistens?', [['strasse', 'Strasse und feste Wege'], ['trail', 'Wald und Trail']]],
     start => [['Laufschuhe für die Strasse', 'Das wichtigste Teil, am besten anprobieren', 'strasse'], ['Trailschuhe', 'Grobes Profil für Halt im Gelände', 'trail'], ['Laufsocken', 'Beugen Blasen vor', ''], ['Laufshirt', 'Trocknet schneller als Baumwolle', '']],
-    mehr => [['Lauftights', 'Für kühle Tage', '', ''], ['Laufjacke', 'Für Wind und Regen', '', ''], ['Reflektorweste', 'Gesehen werden auf der Strasse', 'strasse', ''], ['Stirnlampe', 'Für Läufe im Dunkeln', '', ''],
+    mehr => [['Lauftights', 'Für kühle Tage', '', ''], ['Laufjacke', 'Für Wind und Regen', '', ''], ['Reflektorweste', 'Gesehen werden auf der Strasse', 'strasse', ''], ['Schlauchschal', 'Gegen kalte Luft beim Einatmen', '', ''], ['Stirnlampe', 'Für Läufe im Dunkeln', '', ''],
              ['Faszienrolle', 'Für die Erholung', '', ''], ['Laufweste', 'Wasser und Jacke auf langen Trails', 'trail', 'fort'], ['Soft Flask', 'Trinken unterwegs', 'trail', 'fort'], ['GPS-Laufuhr', 'Wenn du Fortschritte messen willst', '', 'fort']],
     fehl => [['Laufschuhe zu klein kaufen: Vorne gehört eine Daumenbreite Platz hin.', ''], ['In Baumwolle laufen: Sie wird nass, schwer und scheuert.', ''], ['Im Dunkeln ohne Licht oder Reflektoren an der Strasse laufen.', 'strasse'], ['Mit glatten Strassenschuhen auf nasse Trails: Das Profil findet kaum Halt.', 'trail']],
     ratgeber => [['laufschuhe-einsteiger', ''], ['laufen-im-winter', '']] },
@@ -151,7 +151,7 @@ my %PASSEND = (
   'klimmzugstange' => { p => ['home-gym|Klimmzugstange', 'home-gym|Dip-Station', 'home-gym|Schlingentrainer', 'home-gym|Gewichtsweste'] },
   'kettlebell-gewicht' => { p => ['home-gym|Kettlebell', 'home-gym|Bodenschutzmatten', 'home-gym|Trainingsmatte', 'home-gym|Verstellbare Kurzhanteln'],
                             v => ['kettlebell-oder-kurzhantel', 'verstellbare-oder-feste-kurzhanteln'] },
-  'laufen-im-winter' => { p => ['running|Lauftights', 'running|Laufjacke', 'running|Stirnlampe', 'running|Reflektorweste', 'running|Stirnband und Laufhandschuhe'],
+  'laufen-im-winter' => { p => ['running|Schlauchschal', 'running|Lauftights','running|Laufjacke', 'running|Stirnlampe', 'running|Reflektorweste', 'running|Stirnband und Laufhandschuhe'],
                           v => ['trailschuhe-oder-strassenlaufschuhe'] },
   'fahrradschloss' => { p => ['radsport|Bügelschloss', 'radsport|Licht-Set vorne und hinten', 'radsport|Fahrradhelm (Velohelm)'] },
   'trainingshilfen-schwimmen' => { p => ['schwimmen|Pull Buoy', 'schwimmen|Kurze Trainingsflossen', 'schwimmen|Hand-Paddles', 'schwimmen|Frontschnorchel', 'schwimmen|Netzbeutel für Trainingshilfen'] },
@@ -170,7 +170,7 @@ $ANIM{$_} = 'spin'  for qw(ball tennisball trainerball roller);
 $ANIM{$_} = 'run'   for qw(runshoe sneaker boot slides socks);
 $ANIM{$_} = 'swing' for qw(tennisracket padelracket rope bag freebag bell);
 $ANIM{$_} = 'shine' for qw(goggles skigoggles sunglasses watch bikecomputer headlamp bikelight);
-$ANIM{$_} = 'tilt'  for qw(bikehelmet skihelmet headgear swimcap cap beanie);
+$ANIM{$_} = 'tilt'  for qw(bikehelmet skihelmet headgear swimcap cap beanie neckwarmer);
 
 my %MON = (januar => 1, februar => 2, 'märz' => 3, april => 4, mai => 5, juni => 6, juli => 7, august => 8, september => 9, oktober => 10, november => 11, dezember => 12);
 my @MON_NAME = qw(- Januar Februar März April Mai Juni Juli August September Oktober November Dezember);
