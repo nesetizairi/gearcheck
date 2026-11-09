@@ -651,7 +651,12 @@ HTML
     : 'Alle Produkte hier sind recherchierte Empfehlungen, nicht selbst getestet';
   my $notice = qq(<p class="notice"><span>Diese Seite enthält Affiliate-Links (*). Kaufst du darüber ein, erhalte ich eine kleine Provision, für dich ändert sich am Preis nichts. $kennz (<a href="/ueber-uns/#methode">so arbeiten wir</a>). Preisspannen sind grobe Richtwerte, Stand $stand.</span></p>)
              . qq(\n        $SHIP_NOTE);
-  $html =~ s{<p class="notice">.*?</p>(\s*<p class="ship-note".*?</p>)?}{$notice}s;
+  # Hinweise stehen unter den Produkten, damit Besucher (z. B. von Pinterest) direkt bei der Ausrüstung landen.
+  # Die Kennzeichnung bleibt sichtbar: Stern (*) an jedem Amazon-Knopf, Lieferhinweis für die Schweiz unter jedem Knopf (gc.js).
+  $html =~ s{\s*<div class="page-notes">.*?</div><!-- /page-notes -->}{}s;
+  $html =~ s{\s*<p class="notice">.*?</p>(\s*<p class="ship-note".*?</p>)?}{}s;
+  $html =~ s{(\s*</div>\s*</section>\s*<section class="section section-soft" id="ratgeber">)}{\n        <div class="page-notes">$notice</div><!-- /page-notes -->$1}s
+    or warn "  Platz für Hinweise nicht gefunden: $p->{file}\n";
   $html =~ s{<div class="section-title">}{<div class="section-head">}g;
 
   # Ratgeber und Vergleiche der Sportart
