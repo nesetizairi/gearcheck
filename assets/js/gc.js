@@ -104,6 +104,15 @@
     $$('[data-ship-note]').forEach(function (el) {
       el.querySelector('span').innerHTML = m.note + ' Dein Land: <b>' + esc(m.name) + '</b> · <button type="button" data-open-country>ändern</button>';
     });
+    // Schweiz: an jeder Karte offen sagen, dass der Preis in Euro ist und die Lieferung geprüft werden muss
+    $$('.gear-price > span:first-child').forEach(function (s) { s.textContent = code === 'CH' ? 'Preis in EUR' : 'Preisorientierung'; });
+    $$('.gear-buy, .pick').forEach(function (box) {
+      var hint = box.querySelector('.ship-hint'), btn = box.querySelector('a[data-amazon]');
+      if (code === 'CH' && btn) {
+        if (!hint) { hint = d.createElement('small'); hint.className = 'ship-hint'; btn.insertAdjacentElement('afterend', hint); }
+        hint.textContent = btn.hasAttribute('data-offer-ch') ? 'Angebot mit Lieferung in die Schweiz' : 'Lieferung in die Schweiz bei Amazon.de prüfen';
+      } else if (hint) { hint.remove(); }
+    });
     $$('a[data-amazon]').forEach(function (a) {
       if (!a.hasAttribute('data-href')) a.setAttribute('data-href', a.getAttribute('href'));
       var own = a.getAttribute('data-offer-' + code.toLowerCase());
@@ -375,35 +384,86 @@
   var finder = $('[data-finder]');
   var finderData = $('#finder-daten');
   if (finder && finderData) {
+    // Einträge: [Name, Sprungmarke, Begründung, Preis von, Preis bis, Orte, selbst getestet]
     var F = JSON.parse(finderData.textContent);
-    var state = { sport: Object.keys(F)[0], level: 'start' };
+    var state = { sport: Object.keys(F)[0], level: 'start', ort: null, budget: 300 };
     var res = $('.finder-result', finder);
+    var orteBox = $('[data-finder-orte]', finder), frage = $('[data-finder-frage]', finder);
+    var press = function (sel, attr, val) { $$(sel, finder).forEach(function (b) { b.setAttribute('aria-pressed', b.getAttribute(attr) === String(val) ? 'true' : 'false'); }); };
+    var fits = function (it) { return !it[5] || it[5].split(' ').indexOf(state.ort) > -1; };
+    // Das Budget bestimmt die Preisklasse: Aus unserer Spanne je Produkt wird der untere, mittlere oder obere Teil genommen.
+    var nice = function (v) { return v >= 20 ? Math.round(v / 5) * 5 : Math.round(v); };
+    var TIER = {
+      100: { name: 'Einstiegsklasse', text: 'Solide Einstiegsmodelle, für den Anfang völlig ausreichend.', band: function (lo, hi) { var m = (lo + hi) / 2; return [lo, nice((lo + m) / 2)]; } },
+      300: { name: 'Mittelklasse', text: 'Bessere Verarbeitung, hält auch bei regelmässigem Training länger.', band: function (lo, hi) { var m = (lo + hi) / 2; return [nice((lo + m) / 2), nice((m + hi) / 2)]; } },
+      0: { name: 'Obere Preisklasse', text: 'Mehr Komfort und Haltbarkeit, lohnt sich vor allem bei viel Training.', band: function (lo, hi) { return [nice((lo + hi) / 2), hi]; } }
+    };
+    var bandOf = function (it) { return it[3] ? TIER[state.budget].band(it[3], it[4]) : [0, 0]; };
+    var range = function (list) { var lo = 0, hi = 0; list.forEach(function (it) { var b = bandOf(it); lo += b[0]; hi += b[1]; }); return [lo, hi]; };
+    var row = function (s, it, note) {
+      var b = bandOf(it);
+      return '<li><a href="' + esc(s.url + '#' + it[1]) + '"><span><b>' + esc(it[0]) + (it[6] ? ' <em class="fl-tested">✓ getestet</em>' : '') + '</b><small>' + esc(it[2]) +
+        (b[1] ? ' · ca. ' + b[0] + '–' + b[1] + ' €' : '') + (note ? ' · <strong>' + esc(note) + '</strong>' : '') + '</small></span></a></li>';
+    };
+    var drawOrte = function () {
+      var s = F[state.sport];
+      if (!state.ort || !s.orte.some(function (o) { return o[0] === state.ort; })) state.ort = s.orte[0][0];
+      frage.textContent = s.frage;
+      orteBox.innerHTML = s.orte.map(function (o) { return '<button type="button" class="chip" data-finder-ort="' + esc(o[0]) + '" aria-pressed="false">' + esc(o[1]) + '</button>'; }).join('');
+    };
     var draw = function () {
       var s = F[state.sport];
-      var items = s.start.concat(state.level === 'mehr' ? s.mehr : []);
-      res.className = 'finder-result cat-' + s.cat;
-      res.innerHTML = '<span class="tag">' + esc(s.name) + ' · ' + (state.level === 'start' ? 'Einsteiger' : 'Fortgeschritten') + '</span>' +
-        '<h3>' + (state.level === 'start' ? 'Das brauchst du für den Start' : 'Die komplette Ausrüstung') + '</h3>' +
-        '<p>' + items.length + ' Teile, sortiert nach Wichtigkeit. Ein Klick führt zur Produktkarte mit Tipps und Preisspanne.</p>' +
-        '<ol class="finder-list">' + items.map(function (it) {
-          return '<li><a href="' + esc(s.url + '#' + it[1]) + '"><span><b>' + esc(it[0]) + '</b><small>' + esc(it[2]) + '</small></span></a></li>';
-        }).join('') + '</ol>' +
+      var max = state.budget || Infinity;
+      var tier = TIER[state.budget];
+      var need = s.start.filter(fits);
+      // Einsteiger: die drei wichtigsten Ergänzungen kommen in Frage, Fortgeschrittene: alle
+      var cand = s.mehr.filter(fits);
+      if (state.level === 'start') cand = cand.slice(0, 3);
+      // Grundausstattung der Reihe nach, gerechnet mit dem oberen Wert der Preisklasse (lieber etwas Luft lassen)
+      var sum = 0, needNow = [], needLater = [];
+      need.forEach(function (it) { var c = bandOf(it)[1]; if (sum + c <= max || !needNow.length) { needNow.push(it); sum += c; } else needLater.push(it); });
+      // Ergänzungen, solange das Restbudget reicht
+      var extraNow = [], extraLater = [];
+      cand.forEach(function (it) { var c = bandOf(it)[1]; if (!needLater.length && sum + c <= max) { extraNow.push(it); sum += c; } else extraLater.push(it); });
+      var now = needNow.concat(extraNow), r = range(now), rNeed = range(need);
+      var ortName = s.orte.filter(function (o) { return o[0] === state.ort; })[0][1];
+      var budgetName = state.budget === 100 ? 'bis 100 €' : state.budget === 300 ? '100 bis 300 €' : 'über 300 €';
+      var rest = isFinite(max) ? Math.max(0, max - r[1]) : null;
+      var html = '<span class="tag">' + esc(s.name) + ' · ' + (state.level === 'start' ? 'Einsteiger' : 'Fortgeschritten') + ' · ' + esc(ortName) + ' · ' + budgetName + '</span>' +
+        '<h3>Deine Ausrüstungsliste</h3>' +
+        '<p class="fl-sum"><b>' + tier.name + ':</b> ' + tier.text + '<br>' + now.length + ' Teile, zusammen ca. <b>' + r[0] + '–' + r[1] + ' €</b>' +
+        (rest !== null ? ', es bleiben etwa ' + rest + ' € Luft.' : '.') + ' <span class="fl-src">Aus unseren Preisspannen.</span></p>' +
+        '<h4 class="fl-h">Das brauchst du zuerst</h4><ol class="finder-list">' + needNow.map(function (it) { return row(s, it); }).join('') +
+        needLater.map(function (it) { return row(s, it, 'danach, wenn das Budget reicht'); }).join('') + '</ol>';
+      if (needLater.length) html += '<p class="fl-warn">Für die komplette Grundausstattung solltest du mit etwa ' + rNeed[0] + '–' + rNeed[1] + ' € rechnen. Starte mit den ersten Teilen der Liste.</p>';
+      if (extraNow.length) html += '<h4 class="fl-h">Passt zusätzlich ins Budget</h4><ol class="finder-list">' + extraNow.map(function (it) { return row(s, it); }).join('') + '</ol>';
+      if (extraLater.length) html += '<h4 class="fl-h">Später, wenn das Budget es zulässt</h4><ol class="finder-list is-later">' + extraLater.map(function (it) { return row(s, it); }).join('') + '</ol>';
+      html += '<div class="fl-fehl"><b>Häufige Fehlkäufe</b><ul>' + s.fehl.map(function (f) { return '<li>' + esc(f) + '</li>'; }).join('') + '</ul></div>' +
         '<div class="finder-actions"><a class="btn btn-dark btn-sm" href="' + esc(s.url) + '">Zur kompletten ' + esc(s.name) + '-Ausrüstung</a>' +
         '<button type="button" class="btn btn-sm" data-finder-print>Checkliste drucken</button></div>';
-      $$('[data-finder-sport]', finder).forEach(function (b) { b.setAttribute('aria-pressed', b.getAttribute('data-finder-sport') === state.sport ? 'true' : 'false'); });
-      $$('[data-finder-level]', finder).forEach(function (b) { b.setAttribute('aria-pressed', b.getAttribute('data-finder-level') === state.level ? 'true' : 'false'); });
+      res.className = 'finder-result cat-' + s.cat;
+      res.innerHTML = html;
+      press('[data-finder-sport]', 'data-finder-sport', state.sport);
+      press('[data-finder-level]', 'data-finder-level', state.level);
+      press('[data-finder-ort]', 'data-finder-ort', state.ort);
+      press('[data-finder-budget]', 'data-finder-budget', state.budget);
     };
     finder.addEventListener('click', function (e) {
       var b = e.target.closest('[data-finder-sport]');
-      if (b) { state.sport = b.getAttribute('data-finder-sport'); draw(); return; }
+      if (b) { state.sport = b.getAttribute('data-finder-sport'); drawOrte(); draw(); return; }
       b = e.target.closest('[data-finder-level]');
       if (b) { state.level = b.getAttribute('data-finder-level'); draw(); return; }
+      b = e.target.closest('[data-finder-ort]');
+      if (b) { state.ort = b.getAttribute('data-finder-ort'); draw(); return; }
+      b = e.target.closest('[data-finder-budget]');
+      if (b) { state.budget = parseInt(b.getAttribute('data-finder-budget'), 10); draw(); return; }
       if (e.target.closest('[data-finder-print]')) {
         d.body.classList.add('print-finder');
         window.print();
         setTimeout(function () { d.body.classList.remove('print-finder'); }, 500);
       }
     });
+    drawOrte();
     draw();
   }
 

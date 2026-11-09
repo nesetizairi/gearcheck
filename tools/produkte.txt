@@ -229,3 +229,171 @@ tennis-padel | Cap für den Platz | Spiele bei Sonne | Belüftung, Schirm | Sch�
 + tennis-padel | Tennisbälle
 + tennis-padel | Padelschläger für Einsteiger
 + tennis-padel | Schweissbänder
+
+# ---------- GearCheck-Einschätzung ----------
+# Format:  ^ sportart | Produktname | Stufe | Weniger geeignet für | Tipp (optional)
+# Stufe: basis = Grundausstattung (zuerst kaufen), plus = sinnvolle Ergänzung, bedarf = nur bei Bedarf / für Fortgeschrittene
+# Tipp: Einsteiger-Tipp, Preis-Leistungs-Tipp oder Für intensives Training. Sparsam einsetzen, die Begründung steht auf der Karte.
+^ kampfsport | Boxhandschuhe | basis | Reines MMA-Training mit Griffen | Einsteiger-Tipp
+^ kampfsport | Handbandagen | basis | Kurze Einheiten ohne Zeit zum Wickeln
+^ kampfsport | Mundschutz | basis | Training ganz ohne Kontakt
+^ kampfsport | Tiefschutz | plus | Reines Sack- und Pratzentraining
+^ kampfsport | Schienbeinschoner | plus | Reines Boxen
+^ kampfsport | Kopfschutz | plus | Einsteiger, die noch kein Sparring machen
+^ kampfsport | MMA-Handschuhe | bedarf | Klassisches Boxen und hartes Schlag-Sparring
+^ kampfsport | Boxpratzen | plus | Training allein
+^ kampfsport | Thaipads | bedarf | Reines Boxen
+^ kampfsport | Boxsack, hängend | plus | Mietwohnungen ohne tragfähige Decke
+^ kampfsport | Standboxsack | plus | Sehr harte Tritte schwerer Sportler
+^ kampfsport | Springseil | basis | Räume mit niedriger Decke | Preis-Leistungs-Tipp
+^ kampfsport | Puzzlematten für Bodenarbeit | bedarf | Reines Schlag- und Tritttraining
+^ kampfsport | Rashguard | plus | Reines Boxen
+^ kampfsport | MMA- und Thai-Shorts | plus | Reines Boxtraining
+^ kampfsport | Ringerschuhe | bedarf | Training ausserhalb der Matte
+^ kampfsport | Sporttasche mit Nassfach | plus | Training nur zu Hause
+^ home-gym | Trainingsmatte | basis | Training mit schweren Gewichten | Einsteiger-Tipp
+^ home-gym | Widerstandsbänder mit Griffen | basis | Schweres Krafttraining | Preis-Leistungs-Tipp
+^ home-gym | Mini-Bänder (Loop Bands) | plus | Oberkörpertraining mit viel Widerstand
+^ home-gym | Klimmzugstange | basis | Türrahmen mit Zierleisten oder aus Leichtbau
+^ home-gym | Springseil | plus | Wohnungen mit empfindlichen Nachbarn darunter
+^ home-gym | Bauchroller | plus | Einsteiger mit Rückenbeschwerden
+^ home-gym | Schlingentrainer | plus | Räume ohne stabile Tür oder Decke
+^ home-gym | Verstellbare Kurzhanteln | plus | Sehr kleines Budget
+^ home-gym | Kettlebell | plus | Gezieltes Training einzelner Muskeln
+^ home-gym | Langhantel-Set | bedarf | Kleine Wohnungen und empfindliche Böden
+^ home-gym | Hantelbank | plus | Sehr wenig Platz
+^ home-gym | Gewichtsweste | bedarf | Einsteiger, die die Übungen noch lernen
+^ home-gym | Kniebeugenständer | bedarf | Räume mit niedriger Decke | Für intensives Training
+^ home-gym | Dip-Station | plus | Sehr wenig Platz
+^ home-gym | Bodenschutzmatten | bedarf | Training nur mit dem eigenen Körpergewicht
+^ home-gym | Faszienrolle | plus | Frische Verletzungen und Prellungen | Preis-Leistungs-Tipp
+^ home-gym | Massagepistole | bedarf | Kleines Budget
+^ fussball | Multi-Ground-Schuh (MG) | basis | Spieler, die fast nur auf einem Belag spielen | Einsteiger-Tipp
+^ fussball | Kunstrasenschuh (AG) | basis | Nasser, tiefer Naturrasen
+^ fussball | Turf-Schuh (TF) | plus | Spiele auf gepflegtem Rasen
+^ fussball | Hallenschuh (IN) | plus | Training draussen
+^ fussball | Schienbeinschoner | basis | Lockeres Kicken im Garten
+^ fussball | Torwarthandschuhe | bedarf | Feldspieler
+^ fussball | Grip-Socken | plus | Spieler, die im Schuh schon guten Halt haben
+^ fussball | Trainingsball | basis | Futsal in der Halle, dafür gibt es eigene Bälle
+^ fussball | Ballpumpe | plus | Wer keinen eigenen Ball hat
+^ fussball | Markierungshütchen | plus | Wer nur im Verein trainiert | Preis-Leistungs-Tipp
+^ fussball | Koordinationsleiter | plus | Wer nur im Verein trainiert
+^ fussball | Minitore | bedarf | Balkone und kleine Wohnungen
+^ fussball | Rebounder | bedarf | Kleine Gärten
+^ fussball | Sporttasche mit Schuhfach | plus | Kurze Wege ohne Umziehen
+^ fussball | Sporttape | plus | Ernsthafte Verletzungen
+^ fussball | Trainingsleibchen | bedarf | Einzelne Spieler, gedacht für Teams und Trainer
+^ fussball | Trinkflasche | basis |
+^ fussball | Feldspielerhandschuhe | bedarf | Spiele bei milden Temperaturen
+^ running | Laufschuhe für die Strasse | basis | Matschige Trails und Bergwege | Einsteiger-Tipp
+^ running | Trailschuhe | plus | Reine Asphaltrunden
+^ running | Laufsocken | basis |
+^ running | Laufshirt | basis |
+^ running | Lauftights | plus | Heisse Sommertage
+^ running | Laufjacke | plus | Trockene, warme Tage
+^ running | Stirnband und Laufhandschuhe | bedarf | Milde Temperaturen
+^ running | Reflektorweste | plus | Läufe nur bei Tageslicht | Preis-Leistungs-Tipp
+^ running | Laufcap | bedarf | Läufe im Winter
+^ running | Sportsonnenbrille | bedarf | Läufe im Wald und in der Dämmerung
+^ running | GPS-Laufuhr | bedarf | Einsteiger, die erst eine Routine aufbauen
+^ running | Brustgurt | bedarf | Lockeres Laufen ohne Pulsziele
+^ running | Sportkopfhörer | bedarf | Läufe in Gruppen und auf viel befahrenen Strassen
+^ running | Laufgürtel | plus | Läufe ohne Handy und Schlüssel
+^ running | Stirnlampe | plus | Läufe nur bei Tageslicht
+^ running | Laufweste | bedarf | Kurze Läufe unter einer Stunde
+^ running | Soft Flask | bedarf | Kurze Läufe
+^ running | Faszienrolle | plus | Frische Verletzungen und Prellungen
+^ radsport | Fahrradhelm (Velohelm) | basis |
+^ radsport | Licht-Set vorne und hinten | basis |
+^ radsport | Bügelschloss | basis | Wer das Rad nie draussen abstellt
+^ radsport | Fahrradhandschuhe | plus | Kurze Stadtfahrten
+^ radsport | Fahrradbrille | plus | Kurze Stadtfahrten
+^ radsport | Fahrradklingel (Veloglocke) | basis |
+^ radsport | Radhose mit Sitzpolster | plus | Kurze Alltagsfahrten
+^ radsport | Radtrikot | bedarf | Alltags- und Pendelfahrten
+^ radsport | Regenjacke fürs Rad | plus | Wer nur bei schönem Wetter fährt
+^ radsport | Standpumpe mit Manometer | basis | Pannen unterwegs, dafür gibt es Minipumpen
+^ radsport | Minipumpe | plus | Pumpen zu Hause
+^ radsport | Multitool | plus | Wer nie selbst schraubt
+^ radsport | Flickzeug und Reifenheber | basis | Tubeless-Reifen, die anders repariert werden | Preis-Leistungs-Tipp
+^ radsport | Kettenöl und Pflegeset | plus | Räder mit Riemenantrieb
+^ radsport | Montageständer | bedarf | Gelegentliche kleine Reparaturen
+^ radsport | Fahrradcomputer mit GPS | bedarf | Kurze Alltagsfahrten
+^ radsport | Trinkflasche und Halter | plus | Rahmen ohne Gewindeösen
+^ radsport | Satteltasche | plus | Kurze Stadtfahrten
+^ radsport | Rollentrainer | bedarf | Wenig Platz und hellhörige Wohnungen
+^ schwimmen | Schwimmbrille | basis | | Einsteiger-Tipp
+^ schwimmen | Badekappe | basis | Kurzes Haar in Bädern ohne Kappenpflicht
+^ schwimmen | Trainingsbadeanzug | basis | Gelegentliches Baden ohne Training
+^ schwimmen | Badehose (Jammer) | plus | Gelegentliches Baden
+^ schwimmen | Mikrofaser-Handtuch | plus | Wer Frottee bevorzugt
+^ schwimmen | Badeschuhe | basis |
+^ schwimmen | Nasenklammer und Ohrstöpsel | bedarf | Wer mit Wasser in Nase und Ohren kein Problem hat
+^ schwimmen | Anti-Fog-Spray | plus | Brillen mit intakter Beschichtung
+^ schwimmen | Pull Buoy | plus | Reines Freizeitschwimmen | Preis-Leistungs-Tipp
+^ schwimmen | Schwimmbrett | plus | Reines Freizeitschwimmen
+^ schwimmen | Hand-Paddles | bedarf | Einsteiger mit Schulterbeschwerden
+^ schwimmen | Kurze Trainingsflossen | plus | Reines Freizeitschwimmen
+^ schwimmen | Frontschnorchel | bedarf | Freizeitschwimmen ohne Technikziele
+^ schwimmen | Netzbeutel für Trainingshilfen | bedarf | Schwimmen ohne Trainingshilfen
+^ schwimmen | Schwimmuhr | bedarf | Gelegentliches Schwimmen
+^ schwimmen | Unterwasser-Kopfhörer | bedarf | Training im Verein und in Gruppen
+^ schwimmen | Schwimmboje | bedarf | Hallenbad
+^ schwimmen | Neoprenanzug zum Schwimmen | bedarf | Hallenbad und warme Seen
+^ wintersport | Skihelm | basis |
+^ wintersport | Skibrille | basis |
+^ wintersport | Rückenprotektor | bedarf | Gemütliche Pistentage
+^ wintersport | Handgelenkschoner | bedarf | Skifahren, gedacht vor allem fürs Snowboard
+^ wintersport | Lawinen-Notfallset | bedarf | Alle, die nur auf der Piste fahren
+^ wintersport | Protektorenshorts | bedarf | Geübte Fahrer auf der Piste
+^ wintersport | Skijacke | basis |
+^ wintersport | Skihose | basis |
+^ wintersport | Funktionsunterwäsche | basis |
+^ wintersport | Skisocken | basis |
+^ wintersport | Skihandschuhe | basis |
+^ wintersport | Halswärmer | plus | Milde Frühlingstage | Preis-Leistungs-Tipp
+^ wintersport | Skitasche | bedarf | Wer Ski vor Ort mietet
+^ wintersport | Skischuhtasche | plus | Wer Skischuhe mietet
+^ wintersport | Schuhtrockner | plus | Einzelne Skitage
+^ wintersport | Skiwachs-Set | bedarf | Leihski
+^ wintersport | Handwärmer | bedarf | Milde Tage
+^ wintersport | Skirucksack | bedarf | Kurze Pistentage ohne Gepäck
+^ tennis-padel | Tennisschläger für Einsteiger | basis | Fortgeschrittene mit sauberer Technik | Einsteiger-Tipp
+^ tennis-padel | Tennisbälle | basis | Padel, dafür gibt es eigene Bälle
+^ tennis-padel | Tennisschuhe | plus | Padel auf Kunstrasen
+^ tennis-padel | Griffband (Overgrip) | basis | | Preis-Leistungs-Tipp
+^ tennis-padel | Vibrationsdämpfer | bedarf | Wen das Pling nicht stört
+^ tennis-padel | Tennistasche | bedarf | Gelegenheitsspieler mit einem Schläger
+^ tennis-padel | Ersatzsaite | bedarf | Gelegenheitsspieler
+^ tennis-padel | Padelschläger für Einsteiger | basis | Fortgeschrittene, die mehr Power suchen | Einsteiger-Tipp
+^ tennis-padel | Padelbälle | basis | Tennis, dafür gibt es eigene Bälle
+^ tennis-padel | Padelschuhe | plus | Tennis auf Sand oder Hartplatz
+^ tennis-padel | Padeltasche | bedarf | Gelegenheitsspieler
+^ tennis-padel | Kantenschutz für den Padelschläger | plus |
+^ tennis-padel | Tennis-Trainer mit Gummiseil | bedarf | Spieler mit regelmässigem Trainingspartner
+^ tennis-padel | Ballkorb | bedarf | Gelegenheitsspieler
+^ tennis-padel | Schweissbänder | plus | Kühle Tage
+^ tennis-padel | Ellbogenbandage | bedarf | Spieler ohne Beschwerden
+^ tennis-padel | Cap für den Platz | bedarf | Hallenplätze
+
+# ---------- Aus meinem Training ----------
+# Format:  ! sportart | Produktname | Text
+# Nur Aussagen, die Neset selbst gemacht hat (8. und 9. November 2026). Nichts dazudichten.
+! kampfsport | Boxhandschuhe | Ich habe Boxhandschuhe vieler Marken getragen, unter anderem von Everlast, Adidas, Paffen Sport, Twins, Leone und Fairtex.
+! kampfsport | MMA-Handschuhe | Ich habe schon viele MMA-Handschuhe ausprobiert, zum Beispiel von Phantom Athletics und Everlast.
+! kampfsport | Handbandagen | Ab und zu tape ich zusätzlich über die Bandagen, um die Hand noch besser zu stabilisieren.
+! kampfsport | Mundschutz | Davon habe ich schon sehr viele benutzt.
+! kampfsport | Tiefschutz | Ich nutze die kleineren MMA-Modelle mit Schale, nicht die grossen Box-Tiefschützer.
+! kampfsport | Kopfschutz | Ich hatte schon mehrere, unter anderem von Venum.
+! kampfsport | Boxpratzen | Ich habe Pratzen verschiedener Marken benutzt, unter anderem von Venum und Title.
+! kampfsport | Ringerschuhe | Ich habe Ringerschuhe von ASICS und Adidas getragen.
+! home-gym | Trainingsmatte | Ich habe Trainingsmatten in der Garage ausgelegt und dort trainiert.
+! home-gym | Mini-Bänder (Loop Bands) | Ich nutze Mini-Bänder oft beim Schattenboxen, zwischen den Knien.
+! home-gym | Schlingentrainer | Den Schlingentrainer benutze ich oft.
+! home-gym | Gewichtsweste | Die Gewichtsweste habe ich sehr viel benutzt.
+! fussball | Kunstrasenschuh (AG) | In meinen 8 Jahren Fussball habe ich Kunstrasen-, Rasen- und Hallenschuhe von Adidas, Nike und Puma getragen.
+! fussball | Koordinationsleiter | Für mich sehr wichtig. Ich nutze sie auch im Boxen, um die Fussarbeit zu drillen.
+! fussball | Grip-Socken | Gehören für mich zum Standard.
+! fussball | Sporttape | Ich nutze Tape auch im Kampfsport, um die Hände über den Bandagen zusätzlich zu stabilisieren.
+! running | Laufweste | Nutze ich gerne beim Joggen.

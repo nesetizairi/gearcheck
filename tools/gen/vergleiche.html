@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><title>Vergleichs-Illustrationen erzeugen</title>
+<!-- Erzeugt assets/img/vergleiche/<slug>.svg (800 × 350): zwei Varianten nebeneinander. Aufruf über tools/gen/vergleiche.ps1 -->
+<script src="../../_marketing/pins/art-teile.js"></script>
+</head><body>
+<script>
+const { K, at, o, defs, label, T, shine } = window.ARTKIT;
+const COL = {
+  fitness: ['#ff9a6b', '#ff5a1f', '#b83a0a'], kampfsport: ['#ff5c61', '#e0262b', '#8f1014'],
+  fussball: ['#4ade80', '#16a34a', '#0c6b30'], running: ['#d9f566', '#a3cf1c', '#5f8100'],
+  radsport: ['#a78bfa', '#7c3aed', '#4c1d95'], schwimmen: ['#60a5fa', '#1d6fe0', '#0f3f8f'],
+  wintersport: ['#8fe0ff', '#38bdf8', '#0e7fb6'], racket: ['#5eead4', '#14b8a6', '#0b7266']
+};
+const shadow = (cx, cy, rx) => `<ellipse cx="${cx}" cy="${cy}" rx="${rx}" ry="${(rx * 0.14).toFixed(1)}" fill="#0d0d0d" opacity="0.14"/>`;
+
+// Zusätzliche Teile, die es in den Pin-Bauteilen noch nicht gibt
+const P = {
+  // Standboxsack mit Fuss
+  freeBag: () => `<g>
+    <path d="M-74 196V218A74 20 0 0 0 74 218V196" fill="url(#gk)" ${o()}/>
+    <ellipse cy="196" rx="74" ry="20" fill="#3a3a3a" ${o()}/>
+    <rect x="-16" y="150" width="32" height="46" rx="6" fill="url(#gsh)" ${o(3)}/>
+    <path d="M-16 160h32M-16 170h32M-16 180h32" stroke="${K}" stroke-width="2" opacity="0.5"/>
+    <path d="M-48 -30C-48-62 48-62 48-30V136C48 150 36 156 0 156S-48 150-48 136Z" fill="url(#gm)" ${o()}/>
+    <rect x="-48" y="-14" width="96" height="16" fill="url(#gk)" ${o(3)}/>
+    <rect x="-48" y="112" width="96" height="16" fill="url(#gk)" ${o(3)}/>
+    <path d="M-32 14V96" stroke="#fff" stroke-width="10" stroke-linecap="round" opacity="0.28"/></g>`,
+  // MMA-Handschuh: offene Finger, Polster über den Knöcheln
+  mmaGlove: () => `<g transform="translate(-60 -86)">
+    <g fill="#f1cdb1" ${o(3.5)}><rect x="26" y="0" width="17" height="40" rx="8.5"/><rect x="45" y="-6" width="17" height="46" rx="8.5"/><rect x="64" y="-4" width="17" height="44" rx="8.5"/><rect x="83" y="4" width="16" height="36" rx="8"/></g>
+    <path d="M14 70C4 66 0 84 8 96L22 112 28 82Z" fill="#f1cdb1" ${o(3.5)}/>
+    <path d="M22 36H104C110 36 112 42 112 48V108C112 120 104 128 92 128H38C28 128 22 120 22 110Z" fill="url(#gm)" ${o()}/>
+    <path d="M24 40H110V62H24Z" fill="#fff" opacity="0.18"/>
+    <path d="M30 60H104" stroke="#000" stroke-width="2.5" opacity="0.25"/>
+    <rect x="24" y="126" width="88" height="44" rx="8" fill="url(#gk)" ${o()}/>
+    <rect x="24" y="136" width="88" height="20" fill="#fff" opacity="0.9"/>
+    <path d="M30 140h76M30 152h76" stroke="${K}" stroke-width="1.5" stroke-dasharray="3 3" opacity="0.5"/></g>`,
+  // Innenhandschuh: dünn, fingerlos, Gelpolster über den Knöcheln
+  innerGlove: () => `<g transform="translate(-58 -84)">
+    <g fill="#f1cdb1" ${o(3.5)}><rect x="24" y="2" width="17" height="38" rx="8.5"/><rect x="43" y="-4" width="17" height="44" rx="8.5"/><rect x="62" y="-2" width="17" height="42" rx="8.5"/><rect x="81" y="6" width="16" height="34" rx="8"/></g>
+    <path d="M12 74C2 70-2 88 6 100L20 116 26 86Z" fill="#2a2a2a" ${o(3.5)}/>
+    <path d="M20 36H102C108 36 110 42 110 48V112C110 124 102 132 90 132H36C26 132 20 124 20 114Z" fill="url(#gk)" ${o()}/>
+    <rect x="28" y="42" width="74" height="22" rx="10" fill="url(#gm)" ${o(3)}/>
+    <path d="M34 48h62" stroke="#fff" stroke-width="3" stroke-linecap="round" opacity="0.5"/>
+    <rect x="20" y="130" width="90" height="30" rx="7" fill="url(#gm)" ${o()}/>
+    <path d="M26 145h78" stroke="${K}" stroke-width="2" stroke-dasharray="4 4" opacity="0.5"/></g>`,
+  // Langhantel mit Scheiben
+  barbell: () => `<g>
+    <rect x="-190" y="-7" width="380" height="14" rx="5" fill="url(#gs)" ${o(3)}/>
+    <path d="M-60-7v14M-40-7v14M-20-7v14M0-7v14M20-7v14M40-7v14M60-7v14" stroke="#777" stroke-width="2"/>
+    ${[[-150, 70], [-128, 58], [128, 58], [150, 70]].map(([x, h]) => `<rect x="${x - 10}" y="${-h}" width="20" height="${2 * h}" rx="6" fill="url(#gk)" ${o(3.5)}/>`).join('')}
+    <rect x="-118" y="-16" width="12" height="32" rx="4" fill="url(#gm)" ${o(3)}/><rect x="106" y="-16" width="12" height="32" rx="4" fill="url(#gm)" ${o(3)}/></g>`,
+  // Stollen für den Trailschuh
+  lugs: () => `<g fill="#1a1a1a" ${o(2)}>${[-96, -72, -48, -24, 0, 24, 48, 72, 96].map(x => `<path d="M${x - 8} 38h16l-3 10h-10z"/>`).join('')}</g>`,
+  // Gleitschicht unter der Helmschale
+  mipsLiner: () => `<g><path d="M-88 34C-82-10-44-46 8-48 58-50 90-16 86 26" fill="none" stroke="#ffd23f" stroke-width="9" stroke-linecap="round" opacity="0.95"/>
+    <path d="M-88 34C-82-10-44-46 8-48 58-50 90-16 86 26" fill="none" stroke="${K}" stroke-width="2" stroke-dasharray="6 6" opacity="0.5"/></g>`
+};
+
+function scene(sport, left, right, la, ra, extraDefs = '') {
+  const c = COL[sport];
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 350" width="800" height="350" aria-hidden="true">${defs(c, `
+      <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="${c[0]}" stop-opacity="0.35"/></linearGradient>
+      <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.4" fill="${c[2]}" opacity="0.18"/></pattern>
+      <linearGradient id="gleather" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#b9764a"/><stop offset="0.5" stop-color="#8b4a2b"/><stop offset="1" stop-color="#5a2d17"/></linearGradient>
+      <linearGradient id="gtrail" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6b6b6b"/><stop offset="0.5" stop-color="#3a3a3a"/><stop offset="1" stop-color="#1c1c1c"/></linearGradient>${extraDefs}`)}
+    <rect width="800" height="350" fill="url(#bg)"/><rect width="800" height="350" fill="url(#dots)"/>
+    <path d="M412 0H436L388 350H364Z" fill="${c[1]}" opacity="0.18"/>
+    ${left}
+    ${right}
+    <g transform="translate(400 168)"><circle r="36" fill="${K}"/><circle r="36" fill="none" stroke="${c[1]}" stroke-width="5"/>
+      <text y="11" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-weight="900" font-style="italic" font-size="30" fill="#fff">VS</text></g>
+    ${label(200, 318, la, { size: 22, bg: '#fff', fg: K, stroke: true, wf: 0.76 })}
+    ${label(600, 318, ra, { size: 22, bg: c[1], fg: sport === 'running' || sport === 'wintersport' ? K : '#fff', stroke: true, wf: 0.76 })}
+  </svg>`;
+}
+
+const leather = s => s.replace(/url\(#gm\)/g, 'url(#gleather)');
+const S = {
+  'boxsack-haengend-oder-stehend': scene('kampfsport',
+    `<path d="M60 22H340" stroke="${K}" stroke-width="10"/><path d="M60 22H340" stroke="#9a9a9a" stroke-width="5"/>` + shadow(200, 290, 60) + at(200, 78, 1, 0, T.bag(196, 96)),
+    shadow(600, 288, 80) + at(600, 58, 0.98, 0, P.freeBag()),
+    'HÄNGEND', 'STEHEND'),
+  'boxhandschuhe-oder-mma-handschuhe': scene('kampfsport',
+    shadow(200, 272, 60) + at(200, 158, 1.15, -10, T.glove()),
+    shadow(600, 272, 60) + at(600, 162, 1.15, 10, P.mmaGlove()),
+    'BOXHANDSCHUH', 'MMA-HANDSCHUH'),
+  'boxhandschuhe-leder-oder-kunstleder': scene('kampfsport',
+    shadow(200, 272, 60) + at(200, 158, 1.15, -10, leather(T.glove())),
+    shadow(600, 272, 60) + at(600, 158, 1.15, 10, T.glove()),
+    'ECHTLEDER', 'KUNSTLEDER'),
+  'handbandagen-oder-innenhandschuhe': scene('kampfsport',
+    shadow(190, 250, 90) + at(105, 172, 1.08, -8, T.wrap()),
+    shadow(600, 272, 60) + at(600, 162, 1.15, 8, P.innerGlove()),
+    'HANDBANDAGE', 'INNENHANDSCHUH'),
+  'kurzhanteln-oder-langhantel': scene('fitness',
+    shadow(200, 250, 90) + at(200, 170, 1.4, -14, T.dumbbell()),
+    shadow(600, 262, 120) + at(600, 172, 0.76, 0, P.barbell()),
+    'KURZHANTEL', 'LANGHANTEL'),
+  'verstellbare-oder-feste-kurzhanteln': scene('fitness',
+    shadow(200, 250, 120) + at(200, 168, 1.12, 0, T.plateDumbbell()),
+    shadow(600, 250, 90) + at(610, 172, 1.24, -14, T.dumbbell()),
+    'VERSTELLBAR', 'FEST'),
+  'kettlebell-oder-kurzhantel': scene('fitness',
+    shadow(200, 262, 70) + at(200, 170, 1.45, 0, T.kettlebell()),
+    shadow(600, 250, 90) + at(610, 172, 1.24, -14, T.dumbbell()),
+    'KETTLEBELL', 'KURZHANTEL'),
+  'fg-oder-ag': scene('fussball',
+    at(200, 150, 0.92, -8, T.sole('FG')),
+    at(600, 150, 0.92, 8, T.sole('AG')),
+    'FG · NATURRASEN', 'AG · KUNSTRASEN'),
+  'trailschuhe-oder-strassenlaufschuhe': scene('running',
+    shadow(200, 250, 130) + at(196, 182, 1.16, -4, T.runshoe()),
+    shadow(600, 250, 130) + at(610, 182, 1.16, -4, T.runshoe('url(#gtrail)') + P.lugs()),
+    'STRASSE', 'TRAIL'),
+  'fahrradhelm-mit-oder-ohne-mips': scene('radsport',
+    shadow(200, 268, 100) + at(200, 158, 1.05, 0, T.bikehelmet()),
+    shadow(600, 268, 100) + at(600, 158, 1.05, 0, T.bikehelmet() + P.mipsLiner()) + label(694, 66, 'GLEITSCHICHT', { size: 15, bg: '#ffd23f', fg: K, stroke: true }),
+    'OHNE MIPS', 'MIT MIPS')
+};
+for (const [slug, svg] of Object.entries(S)) {
+  const t = document.createElement('textarea');
+  t.id = 'out-' + slug;
+  t.textContent = svg;
+  document.body.appendChild(t);
+}
+</script>
+</body></html>

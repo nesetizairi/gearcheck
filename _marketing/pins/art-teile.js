@@ -27,7 +27,7 @@
   // Beschriftung im Stil der Website: fett, kursiv, Grossbuchstaben
   function label(x, y, text, opt = {}) {
     const size = opt.size || 26, fg = opt.fg || '#fff', bg = opt.bg || K;
-    const w = Math.round(text.length * size * 0.66 + size * 1.1), h = Math.round(size * 1.6);
+    const w = Math.round(text.length * size * (opt.wf || 0.66) + size * 1.1), h = Math.round(size * 1.6);
     return `<g transform="translate(${x} ${y}) rotate(${opt.r || 0})">
       <rect x="${-w / 2}" y="${-h / 2}" width="${w}" height="${h}" rx="${Math.round(h / 4)}" fill="${bg}" ${opt.stroke ? o(3) : ''}/>
       <text x="0" y="${Math.round(size * 0.36)}" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-weight="900" font-style="italic" font-size="${size}" fill="${fg}" letter-spacing="0.5">${text.replace(/&/g, "&amp;")}</text></g>`;

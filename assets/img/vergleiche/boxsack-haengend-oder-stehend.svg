@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 350" width="800" height="350" aria-hidden="true"><defs>
+      <linearGradient id="gm" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff5c61"/><stop offset="0.5" stop-color="#e0262b"/><stop offset="1" stop-color="#8f1014"/></linearGradient>
+      <linearGradient id="gmv" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ff5c61"/><stop offset="1" stop-color="#8f1014"/></linearGradient>
+      <linearGradient id="gk" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4a4a4a"/><stop offset="0.5" stop-color="#262626"/><stop offset="1" stop-color="#111"/></linearGradient>
+      <linearGradient id="gs" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fafafa"/><stop offset="0.45" stop-color="#9a9a9a"/><stop offset="0.55" stop-color="#7d7d7d"/><stop offset="1" stop-color="#dcdcdc"/></linearGradient>
+      <linearGradient id="gsh" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fafafa"/><stop offset="0.45" stop-color="#9a9a9a"/><stop offset="0.55" stop-color="#7d7d7d"/><stop offset="1" stop-color="#dcdcdc"/></linearGradient>
+      <linearGradient id="gw" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#d4d4d0"/></linearGradient>
+      <linearGradient id="gwood" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d9a470"/><stop offset="1" stop-color="#9a6436"/></linearGradient>
+      <linearGradient id="gy" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f2ff7a"/><stop offset="0.5" stop-color="#d4ee26"/><stop offset="1" stop-color="#94ad00"/></linearGradient>
+      <filter id="sh" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="0" dy="7" stdDeviation="5" flood-color="#000" flood-opacity="0.35"/></filter>
+      
+      <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#ff5c61" stop-opacity="0.35"/></linearGradient>
+      <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.4" fill="#8f1014" opacity="0.18"/></pattern>
+      <linearGradient id="gleather" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#b9764a"/><stop offset="0.5" stop-color="#8b4a2b"/><stop offset="1" stop-color="#5a2d17"/></linearGradient>
+      <linearGradient id="gtrail" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6b6b6b"/><stop offset="0.5" stop-color="#3a3a3a"/><stop offset="1" stop-color="#1c1c1c"/></linearGradient>
+    </defs>
+    <rect width="800" height="350" fill="url(#bg)"/><rect width="800" height="350" fill="url(#dots)"/>
+    <path d="M412 0H436L388 350H364Z" fill="#e0262b" opacity="0.18"/>
+    <path d="M60 22H340" stroke="#0d0d0d" stroke-width="10"/><path d="M60 22H340" stroke="#9a9a9a" stroke-width="5"/><ellipse cx="200" cy="290" rx="60" ry="8.4" fill="#0d0d0d" opacity="0.14"/><g transform="translate(200 78) rotate(0) scale(1)"><g>
+    <path d="M0-46L-40 4M0-46L40 4M0-46L-12 2M0-46L12 2" stroke="#9a9a9a" stroke-width="3"/>
+    <circle cy="-50" r="8" fill="none" stroke="#bdbdbd" stroke-width="4"/>
+    <rect x="-48" y="0" width="96" height="196" rx="19.200000000000003" fill="url(#gm)" stroke="#0d0d0d" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+    <rect x="-48" y="14" width="96" height="16" fill="url(#gk)" stroke="#0d0d0d" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+    <rect x="-48" y="162" width="96" height="16" fill="url(#gk)" stroke="#0d0d0d" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+    <path d="M-34 40V152" stroke="#fff" stroke-width="10" stroke-linecap="round" opacity="0.28"/>
+    <path d="M32 40V152" stroke="#000" stroke-width="12" stroke-linecap="round" opacity="0.18"/></g></g>
+    <ellipse cx="600" cy="288" rx="80" ry="11.2" fill="#0d0d0d" opacity="0.14"/><g transform="translate(600 58) rotate(0) scale(0.98)"><g>
+    <path d="M-74 196V218A74 20 0 0 0 74 218V196" fill="url(#gk)" stroke="#0d0d0d" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+    <ellipse cy="196" rx="74" ry="20" fill="#3a3a3a" stroke="#0d0d0d" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+    <rect x="-16" y="150" width="32" height="46" rx="6" fill="url(#gsh)" stroke="#0d0d0d" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+    <path d="M-16 160h32M-16 170h32M-16 180h32" stroke="#0d0d0d" stroke-width="2" opacity="0.5"/>
+    <path d="M-48 -30C-48-62 48-62 48-30V136C48 150 36 156 0 156S-48 150-48 136Z" fill="url(#gm)" stroke="#0d0d0d" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+    <rect x="-48" y="-14" width="96" height="16" fill="url(#gk)" stroke="#0d0d0d" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+    <rect x="-48" y="112" width="96" height="16" fill="url(#gk)" stroke="#0d0d0d" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+    <path d="M-32 14V96" stroke="#fff" stroke-width="10" stroke-linecap="round" opacity="0.28"/></g></g>
+    <g transform="translate(400 168)"><circle r="36" fill="#0d0d0d"/><circle r="36" fill="none" stroke="#e0262b" stroke-width="5"/>
+      <text y="11" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-weight="900" font-style="italic" font-size="30" fill="#fff">VS</text></g>
+    <g transform="translate(200 318) rotate(0)">
+      <rect x="-70.5" y="-17.5" width="141" height="35" rx="9" fill="#fff" stroke="#0d0d0d" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+      <text x="0" y="8" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-weight="900" font-style="italic" font-size="22" fill="#0d0d0d" letter-spacing="0.5">HÄNGEND</text></g>
+    <g transform="translate(600 318) rotate(0)">
+      <rect x="-70.5" y="-17.5" width="141" height="35" rx="9" fill="#e0262b" stroke="#0d0d0d" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+      <text x="0" y="8" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-weight="900" font-style="italic" font-size="22" fill="#fff" letter-spacing="0.5">STEHEND</text></g>
+  </svg>

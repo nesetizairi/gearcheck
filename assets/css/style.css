@@ -775,7 +775,7 @@ td:first-child { font-weight: 800; color: var(--cat-ink); }
 .timeline li:last-child::after { display: none; }
 .timeline b { display: block; }
 .timeline span { color: var(--muted); font-size: 0.95rem; }
-.method { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin: 18px 0 1.6em; }
+.method { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 18px; margin: 18px 0 1.2em; }
 .method .card { padding: 24px; }
 .method .card h3 { margin: 12px 0 6px; }
 .method .card p { margin: 0; }
@@ -878,3 +878,67 @@ td:first-child { font-weight: 800; color: var(--cat-ink); }
 @media (max-width: 640px) { .tested-list { grid-template-columns: 1fr; } }
 .qp-tested { display: inline-flex; align-items: center; gap: 4px; margin-left: 8px; font-size: 0.68rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; color: #0f7a35; vertical-align: 1px; }
 .qp-tested svg { width: 12px; height: 12px; }
+
+/* GearCheck-Einschätzung: Stufe, Tipp, Hinweis je Kategorie, eigene Erfahrung */
+.gear-tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 10px; }
+.gear-level, .gear-tip { display: inline-flex; align-items: center; gap: 5px; font-size: 0.68rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.07em; line-height: 1; padding: 6px 9px; border-radius: var(--r-pill); }
+.gear-level::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
+.lv-basis { background: var(--cat-soft); color: var(--cat-ink); }
+.lv-plus { background: var(--soft); color: var(--ink); }
+.lv-plus::before { background: transparent; box-shadow: inset 0 0 0 2px currentColor; }
+.lv-bedarf { background: transparent; color: var(--muted); box-shadow: inset 0 0 0 1.5px var(--line); }
+.lv-bedarf::before { background: transparent; box-shadow: inset 0 0 0 1.5px currentColor; }
+.gear-tip { background: var(--ink); color: #fff; }
+.gear-tip::before { content: "★"; color: var(--accent); font-size: 0.8rem; }
+.gear-advice { display: flex; flex-wrap: wrap; gap: 6px 18px; align-items: baseline; margin: -6px 0 18px; padding: 12px 16px; background: var(--cat-softer); border: 1px solid color-mix(in srgb, var(--cat) 22%, #fff); border-radius: var(--r-sm); font-size: 0.9rem; line-height: 1.5; }
+.gear-advice .ga-label { width: 100%; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; color: var(--cat-ink); }
+.gear-advice a { color: var(--ink); text-decoration-color: color-mix(in srgb, var(--cat) 60%, transparent); }
+.gear-advice a:hover { color: var(--cat-ink); }
+.gear-note { display: flex; gap: 10px; align-items: flex-start; margin: 0 0 14px; padding: 10px 12px; background: #f1f9f3; border-radius: var(--r-sm); font-size: 0.86rem; line-height: 1.45; color: var(--ink); }
+.gear-note b { color: #0f7a35; }
+.gear-note-av { flex-shrink: 0; width: 24px; height: 24px; border-radius: 50%; background: var(--ink); color: var(--accent); display: grid; place-items: center; font-weight: 900; font-style: italic; font-size: 0.78rem; }
+.ship-hint { display: block; margin-top: -4px; text-align: center; font-size: 0.78rem; line-height: 1.35; color: var(--muted); }
+.pick .ship-hint { margin-top: 6px; }
+
+/* Passend dazu (Ende der Ratgeber) und Weiter-Knöpfe der Vergleiche */
+.passend { margin: 40px 0 0; }
+.passend h2 { font-size: 1.4rem; margin: 0 0 14px; }
+.passend h2::before { display: none; }
+.passend ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.passend li { margin: 0; }
+.passend a { display: flex; align-items: center; justify-content: space-between; gap: 10px; height: 100%; padding: 12px 14px; background: #fff; border: 1px solid var(--line); border-left: 4px solid var(--cat); border-radius: var(--r-sm); color: var(--ink); text-decoration: none; transition: transform var(--t-fast) var(--ease), box-shadow var(--t-fast) var(--ease); }
+.passend a:hover { transform: translateY(-2px); box-shadow: var(--shadow-1); color: var(--ink); }
+.passend b { display: block; line-height: 1.3; font-size: 0.95rem; }
+.passend small { display: block; color: var(--muted); font-size: 0.82rem; }
+.pd-tested { display: inline-flex; align-items: center; gap: 4px; flex-shrink: 0; font-size: 0.66rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; color: #0f7a35; }
+.pd-tested svg { width: 12px; height: 12px; }
+@media (max-width: 600px) { .passend ul { grid-template-columns: 1fr; } }
+.compare-next { display: flex; flex-wrap: wrap; gap: 10px; margin: 24px 0 0; }
+.article .gear-note { margin: 18px 0 0; font-size: 0.95rem; }
+
+/* Finder: Ergebnis mit Summe, Abschnitten und Fehlkäufen */
+.finder-result .fl-sum { color: var(--ink); font-size: 0.95rem; background: var(--cat-softer); border-radius: var(--r-sm); padding: 10px 12px; margin: 6px 0 14px; }
+.finder-result .fl-h { font-size: 0.78rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; color: var(--cat-ink); margin: 16px 0 6px; }
+.finder-result .finder-list { margin-bottom: 8px; }
+.finder-list.is-later a::before { background: var(--soft); color: var(--muted); }
+.finder-list .fl-tested { font-style: normal; font-size: 0.66rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; color: #0f7a35; margin-left: 4px; white-space: nowrap; }
+.finder-list strong { color: var(--accent-ink); font-weight: 700; }
+.fl-warn { font-size: 0.88rem; color: var(--ink); border-left: 4px solid var(--accent); padding: 4px 0 4px 12px; margin: 8px 0 12px; }
+.fl-fehl { margin: 16px 0 18px; padding: 12px 14px; background: #fff6f2; border-radius: var(--r-sm); font-size: 0.88rem; }
+.fl-fehl b { display: block; margin-bottom: 4px; }
+.fl-fehl ul { margin: 0; padding-left: 1.1em; color: var(--muted); }
+.fl-fehl li { margin: 0 0 3px; }
+.method-editorial { --cat: var(--accent); }
+/* Foto statt Initiale, sobald assets/img/neset.jpg vorhanden ist */
+img.avatar, .about-avatar img { object-fit: cover; padding: 0; }
+.about-avatar img { width: 100%; height: 100%; border-radius: inherit; }
+.badge-editorial { background: var(--ink); color: #fff; }
+.badge-editorial::before { content: "★"; color: var(--accent); }
+.finder-result .fl-sum .fl-src { color: var(--muted); font-size: 0.82rem; }
+
+/* Schatten der Sportwelt-Kacheln: liegt am Boden und bewegt sich nicht mit dem Symbol */
+.sw-tile::after { content: ""; position: absolute; left: 50%; top: 77%; width: 50%; height: 8%; transform: translateX(-50%); border-radius: 50%; background: radial-gradient(closest-side, rgba(13, 13, 13, 0.2), rgba(13, 13, 13, 0)); pointer-events: none; z-index: 0; transition: transform var(--t) var(--ease), opacity var(--t); }
+.sw-tile img { position: relative; z-index: 1; }
+.sw-tile:hover::after { transform: translateX(-50%) scale(0.85); opacity: 0.8; }
+.sw-check::after { display: none; }
+@media (max-width: 960px) { .sw-tile::after { top: 69%; width: 44%; } }

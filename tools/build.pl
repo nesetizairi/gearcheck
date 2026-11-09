@@ -63,24 +63,69 @@ my %PIN = (
   'skibekleidung-zwiebelprinzip' => '18-zwiebelprinzip', 'schienbeinschoner-groesse' => '19-schienbeinschoner', 'kurzhanteln-verstellbar' => '20-kurzhanteln',
 );
 
-# GearCheck Finder: Produktnamen wie auf den Sportseiten, plus kurze Begründung
+# GearCheck Finder: je Sportart eine Frage zum Trainingsort, die Grundausstattung (start), sinnvolle Ergänzungen (mehr)
+# und typische Fehlkäufe. Einträge: [Produktname wie auf der Sportseite, Begründung, Orte (leer = überall)].
+# Preise kommen automatisch aus den Produktkarten.
 my %FINDER = (
-  'kampfsport' => { start => [['Boxhandschuhe', '14–16 oz passen für die meisten Einsteiger'], ['Handbandagen', 'Stützen Handgelenk und Knöchel'], ['Mundschutz', 'Spätestens fürs erste Sparring'], ['Springseil', 'Kondition und Fussarbeit']],
-                    mehr => [['Schienbeinschoner', 'Sobald Tritte dazukommen'], ['Tiefschutz', 'Für Kickboxen, Thaiboxen und MMA'], ['Kopfschutz', 'Für regelmässiges Sparring'], ['Boxsack, hängend', 'Für das Training zu Hause'], ['Sporttasche mit Nassfach', 'Hält Nasses und Trockenes getrennt']] },
-  'home-gym' => { start => [['Trainingsmatte', 'Die Basis für fast jede Übung'], ['Widerstandsbänder mit Griffen', 'Viele Übungen auf wenig Platz'], ['Klimmzugstange', 'Rücken und Arme, ohne Bohren'], ['Springseil', 'Ausdauer für wenig Geld']],
-                  mehr => [['Verstellbare Kurzhanteln', 'Der nächste Schritt fürs Krafttraining'], ['Kettlebell', 'Schwungübungen und Ganzkörpertraining'], ['Hantelbank', 'Erweitert die Übungsauswahl'], ['Bodenschutzmatten', 'Sobald Gewichte im Spiel sind'], ['Faszienrolle', 'Für die Erholung']] },
-  'fussball' => { start => [['Multi-Ground-Schuh (MG)', 'Ein Schuh für Rasen und Kunstrasen'], ['Schienbeinschoner', 'Im Spiel Pflicht'], ['Trainingsball', 'Grösse 5 ab etwa 12 Jahren'], ['Trinkflasche', 'Für Training und Spiel']],
-                  mehr => [['Hallenschuh (IN)', 'Fürs Hallentraining im Winter'], ['Grip-Socken', 'Mehr Halt im Schuh'], ['Markierungshütchen', 'Für Übungen im Garten'], ['Sporttasche mit Schuhfach', 'Trennt Schuhe und Kleidung'], ['Torwarthandschuhe', 'Nur, wenn du im Tor stehst']] },
-  'running' => { start => [['Laufschuhe für die Strasse', 'Das wichtigste Teil, am besten anprobieren'], ['Laufsocken', 'Beugen Blasen vor'], ['Laufshirt', 'Trocknet schneller als Baumwolle'], ['Laufjacke', 'Für Wind und Regen']],
-                 mehr => [['Lauftights', 'Für kühle Tage'], ['Stirnlampe', 'Für Läufe im Dunkeln'], ['Reflektorweste', 'Gesehen werden auf der Strasse'], ['GPS-Laufuhr', 'Wenn du Fortschritte messen willst'], ['Faszienrolle', 'Für die Erholung']] },
-  'radsport' => { start => [['Fahrradhelm (Velohelm)', 'Bei jeder Fahrt'], ['Licht-Set vorne und hinten', 'Nachts vorgeschrieben'], ['Bügelschloss', 'Sicher abstellen'], ['Fahrradklingel (Veloglocke)', 'In DE, AT und CH Pflicht']],
-                  mehr => [['Standpumpe mit Manometer', 'Der richtige Reifendruck'], ['Flickzeug und Reifenheber', 'Für den ersten Platten'], ['Multitool', 'Kleine Reparaturen unterwegs'], ['Radhose mit Sitzpolster', 'Für längere Fahrten'], ['Trinkflasche und Halter', 'Trinken ohne anzuhalten']] },
-  'schwimmen' => { start => [['Schwimmbrille', 'Dicht und ohne Druck'], ['Badekappe', 'In vielen Bädern Pflicht'], ['Trainingsbadeanzug', 'Oder eine Badehose (Jammer)'], ['Badeschuhe', 'Für Dusche und Beckenrand']],
-                   mehr => [['Pull Buoy', 'Für das Armtraining'], ['Schwimmbrett', 'Für das Beintraining'], ['Kurze Trainingsflossen', 'Für Beinschlag und Tempo'], ['Hand-Paddles', 'Für Kraft und Technik'], ['Anti-Fog-Spray', 'Gegen beschlagene Brillen']] },
-  'wintersport' => { start => [['Skihelm', 'Auf der Piste heute Standard'], ['Skibrille', 'Passend zum Helm anprobieren'], ['Skijacke', 'Wasserdicht und atmungsaktiv'], ['Skihose', 'Mit Gamaschen über dem Schuh'], ['Skihandschuhe', 'Fäustlinge halten wärmer']],
-                     mehr => [['Funktionsunterwäsche', 'Die erste Schicht auf der Haut'], ['Skisocken', 'Nur ein Paar tragen'], ['Rückenprotektor', 'Für Park und schnelles Fahren'], ['Halswärmer', 'Für Lift und Wind'], ['Schuhtrockner', 'Trockene Schuhe am Morgen']] },
-  'tennis-padel' => { start => [['Tennisschläger für Einsteiger', 'Grosser Kopf, eher leicht'], ['Padelschläger für Einsteiger', 'Runde Form, grosser Sweetspot'], ['Tennisbälle', 'Oder Padelbälle, je nach Sport'], ['Griffband (Overgrip)', 'Besserer Halt, günstig']],
-                      mehr => [['Tennisschuhe', 'Für seitliche Bewegungen'], ['Padelschuhe', 'Mit Fischgrät-Sohle'], ['Padelbälle', 'Weniger Druck als Tennisbälle'], ['Tennistasche', 'Für Schläger und Schuhe'], ['Schweissbänder', 'Damit der Griff trocken bleibt']] },
+  'kampfsport' => { ort => ['Wo trainierst du?', [['gym', 'Im Gym oder Verein'], ['home', 'Zu Hause']]],
+    start => [['Boxhandschuhe', '14–16 oz passen für die meisten Einsteiger', ''], ['Handbandagen', 'Stützen Handgelenk und Knöchel', ''], ['Mundschutz', 'Spätestens fürs erste Sparring', 'gym'], ['Springseil', 'Kondition und Fussarbeit', 'home']],
+    mehr => [['Schienbeinschoner', 'Sobald Tritte dazukommen', 'gym'], ['Tiefschutz', 'Für Kickboxen, Thaiboxen und MMA', 'gym'], ['Kopfschutz', 'Für regelmässiges Sparring', 'gym'], ['Sporttasche mit Nassfach', 'Hält Nasses und Trockenes getrennt', 'gym'],
+             ['Boxsack, hängend', 'Oder ein Standboxsack, wenn du nicht bohren kannst', 'home'], ['Boxpratzen', 'Für Kombinationen mit Partner', ''], ['Puzzlematten für Bodenarbeit', 'Für Grappling zu Hause', 'home']],
+    fehl => ['Zu leichte Handschuhe fürs Sparring: Die meisten Gyms verlangen 16 oz.', 'Ohne Bandagen trainieren: Der Handschuh allein stützt das Handgelenk nicht.', 'Einen hängenden Boxsack kaufen, ohne vorher die Decke zu prüfen.'] },
+  'home-gym' => { ort => ['Wie viel Platz hast du?', [['klein', 'Wenig Platz'], ['gross', 'Keller oder Garage']]],
+    start => [['Trainingsmatte', 'Die Basis für fast jede Übung', ''], ['Widerstandsbänder mit Griffen', 'Viele Übungen auf wenig Platz', ''], ['Klimmzugstange', 'Rücken und Arme, ohne Bohren', ''], ['Springseil', 'Ausdauer für wenig Geld', '']],
+    mehr => [['Verstellbare Kurzhanteln', 'Der nächste Schritt fürs Krafttraining', ''], ['Kettlebell', 'Schwungübungen und Ganzkörpertraining', ''], ['Schlingentrainer', 'Ganzkörpertraining fast ohne Platz', 'klein'], ['Hantelbank', 'Erweitert die Übungsauswahl', 'gross'],
+             ['Langhantel-Set', 'Für schwere Grundübungen', 'gross'], ['Kniebeugenständer', 'Sicher schwer trainieren ohne Partner', 'gross'], ['Bodenschutzmatten', 'Sobald schwere Gewichte im Spiel sind', 'gross'], ['Faszienrolle', 'Für die Erholung', '']],
+    fehl => ['Teure Grossgeräte kaufen, bevor die Basis sitzt.', 'Die Klimmzugstange kaufen, ohne den Türrahmen zu messen.', 'Schwere Gewichte ohne Bodenschutz einsetzen.'] },
+  'fussball' => { ort => ['Wo spielst du?', [['verein', 'Im Verein'], ['garten', 'Im Garten oder privat']]],
+    start => [['Multi-Ground-Schuh (MG)', 'Ein Schuh für Rasen und Kunstrasen', ''], ['Schienbeinschoner', 'Im Spiel Pflicht', 'verein'], ['Trainingsball', 'Grösse 5 ab etwa 12 Jahren', ''], ['Trinkflasche', 'Für Training und Spiel', '']],
+    mehr => [['Hallenschuh (IN)', 'Fürs Hallentraining im Winter', 'verein'], ['Grip-Socken', 'Mehr Halt im Schuh', 'verein'], ['Sporttasche mit Schuhfach', 'Trennt Schuhe und Kleidung', 'verein'], ['Torwarthandschuhe', 'Nur, wenn du im Tor stehst', ''],
+             ['Koordinationsleiter', 'Für schnelle Füsse', ''], ['Markierungshütchen', 'Für Übungen im Garten', 'garten'], ['Minitore', 'In Sekunden aufgebaut', 'garten'], ['Rebounder', 'Passen und Ballannahme allein üben', 'garten'], ['Ballpumpe', 'Für den eigenen Ball', 'garten']],
+    fehl => ['FG-Schuhe auf Kunstrasen tragen: Die Nocken können hängen bleiben.', 'Schienbeinschoner nach Gefühl statt nach Körpergrösse kaufen.'] },
+  'running' => { ort => ['Wo läufst du meistens?', [['strasse', 'Strasse und feste Wege'], ['trail', 'Wald und Trail']]],
+    start => [['Laufschuhe für die Strasse', 'Das wichtigste Teil, am besten anprobieren', 'strasse'], ['Trailschuhe', 'Grobes Profil für Halt im Gelände', 'trail'], ['Laufsocken', 'Beugen Blasen vor', ''], ['Laufshirt', 'Trocknet schneller als Baumwolle', '']],
+    mehr => [['Laufjacke', 'Für Wind und Regen', ''], ['Lauftights', 'Für kühle Tage', ''], ['Stirnlampe', 'Für Läufe im Dunkeln', ''], ['Reflektorweste', 'Gesehen werden auf der Strasse', 'strasse'],
+             ['Laufweste', 'Wasser und Jacke auf langen Trails', 'trail'], ['Soft Flask', 'Trinken unterwegs', 'trail'], ['GPS-Laufuhr', 'Wenn du Fortschritte messen willst', ''], ['Faszienrolle', 'Für die Erholung', '']],
+    fehl => ['Laufschuhe zu klein kaufen: Vorne gehört eine Daumenbreite Platz hin.', 'In Baumwolle laufen: Sie wird nass, schwer und scheuert.'] },
+  'radsport' => { ort => ['Wofür fährst du?', [['stadt', 'Pendeln und Alltag'], ['sport', 'Sport und Touren']]],
+    start => [['Fahrradhelm (Velohelm)', 'Bei jeder Fahrt', ''], ['Licht-Set vorne und hinten', 'Nachts vorgeschrieben', ''], ['Fahrradklingel (Veloglocke)', 'In DE, AT und CH Pflicht', ''], ['Bügelschloss', 'Sicher abstellen', 'stadt'], ['Flickzeug und Reifenheber', 'Für den ersten Platten', 'sport']],
+    mehr => [['Standpumpe mit Manometer', 'Der richtige Reifendruck', ''], ['Regenjacke fürs Rad', 'Trocken zur Arbeit', 'stadt'], ['Radhose mit Sitzpolster', 'Für längere Fahrten', 'sport'], ['Trinkflasche und Halter', 'Trinken ohne anzuhalten', 'sport'],
+             ['Multitool', 'Kleine Reparaturen unterwegs', 'sport'], ['Fahrradhandschuhe', 'Entlasten die Hände', 'sport'], ['Satteltasche', 'Schlauch und Werkzeug immer dabei', 'sport'], ['Fahrradcomputer mit GPS', 'Tempo und Navigation', 'sport']],
+    fehl => ['Den Helm nicht richtig einstellen: Er schützt nur, wenn er sitzt.', 'Mit zu wenig Luft fahren: Das kostet Kraft und Reifen.'] },
+  'schwimmen' => { ort => ['Wo schwimmst du?', [['halle', 'Hallenbad'], ['see', 'See und Freiwasser']]],
+    start => [['Schwimmbrille', 'Dicht und ohne Druck', ''], ['Badekappe', 'In vielen Bädern Pflicht', ''], ['Trainingsbadeanzug', 'Oder eine eng anliegende Badehose', ''], ['Badeschuhe', 'Für Dusche und Beckenrand', 'halle']],
+    mehr => [['Pull Buoy', 'Für das Armtraining', 'halle'], ['Schwimmbrett', 'Für das Beintraining', 'halle'], ['Kurze Trainingsflossen', 'Für Beinschlag und Tempo', ''], ['Anti-Fog-Spray', 'Gegen beschlagene Brillen', ''],
+             ['Schwimmboje', 'Sichtbar für Boote', 'see'], ['Neoprenanzug zum Schwimmen', 'Für kaltes Freiwasser', 'see'], ['Schwimmuhr', 'Zählt Bahnen und Züge', '']],
+    fehl => ['Eine Brille ohne Saugtest kaufen.', 'Im Freiwasser ohne Boje schwimmen: Boote sehen dich schlecht.'] },
+  'wintersport' => { ort => ['Wo fährst du?', [['piste', 'Auf der Piste'], ['park', 'Park und Gelände']]],
+    start => [['Skihelm', 'Auf der Piste heute Standard', ''], ['Skibrille', 'Passend zum Helm anprobieren', ''], ['Skijacke', 'Wasserdicht und atmungsaktiv', ''], ['Skihose', 'Mit Gamaschen über dem Schuh', ''], ['Skihandschuhe', 'Fäustlinge halten wärmer', '']],
+    mehr => [['Funktionsunterwäsche', 'Die erste Schicht auf der Haut', ''], ['Skisocken', 'Nur ein Paar tragen', ''], ['Rückenprotektor', 'Für Park und schnelles Fahren', 'park'], ['Protektorenshorts', 'Beim Snowboarden lernen', 'park'],
+             ['Handgelenkschoner', 'Für Snowboard-Anfänger', 'park'], ['Halswärmer', 'Für Lift und Wind', ''], ['Schuhtrockner', 'Trockene Schuhe am Morgen', ''], ['Lawinen-Notfallset', 'Nur abseits der Piste und mit Kurs', 'park']],
+    fehl => ['Helm und Brille getrennt kaufen: Zusammen anprobieren, damit keine Lücke bleibt.', 'Zwei Paar Socken übereinander tragen: Das drückt im Skischuh.'] },
+  'tennis-padel' => { ort => ['Was spielst du?', [['tennis', 'Tennis'], ['padel', 'Padel']]],
+    start => [['Tennisschläger für Einsteiger', 'Grosser Kopf, eher leicht', 'tennis'], ['Padelschläger für Einsteiger', 'Runde Form, grosser Sweetspot', 'padel'], ['Tennisbälle', 'Mehrere Dosen auf Vorrat', 'tennis'], ['Padelbälle', 'Weniger Druck als Tennisbälle', 'padel'], ['Griffband (Overgrip)', 'Besserer Halt, günstig', '']],
+    mehr => [['Tennisschuhe', 'Für seitliche Bewegungen', 'tennis'], ['Padelschuhe', 'Mit Fischgrät-Sohle', 'padel'], ['Tennistasche', 'Für Schläger und Schuhe', 'tennis'], ['Padeltasche', 'Mit gepolstertem Schlägerfach', 'padel'],
+             ['Kantenschutz für den Padelschläger', 'Schützt den Rahmen', 'padel'], ['Schweissbänder', 'Damit der Griff trocken bleibt', ''], ['Tennis-Trainer mit Gummiseil', 'Schlagtraining allein', 'tennis']],
+    fehl => ['Einen Profi-Schläger zum Start kaufen: Er verzeiht kaum Fehler.', 'Tennisbälle fürs Padel nehmen: Padelbälle haben weniger Druck.'] },
+);
+
+# "Passend dazu" am Ende jedes Ratgebers: Produktkarten (Sportart|Name) und Vergleiche (Slug)
+my %PASSEND = (
+  'boxhandschuhe-groesse' => { p => ['kampfsport|Boxhandschuhe', 'kampfsport|Handbandagen', 'kampfsport|Mundschutz', 'kampfsport|MMA-Handschuhe'],
+                               v => ['boxhandschuhe-oder-mma-handschuhe', 'boxhandschuhe-leder-oder-kunstleder', 'handbandagen-oder-innenhandschuhe'] },
+  'boxsack-kaufen' => { p => ['kampfsport|Boxsack, hängend', 'kampfsport|Standboxsack', 'kampfsport|Boxhandschuhe', 'kampfsport|Handbandagen'], v => ['boxsack-haengend-oder-stehend'] },
+  'fussballschuhe-sohle' => { p => ['fussball|Multi-Ground-Schuh (MG)', 'fussball|Kunstrasenschuh (AG)', 'fussball|Turf-Schuh (TF)', 'fussball|Hallenschuh (IN)'], v => ['fg-oder-ag'] },
+  'schienbeinschoner-groesse' => { p => ['fussball|Schienbeinschoner', 'fussball|Grip-Socken', 'fussball|Sporttape'], v => ['fg-oder-ag'] },
+  'home-gym-einsteiger' => { p => ['home-gym|Trainingsmatte', 'home-gym|Widerstandsbänder mit Griffen', 'home-gym|Klimmzugstange', 'home-gym|Verstellbare Kurzhanteln'],
+                             v => ['kurzhanteln-oder-langhantel', 'kettlebell-oder-kurzhantel'] },
+  'kurzhanteln-verstellbar' => { p => ['home-gym|Verstellbare Kurzhanteln', 'home-gym|Hantelbank', 'home-gym|Kettlebell'],
+                                 v => ['verstellbare-oder-feste-kurzhanteln', 'kurzhanteln-oder-langhantel', 'kettlebell-oder-kurzhantel'] },
+  'laufschuhe-einsteiger' => { p => ['running|Laufschuhe für die Strasse', 'running|Trailschuhe', 'running|Laufsocken'], v => ['trailschuhe-oder-strassenlaufschuhe'] },
+  'velohelm-kaufen' => { p => ['radsport|Fahrradhelm (Velohelm)', 'radsport|Licht-Set vorne und hinten', 'radsport|Bügelschloss'], v => ['fahrradhelm-mit-oder-ohne-mips'] },
+  'schwimmbrille-kaufen' => { p => ['schwimmen|Schwimmbrille', 'schwimmen|Anti-Fog-Spray', 'schwimmen|Badekappe'] },
+  'skihelm-skibrille' => { p => ['wintersport|Skihelm', 'wintersport|Skibrille', 'wintersport|Rückenprotektor'] },
+  'skibekleidung-zwiebelprinzip' => { p => ['wintersport|Funktionsunterwäsche', 'wintersport|Skijacke', 'wintersport|Skihose', 'wintersport|Skisocken'] },
+  'schlaeger-einsteiger' => { p => ['tennis-padel|Tennisschläger für Einsteiger', 'tennis-padel|Padelschläger für Einsteiger', 'tennis-padel|Griffband (Overgrip)'] },
 );
 
 # Symbol einer Produktkarte -> Bewegung beim Darüberfahren
@@ -152,12 +197,20 @@ my %FLAG = (
 );
 
 # ---------------------------------------------------------------- Produktdaten laden
-my (%FACTS, %RENAME, %NEWDESC, %TESTED);
+my (%FACTS, %RENAME, %NEWDESC, %TESTED, %LEVEL, %NOTE);
+my %LEVEL_LABEL = (basis => 'Grundausstattung', plus => 'Ergänzung', bedarf => 'Bei Bedarf');
 for my $line (split /\n/, rd('tools/produkte.txt')) {
   next if $line =~ /^\s*(#|$)/;
   if ($line =~ /^=>\s*(.+)$/) { my ($s, $old, $new) = map { s/^\s+|\s+$//gr } split /\|/, $1; $RENAME{"$s|$old"} = $new; next; }
   if ($line =~ /^~\s*(.+)$/) { my ($s, $n, $d) = map { s/^\s+|\s+$//gr } split /\|/, $1, 3; $NEWDESC{"$s|$n"} = $d; next; }
   if ($line =~ /^\+\s*(.+)$/) { my ($s, $n) = map { s/^\s+|\s+$//gr } split /\|/, $1, 2; $TESTED{"$s|$n"} = 1; next; }
+  if ($line =~ /^\^\s*(.+)$/) {
+    my ($s, $n, $st, $we, $ti) = map { s/^\s+|\s+$//gr } split /\|/, $1, -1;
+    warn "  produkte.txt: unbekannte Stufe '$st' bei $s | $n\n" unless $st =~ /^(basis|plus|bedarf)$/;
+    $LEVEL{"$s|$n"} = { stufe => $st, weniger => $we // '', tipp => $ti // '' };
+    next;
+  }
+  if ($line =~ /^!\s*(.+)$/) { my ($s, $n, $t) = map { s/^\s+|\s+$//gr } split /\|/, $1, 3; $NOTE{"$s|$n"} = $t; next; }
   my @f = map { s/^\s+|\s+$//gr } split /\|/, $line;
   if (@f != 6) { warn "  produkte.txt: Zeile hat nicht 6 Felder: $line\n"; next; }
   $FACTS{"$f[0]|$f[1]"} = { fuer => $f[2], achte => $f[3], plus => $f[4], minus => $f[5] };
@@ -178,6 +231,7 @@ my %PAGE;   # url -> { file, html, type, ... }
 for my $f (@files) {
   my $u = url_of($f);
   my $type = $u eq '/' ? 'home' : $u eq '/404.html' ? '404' : $u eq '/ratgeber/' ? 'guides' : $u =~ m{^/ratgeber/[^/]+/$} ? 'guide'
+           : $u eq '/vergleiche/' ? 'compares' : $u =~ m{^/vergleiche/[^/]+/$} ? 'compare'
            : ($u =~ m{^/([^/]+)/$} && $SPORT_BY_DIR{$1}) ? 'sport' : 'page';
   $PAGE{$u} = { file => $f, url => $u, html => rd($f), type => $type };
 }
@@ -188,11 +242,12 @@ for my $html (map { $_->{html} } grep { $_->{type} =~ /^(guides|home)$/ } values
   while ($html =~ m{<a class="card[^"]*" href="(/ratgeber/[^"]+/)">.*?<h3>.*?</h3>\s*<p>(.*?)</p>}gs) { $OLD_TEASER{$1} //= txt($2); }
 }
 
-# ---------------------------------------------------------------- Ratgeber einlesen
-my @GUIDES;
-for my $p (grep { $_->{type} eq 'guide' } values %PAGE) {
+# ---------------------------------------------------------------- Ratgeber und Vergleiche einlesen
+my (@GUIDES, @COMPARES);
+for my $p (grep { $_->{type} eq 'guide' || $_->{type} eq 'compare' } values %PAGE) {
   my $html = $p->{html};
-  my ($slug) = $p->{url} =~ m{^/ratgeber/([^/]+)/$};
+  my $kind = $p->{type} eq 'compare' ? 'vergleich' : 'ratgeber';
+  my ($slug) = $p->{url} =~ m{^/(?:ratgeber|vergleiche)/([^/]+)/$};
   my ($h1) = $html =~ m{<h1[^>]*>(.*?)</h1>}s;
   my ($cat) = $html =~ m{<main[^>]*class="[^"]*\bcat-([a-z]+)}s;
   my ($meta) = $html =~ m{<p class="meta">(.*?)</p>}s;
@@ -205,13 +260,18 @@ for my $p (grep { $_->{type} eq 'guide' } values %PAGE) {
   $teaser = defined $teaser ? dec($teaser) : ($OLD_TEASER{$p->{url}} // '');
   my ($desc) = $html =~ m{<meta name="description" content="([^"]*)"}s;
   my ($title) = $html =~ m{<title>(.*?)</title>}s;
-  push @GUIDES, { slug => $slug, url => $p->{url}, h1_html => $h1, h1 => txt($h1), cat => $cat, date => $iso, min => $min || 5,
-                  teaser => $teaser, desc => dec($desc), title => dec($title), img => "/assets/img/ratgeber/$slug.svg" };
-  $p->{guide} = $GUIDES[-1];
+  my $entry = { slug => $slug, url => $p->{url}, h1_html => $h1, h1 => txt($h1), cat => $cat, date => $iso, min => $min || 5, kind => $kind,
+                teaser => $teaser, desc => dec($desc), title => dec($title), img => $kind eq 'vergleich' ? "/assets/img/vergleiche/$slug.svg" : "/assets/img/ratgeber/$slug.svg" };
+  push @{ $kind eq 'vergleich' ? \@COMPARES : \@GUIDES }, $entry;
+  $p->{guide} = $entry;
   warn "  Kurztext fehlt: $slug\n" unless $teaser;
+  warn "  Bild fehlt: $entry->{img}\n" unless -e substr($entry->{img}, 1);
 }
 @GUIDES = sort { $b->{date} cmp $a->{date} || $a->{slug} cmp $b->{slug} } @GUIDES;
+my %CAT_ORDER = map { $SPORTS[$_]{cat} => $_ } 0 .. $#SPORTS;
+@COMPARES = sort { $CAT_ORDER{$a->{cat}} <=> $CAT_ORDER{$b->{cat}} || $a->{slug} cmp $b->{slug} } @COMPARES;
 my %GUIDE = map { $_->{slug} => $_ } @GUIDES;
+my %COMPARE = map { $_->{slug} => $_ } @COMPARES;
 
 # ---------------------------------------------------------------- Produkte der Sportseiten einlesen und Karten neu bauen
 my %PRODUCTS;     # dir -> [ product ]
@@ -221,17 +281,26 @@ sub product_card {
   my ($p) = @_;
   my $anim = $ANIM{$p->{icon}} ? qq( data-anim="$ANIM{$p->{icon}}") : '';
   my $f = $p->{facts};
-  my $facts = $f ? qq(\n                <dl class="gear-facts"><div><dt>Geeignet für</dt><dd>$f->{fuer}</dd></div><div><dt>Achte auf</dt><dd>$f->{achte}</dd></div></dl>)
+  my $lv = $p->{level} || {};
+  my $weniger = $lv->{weniger} ? qq(<div><dt>Weniger geeignet</dt><dd>$lv->{weniger}</dd></div>) : '';
+  my $facts = $f ? qq(\n                <dl class="gear-facts"><div><dt>Geeignet für</dt><dd>$f->{fuer}</dd></div>$weniger<div><dt>Achte auf</dt><dd>$f->{achte}</dd></div></dl>)
                  . qq(\n                <details class="gear-pros"><summary>Vor- und Nachteile</summary><ul><li class="pro">$f->{plus}</li><li class="con">$f->{minus}</li></ul></details>) : '';
+  my $note = $p->{note} ? qq(\n                <p class="gear-note"><span class="gear-note-av" aria-hidden="true">N</span><span><b>Aus meinem Training:</b> $p->{note}</span></p>) : '';
+  my $tags = '';
+  if ($lv->{stufe}) {
+    $tags = qq(<span class="gear-level lv-$lv->{stufe}" title="GearCheck-Einschätzung">$LEVEL_LABEL{$lv->{stufe}}</span>);
+    $tags .= qq(<span class="gear-tip">$lv->{tipp}</span>) if $lv->{tipp};
+    $tags = qq(\n                <div class="gear-tags">$tags</div>);
+  }
   my $label = h('Auf Amazon ansehen: ' . txt($p->{name}) . ' (Affiliate-Link)');
   my $extra = $p->{offers} ? " $p->{offers}" : '';
   my $guide = $p->{guide} ? "\n                  $p->{guide}" : '';
   return <<HTML;
             <article class="card gear-item" id="$p->{id}">
               <div class="gear-media"><span class="gear-icon"$anim><svg viewBox="0 0 48 48" aria-hidden="true"><use href="/assets/img/icons.svg#$p->{icon}"/></svg></span>@{[ $p->{tested} ? $BADGE_TESTED : $BADGE ]}</div>
-              <div class="gear-body">
+              <div class="gear-body">$tags
                 <h4>$p->{name}</h4>
-                <p class="gear-desc">$p->{desc}</p>$facts
+                <p class="gear-desc">$p->{desc}</p>$facts$note
                 <div class="gear-buy">
                   <p class="gear-price"><span>Preisorientierung</span>$p->{price}</p>
                   <a class="btn btn-amazon" href="$p->{href}" target="_blank" rel="sponsored nofollow noopener" data-amazon$extra aria-label="$label">Auf Amazon ansehen*</a>$guide
@@ -275,7 +344,9 @@ for my $s (@SPORTS) {
       my $facts = $FACTS{"$s->{dir}|" . txt($name)};
       warn "  Keine Zusatzinfos für $s->{dir} | " . txt($name) . "\n" unless $facts;
       my $prod = { icon => $icon, name => $name, desc => $desc, price => txt($price), href => $href, offers => $offers, guide => $guide,
-                   id => $id, group => $group, facts => $facts, sport => $s, tested => $TESTED{"$s->{dir}|" . txt($name)} };
+                   id => $id, group => $group, facts => $facts, sport => $s, tested => $TESTED{"$s->{dir}|" . txt($name)},
+                   level => $LEVEL{"$s->{dir}|" . txt($name)}, note => $NOTE{"$s->{dir}|" . txt($name)} };
+      warn "  Keine Einschätzung für $s->{dir} | " . txt($name) . "\n" unless $prod->{level};
       push @list, $prod;
       product_card($prod);
     }
@@ -300,8 +371,10 @@ sub guide_card {
   my $title = defined $o{title} ? h($o{title}) : $g->{h1_html};
   my $cls = "card guide-card cat-$g->{cat}" . ($o{featured} ? ' is-featured' : '');
   my $lazy = $o{eager} ? '' : ' loading="lazy"';
-  return qq(<a class="$cls" href="$g->{url}"><div class="gc-art"><img src="$g->{img}" alt="" width="800" height="350"$lazy></div>)
-       . qq(<div class="gc-body"><span class="tag">) . h($s->{short}) . qq(</span><h3>$title</h3><p>) . h($g->{teaser}) . qq(</p>)
+  my $id = $o{id} ? qq( id="$o{id}") : '';
+  my $tag = ($g->{kind} // '') eq 'vergleich' ? 'Vergleich · ' . $s->{short} : $s->{short};
+  return qq(<a class="$cls" href="$g->{url}"$id><div class="gc-art"><img src="$g->{img}" alt="" width="800" height="350"$lazy></div>)
+       . qq(<div class="gc-body"><span class="tag">) . h($tag) . qq(</span><h3>$title</h3><p>) . h($g->{teaser}) . qq(</p>)
        . qq(<div class="gc-meta"><span class="time">$g->{min} Min. Lesezeit</span><span class="read">Lesen →</span></div></div></a>);
 }
 
@@ -411,6 +484,7 @@ sub og_key {
   my $p = shift;
   return 'start' if $p->{type} eq 'home';
   return $p->{guide}{slug} if $p->{type} eq 'guide';
+  return "vergleich-$p->{guide}{slug}" if $p->{type} eq 'compare';
   my ($k) = $p->{url} =~ m{^/([^/]+)/$};
   return $k // 'start';
 }
@@ -424,7 +498,7 @@ sub head_html {
   my $key = og_key($p);
   my $img = -e "assets/img/og/$key.png" ? "/assets/img/og/$key.png" : -e 'assets/img/og/start.png' ? '/assets/img/og/start.png' : '';
   my $ogimg = $img ? qq(\n  <meta property="og:image" content="$SITE$img">\n  <meta property="og:image:width" content="1200">\n  <meta property="og:image:height" content="630">\n  <meta property="og:image:alt" content=") . h($ogtitle) . '">' : '';
-  my $type = $p->{type} eq 'guide' ? 'article' : 'website';
+  my $type = $p->{guide} ? 'article' : 'website';
   my $extra = $p->{type} eq 'home' ? qq(\n  <meta name="p:domain_verify" content="8cb4d07ae38832ec0129be50aa1534ad">) : '';
   my $article = $p->{guide} ? qq(\n  <meta property="article:modified_time" content="$p->{guide}{date}">\n  <meta property="article:section" content=") . h($SPORT_BY_CAT{$p->{guide}{cat}}{name}) . '">' : '';
   my $ldjson = $ld ? qq(\n  <script type="application/ld+json">$ld</script>) : '';
@@ -457,8 +531,9 @@ HTML
 
 sub breadcrumbs_ld {
   my @items = @_;   # [name, url] ...
-  my $i = 0;
-  return { '@type' => 'BreadcrumbList', itemListElement => [ map { { '@type' => 'ListItem', position => \(++$i), name => $_->[0], item => $SITE . $_->[1] } } @items ] };
+  my (@els, $i);
+  for my $it (@items) { my $n = ++$i; push @els, { '@type' => 'ListItem', position => \$n, name => $it->[0], item => $SITE . $it->[1] }; }
+  return { '@type' => 'BreadcrumbList', itemListElement => \@els };
 }
 
 sub structured_data {
@@ -467,13 +542,16 @@ sub structured_data {
   my @graph;
   if ($p->{type} eq 'home') {
     push @graph, { '@type' => 'WebSite', name => 'GearCheck', url => "$SITE/", inLanguage => 'de', description => $desc, publisher => $org };
-  } elsif ($p->{type} eq 'guide') {
+  } elsif ($p->{guide}) {
     my $g = $p->{guide}; my $s = $SPORT_BY_CAT{$g->{cat}};
-    my $img = -e "assets/img/og/$g->{slug}.png" ? "$SITE/assets/img/og/$g->{slug}.png" : "$SITE$g->{img}";
+    my $key = og_key($p);
+    my $img = -e "assets/img/og/$key.png" ? "$SITE/assets/img/og/$key.png" : "$SITE$g->{img}";
     push @graph, { '@type' => 'Article', headline => $g->{h1}, description => $desc, image => $img, inLanguage => 'de',
                    datePublished => $g->{date}, dateModified => $g->{date}, mainEntityOfPage => "$SITE$g->{url}",
                    author => { '@type' => 'Person', name => 'Neset Izairi', url => "$SITE/ueber-uns/" }, publisher => $org };
-    push @graph, breadcrumbs_ld(['Start', '/'], [$s->{name}, "/$s->{dir}/"], [$g->{h1}, $g->{url}]);
+    push @graph, $g->{kind} eq 'vergleich'
+      ? breadcrumbs_ld(['Start', '/'], ['Vergleiche', '/vergleiche/'], [$g->{h1}, $g->{url}])
+      : breadcrumbs_ld(['Start', '/'], [$s->{name}, "/$s->{dir}/"], [$g->{h1}, $g->{url}]);
   } elsif ($p->{type} eq 'sport') {
     my ($dir) = $p->{url} =~ m{^/([^/]+)/$}; my $s = $SPORT_BY_DIR{$dir};
     push @graph, { '@type' => 'CollectionPage', name => $s->{h1}, description => $desc, url => "$SITE$p->{url}", inLanguage => 'de' };
@@ -534,23 +612,65 @@ HTML
   $html =~ s{<p class="notice">.*?</p>(\s*<p class="ship-note".*?</p>)?}{$notice}s;
   $html =~ s{<div class="section-title">}{<div class="section-head">}g;
 
-  # Ratgeber der Sportart
-  my $cards = join "\n", map { '          ' . guide_card($_) } @guides;
+  # Ratgeber und Vergleiche der Sportart
+  my @vs = grep { $_->{cat} eq $s->{cat} } @COMPARES;
+  my $cards = join "\n", map { '          ' . guide_card($_) } @guides, @vs;
+  my $sec_title = @vs ? 'Ratgeber und Vergleiche' : 'Ausführliche Ratgeber';
+  $html =~ s{<h2>(?:Ausführliche Ratgeber|Ratgeber und Vergleiche)</h2>}{<h2>$sec_title</h2>};
   if ($html !~ /<!-- gc:guides -->/) {
     $html =~ s{(<h2>Ausführliche Ratgeber</h2>\s*</div>\s*)<div class="grid">.*?</div>}{$1<div class="guide-grid"><!-- gc:guides -->\n<!-- /gc:guides --></div>}s
       or warn "  Ratgeber-Bereich nicht gefunden: $p->{file}\n";
   }
   $html =~ s{<section class="section section-soft">(\s*<div class="wrap">\s*<div class="section-head">\s*<h2>Ausführliche Ratgeber)}{<section class="section section-soft" id="ratgeber">$1}s;
   $html = between($html, 'guides', $cards);
+
+  # GearCheck-Einschätzung je Kategorie: was zuerst, was später, was nur bei Bedarf
+  for my $gid (@{ $p->{group_order} }) {
+    my @g = grep { $_->{group} eq $p->{groups}{$gid} } @prods;
+    my %by;
+    push @{ $by{ ($_->{level} || {})->{stufe} // 'plus' } }, $_ for @g;
+    my $lnk = sub { join ', ', map { qq(<a href="#$_->{id}">) . h(txt($_->{name})) . '</a>' } @{ $_[0] } };
+    my @parts;
+    push @parts, '<span><b>Zuerst:</b> ' . $lnk->($by{basis}) . '</span>' if $by{basis};
+    push @parts, '<span><b>Später sinnvoll:</b> ' . $lnk->($by{plus}) . '</span>' if $by{plus};
+    push @parts, '<span><b>Nur bei Bedarf:</b> ' . $lnk->($by{bedarf}) . '</span>' if $by{bedarf};
+    my $adv = qq(<p class="gear-advice"><span class="ga-label">GearCheck-Einschätzung</span>) . join('', @parts) . '</p>';
+    $html =~ s{(<div class="gear-group" id="\Q$gid\E">\s*<h3 class="gear-title">.*?</h3>)(\s*<p class="gear-advice">.*?</p>)?}{$1\n          $adv}s;
+  }
   $p->{html} = $html;
+}
+
+sub passend_html {
+  my ($g) = @_;
+  my $cfg = $PASSEND{$g->{slug}} or return '';
+  my @prod = grep { defined } map { my $x = $PRODUCT_BY{$_}; warn "  Passend dazu: Produkt fehlt: $_\n" unless $x; $x } @{ $cfg->{p} || [] };
+  my @vs = grep { defined } map { my $x = $COMPARE{$_}; warn "  Passend dazu: Vergleich fehlt: $_\n" unless $x; $x } @{ $cfg->{v} || [] };
+  return '' unless @prod || @vs;
+  my $items = join '', map {
+    my $s = $_->{sport};
+    qq(<li><a href="/$s->{dir}/#$_->{id}"><span><b>) . h(txt($_->{name})) . qq(</b><small>Produktkarte · $_->{price}</small></span>) . ($_->{tested} ? qq(<span class="pd-tested">$ICON_CHECK getestet</span>) : '') . '</a></li>'
+  } @prod;
+  $items .= join '', map { qq(<li><a href="$_->{url}"><span><b>) . h($_->{h1}) . qq(</b><small>Vergleich · $_->{min} Min.</small></span></a></li>) } @vs;
+  return qq(<!-- gc:passend -->\n    <section class="passend" aria-labelledby="passend-dazu"><h2 id="passend-dazu">Passend dazu</h2><ul>$items</ul></section>\n    <!-- /gc:passend -->);
 }
 
 sub build_guide {
   my ($p) = @_;
   my $g = $p->{guide};
+  my $is_cmp = $g->{kind} eq 'vergleich';
   my $html = $p->{html};
   # Erzeugte Blöcke vom letzten Lauf entfernen, sie werden unten neu gebaut
-  $html =~ s{\s*<!-- gc:(toc|share|related) -->.*?<!-- /gc:\1 -->}{}gs;
+  $html =~ s{\s*<!-- gc:(toc|share|related|passend) -->.*?<!-- /gc:\1 -->}{}gs;
+
+  # Alt-Text fürs Titelbild aus der Beschreibung in der SVG-Datei (erster Kommentar)
+  if ($html =~ m{<figure class="article-art"><img src="(/assets/img/[^"]+\.svg)" alt=""}) {
+    my $svgfile = substr($1, 1);
+    if (-e $svgfile && rd($svgfile) =~ m{<!--\s*(?:[^:]*:\s*)?(.*?)\s*-->}s) {
+      my $alt = 'Illustration: ' . txt($1);
+      $alt =~ s/"//g; $alt =~ s/\s*\(([^)]*)\)/ ($1)/g;
+      $html =~ s{(<figure class="article-art"><img src="[^"]+") alt=""}{$1 . ' alt="' . h($alt) . '"'}e;
+    }
+  }
 
   # Kurztext dauerhaft an der Seite speichern
   if ($html !~ /<main[^>]*data-teaser=/) { my $t = h($g->{teaser}); $html =~ s{<main ([^>]*)>}{<main $1 data-teaser="$t">}; }
@@ -572,7 +692,7 @@ sub build_guide {
   # Inhaltsverzeichnis nach der Schnellauswahl (oder nach "Kurz und knapp")
   $html =~ s{\s*<!-- gc:toc -->.*?<!-- /gc:toc -->}{}s;
   my $toc = qq(\n\n    <!-- gc:toc -->\n    <details class="toc" open><summary>Inhalt</summary><ol>) . join('', map { qq(<li><a href="#$_->[0]">) . h($_->[1]) . '</a></li>' } @toc) . qq(</ol></details>\n    <!-- /gc:toc -->);
-  $html =~ s{(<section class="quickpick".*?</section>)}{$1$toc}s or $html =~ s{(<div class="tip">.*?</div>)}{$1$toc}s;
+  if (!$is_cmp) { $html =~ s{(<section class="quickpick".*?</section>)}{$1$toc}s or $html =~ s{(<div class="tip">.*?</div>)}{$1$toc}s; }
 
   # Schnellauswahl: Kennzeichnung je Zeile (data-tested = Produkttyp selbst benutzt) und Stand
   my ($mon, $yr) = (split / /, date_de($g->{date}))[1, 2];
@@ -597,24 +717,74 @@ sub build_guide {
   # Teilen-Leiste und weiterführende Artikel
   my $u = "$SITE$g->{url}";
   my $enc = sub { my $s = shift; utf8::encode($s); $s =~ s/([^A-Za-z0-9\-_.~])/sprintf('%%%02X', ord $1)/ge; return $s; };
-  my $media = $PIN{$g->{slug}} && -e "assets/img/pins/$g->{slug}.png" ? "$SITE/assets/img/pins/$g->{slug}.png" : "$SITE/assets/img/og/$g->{slug}.png";
-  my $share = qq(<!-- gc:share -->\n    <div class="share"><span>Hilfreich? Teile den Ratgeber:</span>)
+  my $media = $PIN{$g->{slug}} && -e "assets/img/pins/$g->{slug}.png" ? "$SITE/assets/img/pins/$g->{slug}.png" : "$SITE/assets/img/og/" . og_key($p) . '.png';
+  my $what = $is_cmp ? 'den Vergleich' : 'den Ratgeber';
+  my $share = qq(<!-- gc:share -->\n    <div class="share"><span>Hilfreich? Teile $what:</span>)
     . qq(<a href="https://www.pinterest.com/pin/create/button/?url=) . $enc->($u) . '&amp;media=' . $enc->($media) . '&amp;description=' . $enc->($g->{h1}) . qq(" target="_blank" rel="noopener">$SVG{pin}Pinterest</a>)
     . qq(<a href="https://wa.me/?text=) . $enc->("$g->{h1} $u") . qq(" target="_blank" rel="noopener">$SVG{wa}WhatsApp</a>)
     . qq(<a href="https://www.facebook.com/sharer/sharer.php?u=) . $enc->($u) . qq(" target="_blank" rel="noopener">$SVG{fb}Facebook</a>)
     . qq(<button type="button" class="js-only" data-share-native>$SVG{share}<span>Teilen</span></button>)
     . qq(<button type="button" class="js-only" data-share-copy>$SVG{link}<span>Link kopieren</span></button></div>\n    <!-- /gc:share -->);
   $html =~ s{\s*<!-- gc:share -->.*?<!-- /gc:share -->}{}s;
-  $html =~ s{(\s*<div class="author">)}{\n\n    $share$1}s;
+  my $passend = $is_cmp ? '' : passend_html($g);
+  $passend = "$passend\n\n    " if $passend;
+  $html =~ s{(\s*<div class="author">)}{\n\n    $passend$share$1}s;
 
-  my @rel = grep { $_->{slug} ne $g->{slug} && $_->{cat} eq $g->{cat} } @GUIDES;
-  push @rel, grep { $_->{slug} ne $g->{slug} && $_->{cat} ne $g->{cat} } @GUIDES;
+  # Weiterlesen: bei Ratgebern zuerst gleiche Sportart, bei Vergleichen zuerst andere Vergleiche derselben Sportart
+  my @rel;
+  if ($is_cmp) {
+    @rel = grep { $_->{slug} ne $g->{slug} && $_->{cat} eq $g->{cat} } @COMPARES;
+    push @rel, grep { $_->{cat} eq $g->{cat} } @GUIDES;
+    push @rel, grep { $_->{slug} ne $g->{slug} && $_->{cat} ne $g->{cat} } @COMPARES;
+  } else {
+    @rel = grep { $_->{slug} ne $g->{slug} && $_->{cat} eq $g->{cat} } @GUIDES;
+    push @rel, grep { $_->{slug} ne $g->{slug} && $_->{cat} ne $g->{cat} } @GUIDES;
+  }
   splice @rel, 3;
-  my $related = qq(<!-- gc:related -->\n    <section class="related" aria-labelledby="weiterlesen"><h2 id="weiterlesen">Das könnte dich auch interessieren</h2><div class="guide-grid">)
+  my $rel_title = $is_cmp ? 'Weitere Vergleiche und Ratgeber' : 'Das könnte dich auch interessieren';
+  my $related = qq(<!-- gc:related -->\n    <section class="related" aria-labelledby="weiterlesen"><h2 id="weiterlesen">$rel_title</h2><div class="guide-grid">)
     . join('', map { guide_card($_) } @rel) . qq(</div></section>\n    <!-- /gc:related -->);
   $html =~ s{\s*<!-- gc:related -->.*?<!-- /gc:related -->}{}s;
   $html =~ s{(<div class="author">.*?</div>)}{$1\n\n    $related}s;
   $p->{html} = $html;
+}
+
+sub build_compares_index {
+  my ($p) = @_;
+  my @cats = grep { my $c = $_->{cat}; grep { $_->{cat} eq $c } @COMPARES } @SPORTS;
+  my $n = @COMPARES;
+  my $chips = join '', map { qq(<a class="chip cat-$_->{cat}" href="#$_->{dir}">) . h($_->{short}) . '</a>' } @cats;
+  my $i = 0;
+  my $sections = join "\n", map {
+    my $s = $_; my @v = grep { $_->{cat} eq $s->{cat} } @COMPARES;
+    my $soft = $i++ % 2 ? ' section-soft' : '';
+    my $cards = join "\n", map { '          ' . guide_card($_, id => $_->{slug}) } @v;
+    <<HTML;
+    <section class="section guide-section cat-$s->{cat}$soft" id="$s->{dir}">
+      <div class="wrap">
+        <div class="section-head"><div><span class="kicker">@{[scalar @v]} @{[ @v == 1 ? 'Vergleich' : 'Vergleiche' ]}</span><h2>@{[h($s->{name})]}</h2></div><a class="more-link" href="/$s->{dir}/">Zur kompletten Ausrüstung →</a></div>
+        <div class="guide-grid">
+$cards
+        </div>
+      </div>
+    </section>
+HTML
+  } @cats;
+  my $main = <<HTML;
+<main id="inhalt">
+    <section class="page-hero">
+      <div class="wrap">
+        <p class="breadcrumb"><a href="/">Start</a> › Vergleiche</p>
+        <span class="kicker">Entscheidungshilfe</span>
+        <h1 class="display">Was passt besser?</h1>
+        <p class="lead">$n Entscheidungen, die vor dem Kauf immer wieder auftauchen, im direkten Vergleich. Jeweils mit kurzer Antwort, Tabelle, klarer Empfehlung und dem Weg zur passenden Ausrüstung.</p>
+        <div class="filter-bar">$chips</div>
+      </div>
+    </section>
+
+$sections  </main>
+HTML
+  $p->{html} =~ s{<main.*?</main>\n}{$main}s;
 }
 
 sub build_guides_index {
@@ -705,8 +875,15 @@ sub build_home {
   my %fd;
   for my $dir (keys %FINDER) {
     my $s = $SPORT_BY_DIR{$dir};
-    my $conv = sub { [ map { my $pr = $PRODUCT_BY{"$dir|$_->[0]"}; warn "  Finder: Produkt fehlt: $dir | $_->[0]\n" unless $pr; $pr ? [txt($pr->{name}), $pr->{id}, $_->[1]] : () } @{ $_[0] } ] };
-    $fd{$dir} = { name => $s->{short}, cat => $s->{cat}, url => "/$s->{dir}/", start => $conv->($FINDER{$dir}{start}), mehr => $conv->($FINDER{$dir}{mehr}) };
+    # Einträge: [Name, Sprungmarke, Begründung, Preis von, Preis bis, Orte, selbst getestet]
+    my $conv = sub { [ map {
+      my $pr = $PRODUCT_BY{"$dir|$_->[0]"};
+      warn "  Finder: Produkt fehlt: $dir | $_->[0]\n" unless $pr;
+      my ($lo, $hi) = $pr ? $pr->{price} =~ /(\d+)\s*–\s*(\d+)/ : ();
+      $pr ? [txt($pr->{name}), $pr->{id}, $_->[1], \($lo // 0), \($hi // 0), $_->[2] // '', \($pr->{tested} ? 1 : 0)] : ()
+    } @{ $_[0] } ] };
+    $fd{$dir} = { name => $s->{short}, cat => $s->{cat}, url => "/$s->{dir}/", frage => $FINDER{$dir}{ort}[0],
+                  orte => $FINDER{$dir}{ort}[1], start => $conv->($FINDER{$dir}{start}), mehr => $conv->($FINDER{$dir}{mehr}), fehl => $FINDER{$dir}{fehl} };
   }
   my $order = join ',', map { js($_->{dir}) . ':' . json($fd{$_->{dir}}) } grep { $fd{$_->{dir}} } @SPORTS;
   my $fchips = join '', map { qq(<button type="button" class="chip cat-$_->{cat}" data-finder-sport="$_->{dir}" aria-pressed="false">) . h($_->{short}) . '</button>' } @SPORTS;
@@ -718,8 +895,9 @@ sub build_home {
 for my $p (values %PAGE) { build_sport($p) if $p->{type} eq 'sport'; }
 for my $p (values %PAGE) {
   my $t = $p->{type};
-  build_guide($p) if $t eq 'guide';
+  build_guide($p) if $t eq 'guide' || $t eq 'compare';
   build_guides_index($p) if $t eq 'guides';
+  build_compares_index($p) if $t eq 'compares';
   build_home($p) if $t eq 'home';
   build_about($p) if $p->{url} eq '/ueber-uns/';
 
@@ -733,6 +911,12 @@ for my $p (values %PAGE) {
   $html =~ s{<footer class="site-footer">.*?</footer>(\s*<dialog class="search-dialog".*?</dialog>)?\n?}{footer_html()}se;
   $html =~ s{<main(?![^>]*\bid=)}{<main id="inhalt"};
   $html =~ s/\n{3,}/\n\n/g;
+
+  # Echtes Foto statt Initiale, sobald assets/img/neset.jpg existiert (quadratisch, mind. 400 × 400)
+  if (-e 'assets/img/neset.jpg') {
+    $html =~ s{<span class="avatar" aria-hidden="true">N</span>}{<img class="avatar" src="/assets/img/neset.jpg" alt="Neset" width="54" height="54" loading="lazy">}g;
+    $html =~ s{<div class="about-avatar" aria-hidden="true">N</div>}{<div class="about-avatar"><img src="/assets/img/neset.jpg" alt="Neset, Gründer von GearCheck" width="128" height="128"></div>}g;
+  }
 
   # Tabellen: Spaltennamen für die Kartenansicht auf dem Handy
   $html =~ s{(<table>.*?</table>)}{
@@ -773,10 +957,8 @@ for my $s (@SPORTS) {
                  d => txt("$pr->{desc} " . ($f->{fuer} // '') . ' ' . ($f->{achte} // '')), m => "$s->{short} · $pr->{group} · $pr->{price}" };
   }
 }
-if (my $v = $PAGE{'/vergleiche/'}) {
-  while ($v->{html} =~ m{<section class="compare-block[^"]*" id="([^"]+)"[^>]*>.*?<h2[^>]*>(.*?)</h2>}gs) {
-    push @idx, { k => 'g', t => txt($2), u => "/vergleiche/#$1", c => 'none', d => 'Vergleich', m => 'Vergleich' };
-  }
+for my $v (@COMPARES) {
+  push @idx, { k => 'g', t => $v->{h1}, u => $v->{url}, c => $v->{cat}, d => "$v->{teaser} $v->{desc}", m => "Vergleich · $SPORT_BY_CAT{$v->{cat}}{short} · $v->{min} Min." };
 }
 push @idx, { k => 'x', t => 'Über uns', u => '/ueber-uns/', d => 'Wer hinter GearCheck steckt, wie Empfehlungen entstehen, selbst getestet oder recherchiert, Affiliate', m => 'Neset, Methode und Transparenz' };
 push @idx, { k => 'x', t => 'Alle Ratgeber', u => '/ratgeber/', d => 'Übersicht Kaufberatung', m => scalar(@GUIDES) . ' Ratgeber' };
@@ -799,7 +981,7 @@ for my $u (sort keys %PAGE) {
   my $key = og_key($p);
   my ($title) = $p->{html} =~ m{<title>(.*?)</title>}s; $title = dec($title); $title =~ s/\s*\|\s*GearCheck$//;
   my ($cat, $art, $kicker) = ('fitness', '', 'GearCheck');
-  if ($p->{type} eq 'guide') { my $g = $p->{guide}; ($cat, $art, $kicker, $title) = ($g->{cat}, $g->{img}, $SPORT_BY_CAT{$g->{cat}}{name} . ' · Kaufberatung', $g->{h1}); }
+  if ($p->{guide}) { my $g = $p->{guide}; ($cat, $art, $kicker, $title) = ($g->{cat}, $g->{img}, $SPORT_BY_CAT{$g->{cat}}{name} . ($g->{kind} eq 'vergleich' ? ' · Vergleich' : ' · Kaufberatung'), $g->{h1}); }
   elsif ($p->{type} eq 'sport') { my ($d) = $u =~ m{^/([^/]+)/$}; my $s = $SPORT_BY_DIR{$d}; ($cat, $art, $kicker, $title) = ($s->{cat}, "/assets/img/sport/$d.svg", 'Sportart · ' . scalar(@{ $PRODUCTS{$d} }) . ' Produkte erklärt', $s->{h1}); }
   elsif ($p->{type} eq 'home') { ($kicker, $title) = ('Kaufberatung für Sportausrüstung', 'Erst checken. Dann kaufen.'); }
   push @og, { key => $key, title => $title, kicker => $kicker, cat => $cat, art => $art };

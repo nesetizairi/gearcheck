@@ -12,7 +12,8 @@ Der Ordnername `happypicks` ist noch vom alten Projektnamen, der Inhalt ist komp
 | `home-gym/`, `kampfsport/`, … | Sportseiten mit allen Produktkarten |
 | `ratgeber/index.html` | Übersicht aller Ratgeber mit Filter |
 | `ratgeber/<slug>/index.html` | ein Ratgeber |
-| `vergleiche/` | Ausrüstungstypen im direkten Vergleich |
+| `vergleiche/` | Übersicht aller Vergleiche (wird erzeugt) |
+| `vergleiche/<slug>/index.html` | ein Vergleich mit Tabelle und Empfehlung |
 | `ueber-uns/` | Über Neset, Methode (selbst getestet / recherchiert), Affiliate-Modell |
 | `_vorlagen/artikel.html` | Vorlage für neue Ratgeber (wird nicht veröffentlicht) |
 | `assets/css/style.css` | Design-System: Farben, Abstände, Radien, Schatten, alle Bausteine |
@@ -20,7 +21,7 @@ Der Ordnername `happypicks` ist noch vom alten Projektnamen, der Inhalt ist komp
 | `assets/data/suche.json` | Suchindex (erzeugt) |
 | `assets/img/` | Logo, Icons (`icons.svg`), Sport-Szenen (`sport/`), Ratgeber-Szenen (`ratgeber/`), Sport-Symbole (`gear/`), Vorschaubilder (`og/`), Pin-Bilder (`pins/`) |
 | `tools/build.pl` | Build: hält alle Seiten aktuell und prüft die Links |
-| `tools/produkte.txt` | Zusatzinfos der Produktkarten (Geeignet für, Achte auf, Vor- und Nachteil) |
+| `tools/produkte.txt` | Produktkarten: Geeignet für, Achte auf, Vor- und Nachteil, Einschätzung (`^`), Selbst getestet (`+`), Aus meinem Training (`!`) |
 | `tools/og/` | Vorschaubilder rendern (`render.ps1`) |
 | `tools/gen/` | Sport-Symbole aus den Pin-Bauteilen erzeugen |
 | `tools/serve.ps1` | lokale Vorschau auf http://localhost:8080 |
@@ -72,6 +73,20 @@ perl tools/build.pl
 - Produktkarten-Symbole kommen aus `assets/img/icons.svg`. Beim Darüberfahren bewegen sie sich passend (Handschuh boxt, Hantel hebt sich, Ball dreht sich …), Zuordnung in `%ANIM` im Build-Skript. Keine Dauer-Animationen, `prefers-reduced-motion` wird beachtet.
 - Jeder Ratgeber hat eine eigene Szene (`assets/img/ratgeber/<slug>.svg`, 800 × 350), bewusst anders als die Sportseite. Für neue Ratgeber immer eine neue Szene zeichnen.
 - Achtung in SVG-Dateien: keine doppelten Bindestriche in Kommentaren.
+
+## Neuen Vergleich veröffentlichen
+
+1. Eine bestehende Seite in `vergleiche/` kopieren (Aufbau: Kurz gesagt, Tabelle, Was passt zu dir?, Darauf kommt es an, Weiter-Knöpfe).
+2. Illustration in `tools/gen/vergleiche.html` ergänzen, `powershell -ExecutionPolicy Bypass -File tools/gen/vergleiche.ps1` ausführen.
+3. `perl tools/build.pl`: erscheint automatisch in der Übersicht, auf der Sportseite, in der Suche und bei passenden Ratgebern (Zuordnung in `%PASSEND`).
+4. Vorschaubild rendern.
+
+## Produktkarten und Finder
+
+- **Einschätzung** (`^` in `produkte.txt`): Grundausstattung, Ergänzung oder bei Bedarf, dazu „weniger geeignet für“ und sparsam ein Tipp-Label. Daraus entsteht pro Kategorie die GearCheck-Einschätzung (zuerst, später, bei Bedarf).
+- **Aus meinem Training** (`!`): nur echte Aussagen von Neset, wörtlich nah, nichts dazudichten.
+- **Finder** (`%FINDER` im Build): je Sportart eine Ortsfrage, Grundausstattung, Ergänzungen und Fehlkäufe. Preise kommen aus den Karten, die Auswahl rechnet mit Level, Ort und Budget.
+- **Foto:** Sobald `assets/img/neset.jpg` (quadratisch, mind. 400 × 400) existiert, ersetzt das Build die Initiale auf „Über uns“ und in allen Autorenboxen.
 
 ## Neuen Ratgeber veröffentlichen
 

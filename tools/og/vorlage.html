@@ -27,7 +27,9 @@
   .stripe { position: absolute; left: 0; right: 0; bottom: 0; height: 14px; background: var(--cat); z-index: 3; }
   .tiles { position: absolute; inset: 40px 34px 52px 92px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
   .tiles div { border-radius: 26px; background: #fff; display: grid; place-items: center; box-shadow: 0 8px 24px rgba(0,0,0,0.12); }
-  .tiles div img { width: 78%; }
+  .tiles div { position: relative; }
+  .tiles div:not(.check)::after { content: ""; position: absolute; left: 50%; top: 76%; width: 52%; height: 8%; transform: translateX(-50%); border-radius: 50%; background: radial-gradient(closest-side, rgba(13,13,13,0.2), rgba(13,13,13,0)); }
+  .tiles div img { width: 78%; position: relative; z-index: 1; }
   .tiles .check { background: var(--ink); box-shadow: 0 0 0 7px var(--accent); }
   .tiles .check svg { width: 52%; color: var(--accent); }
 </style>

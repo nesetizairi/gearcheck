@@ -9,7 +9,7 @@
       <linearGradient id="gy" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f2ff7a"/><stop offset="0.5" stop-color="#d4ee26"/><stop offset="1" stop-color="#94ad00"/></linearGradient>
       <filter id="sh" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="0" dy="7" stdDeviation="5" flood-color="#000" flood-opacity="0.35"/></filter>
       
-    </defs><ellipse cx="100" cy="150" rx="70" ry="11.2" fill="#0d0d0d" opacity="0.14"/><g transform="translate(100 104) rotate(-10) scale(0.72)"><g>
+    </defs><g transform="translate(100 104) rotate(-10) scale(0.72)"><g>
     <path d="M-120 6C-100-30 100-30 120 6" fill="none" stroke="#0d0d0d" stroke-width="14" stroke-linecap="round"/>
     <path d="M-120 6C-100-30 100-30 120 6" fill="none" stroke="url(#gk)" stroke-width="8" stroke-linecap="round"/>
     <path d="M-12 0C-6-8 6-8 12 0" fill="none" stroke="#0d0d0d" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
