@@ -353,9 +353,10 @@ a.card:hover .more { color: var(--cat-ink); }
 .hero-stats span { font-size: var(--fs-sm); color: var(--muted); font-weight: 600; }
 
 /* Sportwelt: 8 Sportarten um den Check in der Mitte */
-.sportworld { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; max-width: 520px; margin-left: auto; width: 100%; }
+.hero-grid > * { min-width: 0; }
+.sportworld { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; max-width: 520px; margin-left: auto; width: 100%; }
 .sw-tile {
-  position: relative; aspect-ratio: 1; border-radius: var(--r-lg);
+  position: relative; aspect-ratio: 1; min-width: 0; border-radius: var(--r-lg);
   display: grid; place-items: center; text-decoration: none; color: var(--ink);
   background: linear-gradient(160deg, #fff 0%, var(--cat-soft) 100%);
   border: 1px solid color-mix(in srgb, var(--cat) 22%, #fff);
@@ -385,7 +386,7 @@ a.card:hover .more { color: var(--cat-ink); }
   .sw-tile span { opacity: 1; transform: none; font-size: 0.62rem; left: 8px; bottom: 6px; }
   .sw-tile img { width: 64%; margin-bottom: 10px; }
 }
-@media (max-width: 380px) { .hero-stats b { font-size: 1.6rem; } }
+@media (max-width: 380px) { .hero-stats b { font-size: 1.6rem; } .sw-tile span { letter-spacing: 0.03em; } }
 
 /* Vertrauensleiste */
 .trustbar { background: var(--paper); border-bottom: 1px solid var(--line); }
@@ -799,7 +800,7 @@ td:first-child { font-weight: 800; color: var(--cat-ink); }
 .compare-verdict p { margin: 0; color: var(--muted); font-size: 0.94rem; }
 @media (max-width: 640px) { .compare-verdict { grid-template-columns: 1fr; } }
 
-.page-pad { padding: 40px 0; }
+.page-pad { padding-top: 40px; padding-bottom: 40px; } /* nur oben/unten: der seitliche Rand kommt von .wrap */
 .big-404 { font-size: clamp(5rem, 18vw, 9rem); font-weight: 900; font-style: italic; color: var(--accent); line-height: 1; letter-spacing: -0.04em; margin: 24px 0 8px; }
 
 /* ---------- 9 Fusszeile ---------- */
