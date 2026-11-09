@@ -565,7 +565,8 @@ a.card:hover .more { color: var(--cat-ink); }
   transition: top var(--t) var(--ease);
 }
 .header-hidden .subnav { top: 0; }
-.subnav-inner { display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; -webkit-mask-image: linear-gradient(90deg, #000 85%, transparent); mask-image: linear-gradient(90deg, #000 85%, transparent); padding-right: 24px; }
+/* Innen etwas Luft oben, unten und links: Die Leiste scrollt seitlich und schneidet sonst den Rahmen beim Darüberfahren und den Fokusrahmen ab */
+.subnav-inner { display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; -webkit-mask-image: linear-gradient(90deg, #000 85%, transparent); mask-image: linear-gradient(90deg, #000 85%, transparent); padding: 6px 24px 6px 6px; margin: -6px 0 -6px -6px; }
 .subnav-inner::-webkit-scrollbar { display: none; }
 .subnav a { flex-shrink: 0; }
 .subnav a.is-active { background: var(--ink); border-color: var(--ink); color: #fff; }

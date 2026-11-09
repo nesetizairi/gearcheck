@@ -76,7 +76,8 @@ my %PIN = (
 # Preise kommen automatisch aus den Produktkarten.
 my %FINDER = (
   'kampfsport' => { ort => ['Wo trainierst du?', [['gym', 'Im Gym oder Verein'], ['home', 'Zu Hause']]],
-    start => [['Boxhandschuhe', '14–16 oz passen für die meisten Einsteiger', ''], ['Handbandagen', 'Stützen Handgelenk und Knöchel', ''], ['Mundschutz', 'Spätestens fürs erste Sparring', 'gym'], ['Springseil', 'Kondition und Fussarbeit', 'home']],
+    start => [['Boxhandschuhe', '14–16 oz passen für die meisten Einsteiger', ''], ['Handbandagen', 'Stützen Handgelenk und Knöchel', ''], ['Mundschutz', 'Spätestens fürs erste Sparring', 'gym'], ['Springseil', 'Kondition und Fussarbeit', 'home'],
+              ['Rashguard', 'Liegt eng an, nichts flattert, vor allem bei MMA und Thaiboxen', 'gym'], ['MMA- und Thai-Shorts', 'Bewegungsfreiheit für Tritte und Bodenkampf', 'gym']],
     mehr => [['Schienbeinschoner', 'Sobald Tritte dazukommen', 'gym', ''], ['Tiefschutz', 'Für Kickboxen, Thaiboxen und MMA', 'gym', ''], ['Sporttasche mit Nassfach', 'Hält Nasses und Trockenes getrennt', 'gym', ''], ['Kopfschutz', 'Für regelmässiges Sparring', 'gym', 'fort'],
              ['Boxsack, hängend', 'Oder ein Standboxsack, wenn du nicht bohren kannst', 'home', ''], ['Boxpratzen', 'Für Kombinationen mit Partner', '', ''], ['MMA-Handschuhe', 'Nur wenn du MMA trainierst und greifen musst', '', 'bedarf'], ['Puzzlematten für Bodenarbeit', 'Für Grappling zu Hause', 'home', 'bedarf']],
     fehl => [['Zu leichte Handschuhe fürs Sparring: Die meisten Gyms verlangen 16 oz.', 'gym'], ['Ohne Bandagen trainieren: Der Handschuh allein stützt das Handgelenk nicht.', ''], ['Einen hängenden Boxsack kaufen, ohne vorher die Decke zu prüfen.', 'home']],

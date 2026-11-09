@@ -215,6 +215,12 @@ tennis-padel | Cap für den Platz | Spiele bei Sonne | Belüftung, Schirm | Sch�
 + running | Sportsonnenbrille
 + running | Laufweste
 + running | Faszienrolle
++ running | Laufshirt
++ running | Lauftights
++ running | GPS-Laufuhr
++ radsport | Fahrradhelm (Velohelm)
++ radsport | Bügelschloss
++ radsport | Fahrradbrille
 + schwimmen | Schwimmbrille
 + schwimmen | Badekappe
 + wintersport | Skihelm
@@ -247,8 +253,8 @@ tennis-padel | Cap für den Platz | Spiele bei Sonne | Belüftung, Schirm | Sch�
 ^ kampfsport | Standboxsack | plus | Sehr harte Tritte schwerer Sportler
 ^ kampfsport | Springseil | basis | Räume mit niedriger Decke | Preis-Leistungs-Tipp | Kostet wenig, trainiert Ausdauer und Fussarbeit und passt in jede Sporttasche.
 ^ kampfsport | Puzzlematten für Bodenarbeit | bedarf | Reines Schlag- und Tritttraining
-^ kampfsport | Rashguard | plus | Reines Boxen
-^ kampfsport | MMA- und Thai-Shorts | plus | Reines Boxtraining
+^ kampfsport | Rashguard | basis | Reines Boxen
+^ kampfsport | MMA- und Thai-Shorts | basis | Reines Boxtraining
 ^ kampfsport | Ringerschuhe | bedarf | Training ausserhalb der Matte
 ^ kampfsport | Sporttasche mit Nassfach | plus | Training nur zu Hause
 ^ home-gym | Trainingsmatte | basis | Training mit schweren Gewichten | Einsteiger-Tipp | Die Basis für fast jede Übung zu Hause, vom Bauchtraining bis zum Dehnen.
@@ -266,8 +272,8 @@ tennis-padel | Cap für den Platz | Spiele bei Sonne | Belüftung, Schirm | Sch�
 ^ home-gym | Kniebeugenständer | bedarf | Räume mit niedriger Decke | Für intensives Training | Erst sinnvoll, wenn du regelmässig und schwer mit der Langhantel trainierst.
 ^ home-gym | Dip-Station | plus | Sehr wenig Platz
 ^ home-gym | Bodenschutzmatten | bedarf | Training nur mit dem eigenen Körpergewicht
-^ home-gym | Faszienrolle | plus | Frische Verletzungen und Prellungen | Preis-Leistungs-Tipp | Günstig und vielseitig für die Selbstmassage von Beinen und Rücken nach dem Training.
-^ home-gym | Massagepistole | bedarf | Kleines Budget
+^ home-gym | Faszienrolle | basis | Frische Verletzungen und Prellungen | Preis-Leistungs-Tipp | Günstig und vielseitig für die Selbstmassage von Beinen und Rücken nach dem Training.
+^ home-gym | Massagepistole | plus | Kleines Budget
 ^ fussball | Multi-Ground-Schuh (MG) | basis | Spieler, die fast nur auf einem Belag spielen | Einsteiger-Tipp | Ein Schuh für Rasen und Kunstrasen, solange du noch nicht weisst, wo du am meisten spielst.
 ^ fussball | Kunstrasenschuh (AG) | basis | Nasser, tiefer Naturrasen
 ^ fussball | Turf-Schuh (TF) | plus | Spiele auf gepflegtem Rasen
@@ -296,7 +302,7 @@ tennis-padel | Cap für den Platz | Spiele bei Sonne | Belüftung, Schirm | Sch�
 ^ running | Reflektorweste | plus | Läufe nur bei Tageslicht | Preis-Leistungs-Tipp | Für wenig Geld deutlich besser sichtbar, sobald du in der Dämmerung oder im Dunkeln läufst.
 ^ running | Laufcap | bedarf | Läufe im Winter
 ^ running | Sportsonnenbrille | bedarf | Läufe im Wald und in der Dämmerung
-^ running | GPS-Laufuhr | bedarf | Einsteiger, die erst eine Routine aufbauen
+^ running | GPS-Laufuhr | plus | Einsteiger, die erst eine Routine aufbauen
 ^ running | Brustgurt | bedarf | Lockeres Laufen ohne Pulsziele
 ^ running | Sportkopfhörer | bedarf | Läufe in Gruppen und auf viel befahrenen Strassen
 ^ running | Laufgürtel | plus | Läufe ohne Handy und Schlüssel
@@ -398,3 +404,11 @@ tennis-padel | Cap für den Platz | Spiele bei Sonne | Belüftung, Schirm | Sch�
 ! fussball | Sporttape | Ich nutze Tape auch im Kampfsport, um die Hände über den Bandagen zusätzlich zu stabilisieren.
 ! running | Laufweste | Nutze ich gerne beim Joggen.
 ! home-gym | Klimmzugstange | Ich habe Stangen für den Türrahmen und für die Wand getestet. Heute trainiere ich an der Wandstange, weil sie mehrere Griffe hat.
+! kampfsport | Rashguard | Rashguard und MMA- oder Thai-Shorts trage ich im Training eigentlich immer. Mit weiten T-Shirts und langen Shorts willst du nicht trainieren.
+! home-gym | Faszienrolle | Faszienrolle und Massagepistole finde ich beide sehr sinnvoll.
+! radsport | Fahrradhelm (Velohelm) | Ich hatte schon mehrere Velohelme.
+! radsport | Bügelschloss | Mein früheres Kettenschloss wurde aufgebrochen. Danach habe ich mir ein stabileres Bügelschloss gekauft, das bombenfest hielt.
+! radsport | Fahrradbrille | Fahrradbrillen habe ich oft benutzt und war damit sehr zufrieden.
+! running | Laufshirt | Laufshirts trage ich bei fast jedem Lauftraining.
+! running | Lauftights | Richtig gut finde ich Tights mit Handytasche: Das Handy sitzt fest am Bein und springt beim Laufen nicht herum. Eine starke Empfehlung von mir.
+! running | GPS-Laufuhr | Ich habe mehrere GPS-Laufuhren benutzt. Sie helfen sehr, das Tempo zu checken: Bin ich im Zieltempo oder sollte ich schneller oder langsamer laufen?
