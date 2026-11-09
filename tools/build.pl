@@ -61,52 +61,69 @@ my %PIN = (
   'laufschuhe-einsteiger' => '04-laufschuhe', 'velohelm-kaufen' => '05-velohelm', 'schwimmbrille-kaufen' => '06-schwimmbrille',
   'skihelm-skibrille' => '07-skibrille', 'schlaeger-einsteiger' => '08-schlaeger', 'boxsack-kaufen' => '17-boxsack',
   'skibekleidung-zwiebelprinzip' => '18-zwiebelprinzip', 'schienbeinschoner-groesse' => '19-schienbeinschoner', 'kurzhanteln-verstellbar' => '20-kurzhanteln',
+  'handbandagen' => '27-handbandagen', 'mma-handschuhe' => '28-mma-handschuhe', 'klimmzugstange' => '29-klimmzugstange',
+  # Vergleiche
+  'boxsack-haengend-oder-stehend' => '30-vs-boxsack', 'fg-oder-ag' => '31-vs-fg-ag', 'verstellbare-oder-feste-kurzhanteln' => '32-vs-kurzhanteln',
+  'kettlebell-oder-kurzhantel' => '33-vs-kettlebell', 'fahrradhelm-mit-oder-ohne-mips' => '34-vs-mips', 'trailschuhe-oder-strassenlaufschuhe' => '35-vs-trail',
 );
 
-# GearCheck Finder: je Sportart eine Frage zum Trainingsort, die Grundausstattung (start), sinnvolle Ergänzungen (mehr)
-# und typische Fehlkäufe. Einträge: [Produktname wie auf der Sportseite, Begründung, Orte (leer = überall)].
+# GearCheck Finder: je Sportart eine Frage zum Trainingsort, die Grundausstattung (start), sinnvolle Ergänzungen (mehr),
+# typische Fehlkäufe und passende Ratgeber.
+#   start: [Produktname wie auf der Sportseite, Begründung, Orte (leer = überall)]
+#   mehr:  [Produktname, Begründung, Orte, Art]. Art: leer = wie die Einstufung der Produktkarte (bedarf -> nur bei Bedarf, sonst Ergänzung),
+#          'plus' = Ergänzung, 'fort' = erst für Fortgeschrittene, 'bedarf' = nur in bestimmten Fällen, wird nie ins Budget eingerechnet.
+#   fehl:  [Text, Orte]    ratgeber: [Slug, Orte]
 # Preise kommen automatisch aus den Produktkarten.
 my %FINDER = (
   'kampfsport' => { ort => ['Wo trainierst du?', [['gym', 'Im Gym oder Verein'], ['home', 'Zu Hause']]],
     start => [['Boxhandschuhe', '14–16 oz passen für die meisten Einsteiger', ''], ['Handbandagen', 'Stützen Handgelenk und Knöchel', ''], ['Mundschutz', 'Spätestens fürs erste Sparring', 'gym'], ['Springseil', 'Kondition und Fussarbeit', 'home']],
-    mehr => [['Schienbeinschoner', 'Sobald Tritte dazukommen', 'gym'], ['Tiefschutz', 'Für Kickboxen, Thaiboxen und MMA', 'gym'], ['Kopfschutz', 'Für regelmässiges Sparring', 'gym'], ['Sporttasche mit Nassfach', 'Hält Nasses und Trockenes getrennt', 'gym'],
-             ['Boxsack, hängend', 'Oder ein Standboxsack, wenn du nicht bohren kannst', 'home'], ['Boxpratzen', 'Für Kombinationen mit Partner', ''], ['Puzzlematten für Bodenarbeit', 'Für Grappling zu Hause', 'home']],
-    fehl => ['Zu leichte Handschuhe fürs Sparring: Die meisten Gyms verlangen 16 oz.', 'Ohne Bandagen trainieren: Der Handschuh allein stützt das Handgelenk nicht.', 'Einen hängenden Boxsack kaufen, ohne vorher die Decke zu prüfen.'] },
+    mehr => [['Schienbeinschoner', 'Sobald Tritte dazukommen', 'gym', ''], ['Tiefschutz', 'Für Kickboxen, Thaiboxen und MMA', 'gym', ''], ['Sporttasche mit Nassfach', 'Hält Nasses und Trockenes getrennt', 'gym', ''], ['Kopfschutz', 'Für regelmässiges Sparring', 'gym', 'fort'],
+             ['Boxsack, hängend', 'Oder ein Standboxsack, wenn du nicht bohren kannst', 'home', ''], ['Boxpratzen', 'Für Kombinationen mit Partner', '', ''], ['MMA-Handschuhe', 'Nur wenn du MMA trainierst und greifen musst', '', 'bedarf'], ['Puzzlematten für Bodenarbeit', 'Für Grappling zu Hause', 'home', 'bedarf']],
+    fehl => [['Zu leichte Handschuhe fürs Sparring: Die meisten Gyms verlangen 16 oz.', 'gym'], ['Ohne Bandagen trainieren: Der Handschuh allein stützt das Handgelenk nicht.', ''], ['Einen hängenden Boxsack kaufen, ohne vorher die Decke zu prüfen.', 'home']],
+    ratgeber => [['boxhandschuhe-groesse', ''], ['handbandagen', ''], ['mma-handschuhe', 'gym'], ['boxsack-kaufen', 'home']] },
   'home-gym' => { ort => ['Wie viel Platz hast du?', [['klein', 'Wenig Platz'], ['gross', 'Keller oder Garage']]],
     start => [['Trainingsmatte', 'Die Basis für fast jede Übung', ''], ['Widerstandsbänder mit Griffen', 'Viele Übungen auf wenig Platz', ''], ['Klimmzugstange', 'Rücken und Arme, ohne Bohren', ''], ['Springseil', 'Ausdauer für wenig Geld', '']],
-    mehr => [['Verstellbare Kurzhanteln', 'Der nächste Schritt fürs Krafttraining', ''], ['Kettlebell', 'Schwungübungen und Ganzkörpertraining', ''], ['Schlingentrainer', 'Ganzkörpertraining fast ohne Platz', 'klein'], ['Hantelbank', 'Erweitert die Übungsauswahl', 'gross'],
-             ['Langhantel-Set', 'Für schwere Grundübungen', 'gross'], ['Kniebeugenständer', 'Sicher schwer trainieren ohne Partner', 'gross'], ['Bodenschutzmatten', 'Sobald schwere Gewichte im Spiel sind', 'gross'], ['Faszienrolle', 'Für die Erholung', '']],
-    fehl => ['Teure Grossgeräte kaufen, bevor die Basis sitzt.', 'Die Klimmzugstange kaufen, ohne den Türrahmen zu messen.', 'Schwere Gewichte ohne Bodenschutz einsetzen.'] },
+    mehr => [['Verstellbare Kurzhanteln', 'Der nächste Schritt fürs Krafttraining', '', ''], ['Kettlebell', 'Schwungübungen und Ganzkörpertraining', '', ''], ['Schlingentrainer', 'Ganzkörpertraining fast ohne Platz', 'klein', ''], ['Hantelbank', 'Erweitert die Übungsauswahl', 'gross', ''],
+             ['Faszienrolle', 'Für die Erholung', '', ''], ['Langhantel-Set', 'Für schwere Grundübungen', 'gross', 'fort'], ['Kniebeugenständer', 'Sicher schwer trainieren ohne Partner', 'gross', 'fort'], ['Bodenschutzmatten', 'Sobald schwere Gewichte im Spiel sind', 'gross', 'fort']],
+    fehl => [['Teure Grossgeräte kaufen, bevor die Basis sitzt.', ''], ['Die Klimmzugstange kaufen, ohne den Türrahmen zu messen.', ''], ['Schwere Gewichte ohne Bodenschutz einsetzen.', 'gross']],
+    ratgeber => [['home-gym-einsteiger', ''], ['klimmzugstange', ''], ['kurzhanteln-verstellbar', '']] },
   'fussball' => { ort => ['Wo spielst du?', [['verein', 'Im Verein'], ['garten', 'Im Garten oder privat']]],
     start => [['Multi-Ground-Schuh (MG)', 'Ein Schuh für Rasen und Kunstrasen', ''], ['Schienbeinschoner', 'Im Spiel Pflicht', 'verein'], ['Trainingsball', 'Grösse 5 ab etwa 12 Jahren', ''], ['Trinkflasche', 'Für Training und Spiel', '']],
-    mehr => [['Hallenschuh (IN)', 'Fürs Hallentraining im Winter', 'verein'], ['Grip-Socken', 'Mehr Halt im Schuh', 'verein'], ['Sporttasche mit Schuhfach', 'Trennt Schuhe und Kleidung', 'verein'], ['Torwarthandschuhe', 'Nur, wenn du im Tor stehst', ''],
-             ['Koordinationsleiter', 'Für schnelle Füsse', ''], ['Markierungshütchen', 'Für Übungen im Garten', 'garten'], ['Minitore', 'In Sekunden aufgebaut', 'garten'], ['Rebounder', 'Passen und Ballannahme allein üben', 'garten'], ['Ballpumpe', 'Für den eigenen Ball', 'garten']],
-    fehl => ['FG-Schuhe auf Kunstrasen tragen: Die Nocken können hängen bleiben.', 'Schienbeinschoner nach Gefühl statt nach Körpergrösse kaufen.'] },
+    mehr => [['Grip-Socken', 'Mehr Halt im Schuh', 'verein', ''], ['Sporttasche mit Schuhfach', 'Trennt Schuhe und Kleidung', 'verein', ''], ['Hallenschuh (IN)', 'Fürs Hallentraining im Winter', 'verein', ''], ['Koordinationsleiter', 'Für schnelle Füsse', '', ''],
+             ['Markierungshütchen', 'Für Übungen im Garten', 'garten', ''], ['Minitore', 'In Sekunden aufgebaut', 'garten', 'plus'], ['Ballpumpe', 'Für den eigenen Ball', 'garten', ''], ['Rebounder', 'Passen und Ballannahme allein üben', 'garten', 'bedarf'], ['Torwarthandschuhe', 'Nur, wenn du im Tor stehst', '', 'bedarf']],
+    fehl => [['FG-Schuhe auf Kunstrasen tragen: Die Nocken können hängen bleiben.', ''], ['Schienbeinschoner nach Gefühl statt nach Körpergrösse kaufen.', 'verein'], ['Einen teuren Matchball für den Garten kaufen: Ein robuster Trainingsball hält mehr aus.', 'garten']],
+    ratgeber => [['fussballschuhe-sohle', ''], ['schienbeinschoner-groesse', 'verein']] },
   'running' => { ort => ['Wo läufst du meistens?', [['strasse', 'Strasse und feste Wege'], ['trail', 'Wald und Trail']]],
     start => [['Laufschuhe für die Strasse', 'Das wichtigste Teil, am besten anprobieren', 'strasse'], ['Trailschuhe', 'Grobes Profil für Halt im Gelände', 'trail'], ['Laufsocken', 'Beugen Blasen vor', ''], ['Laufshirt', 'Trocknet schneller als Baumwolle', '']],
-    mehr => [['Laufjacke', 'Für Wind und Regen', ''], ['Lauftights', 'Für kühle Tage', ''], ['Stirnlampe', 'Für Läufe im Dunkeln', ''], ['Reflektorweste', 'Gesehen werden auf der Strasse', 'strasse'],
-             ['Laufweste', 'Wasser und Jacke auf langen Trails', 'trail'], ['Soft Flask', 'Trinken unterwegs', 'trail'], ['GPS-Laufuhr', 'Wenn du Fortschritte messen willst', ''], ['Faszienrolle', 'Für die Erholung', '']],
-    fehl => ['Laufschuhe zu klein kaufen: Vorne gehört eine Daumenbreite Platz hin.', 'In Baumwolle laufen: Sie wird nass, schwer und scheuert.'] },
+    mehr => [['Lauftights', 'Für kühle Tage', '', ''], ['Laufjacke', 'Für Wind und Regen', '', ''], ['Reflektorweste', 'Gesehen werden auf der Strasse', 'strasse', ''], ['Stirnlampe', 'Für Läufe im Dunkeln', '', ''],
+             ['Faszienrolle', 'Für die Erholung', '', ''], ['Laufweste', 'Wasser und Jacke auf langen Trails', 'trail', 'fort'], ['Soft Flask', 'Trinken unterwegs', 'trail', 'fort'], ['GPS-Laufuhr', 'Wenn du Fortschritte messen willst', '', 'fort']],
+    fehl => [['Laufschuhe zu klein kaufen: Vorne gehört eine Daumenbreite Platz hin.', ''], ['In Baumwolle laufen: Sie wird nass, schwer und scheuert.', ''], ['Im Dunkeln ohne Licht oder Reflektoren an der Strasse laufen.', 'strasse'], ['Mit glatten Strassenschuhen auf nasse Trails: Das Profil findet kaum Halt.', 'trail']],
+    ratgeber => [['laufschuhe-einsteiger', ''], ['laufen-im-winter', '']] },
   'radsport' => { ort => ['Wofür fährst du?', [['stadt', 'Pendeln und Alltag'], ['sport', 'Sport und Touren']]],
-    start => [['Fahrradhelm (Velohelm)', 'Bei jeder Fahrt', ''], ['Licht-Set vorne und hinten', 'Nachts vorgeschrieben', ''], ['Fahrradklingel (Veloglocke)', 'In DE, AT und CH Pflicht', ''], ['Bügelschloss', 'Sicher abstellen', 'stadt'], ['Flickzeug und Reifenheber', 'Für den ersten Platten', 'sport']],
-    mehr => [['Standpumpe mit Manometer', 'Der richtige Reifendruck', ''], ['Regenjacke fürs Rad', 'Trocken zur Arbeit', 'stadt'], ['Radhose mit Sitzpolster', 'Für längere Fahrten', 'sport'], ['Trinkflasche und Halter', 'Trinken ohne anzuhalten', 'sport'],
-             ['Multitool', 'Kleine Reparaturen unterwegs', 'sport'], ['Fahrradhandschuhe', 'Entlasten die Hände', 'sport'], ['Satteltasche', 'Schlauch und Werkzeug immer dabei', 'sport'], ['Fahrradcomputer mit GPS', 'Tempo und Navigation', 'sport']],
-    fehl => ['Den Helm nicht richtig einstellen: Er schützt nur, wenn er sitzt.', 'Mit zu wenig Luft fahren: Das kostet Kraft und Reifen.'] },
+    start => [['Fahrradhelm (Velohelm)', 'Bei jeder Fahrt', ''], ['Licht-Set vorne und hinten', 'Nachts vorgeschrieben', ''], ['Fahrradklingel (Veloglocke)', 'In DE, AT und CH Pflicht', ''], ['Bügelschloss', 'Sicher abstellen', 'stadt'], ['Flickzeug und Reifenheber', 'Für den ersten Platten', 'sport'], ['Standpumpe mit Manometer', 'Der richtige Reifendruck', '']],
+    mehr => [['Regenjacke fürs Rad', 'Trocken zur Arbeit', 'stadt', ''], ['Radhose mit Sitzpolster', 'Für längere Fahrten', 'sport', ''], ['Trinkflasche und Halter', 'Trinken ohne anzuhalten', 'sport', ''], ['Multitool', 'Kleine Reparaturen unterwegs', 'sport', ''],
+             ['Fahrradhandschuhe', 'Entlasten die Hände', 'sport', ''], ['Satteltasche', 'Schlauch und Werkzeug immer dabei', 'sport', ''], ['Fahrradcomputer mit GPS', 'Tempo und Navigation', 'sport', 'fort']],
+    fehl => [['Den Helm nicht richtig einstellen: Er schützt nur, wenn er sitzt.', ''], ['Mit zu wenig Luft fahren: Das kostet Kraft und Reifen.', ''], ['Ein teures Velo mit einem dünnen Kabelschloss sichern.', 'stadt']],
+    ratgeber => [['velohelm-kaufen', ''], ['fahrradschloss', 'stadt']] },
   'schwimmen' => { ort => ['Wo schwimmst du?', [['halle', 'Hallenbad'], ['see', 'See und Freiwasser']]],
-    start => [['Schwimmbrille', 'Dicht und ohne Druck', ''], ['Badekappe', 'In vielen Bädern Pflicht', ''], ['Trainingsbadeanzug', 'Oder eine eng anliegende Badehose', ''], ['Badeschuhe', 'Für Dusche und Beckenrand', 'halle']],
-    mehr => [['Pull Buoy', 'Für das Armtraining', 'halle'], ['Schwimmbrett', 'Für das Beintraining', 'halle'], ['Kurze Trainingsflossen', 'Für Beinschlag und Tempo', ''], ['Anti-Fog-Spray', 'Gegen beschlagene Brillen', ''],
-             ['Schwimmboje', 'Sichtbar für Boote', 'see'], ['Neoprenanzug zum Schwimmen', 'Für kaltes Freiwasser', 'see'], ['Schwimmuhr', 'Zählt Bahnen und Züge', '']],
-    fehl => ['Eine Brille ohne Saugtest kaufen.', 'Im Freiwasser ohne Boje schwimmen: Boote sehen dich schlecht.'] },
+    start => [['Schwimmbrille', 'Dicht und ohne Druck', ''], ['Badekappe', 'In vielen Bädern Pflicht, im See gut sichtbar', ''], ['Trainingsbadeanzug', 'Oder eine eng anliegende Badehose', ''], ['Badeschuhe', 'Für Dusche und Beckenrand', 'halle'], ['Schwimmboje', 'Damit Boote und andere dich sehen', 'see']],
+    mehr => [['Pull Buoy', 'Für das Armtraining', 'halle', ''], ['Kurze Trainingsflossen', 'Für Beinschlag und Tempo', '', ''], ['Anti-Fog-Spray', 'Gegen beschlagene Brillen', '', ''], ['Schwimmbrett', 'Für das Beintraining, viele Bäder leihen es aus', 'halle', ''],
+             ['Schwimmuhr', 'Zählt Bahnen und Züge', '', 'fort'], ['Neoprenanzug zum Schwimmen', 'Für kaltes Freiwasser', 'see', 'bedarf']],
+    fehl => [['Eine Brille ohne Saugtest kaufen.', ''], ['Im Freiwasser ohne Boje schwimmen: Boote sehen dich schlecht.', 'see'], ['Zu grosse Paddles zum Start kaufen: Sie belasten die Schultern.', 'halle']],
+    ratgeber => [['schwimmbrille-kaufen', ''], ['trainingshilfen-schwimmen', 'halle']] },
   'wintersport' => { ort => ['Wo fährst du?', [['piste', 'Auf der Piste'], ['park', 'Park und Gelände']]],
-    start => [['Skihelm', 'Auf der Piste heute Standard', ''], ['Skibrille', 'Passend zum Helm anprobieren', ''], ['Skijacke', 'Wasserdicht und atmungsaktiv', ''], ['Skihose', 'Mit Gamaschen über dem Schuh', ''], ['Skihandschuhe', 'Fäustlinge halten wärmer', '']],
-    mehr => [['Funktionsunterwäsche', 'Die erste Schicht auf der Haut', ''], ['Skisocken', 'Nur ein Paar tragen', ''], ['Rückenprotektor', 'Für Park und schnelles Fahren', 'park'], ['Protektorenshorts', 'Beim Snowboarden lernen', 'park'],
-             ['Handgelenkschoner', 'Für Snowboard-Anfänger', 'park'], ['Halswärmer', 'Für Lift und Wind', ''], ['Schuhtrockner', 'Trockene Schuhe am Morgen', ''], ['Lawinen-Notfallset', 'Nur abseits der Piste und mit Kurs', 'park']],
-    fehl => ['Helm und Brille getrennt kaufen: Zusammen anprobieren, damit keine Lücke bleibt.', 'Zwei Paar Socken übereinander tragen: Das drückt im Skischuh.'] },
+    start => [['Skihelm', 'Auf der Piste heute Standard', ''], ['Skibrille', 'Passend zum Helm anprobieren', ''], ['Skijacke', 'Wasserdicht und atmungsaktiv', ''], ['Skihose', 'Mit Gamaschen über dem Schuh', ''], ['Skihandschuhe', 'Fäustlinge halten wärmer', ''],
+              ['Skisocken', 'Nur ein Paar tragen', ''], ['Funktionsunterwäsche', 'Die erste Schicht auf der Haut', '']],
+    mehr => [['Rückenprotektor', 'Für Park und schnelles Fahren', 'park', 'plus'], ['Halswärmer', 'Für Lift und Wind', '', ''], ['Schuhtrockner', 'Trockene Schuhe am Morgen', '', ''],
+             ['Protektorenshorts', 'Beim Snowboarden lernen', 'park', 'bedarf'], ['Handgelenkschoner', 'Für Snowboard-Anfänger', 'park', 'bedarf'], ['Lawinen-Notfallset', 'Nur abseits der Piste und mit Kurs', 'park', 'bedarf']],
+    fehl => [['Helm und Brille getrennt kaufen: Zusammen anprobieren, damit keine Lücke bleibt.', ''], ['Zwei Paar Socken übereinander tragen: Das drückt im Skischuh.', ''], ['Lawinenausrüstung ohne Kurs kaufen: Sie hilft nur, wenn du sie bedienen kannst.', 'park']],
+    ratgeber => [['skihelm-skibrille', ''], ['skibekleidung-zwiebelprinzip', '']] },
   'tennis-padel' => { ort => ['Was spielst du?', [['tennis', 'Tennis'], ['padel', 'Padel']]],
     start => [['Tennisschläger für Einsteiger', 'Grosser Kopf, eher leicht', 'tennis'], ['Padelschläger für Einsteiger', 'Runde Form, grosser Sweetspot', 'padel'], ['Tennisbälle', 'Mehrere Dosen auf Vorrat', 'tennis'], ['Padelbälle', 'Weniger Druck als Tennisbälle', 'padel'], ['Griffband (Overgrip)', 'Besserer Halt, günstig', '']],
-    mehr => [['Tennisschuhe', 'Für seitliche Bewegungen', 'tennis'], ['Padelschuhe', 'Mit Fischgrät-Sohle', 'padel'], ['Tennistasche', 'Für Schläger und Schuhe', 'tennis'], ['Padeltasche', 'Mit gepolstertem Schlägerfach', 'padel'],
-             ['Kantenschutz für den Padelschläger', 'Schützt den Rahmen', 'padel'], ['Schweissbänder', 'Damit der Griff trocken bleibt', ''], ['Tennis-Trainer mit Gummiseil', 'Schlagtraining allein', 'tennis']],
-    fehl => ['Einen Profi-Schläger zum Start kaufen: Er verzeiht kaum Fehler.', 'Tennisbälle fürs Padel nehmen: Padelbälle haben weniger Druck.'] },
+    mehr => [['Tennisschuhe', 'Halt bei seitlichen Bewegungen', 'tennis', ''], ['Padelschuhe', 'Mit Fischgrät-Sohle', 'padel', ''], ['Kantenschutz für den Padelschläger', 'Schützt den Rahmen', 'padel', ''], ['Schweissbänder', 'Damit der Griff trocken bleibt', '', ''],
+             ['Tennistasche', 'Für Schläger und Schuhe', 'tennis', 'bedarf'], ['Padeltasche', 'Mit gepolstertem Schlägerfach', 'padel', 'bedarf'], ['Tennis-Trainer mit Gummiseil', 'Schlagtraining allein', 'tennis', 'bedarf']],
+    fehl => [['Einen Profi-Schläger zum Start kaufen: Er verzeiht kaum Fehler.', ''], ['Tennisbälle fürs Padel nehmen: Padelbälle haben weniger Druck.', 'padel'], ['In Laufschuhen auf den Platz: Sie geben seitlich zu wenig Halt.', 'tennis']],
+    ratgeber => [['schlaeger-einsteiger', ''], ['tennisschuhe-padelschuhe', '']] },
 );
 
 # "Passend dazu" am Ende jedes Ratgebers: Produktkarten (Sportart|Name) und Vergleiche (Slug)
@@ -126,7 +143,21 @@ my %PASSEND = (
   'skihelm-skibrille' => { p => ['wintersport|Skihelm', 'wintersport|Skibrille', 'wintersport|Rückenprotektor'] },
   'skibekleidung-zwiebelprinzip' => { p => ['wintersport|Funktionsunterwäsche', 'wintersport|Skijacke', 'wintersport|Skihose', 'wintersport|Skisocken'] },
   'schlaeger-einsteiger' => { p => ['tennis-padel|Tennisschläger für Einsteiger', 'tennis-padel|Padelschläger für Einsteiger', 'tennis-padel|Griffband (Overgrip)'] },
+  'handbandagen' => { p => ['kampfsport|Handbandagen', 'kampfsport|Boxhandschuhe', 'kampfsport|MMA-Handschuhe', 'fussball|Sporttape'],
+                      v => ['handbandagen-oder-innenhandschuhe', 'boxhandschuhe-oder-mma-handschuhe'] },
+  'mma-handschuhe' => { p => ['kampfsport|MMA-Handschuhe', 'kampfsport|Handbandagen', 'kampfsport|Mundschutz', 'kampfsport|Tiefschutz'],
+                        v => ['boxhandschuhe-oder-mma-handschuhe', 'boxhandschuhe-leder-oder-kunstleder'] },
+  'klimmzugstange' => { p => ['home-gym|Klimmzugstange', 'home-gym|Dip-Station', 'home-gym|Schlingentrainer', 'home-gym|Gewichtsweste'] },
+  'laufen-im-winter' => { p => ['running|Lauftights', 'running|Laufjacke', 'running|Stirnlampe', 'running|Reflektorweste', 'running|Stirnband und Laufhandschuhe'],
+                          v => ['trailschuhe-oder-strassenlaufschuhe'] },
+  'fahrradschloss' => { p => ['radsport|Bügelschloss', 'radsport|Licht-Set vorne und hinten', 'radsport|Fahrradhelm (Velohelm)'] },
+  'trainingshilfen-schwimmen' => { p => ['schwimmen|Pull Buoy', 'schwimmen|Kurze Trainingsflossen', 'schwimmen|Hand-Paddles', 'schwimmen|Frontschnorchel', 'schwimmen|Netzbeutel für Trainingshilfen'] },
+  'tennisschuhe-padelschuhe' => { p => ['tennis-padel|Tennisschuhe', 'tennis-padel|Padelschuhe', 'tennis-padel|Tennisschläger für Einsteiger', 'tennis-padel|Padelschläger für Einsteiger'] },
 );
+
+# Reihenfolge bei gleichem Datum (z. B. für "Neueste Ratgeber" auf der Startseite): diese zuerst
+my @SAME_DAY_FIRST = qw(handbandagen mma-handschuhe klimmzugstange);
+my %SAME_DAY_RANK = map { $SAME_DAY_FIRST[$_] => $_ + 1 } 0 .. $#SAME_DAY_FIRST;
 
 # Symbol einer Produktkarte -> Bewegung beim Darüberfahren
 my %ANIM;
@@ -190,6 +221,8 @@ my %SVG = (
   share  => '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 8l5-5 5 5M5 14v5a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-5"/></svg>',
   truck  => '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h11v10H3zM14 9h4l3 3v4h-7"/><circle cx="7" cy="18" r="2"/><circle cx="17.5" cy="18" r="2"/></svg>',
 );
+# Lieferhinweis unter dem Affiliate-Hinweis (Sportseiten und Ratgeber); gc.js ersetzt den Text passend zum gewählten Land
+my $SHIP_NOTE = qq(<p class="ship-note" data-ship-note>$SVG{truck}<span>Die Links führen zu <b>Amazon.de</b>. Versandkosten und mögliche Zusatzgebühren können je nach Lieferland variieren.</span></p>);
 my %FLAG = (
   DE => '<svg class="flag" viewBox="0 0 5 3" aria-hidden="true"><rect width="5" height="1" fill="#000"/><rect y="1" width="5" height="1" fill="#DD0000"/><rect y="2" width="5" height="1" fill="#FFCE00"/></svg>',
   AT => '<svg class="flag" viewBox="0 0 3 2" aria-hidden="true"><rect width="3" height="2" fill="#ED2939"/><rect y="0.667" width="3" height="0.667" fill="#fff"/></svg>',
@@ -205,9 +238,10 @@ for my $line (split /\n/, rd('tools/produkte.txt')) {
   if ($line =~ /^~\s*(.+)$/) { my ($s, $n, $d) = map { s/^\s+|\s+$//gr } split /\|/, $1, 3; $NEWDESC{"$s|$n"} = $d; next; }
   if ($line =~ /^\+\s*(.+)$/) { my ($s, $n) = map { s/^\s+|\s+$//gr } split /\|/, $1, 2; $TESTED{"$s|$n"} = 1; next; }
   if ($line =~ /^\^\s*(.+)$/) {
-    my ($s, $n, $st, $we, $ti) = map { s/^\s+|\s+$//gr } split /\|/, $1, -1;
+    my ($s, $n, $st, $we, $ti, $wh) = map { s/^\s+|\s+$//gr } split /\|/, $1, -1;
     warn "  produkte.txt: unbekannte Stufe '$st' bei $s | $n\n" unless $st =~ /^(basis|plus|bedarf)$/;
-    $LEVEL{"$s|$n"} = { stufe => $st, weniger => $we // '', tipp => $ti // '' };
+    warn "  produkte.txt: Tipp ohne Begründung bei $s | $n\n" if $ti && !$wh;
+    $LEVEL{"$s|$n"} = { stufe => $st, weniger => $we // '', tipp => $ti // '', warum => $wh // '' };
     next;
   }
   if ($line =~ /^!\s*(.+)$/) { my ($s, $n, $t) = map { s/^\s+|\s+$//gr } split /\|/, $1, 3; $NOTE{"$s|$n"} = $t; next; }
@@ -267,7 +301,7 @@ for my $p (grep { $_->{type} eq 'guide' || $_->{type} eq 'compare' } values %PAG
   warn "  Kurztext fehlt: $slug\n" unless $teaser;
   warn "  Bild fehlt: $entry->{img}\n" unless -e substr($entry->{img}, 1);
 }
-@GUIDES = sort { $b->{date} cmp $a->{date} || $a->{slug} cmp $b->{slug} } @GUIDES;
+@GUIDES = sort { $b->{date} cmp $a->{date} || ($SAME_DAY_RANK{$a->{slug}} || 99) <=> ($SAME_DAY_RANK{$b->{slug}} || 99) || $a->{slug} cmp $b->{slug} } @GUIDES;
 my %CAT_ORDER = map { $SPORTS[$_]{cat} => $_ } 0 .. $#SPORTS;
 @COMPARES = sort { $CAT_ORDER{$a->{cat}} <=> $CAT_ORDER{$b->{cat}} || $a->{slug} cmp $b->{slug} } @COMPARES;
 my %GUIDE = map { $_->{slug} => $_ } @GUIDES;
@@ -285,6 +319,11 @@ sub product_card {
   my $weniger = $lv->{weniger} ? qq(<div><dt>Weniger geeignet</dt><dd>$lv->{weniger}</dd></div>) : '';
   my $facts = $f ? qq(\n                <dl class="gear-facts"><div><dt>Geeignet für</dt><dd>$f->{fuer}</dd></div>$weniger<div><dt>Achte auf</dt><dd>$f->{achte}</dd></div></dl>)
                  . qq(\n                <details class="gear-pros"><summary>Vor- und Nachteile</summary><ul><li class="pro">$f->{plus}</li><li class="con">$f->{minus}</li></ul></details>) : '';
+  my $why = '';
+  if ($lv->{tipp} && $lv->{warum}) {
+    my $lead = $lv->{tipp} =~ /Tipp$/ ? "Warum $lv->{tipp}?" : "$lv->{tipp}:";
+    $why = qq(\n                <p class="gear-why"><b>$lead</b> $lv->{warum}</p>);
+  }
   my $note = $p->{note} ? qq(\n                <p class="gear-note"><span class="gear-note-av" aria-hidden="true">N</span><span><b>Aus meinem Training:</b> $p->{note}</span></p>) : '';
   my $tags = '';
   if ($lv->{stufe}) {
@@ -300,7 +339,7 @@ sub product_card {
               <div class="gear-media"><span class="gear-icon"$anim><svg viewBox="0 0 48 48" aria-hidden="true"><use href="/assets/img/icons.svg#$p->{icon}"/></svg></span>@{[ $p->{tested} ? $BADGE_TESTED : $BADGE ]}</div>
               <div class="gear-body">$tags
                 <h4>$p->{name}</h4>
-                <p class="gear-desc">$p->{desc}</p>$facts$note
+                <p class="gear-desc">$p->{desc}</p>$why$facts$note
                 <div class="gear-buy">
                   <p class="gear-price"><span>Preisorientierung</span>$p->{price}</p>
                   <a class="btn btn-amazon" href="$p->{href}" target="_blank" rel="sponsored nofollow noopener" data-amazon$extra aria-label="$label">Auf Amazon ansehen*</a>$guide
@@ -608,7 +647,7 @@ HTML
     ? "Produkte mit „Selbst getestet“ habe ich selbst im Training benutzt, alle anderen sind recherchierte Empfehlungen"
     : 'Alle Produkte hier sind recherchierte Empfehlungen, nicht selbst getestet';
   my $notice = qq(<p class="notice"><span>Diese Seite enthält Affiliate-Links (*). Kaufst du darüber ein, erhalte ich eine kleine Provision, für dich ändert sich am Preis nichts. $kennz (<a href="/ueber-uns/#methode">so arbeiten wir</a>). Preisspannen sind grobe Richtwerte, Stand $stand.</span></p>)
-             . qq(\n        <p class="ship-note" data-ship-note>$SVG{truck}<span>Die Links führen zu <b>Amazon.de</b>. Versandkosten und mögliche Zusatzgebühren können je nach Lieferland variieren.</span></p>);
+             . qq(\n        $SHIP_NOTE);
   $html =~ s{<p class="notice">.*?</p>(\s*<p class="ship-note".*?</p>)?}{$notice}s;
   $html =~ s{<div class="section-title">}{<div class="section-head">}g;
 
@@ -674,6 +713,10 @@ sub build_guide {
 
   # Kurztext dauerhaft an der Seite speichern
   if ($html !~ /<main[^>]*data-teaser=/) { my $t = h($g->{teaser}); $html =~ s{<main ([^>]*)>}{<main $1 data-teaser="$t">}; }
+
+  # Lieferhinweis je Land wie auf den Sportseiten, direkt unter dem Affiliate-Hinweis
+  $html =~ s{\s*<p class="ship-note"[^>]*>.*?</p>}{}s;
+  $html =~ s{(<p class="notice">.*?</p>)}{$1\n    $SHIP_NOTE}s if !$is_cmp && $html =~ /data-amazon/;
 
   # Meta-Zeile einheitlich
   my $meta = qq(<p class="meta"><span>Aktualisiert am <time datetime="$g->{date}">) . date_de($g->{date}) . qq(</time></span><span>ca. $g->{min} Minuten Lesezeit</span><span>von <a href="/ueber-uns/">Neset</a></span></p>);
@@ -875,15 +918,18 @@ sub build_home {
   my %fd;
   for my $dir (keys %FINDER) {
     my $s = $SPORT_BY_DIR{$dir};
-    # Einträge: [Name, Sprungmarke, Begründung, Preis von, Preis bis, Orte, selbst getestet]
-    my $conv = sub { [ map {
+    # Einträge: [Name, Sprungmarke, Begründung, Preis von, Preis bis, Orte, selbst getestet, Art (basis, plus, fort, bedarf)]
+    my $conv = sub { my ($list, $is_start) = @_; [ map {
       my $pr = $PRODUCT_BY{"$dir|$_->[0]"};
       warn "  Finder: Produkt fehlt: $dir | $_->[0]\n" unless $pr;
       my ($lo, $hi) = $pr ? $pr->{price} =~ /(\d+)\s*–\s*(\d+)/ : ();
-      $pr ? [txt($pr->{name}), $pr->{id}, $_->[1], \($lo // 0), \($hi // 0), $_->[2] // '', \($pr->{tested} ? 1 : 0)] : ()
-    } @{ $_[0] } ] };
+      my $art = $is_start ? 'basis' : ($_->[3] || ((($pr && $pr->{level}) || {})->{stufe} // '') eq 'bedarf' && 'bedarf' || 'plus');
+      $pr ? [txt($pr->{name}), $pr->{id}, $_->[1], \($lo // 0), \($hi // 0), $_->[2] // '', \($pr->{tested} ? 1 : 0), $art] : ()
+    } @$list ] };
+    my @rg = map { my $g = $GUIDE{$_->[0]}; warn "  Finder: Ratgeber fehlt: $_->[0]\n" unless $g; $g ? [$g->{h1}, $g->{url}, $_->[1]] : () } @{ $FINDER{$dir}{ratgeber} || [] };
     $fd{$dir} = { name => $s->{short}, cat => $s->{cat}, url => "/$s->{dir}/", frage => $FINDER{$dir}{ort}[0],
-                  orte => $FINDER{$dir}{ort}[1], start => $conv->($FINDER{$dir}{start}), mehr => $conv->($FINDER{$dir}{mehr}), fehl => $FINDER{$dir}{fehl} };
+                  orte => $FINDER{$dir}{ort}[1], start => $conv->($FINDER{$dir}{start}, 1), mehr => $conv->($FINDER{$dir}{mehr}, 0),
+                  fehl => $FINDER{$dir}{fehl}, ratgeber => \@rg };
   }
   my $order = join ',', map { js($_->{dir}) . ':' . json($fd{$_->{dir}}) } grep { $fd{$_->{dir}} } @SPORTS;
   my $fchips = join '', map { qq(<button type="button" class="chip cat-$_->{cat}" data-finder-sport="$_->{dir}" aria-pressed="false">) . h($_->{short}) . '</button>' } @SPORTS;

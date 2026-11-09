@@ -71,7 +71,7 @@ perl tools/build.pl
 
 - Neue Sportart: im Build-Skript in `@SPORTS` eintragen (Name, Farbe, Texte), Farbe in `style.css`, Szene in `assets/img/sport/`, Symbol in `tools/gen/gear.html`.
 - Produktkarten-Symbole kommen aus `assets/img/icons.svg`. Beim Darüberfahren bewegen sie sich passend (Handschuh boxt, Hantel hebt sich, Ball dreht sich …), Zuordnung in `%ANIM` im Build-Skript. Keine Dauer-Animationen, `prefers-reduced-motion` wird beachtet.
-- Jeder Ratgeber hat eine eigene Szene (`assets/img/ratgeber/<slug>.svg`, 800 × 350), bewusst anders als die Sportseite. Für neue Ratgeber immer eine neue Szene zeichnen.
+- Jeder Ratgeber hat eine eigene Szene (`assets/img/ratgeber/<slug>.svg`, 800 × 350), bewusst anders als die Sportseite. Für neue Ratgeber immer eine neue Szene zeichnen. Seit dem 9. November 2026 entstehen neue Szenen in `tools/gen/ratgeber.html` (Aufruf `powershell -ExecutionPolicy Bypass -File tools/gen/ratgeber.ps1`, überschreibt nur die dort eingetragenen Ratgeber). Der erste Kommentar der SVG wird zum Alt-Text.
 - Achtung in SVG-Dateien: keine doppelten Bindestriche in Kommentaren.
 
 ## Neuen Vergleich veröffentlichen
@@ -83,9 +83,9 @@ perl tools/build.pl
 
 ## Produktkarten und Finder
 
-- **Einschätzung** (`^` in `produkte.txt`): Grundausstattung, Ergänzung oder bei Bedarf, dazu „weniger geeignet für“ und sparsam ein Tipp-Label. Daraus entsteht pro Kategorie die GearCheck-Einschätzung (zuerst, später, bei Bedarf).
+- **Einschätzung** (`^` in `produkte.txt`): Grundausstattung, Ergänzung oder bei Bedarf, dazu „weniger geeignet für“ und sparsam ein Tipp-Label. Jedes Tipp-Label braucht eine Begründung (6. Feld), sie steht als „Warum …?“ auf der Karte. Daraus entsteht pro Kategorie die GearCheck-Einschätzung (zuerst, später, bei Bedarf).
 - **Aus meinem Training** (`!`): nur echte Aussagen von Neset, wörtlich nah, nichts dazudichten.
-- **Finder** (`%FINDER` im Build): je Sportart eine Ortsfrage, Grundausstattung, Ergänzungen und Fehlkäufe. Preise kommen aus den Karten, die Auswahl rechnet mit Level, Ort und Budget.
+- **Finder** (`%FINDER` im Build): je Sportart eine Ortsfrage, Grundausstattung, Ergänzungen, Fehlkäufe und passende Ratgeber, jeweils mit Ort. Ergänzungen haben eine Art: Ergänzung, erst für Fortgeschrittene oder nur bei Bedarf. Teile „nur bei Bedarf“ (Torwarthandschuhe, Lawinenset …) zählen nie zum Budget und stehen getrennt. Preise kommen aus den Karten, die Auswahl rechnet mit Level, Ort und Budget.
 - **Foto:** Sobald `assets/img/neset.jpg` (quadratisch, mind. 400 × 400) existiert, ersetzt das Build die Initiale auf „Über uns“ und in allen Autorenboxen.
 
 ## Neuen Ratgeber veröffentlichen
@@ -100,7 +100,7 @@ perl tools/build.pl
 
 - Alle drei Länder bestellen über **Amazon.de** mit der Partner-ID **gearcheck02-21**. Amazon.de liefert nach Deutschland und Österreich, in die Schweiz viele, aber nicht alle Artikel.
 - Länderwahl in der Fusszeile (DE/AT/CH). Ohne Auswahl schätzt die Seite das Land über Browsersprache und Zeitzone, nur lokal. Gespeichert wird erst, wenn jemand selbst wählt.
-- Je Land passt sich der Lieferhinweis auf den Sportseiten an. Links werden nicht verändert, solange alle Länder dieselbe Konfiguration haben (`MARKETS` in `gc.js`).
+- Je Land passt sich der Lieferhinweis auf den Sportseiten und in den Ratgebern an (das Build setzt ihn unter den Affiliate-Hinweis), ebenso die Zusammenfassung im Finder. Links werden nicht verändert, solange alle Länder dieselbe Konfiguration haben (`MARKETS` in `gc.js`).
 - Ein anderer Link für ein einzelnes Produkt und Land: am Amazon-Link `data-offer-ch="https://…"` (oder `-de`, `-at`) ergänzen. Das Build-Skript übernimmt das Attribut.
 - Preise stehen als grobe Spanne in Euro, weil Amazon.de in Euro abrechnet. Keine umgerechneten Franken-Preise erfinden.
 
@@ -117,7 +117,7 @@ perl tools/build.pl
 
 ## Pinterest-Pins
 
-`_marketing/pins/`: Inhalte in `pins.js`, markierte Themen in `window.TOPICS`. Jeder Pin hat eine eigene Szene in `art-szenen.js` (Bauteile in `art-teile.js`). Neue Pins: eigene Szene plus Themen. Vorschau: `art-vorschau.html`, Bilder: `render.ps1`.
+`_marketing/pins/`: Inhalte in `pins.js`, markierte Themen in `window.TOPICS`. Jeder Pin hat eine eigene Szene in `art-szenen.js` bzw. ab Pin 27 in `art-szenen-2.js` (Bauteile in `art-teile.js`). Neue Pins: eigene Szene plus Themen. Pins zu Ratgebern und Vergleichen in `%PIN` im Build eintragen, dann nutzt der Pinterest-Knopf der Seite das Hochformat-Bild. Vorschau: `art-vorschau.html`, Bilder: `render.ps1`.
 
 ## Partner-Programm
 

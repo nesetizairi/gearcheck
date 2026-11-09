@@ -376,3 +376,140 @@ window.TOPICS = {
     })
   );
 })();
+
+// Pin 27–35 (9. November 2026): drei Ratgeber mit eigener Erfahrung und sechs Vergleichsseiten.
+// Bilder: art-szenen-2.js. Fakten und Preise wie auf den Zielseiten.
+window.PINS.push(
+  {
+    id: 'handbandagen', sport: 'kampfsport', board: 'Kampfsport Ausrüstung: Boxen, MMA, Thaiboxen',
+    tag: 'Kampfsport · Kaufberatung',
+    headline: 'Handbandagen: <em>welche Länge?</em>',
+    table: { head: ['Länge', 'Passt für'], rows: [
+      ['2,5–3 m', 'Kinder, enge MMA-Handschuhe'], ['3,5 m', 'kleinere Hände, MMA'],
+      ['4–4,5 m', 'Boxen, Kickboxen, Thaiboxen'], ['5 m', 'grosse Hände, viel Sackarbeit']] },
+    note: 'Beim Wickeln die Finger spreizen. Kribbelt es, ist die Bandage zu straff.',
+    cta: 'Länge & richtig wickeln',
+    link: 'https://gearcheck.ch/ratgeber/handbandagen/',
+    title: 'Handbandagen: Welche Länge passt? 2,5 bis 5 m im Überblick',
+    description: 'Welche Handbandagen brauchst du? Für die meisten Erwachsenen sind 4–4,5 m die Standardlänge, unter engen MMA-Handschuhen reichen kürzere. Dazu: elastisch oder Baumwolle, Wickeln Schritt für Schritt und die typischen Anfängerfehler. Mit eigener Trainingserfahrung, auf gearcheck.ch',
+    alt: 'Illustration: vier aufgerollte Handbandagen in 2,5, 3,5, 4,5 und 5 Metern Länge, 4,5 m als Standard markiert'
+  },
+  {
+    id: 'mma-handschuhe', sport: 'kampfsport', board: 'Kampfsport Ausrüstung: Boxen, MMA, Thaiboxen',
+    tag: 'Kampfsport · Kaufberatung',
+    headline: 'MMA-Handschuhe: <em>welche Bauart?</em>',
+    table: { head: ['Bauart', 'Polster', 'Wofür'], rows: [
+      ['Wettkampf', 'dünn, ca. 4 oz', 'Kämpfe'], ['Training', 'mittel', 'Sack, Drills, Boden'], ['Sparring', 'dick, oft 6–7 oz', 'Partnertraining']] },
+    note: 'Für den Start: Sparring- oder Trainingshandschuh, nicht der dünne Wettkampfhandschuh.',
+    cta: 'Bauarten, Grösse & Preis',
+    link: 'https://gearcheck.ch/ratgeber/mma-handschuhe/',
+    title: 'MMA-Handschuhe: Training, Sparring oder Wettkampf? So wählst du richtig',
+    description: 'Wettkampf-, Trainings- oder Sparringhandschuh: Die MMA-Handschuhe unterscheiden sich vor allem im Polster. Was für Einsteiger passt, wie der Handschuh sitzen muss und wann sich teurere Modelle aus Leder lohnen. Mit eigener Erfahrung aus dem MMA-Training, auf gearcheck.ch',
+    alt: 'Illustration: dünner Wettkampf-MMA-Handschuh mit etwa 4 Unzen neben dick gepolstertem Sparringhandschuh mit 6 bis 7 Unzen'
+  },
+  {
+    id: 'klimmzugstange', sport: 'fitness', board: 'Home-Gym & Fitness Ausrüstung',
+    tag: 'Home-Gym · Kaufberatung',
+    headline: 'Klimmzugstange: <em>Tür, Wand oder Turm?</em>',
+    table: { head: ['Variante', 'Passt für'], rows: [
+      ['Türrahmen', 'Mietwohnung, ohne Bohren'], ['Wand oder Decke', 'Garage und Keller'], ['Turm', 'kein Bohren, auch für Dips']] },
+    note: 'Vor dem Kauf messen: Rahmenbreite und Wandstärke müssen passen.',
+    cta: 'Varianten & Sicherheit',
+    link: 'https://gearcheck.ch/ratgeber/klimmzugstange/',
+    title: 'Klimmzugstange kaufen: Türrahmen, Wand, Decke oder Turm?',
+    description: 'Welche Klimmzugstange passt zu deinem Home-Gym? Türrahmen ohne Bohren, verschraubt an Wand oder Decke oder ein freistehender Turm mit Dip-Griffen. Worauf du bei Belastbarkeit, Montage und Griffen achten solltest und welche Fehlkäufe häufig sind. Auf gearcheck.ch',
+    alt: 'Illustration: Türrahmen mit Klimmzugstange, ein Massband misst die Breite, Hinweis auf die Wandstärke'
+  },
+  {
+    id: 'vs-boxsack', sport: 'kampfsport', board: 'Kampfsport Ausrüstung: Boxen, MMA, Thaiboxen',
+    tag: 'Kampfsport · Vergleich',
+    headline: 'Boxsack: <em>hängend oder stehend?</em>',
+    table: { head: ['', 'Hängend', 'Stehend'], rows: [
+      ['Montage', 'Bohren nötig', 'ohne Bohren'], ['Gefühl', 'schwingt realistisch', 'federt zurück'],
+      ['Passt zu', 'Haus, Keller', 'Mietwohnung'], ['Preis', 'ca. 60–200 €', 'ca. 100–300 €']] },
+    note: 'Tragfähige Decke? Dann hängend. Darfst du nicht bohren, nimm einen Standboxsack.',
+    cta: 'Zum ganzen Vergleich',
+    link: 'https://gearcheck.ch/vergleiche/boxsack-haengend-oder-stehend/',
+    title: 'Hängender Boxsack oder Standboxsack? Der Vergleich für zu Hause',
+    description: 'Hängender Boxsack oder Standboxsack: Was passt zu deiner Wohnung und deinem Training? Montage, Trainingsgefühl, Platz und Preis im direkten Vergleich, mit klarer Empfehlung. Auf gearcheck.ch',
+    alt: 'Illustration: hängender Boxsack an einer Deckenstange gegen einen Standboxsack mit Fuss'
+  },
+  {
+    id: 'vs-fg-ag', sport: 'fussball', board: 'Fussball Ausrüstung',
+    tag: 'Fussball · Vergleich',
+    headline: '<em>FG oder AG?</em> Die Sohle für deinen Platz',
+    table: { head: ['', 'FG', 'AG'], rows: [
+      ['Platz', 'Naturrasen', 'Kunstrasen'], ['Nocken', 'weniger, länger', 'mehr, kürzer'], ['Falscher Platz', 'hängt im Kunstrasen', 'rutscht auf nassem Rasen']] },
+    note: 'Du spielst auf beidem? Dann ist ein MG-Schuh der einfachste Weg.',
+    cta: 'Zum ganzen Vergleich',
+    link: 'https://gearcheck.ch/vergleiche/fg-oder-ag/',
+    title: 'FG oder AG? Welche Fussballschuh-Sohle für Rasen und Kunstrasen',
+    description: 'FG für Naturrasen, AG für Kunstrasen: Worin sich die Sohlen unterscheiden, was auf dem falschen Platz passiert und wann ein MG-Schuh die bessere Wahl ist. Der Vergleich auf gearcheck.ch',
+    alt: 'Illustration: FG-Sohle über Naturrasen gegen AG-Sohle über Kunstrasen'
+  },
+  {
+    id: 'vs-kurzhanteln', sport: 'fitness', board: 'Home-Gym & Fitness Ausrüstung',
+    tag: 'Home-Gym · Vergleich',
+    headline: 'Kurzhanteln: <em>verstellbar oder fest?</em>',
+    table: { head: ['', 'Verstellbar', 'Fest'], rows: [
+      ['Platz', 'ein Paar statt Ständer', 'ein Paar pro Gewicht'], ['Wechsel', 'je nach System', 'sofort'],
+      ['Robust', 'Mechanik empfindlich', 'sehr robust'], ['Kosten', 'ca. 100–300 € Paar', 'ganzer Satz wird teuer']] },
+    note: 'Wenig Platz zu Hause? Dann sind verstellbare meist die bessere Wahl.',
+    cta: 'Zum ganzen Vergleich',
+    link: 'https://gearcheck.ch/vergleiche/verstellbare-oder-feste-kurzhanteln/',
+    title: 'Verstellbare oder feste Kurzhanteln? Was passt in dein Home-Gym',
+    description: 'Ein Paar verstellbare Kurzhanteln ersetzt einen ganzen Hantelständer, feste Hanteln sind sofort griffbereit und sehr robust. Platz, Gewichtswechsel, Robustheit und Kosten im Vergleich. Auf gearcheck.ch',
+    alt: 'Illustration: verstellbare Scheibenhantel gegen drei feste Kurzhanteln in verschiedenen Grössen'
+  },
+  {
+    id: 'vs-kettlebell', sport: 'fitness', board: 'Home-Gym & Fitness Ausrüstung',
+    tag: 'Home-Gym · Vergleich',
+    headline: 'Kettlebell <em>oder Kurzhantel?</em>',
+    table: { head: ['', 'Kettlebell', 'Kurzhantel'], rows: [
+      ['Übungen', 'Swings, Goblet Squats', 'Drücken, Rudern, Curls'], ['Gewicht', 'eine pro Gewicht', 'verstellbar möglich'],
+      ['Preis', 'ca. 25–60 € Stück', 'ca. 100–300 € Paar']] },
+    note: 'Für den Anfang ist die Kurzhantel meist flexibler, die Kettlebell eine gute Ergänzung.',
+    cta: 'Zum ganzen Vergleich',
+    link: 'https://gearcheck.ch/vergleiche/kettlebell-oder-kurzhantel/',
+    title: 'Kettlebell oder Kurzhantel? Was lohnt sich fürs Training zu Hause',
+    description: 'Kettlebell oder Kurzhantel: typische Übungen, Gewicht, Platz und Preis im direkten Vergleich. Für wen sich welches Gerät lohnt und warum viele mit Kurzhanteln starten. Auf gearcheck.ch',
+    alt: 'Illustration: Kettlebell gegen Kurzhantel mit VS-Zeichen'
+  },
+  {
+    id: 'vs-mips', sport: 'radsport', board: 'Radsport & Velo Ausrüstung',
+    tag: 'Radsport · Vergleich',
+    headline: 'Velohelm <em>mit oder ohne MIPS?</em>',
+    table: { head: ['', 'Mit MIPS', 'Ohne MIPS'], rows: [
+      ['Aufbau', 'plus Gleitschicht', 'Schale und Schaum'], ['Gedacht für', 'schräge Stürze', 'geprüft nach EN 1078'], ['Preis', 'meist etwas teurer', 'meist günstiger']] },
+    note: 'Bei beiden zählt zuerst: richtige Grösse und guter Sitz.',
+    cta: 'Zum ganzen Vergleich',
+    link: 'https://gearcheck.ch/vergleiche/fahrradhelm-mit-oder-ohne-mips/',
+    title: 'Fahrradhelm mit oder ohne MIPS? Was die Gleitschicht macht',
+    description: 'Was ist MIPS und brauchst du es? Die dünne Gleitschicht im Velohelm soll bei schrägen Stürzen die Drehbewegung auf den Kopf verringern. Aufbau, Erkennungszeichen und Preis im Vergleich, plus was bei jedem Helm wichtiger ist. Auf gearcheck.ch',
+    alt: 'Illustration: Velohelm ohne MIPS gegen Velohelm mit gelb markierter Gleitschicht'
+  },
+  {
+    id: 'vs-trail', sport: 'running', board: 'Running & Laufen Ausrüstung',
+    tag: 'Running · Vergleich',
+    headline: 'Laufschuh: <em>Strasse oder Trail?</em>',
+    table: { head: ['', 'Strasse', 'Trail'], rows: [
+      ['Untergrund', 'Asphalt, feste Wege', 'Wald, Schotter, Matsch'], ['Sohle', 'flach, viel Dämpfung', 'grobes Profil'], ['Preis', 'ca. 80–160 €', 'ca. 90–170 €']] },
+    note: 'Meist auf Asphalt? Strassenschuh. Regelmässig im Gelände? Trailschuh.',
+    cta: 'Zum ganzen Vergleich',
+    link: 'https://gearcheck.ch/vergleiche/trailschuhe-oder-strassenlaufschuhe/',
+    title: 'Trailschuhe oder Strassenlaufschuhe? Der Unterschied erklärt',
+    description: 'Strassenlaufschuh oder Trailschuh: Untergrund, Sohle, Schutz und Preis im Vergleich. Wann sich ein Trailschuh lohnt und warum er auf Asphalt härter läuft. Auf gearcheck.ch',
+    alt: 'Illustration: Strassenlaufschuh auf Asphalt gegen Trailschuh mit grobem Profil auf Waldboden'
+  }
+);
+Object.assign(window.TOPICS, {
+  'handbandagen':   ['Handbandagen', 'Boxen', 'Kampfsport', 'Muay Thai', 'Kickboxen', 'MMA', 'Boxtraining'],
+  'mma-handschuhe': ['MMA', 'MMA Handschuhe', 'Kampfsport', 'Grappling', 'Kampfsport Training', 'Sportausrüstung'],
+  'klimmzugstange': ['Klimmzugstange', 'Klimmzüge', 'Home Gym', 'Fitness zu Hause', 'Krafttraining', 'Fitnessgeräte'],
+  'vs-boxsack':     ['Boxsack', 'Boxen', 'Home Gym', 'Kampfsport', 'Kickboxen', 'Boxtraining'],
+  'vs-fg-ag':       ['Fussballschuhe', 'Fussball', 'Kunstrasen', 'Fussballtraining', 'Sportausrüstung', 'Fussballspieler'],
+  'vs-kurzhanteln': ['Kurzhanteln', 'Home Gym', 'Krafttraining', 'Hanteltraining', 'Fitnessgeräte', 'Fitness zu Hause'],
+  'vs-kettlebell':  ['Kettlebell', 'Kettlebell Training', 'Kurzhanteln', 'Home Gym', 'Krafttraining', 'Fitness zu Hause'],
+  'vs-mips':        ['Fahrradhelm', 'Velo', 'Radfahren', 'Fahrradzubehör', 'Sicherheit', 'Fahrrad'],
+  'vs-trail':       ['Trailrunning', 'Laufschuhe', 'Laufen', 'Running', 'Joggen', 'Lauftraining']
+});

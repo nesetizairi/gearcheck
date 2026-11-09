@@ -66,9 +66,9 @@
     DE: { name: 'Deutschland', host: 'www.amazon.de', tag: 'gearcheck02-21',
       note: 'Die Links führen zu <b>Amazon.de</b>. Die Preisspannen sind grobe Richtwerte in Euro, Versandkosten hängen vom jeweiligen Angebot ab.' },
     AT: { name: 'Österreich', host: 'www.amazon.de', tag: 'gearcheck02-21',
-      note: 'Die Links führen zu <b>Amazon.de</b>, das nach Österreich liefert. Versandkosten und Lieferzeiten können je nach Angebot abweichen.' },
+      note: 'Die Links führen zu <b>Amazon.de</b>. In der Regel wird auch nach Österreich geliefert, Versandkosten und Lieferzeit siehst du beim jeweiligen Angebot. Die Preisspannen sind grobe Richtwerte in Euro.' },
     CH: { name: 'Schweiz', host: 'www.amazon.de', tag: 'gearcheck02-21',
-      note: 'Die Links führen zu <b>Amazon.de</b>. Viele, aber nicht alle Artikel werden in die Schweiz geliefert. Versand und mögliche Einfuhrabgaben kommen je nach Angebot dazu, die Preisspannen sind darum nur eine Orientierung in Euro.' }
+      note: 'Die Links führen zu <b>Amazon.de</b>. Viele, aber nicht alle Artikel werden in die Schweiz geliefert. Prüfe Lieferung, Versandkosten und mögliche Einfuhrabgaben beim jeweiligen Angebot. Die Preisspannen sind nur eine Orientierung in Euro.' }
   };
   function detectCountry() {
     var saved = store.get('gc-land');
@@ -119,6 +119,7 @@
       var next = own || marketUrl(a.getAttribute('data-href'), m);
       if (next !== a.getAttribute('href')) a.setAttribute('href', next);
     });
+    try { d.dispatchEvent(new CustomEvent('gc-land', { detail: code })); } catch (e) {}
   }
   applyCountry(detectCountry());
   d.addEventListener('click', function (e) {
@@ -384,13 +385,16 @@
   var finder = $('[data-finder]');
   var finderData = $('#finder-daten');
   if (finder && finderData) {
-    // Einträge: [Name, Sprungmarke, Begründung, Preis von, Preis bis, Orte, selbst getestet]
+    // Einträge: [Name, Sprungmarke, Begründung, Preis von, Preis bis, Orte, selbst getestet, Art]
+    // Art: basis = zuerst, plus = Ergänzung, fort = erst für Fortgeschrittene, bedarf = nur in bestimmten Fällen (nie ins Budget gerechnet)
     var F = JSON.parse(finderData.textContent);
     var state = { sport: Object.keys(F)[0], level: 'start', ort: null, budget: 300 };
     var res = $('.finder-result', finder);
     var orteBox = $('[data-finder-orte]', finder), frage = $('[data-finder-frage]', finder);
     var press = function (sel, attr, val) { $$(sel, finder).forEach(function (b) { b.setAttribute('aria-pressed', b.getAttribute(attr) === String(val) ? 'true' : 'false'); }); };
-    var fits = function (it) { return !it[5] || it[5].split(' ').indexOf(state.ort) > -1; };
+    var fitsOrt = function (orte) { return !orte || orte.split(' ').indexOf(state.ort) > -1; };
+    var fits = function (it) { return fitsOrt(it[5]); };
+    var art = function (a) { return function (it) { return it[7] === a; }; };
     // Das Budget bestimmt die Preisklasse: Aus unserer Spanne je Produkt wird der untere, mittlere oder obere Teil genommen.
     var nice = function (v) { return v >= 20 ? Math.round(v / 5) * 5 : Math.round(v); };
     var TIER = {
@@ -416,30 +420,43 @@
       var max = state.budget || Infinity;
       var tier = TIER[state.budget];
       var need = s.start.filter(fits);
-      // Einsteiger: die drei wichtigsten Ergänzungen kommen in Frage, Fortgeschrittene: alle
-      var cand = s.mehr.filter(fits);
-      if (state.level === 'start') cand = cand.slice(0, 3);
+      var mehr = s.mehr.filter(fits);
+      var plus = mehr.filter(art('plus')), fort = mehr.filter(art('fort')), bedarf = mehr.filter(art('bedarf'));
+      // Einsteiger: höchstens die drei wichtigsten Ergänzungen, Fortgeschrittene: alle Ergänzungen und die Teile für Fortgeschrittene.
+      // Teile "nur bei Bedarf" werden nie eingerechnet, damit das Budget nicht einfach aufgefüllt wird.
+      var cand = state.level === 'start' ? plus.slice(0, 3) : plus.concat(fort);
+      var laterOnly = state.level === 'start' ? plus.slice(3).concat(fort) : [];
       // Grundausstattung der Reihe nach, gerechnet mit dem oberen Wert der Preisklasse (lieber etwas Luft lassen)
       var sum = 0, needNow = [], needLater = [];
       need.forEach(function (it) { var c = bandOf(it)[1]; if (sum + c <= max || !needNow.length) { needNow.push(it); sum += c; } else needLater.push(it); });
       // Ergänzungen, solange das Restbudget reicht
       var extraNow = [], extraLater = [];
       cand.forEach(function (it) { var c = bandOf(it)[1]; if (!needLater.length && sum + c <= max) { extraNow.push(it); sum += c; } else extraLater.push(it); });
+      extraLater = extraLater.concat(laterOnly);
       var now = needNow.concat(extraNow), r = range(now), rNeed = range(need);
       var ortName = s.orte.filter(function (o) { return o[0] === state.ort; })[0][1];
       var budgetName = state.budget === 100 ? 'bis 100 €' : state.budget === 300 ? '100 bis 300 €' : 'über 300 €';
-      var rest = isFinite(max) ? Math.max(0, max - r[1]) : null;
+      var luft = '.';
+      if (isFinite(max)) {
+        var rest = Math.floor((max - r[1]) / 5) * 5;
+        luft = r[1] > max ? ', das liegt am oberen Rand oder knapp über deinem Budget.' : needLater.length ? ', mehr passt in dieses Budget noch nicht.' : rest >= 10 ? ', es bleiben etwa ' + rest + ' € Luft.' : ', damit ist das Budget ausgeschöpft.';
+      }
+      var ch = root.getAttribute('data-land') === 'CH' ? ' Preise in Euro: Lieferung in die Schweiz, Versand und mögliche Einfuhrabgaben beim jeweiligen Angebot prüfen.' : '';
       var html = '<span class="tag">' + esc(s.name) + ' · ' + (state.level === 'start' ? 'Einsteiger' : 'Fortgeschritten') + ' · ' + esc(ortName) + ' · ' + budgetName + '</span>' +
         '<h3>Deine Ausrüstungsliste</h3>' +
-        '<p class="fl-sum"><b>' + tier.name + ':</b> ' + tier.text + '<br>' + now.length + ' Teile, zusammen ca. <b>' + r[0] + '–' + r[1] + ' €</b>' +
-        (rest !== null ? ', es bleiben etwa ' + rest + ' € Luft.' : '.') + ' <span class="fl-src">Aus unseren Preisspannen.</span></p>' +
+        '<p class="fl-sum"><b>' + tier.name + ':</b> ' + tier.text + '<br>' + now.length + (now.length === 1 ? ' Teil' : ' Teile') + ', zusammen ca. <b>' + r[0] + '–' + r[1] + ' €</b>' +
+        luft + ' <span class="fl-src">Grobe Spannen aus unseren Produktkarten.' + ch + '</span></p>' +
         '<h4 class="fl-h">Das brauchst du zuerst</h4><ol class="finder-list">' + needNow.map(function (it) { return row(s, it); }).join('') +
         needLater.map(function (it) { return row(s, it, 'danach, wenn das Budget reicht'); }).join('') + '</ol>';
       if (needLater.length) html += '<p class="fl-warn">Für die komplette Grundausstattung solltest du mit etwa ' + rNeed[0] + '–' + rNeed[1] + ' € rechnen. Starte mit den ersten Teilen der Liste.</p>';
-      if (extraNow.length) html += '<h4 class="fl-h">Passt zusätzlich ins Budget</h4><ol class="finder-list">' + extraNow.map(function (it) { return row(s, it); }).join('') + '</ol>';
-      if (extraLater.length) html += '<h4 class="fl-h">Später, wenn das Budget es zulässt</h4><ol class="finder-list is-later">' + extraLater.map(function (it) { return row(s, it); }).join('') + '</ol>';
-      html += '<div class="fl-fehl"><b>Häufige Fehlkäufe</b><ul>' + s.fehl.map(function (f) { return '<li>' + esc(f) + '</li>'; }).join('') + '</ul></div>' +
-        '<div class="finder-actions"><a class="btn btn-dark btn-sm" href="' + esc(s.url) + '">Zur kompletten ' + esc(s.name) + '-Ausrüstung</a>' +
+      if (extraNow.length) html += '<h4 class="fl-h">Sinnvoll dazu, passt ins Budget</h4><ol class="finder-list">' + extraNow.map(function (it) { return row(s, it); }).join('') + '</ol>';
+      if (extraLater.length) html += '<h4 class="fl-h">Später sinnvoll</h4><ol class="finder-list is-later">' + extraLater.map(function (it) { return row(s, it); }).join('') + '</ol>';
+      if (bedarf.length) html += '<h4 class="fl-h">Nur bei Bedarf</h4><ol class="finder-list is-later">' + bedarf.map(function (it) { return row(s, it); }).join('') + '</ol>';
+      var fehl = s.fehl.filter(function (f) { return fitsOrt(f[1]); });
+      var guides = (s.ratgeber || []).filter(function (g) { return fitsOrt(g[2]); }).slice(0, 3);
+      html += '<div class="fl-fehl"><b>Häufige Fehlkäufe</b><ul>' + fehl.map(function (f) { return '<li>' + esc(f[0]) + '</li>'; }).join('') + '</ul></div>';
+      if (guides.length) html += '<div class="fl-guides"><b>Mehr dazu in unseren Ratgebern</b><ul>' + guides.map(function (g) { return '<li><a href="' + esc(g[1]) + '">' + esc(g[0]) + '</a></li>'; }).join('') + '</ul></div>';
+      html += '<div class="finder-actions"><a class="btn btn-dark btn-sm" href="' + esc(s.url) + '">Zur kompletten ' + esc(s.name) + '-Ausrüstung</a>' +
         '<button type="button" class="btn btn-sm" data-finder-print>Checkliste drucken</button></div>';
       res.className = 'finder-result cat-' + s.cat;
       res.innerHTML = html;
@@ -465,6 +482,8 @@
     });
     drawOrte();
     draw();
+    // Land gewechselt: Liste neu zeichnen, damit der Hinweis zur Schweiz stimmt
+    d.addEventListener('gc-land', function () { draw(); });
   }
 
   /* ---------- Saisontipp passend zum Monat ---------- */

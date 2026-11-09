@@ -231,10 +231,10 @@ tennis-padel | Cap für den Platz | Spiele bei Sonne | Belüftung, Schirm | Sch�
 + tennis-padel | Schweissbänder
 
 # ---------- GearCheck-Einschätzung ----------
-# Format:  ^ sportart | Produktname | Stufe | Weniger geeignet für | Tipp (optional)
+# Format:  ^ sportart | Produktname | Stufe | Weniger geeignet für | Tipp (optional) | Begründung des Tipps (optional, erscheint auf der Karte)
 # Stufe: basis = Grundausstattung (zuerst kaufen), plus = sinnvolle Ergänzung, bedarf = nur bei Bedarf / für Fortgeschrittene
 # Tipp: Einsteiger-Tipp, Preis-Leistungs-Tipp oder Für intensives Training. Sparsam einsetzen, die Begründung steht auf der Karte.
-^ kampfsport | Boxhandschuhe | basis | Reines MMA-Training mit Griffen | Einsteiger-Tipp
+^ kampfsport | Boxhandschuhe | basis | Reines MMA-Training mit Griffen | Einsteiger-Tipp | Ein Paar mit 14–16 oz deckt Sack, Pratzen und das erste Sparring ab.
 ^ kampfsport | Handbandagen | basis | Kurze Einheiten ohne Zeit zum Wickeln
 ^ kampfsport | Mundschutz | basis | Training ganz ohne Kontakt
 ^ kampfsport | Tiefschutz | plus | Reines Sack- und Pratzentraining
@@ -245,17 +245,17 @@ tennis-padel | Cap für den Platz | Spiele bei Sonne | Belüftung, Schirm | Sch�
 ^ kampfsport | Thaipads | bedarf | Reines Boxen
 ^ kampfsport | Boxsack, hängend | plus | Mietwohnungen ohne tragfähige Decke
 ^ kampfsport | Standboxsack | plus | Sehr harte Tritte schwerer Sportler
-^ kampfsport | Springseil | basis | Räume mit niedriger Decke | Preis-Leistungs-Tipp
+^ kampfsport | Springseil | basis | Räume mit niedriger Decke | Preis-Leistungs-Tipp | Kostet wenig, trainiert Ausdauer und Fussarbeit und passt in jede Sporttasche.
 ^ kampfsport | Puzzlematten für Bodenarbeit | bedarf | Reines Schlag- und Tritttraining
 ^ kampfsport | Rashguard | plus | Reines Boxen
 ^ kampfsport | MMA- und Thai-Shorts | plus | Reines Boxtraining
 ^ kampfsport | Ringerschuhe | bedarf | Training ausserhalb der Matte
 ^ kampfsport | Sporttasche mit Nassfach | plus | Training nur zu Hause
-^ home-gym | Trainingsmatte | basis | Training mit schweren Gewichten | Einsteiger-Tipp
-^ home-gym | Widerstandsbänder mit Griffen | basis | Schweres Krafttraining | Preis-Leistungs-Tipp
+^ home-gym | Trainingsmatte | basis | Training mit schweren Gewichten | Einsteiger-Tipp | Die Basis für fast jede Übung zu Hause, vom Bauchtraining bis zum Dehnen.
+^ home-gym | Widerstandsbänder mit Griffen | basis | Schweres Krafttraining | Preis-Leistungs-Tipp | Ein Set ermöglicht für wenig Geld Übungen für den ganzen Körper und braucht kaum Platz.
 ^ home-gym | Mini-Bänder (Loop Bands) | plus | Oberkörpertraining mit viel Widerstand
 ^ home-gym | Klimmzugstange | basis | Türrahmen mit Zierleisten oder aus Leichtbau
-^ home-gym | Springseil | plus | Wohnungen mit empfindlichen Nachbarn darunter
+^ home-gym | Springseil | basis | Wohnungen mit empfindlichen Nachbarn darunter
 ^ home-gym | Bauchroller | plus | Einsteiger mit Rückenbeschwerden
 ^ home-gym | Schlingentrainer | plus | Räume ohne stabile Tür oder Decke
 ^ home-gym | Verstellbare Kurzhanteln | plus | Sehr kleines Budget
@@ -263,12 +263,12 @@ tennis-padel | Cap für den Platz | Spiele bei Sonne | Belüftung, Schirm | Sch�
 ^ home-gym | Langhantel-Set | bedarf | Kleine Wohnungen und empfindliche Böden
 ^ home-gym | Hantelbank | plus | Sehr wenig Platz
 ^ home-gym | Gewichtsweste | bedarf | Einsteiger, die die Übungen noch lernen
-^ home-gym | Kniebeugenständer | bedarf | Räume mit niedriger Decke | Für intensives Training
+^ home-gym | Kniebeugenständer | bedarf | Räume mit niedriger Decke | Für intensives Training | Erst sinnvoll, wenn du regelmässig und schwer mit der Langhantel trainierst.
 ^ home-gym | Dip-Station | plus | Sehr wenig Platz
 ^ home-gym | Bodenschutzmatten | bedarf | Training nur mit dem eigenen Körpergewicht
-^ home-gym | Faszienrolle | plus | Frische Verletzungen und Prellungen | Preis-Leistungs-Tipp
+^ home-gym | Faszienrolle | plus | Frische Verletzungen und Prellungen | Preis-Leistungs-Tipp | Günstig und vielseitig für die Selbstmassage von Beinen und Rücken nach dem Training.
 ^ home-gym | Massagepistole | bedarf | Kleines Budget
-^ fussball | Multi-Ground-Schuh (MG) | basis | Spieler, die fast nur auf einem Belag spielen | Einsteiger-Tipp
+^ fussball | Multi-Ground-Schuh (MG) | basis | Spieler, die fast nur auf einem Belag spielen | Einsteiger-Tipp | Ein Schuh für Rasen und Kunstrasen, solange du noch nicht weisst, wo du am meisten spielst.
 ^ fussball | Kunstrasenschuh (AG) | basis | Nasser, tiefer Naturrasen
 ^ fussball | Turf-Schuh (TF) | plus | Spiele auf gepflegtem Rasen
 ^ fussball | Hallenschuh (IN) | plus | Training draussen
@@ -277,7 +277,7 @@ tennis-padel | Cap für den Platz | Spiele bei Sonne | Belüftung, Schirm | Sch�
 ^ fussball | Grip-Socken | plus | Spieler, die im Schuh schon guten Halt haben
 ^ fussball | Trainingsball | basis | Futsal in der Halle, dafür gibt es eigene Bälle
 ^ fussball | Ballpumpe | plus | Wer keinen eigenen Ball hat
-^ fussball | Markierungshütchen | plus | Wer nur im Verein trainiert | Preis-Leistungs-Tipp
+^ fussball | Markierungshütchen | plus | Wer nur im Verein trainiert | Preis-Leistungs-Tipp | Ein Set kostet wenig und reicht für viele Lauf- und Ballübungen im Garten.
 ^ fussball | Koordinationsleiter | plus | Wer nur im Verein trainiert
 ^ fussball | Minitore | bedarf | Balkone und kleine Wohnungen
 ^ fussball | Rebounder | bedarf | Kleine Gärten
@@ -286,14 +286,14 @@ tennis-padel | Cap für den Platz | Spiele bei Sonne | Belüftung, Schirm | Sch�
 ^ fussball | Trainingsleibchen | bedarf | Einzelne Spieler, gedacht für Teams und Trainer
 ^ fussball | Trinkflasche | basis |
 ^ fussball | Feldspielerhandschuhe | bedarf | Spiele bei milden Temperaturen
-^ running | Laufschuhe für die Strasse | basis | Matschige Trails und Bergwege | Einsteiger-Tipp
+^ running | Laufschuhe für die Strasse | basis | Matschige Trails und Bergwege | Einsteiger-Tipp | Die meisten laufen anfangs auf Asphalt und festen Wegen, dafür ist dieser Schuh gemacht.
 ^ running | Trailschuhe | plus | Reine Asphaltrunden
 ^ running | Laufsocken | basis |
 ^ running | Laufshirt | basis |
 ^ running | Lauftights | plus | Heisse Sommertage
 ^ running | Laufjacke | plus | Trockene, warme Tage
 ^ running | Stirnband und Laufhandschuhe | bedarf | Milde Temperaturen
-^ running | Reflektorweste | plus | Läufe nur bei Tageslicht | Preis-Leistungs-Tipp
+^ running | Reflektorweste | plus | Läufe nur bei Tageslicht | Preis-Leistungs-Tipp | Für wenig Geld deutlich besser sichtbar, sobald du in der Dämmerung oder im Dunkeln läufst.
 ^ running | Laufcap | bedarf | Läufe im Winter
 ^ running | Sportsonnenbrille | bedarf | Läufe im Wald und in der Dämmerung
 ^ running | GPS-Laufuhr | bedarf | Einsteiger, die erst eine Routine aufbauen
@@ -316,14 +316,14 @@ tennis-padel | Cap für den Platz | Spiele bei Sonne | Belüftung, Schirm | Sch�
 ^ radsport | Standpumpe mit Manometer | basis | Pannen unterwegs, dafür gibt es Minipumpen
 ^ radsport | Minipumpe | plus | Pumpen zu Hause
 ^ radsport | Multitool | plus | Wer nie selbst schraubt
-^ radsport | Flickzeug und Reifenheber | basis | Tubeless-Reifen, die anders repariert werden | Preis-Leistungs-Tipp
+^ radsport | Flickzeug und Reifenheber | basis | Tubeless-Reifen, die anders repariert werden | Preis-Leistungs-Tipp | Kostet wenige Euro und bringt dich beim ersten Platten wieder nach Hause.
 ^ radsport | Kettenöl und Pflegeset | plus | Räder mit Riemenantrieb
 ^ radsport | Montageständer | bedarf | Gelegentliche kleine Reparaturen
 ^ radsport | Fahrradcomputer mit GPS | bedarf | Kurze Alltagsfahrten
 ^ radsport | Trinkflasche und Halter | plus | Rahmen ohne Gewindeösen
 ^ radsport | Satteltasche | plus | Kurze Stadtfahrten
 ^ radsport | Rollentrainer | bedarf | Wenig Platz und hellhörige Wohnungen
-^ schwimmen | Schwimmbrille | basis | | Einsteiger-Tipp
+^ schwimmen | Schwimmbrille | basis | | Einsteiger-Tipp | Das wichtigste Teil zum Start: Sie muss dicht sitzen und darf nicht drücken.
 ^ schwimmen | Badekappe | basis | Kurzes Haar in Bädern ohne Kappenpflicht
 ^ schwimmen | Trainingsbadeanzug | basis | Gelegentliches Baden ohne Training
 ^ schwimmen | Badehose (Jammer) | plus | Gelegentliches Baden
@@ -331,7 +331,7 @@ tennis-padel | Cap für den Platz | Spiele bei Sonne | Belüftung, Schirm | Sch�
 ^ schwimmen | Badeschuhe | basis |
 ^ schwimmen | Nasenklammer und Ohrstöpsel | bedarf | Wer mit Wasser in Nase und Ohren kein Problem hat
 ^ schwimmen | Anti-Fog-Spray | plus | Brillen mit intakter Beschichtung
-^ schwimmen | Pull Buoy | plus | Reines Freizeitschwimmen | Preis-Leistungs-Tipp
+^ schwimmen | Pull Buoy | plus | Reines Freizeitschwimmen | Preis-Leistungs-Tipp | Kostet wenig und hilft, Armzug und Wasserlage gezielt zu üben.
 ^ schwimmen | Schwimmbrett | plus | Reines Freizeitschwimmen
 ^ schwimmen | Hand-Paddles | bedarf | Einsteiger mit Schulterbeschwerden
 ^ schwimmen | Kurze Trainingsflossen | plus | Reines Freizeitschwimmen
@@ -352,21 +352,21 @@ tennis-padel | Cap für den Platz | Spiele bei Sonne | Belüftung, Schirm | Sch�
 ^ wintersport | Funktionsunterwäsche | basis |
 ^ wintersport | Skisocken | basis |
 ^ wintersport | Skihandschuhe | basis |
-^ wintersport | Halswärmer | plus | Milde Frühlingstage | Preis-Leistungs-Tipp
+^ wintersport | Halswärmer | plus | Milde Frühlingstage | Preis-Leistungs-Tipp | Günstig und vielseitig: als Schal, Mütze oder Schutz vor Wind im Lift.
 ^ wintersport | Skitasche | bedarf | Wer Ski vor Ort mietet
 ^ wintersport | Skischuhtasche | plus | Wer Skischuhe mietet
 ^ wintersport | Schuhtrockner | plus | Einzelne Skitage
 ^ wintersport | Skiwachs-Set | bedarf | Leihski
 ^ wintersport | Handwärmer | bedarf | Milde Tage
 ^ wintersport | Skirucksack | bedarf | Kurze Pistentage ohne Gepäck
-^ tennis-padel | Tennisschläger für Einsteiger | basis | Fortgeschrittene mit sauberer Technik | Einsteiger-Tipp
+^ tennis-padel | Tennisschläger für Einsteiger | basis | Fortgeschrittene mit sauberer Technik | Einsteiger-Tipp | Grosser Kopf und eher leicht: verzeiht Fehler, solange die Technik noch nicht sitzt.
 ^ tennis-padel | Tennisbälle | basis | Padel, dafür gibt es eigene Bälle
 ^ tennis-padel | Tennisschuhe | plus | Padel auf Kunstrasen
-^ tennis-padel | Griffband (Overgrip) | basis | | Preis-Leistungs-Tipp
+^ tennis-padel | Griffband (Overgrip) | basis | | Preis-Leistungs-Tipp | Für wenige Euro besserer Halt und ein frischer Griff.
 ^ tennis-padel | Vibrationsdämpfer | bedarf | Wen das Pling nicht stört
 ^ tennis-padel | Tennistasche | bedarf | Gelegenheitsspieler mit einem Schläger
 ^ tennis-padel | Ersatzsaite | bedarf | Gelegenheitsspieler
-^ tennis-padel | Padelschläger für Einsteiger | basis | Fortgeschrittene, die mehr Power suchen | Einsteiger-Tipp
+^ tennis-padel | Padelschläger für Einsteiger | basis | Fortgeschrittene, die mehr Power suchen | Einsteiger-Tipp | Runde Form mit grossem Sweetspot: gut kontrollierbar und fehlerverzeihend.
 ^ tennis-padel | Padelbälle | basis | Tennis, dafür gibt es eigene Bälle
 ^ tennis-padel | Padelschuhe | plus | Tennis auf Sand oder Hartplatz
 ^ tennis-padel | Padeltasche | bedarf | Gelegenheitsspieler

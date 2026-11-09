@@ -892,6 +892,8 @@ td:first-child { font-weight: 800; color: var(--cat-ink); }
 .lv-bedarf::before { background: transparent; box-shadow: inset 0 0 0 1.5px currentColor; }
 .gear-tip { background: var(--ink); color: #fff; }
 .gear-tip::before { content: "★"; color: var(--accent); font-size: 0.8rem; }
+.gear-why { margin: -4px 0 12px; padding-left: 10px; border-left: 3px solid var(--accent); font-size: 0.86rem; line-height: 1.45; color: var(--ink); }
+.gear-why b { font-weight: 800; }
 .gear-advice { display: flex; flex-wrap: wrap; gap: 6px 18px; align-items: baseline; margin: -6px 0 18px; padding: 12px 16px; background: var(--cat-softer); border: 1px solid color-mix(in srgb, var(--cat) 22%, #fff); border-radius: var(--r-sm); font-size: 0.9rem; line-height: 1.5; }
 .gear-advice .ga-label { width: 100%; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; color: var(--cat-ink); }
 .gear-advice a { color: var(--ink); text-decoration-color: color-mix(in srgb, var(--cat) 60%, transparent); }
@@ -930,6 +932,12 @@ td:first-child { font-weight: 800; color: var(--cat-ink); }
 .fl-fehl b { display: block; margin-bottom: 4px; }
 .fl-fehl ul { margin: 0; padding-left: 1.1em; color: var(--muted); }
 .fl-fehl li { margin: 0 0 3px; }
+.fl-guides { margin: -6px 0 18px; padding: 12px 14px; background: var(--cat-softer); border-radius: var(--r-sm); font-size: 0.88rem; }
+.fl-guides b { display: block; margin-bottom: 4px; }
+.fl-guides ul { margin: 0; padding-left: 1.1em; }
+.fl-guides li { margin: 0 0 3px; }
+.fl-guides a { color: var(--ink); font-weight: 600; text-decoration-color: color-mix(in srgb, var(--cat) 60%, transparent); }
+@media print { .fl-guides { display: none; } }
 .method-editorial { --cat: var(--accent); }
 /* Foto statt Initiale, sobald assets/img/neset.jpg vorhanden ist */
 img.avatar, .about-avatar img { object-fit: cover; padding: 0; }

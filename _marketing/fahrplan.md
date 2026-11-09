@@ -3,7 +3,7 @@
 Themenplan für Ratgeber und Vergleiche, Social-Media-Ideen und offene Entscheidungen.
 Suchpotenzial und Wettbewerb sind **Einschätzungen**, nicht gemessen. Vor dem Schreiben lohnt ein kurzer Blick in die Google-Suche (Was rankt? Welche Fragen stehen bei „Ähnliche Fragen“?) und später in die Search Console.
 
-Legende: **P1** zuerst schreiben, **P2** danach, **P3** später. ✓ = Produkttyp selbst benutzt, eigene Erfahrung kann einfliessen.
+Legende: **P1** zuerst schreiben, **P2** danach, **P3** später, **fertig** = am 9. November 2026 geschrieben. ✓ = Produkttyp selbst benutzt, eigene Erfahrung kann einfliessen.
 
 ---
 
@@ -13,9 +13,9 @@ Legende: **P1** zuerst schreiben, **P2** danach, **P3** später. ✓ = Produktty
 
 | Prio | Thema | Kaufabsicht | Eigene Erfahrung | Verlinkt auf |
 |---|---|---|---|---|
-| P1 | Handbandagen: Länge, Material und richtig wickeln | hoch | ✓ | Handbandagen, Vergleich Bandagen/Innenhandschuhe |
+| fertig | Handbandagen: Länge, Material und richtig wickeln | hoch | ✓ | Handbandagen, Vergleich Bandagen/Innenhandschuhe |
 | P1 | Boxhandschuhe fürs Sparring: worauf es ankommt | hoch | ✓ | Boxhandschuhe, Vergleich Leder/Kunstleder |
-| P1 | MMA-Handschuhe: Training oder Wettkampf? | hoch | ✓ | MMA-Handschuhe, Vergleich Box/MMA |
+| fertig | MMA-Handschuhe: Training, Sparring oder Wettkampf? | hoch | ✓ | MMA-Handschuhe, Vergleich Box/MMA |
 | P2 | Mundschutz: Boil & Bite richtig anpassen | mittel | ✓ | Mundschutz |
 | P2 | Erste Kampfsport-Ausrüstung mit Budget | hoch | ✓ | Finder, Kampfsport-Seite |
 | P2 | Schienbeinschoner im Kampfsport: Socke oder Klett? | mittel | ✓ | Schienbeinschoner |
@@ -25,7 +25,7 @@ Legende: **P1** zuerst schreiben, **P2** danach, **P3** später. ✓ = Produktty
 
 | Prio | Thema | Kaufabsicht | Eigene Erfahrung | Verlinkt auf |
 |---|---|---|---|---|
-| P1 | Klimmzugstange: Türrahmen, Wand oder Decke? | hoch | ✓ | Klimmzugstange |
+| fertig | Klimmzugstange: Türrahmen, Wand oder Decke? | hoch | ✓ | Klimmzugstange |
 | P1 | Kettlebell: welches Gewicht für den Start? | hoch | ✓ | Kettlebell, Vergleich Kettlebell/Kurzhantel |
 | P1 | Hantelbank: flach oder verstellbar, Belastbarkeit | hoch | ✓ | Hantelbank |
 | P2 | Home-Gym in der Garage: Boden, Lärm, Temperatur | mittel | ✓ | Bodenschutzmatten, Langhantel-Set |
@@ -48,7 +48,7 @@ Legende: **P1** zuerst schreiben, **P2** danach, **P3** später. ✓ = Produktty
 | Prio | Thema | Kaufabsicht | Eigene Erfahrung | Verlinkt auf |
 |---|---|---|---|---|
 | P1 | Neutral oder stabil: welcher Laufschuh passt? | hoch | | Laufschuhe |
-| P1 | Laufen im Winter: Kleidung nach Temperatur (saisonal) | mittel | teilweise | Laufjacke, Tights, Stirnlampe |
+| fertig | Laufen im Winter: Kleidung nach Temperatur und Sichtbarkeit | mittel | teilweise | Laufjacke, Tights, Stirnlampe |
 | P2 | Laufweste oder Laufgürtel? | mittel | ✓ (Laufweste) | beide Karten |
 | P2 | GPS-Laufuhr: welche Funktionen braucht man? | hoch | | GPS-Laufuhr, Brustgurt |
 | P3 | Laufschuhe für den Halbmarathon | hoch | | Laufschuhe |
@@ -58,7 +58,7 @@ Legende: **P1** zuerst schreiben, **P2** danach, **P3** später. ✓ = Produktty
 | Prio | Thema | Kaufabsicht | Eigene Erfahrung | Verlinkt auf |
 |---|---|---|---|---|
 | P1 | Fahrradlicht: was in DE, AT und CH gilt und was man kauft | hoch | | Licht-Set |
-| P1 | Fahrradschloss: Bügel, Falt oder Kette? | hoch | | Bügelschloss |
+| fertig | Fahrradschloss: Bügel, Falt oder Kette? | hoch | | Bügelschloss |
 | P2 | Grundausstattung zum Pendeln | mittel | | Finder, Radsport-Seite |
 | P2 | Radhose: mit oder ohne Träger? | mittel | | Radhose |
 | P3 | Rollentrainer: smart oder klassisch? | mittel | | Rollentrainer |
@@ -69,7 +69,7 @@ Hinweis: Beim Licht unterscheiden sich die Vorschriften je Land. Vor dem Schreib
 
 | Prio | Thema | Kaufabsicht | Eigene Erfahrung | Verlinkt auf |
 |---|---|---|---|---|
-| P1 | Trainingshilfen: Pull Buoy, Paddles, Flossen sinnvoll nutzen | mittel | | Trainingshilfen |
+| fertig | Trainingshilfen: Pull Buoy, Paddles, Flossen sinnvoll nutzen | mittel | | Trainingshilfen |
 | P2 | Badekappe: Silikon, Latex oder Stoff? | mittel | ✓ | Badekappe |
 | P2 | Schwimmen im See: Sicherheit und Ausrüstung (saisonal) | mittel | | Boje, Neopren |
 | P3 | Neoprenanzug zum Schwimmen: Grösse und Passform | hoch | | Neoprenanzug |
@@ -89,11 +89,11 @@ Hinweis: Beim Licht unterscheiden sich die Vorschriften je Land. Vor dem Schreib
 | Prio | Thema | Kaufabsicht | Eigene Erfahrung | Verlinkt auf |
 |---|---|---|---|---|
 | P1 | Padelschläger: rund, Tropfen oder Diamant? | hoch | ✓ | Padelschläger |
-| P1 | Tennisschuhe: Sand oder Hartplatz? | hoch | | Tennisschuhe |
+| fertig | Tennis- und Padelschuhe: Welche Sohle für welchen Platz? | hoch | | Tennisschuhe |
 | P2 | Griffstärke beim Tennisschläger messen | mittel | ✓ | Tennisschläger, Griffband |
 | P3 | Padelbälle oder Tennisbälle? (als Vergleich) | mittel | ✓ | beide Karten |
 
-**Empfohlene Reihenfolge für die nächsten drei:** Handbandagen, MMA-Handschuhe, Klimmzugstange. Alle drei mit hoher Kaufabsicht, mit deiner eigenen Erfahrung und mit vorhandenen Produktkarten zum Verlinken.
+**Stand nach dem 9. November 2026:** Jede Sportart hat mindestens zwei Ratgeber (insgesamt 19). **Empfohlen als Nächstes:** Torwarthandschuhe und Kettlebell-Gewicht (beide mit eigener Erfahrung) sowie Fahrradlicht, solange es früh dunkel ist (Vorschriften für DE, AT und CH vorher prüfen und mit Datum angeben).
 
 ---
 
@@ -136,7 +136,7 @@ Tipps:
 
 ## 4. Offene Entscheidungen
 
-1. **Hochladen:** Alle Änderungen liegen lokal, online ist noch der Stand vom 8. November.
+1. **Klimmzugstange:** Welche Variante hattest du (Türrahmen zum Einhängen, Teleskop, Wand, Decke oder Turm)? Dann kann der Ratgeber einen Satz „Aus meinem Training“ und die Kennzeichnung „selbst getestet“ an der richtigen Variante bekommen.
 2. **Foto für „Über uns“:** Ein quadratisches Foto als `assets/img/neset.jpg` ablegen, dann erscheint es automatisch auf „Über uns“ und in allen Autorenboxen.
 3. **Schweizer Händler:** Prüfen, ob grosse Schweizer Shops ein eigenes Partnerprogramm anbieten. Dann lassen sich pro Produkt Schweizer Angebote hinterlegen (`data-offer-ch`), statt Amazon.de mit Versand und Einfuhrabgaben.
 4. **Rechtliche Prüfung:** Impressum und Datenschutz beschreiben den technischen Stand. Für Deutschland und Österreich (DSGVO, Impressumspflicht, Werbekennzeichnung) lohnt eine Prüfung durch eine Fachperson.

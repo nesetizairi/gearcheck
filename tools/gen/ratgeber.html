@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><title>Ratgeber-Illustrationen erzeugen</title>
+<!-- Erzeugt assets/img/ratgeber/<slug>.svg (800 × 350) für neue Ratgeber im Stil der bestehenden Titelbilder.
+     Aufruf über tools/gen/ratgeber.ps1. Der erste Kommentar in jeder SVG wird zum Alt-Text (siehe tools/build.pl). -->
+<script src="../../_marketing/pins/art-teile.js"></script>
+</head><body>
+<script>
+const { K, at, o, defs, label, shine, T } = window.ARTKIT;
+const COL = {
+  fitness: ['#ff9a6b', '#ff5a1f', '#b83a0a'], kampfsport: ['#ff5c61', '#e0262b', '#8f1014'],
+  fussball: ['#4ade80', '#16a34a', '#0c6b30'], running: ['#d9f566', '#a3cf1c', '#5f8100'],
+  radsport: ['#a78bfa', '#7c3aed', '#4c1d95'], schwimmen: ['#60a5fa', '#1d6fe0', '#0f3f8f'],
+  wintersport: ['#8fe0ff', '#38bdf8', '#0e7fb6'], racket: ['#5eead4', '#14b8a6', '#0b7266']
+};
+const lin = (id, a, b, v = true) => `<linearGradient id="${id}" x1="0" y1="0" x2="${v ? 0 : 1}" y2="${v ? 1 : 0}"><stop offset="0" stop-color="${a}"/><stop offset="1" stop-color="${b}"/></linearGradient>`;
+const glow = (id, cx, cy, r, c, op = 0.5) => `<radialGradient id="${id}" cx="${cx}" cy="${cy}" r="${r}" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="${c}" stop-opacity="${op}"/><stop offset="0.6" stop-color="${c}" stop-opacity="${op / 5}"/><stop offset="1" stop-color="${c}" stop-opacity="0"/></radialGradient>`;
+const tick = (x, y, c, s = 1) => at(x, y, s, 0, `<path d="M0 0l28 28 56-64" fill="none" stroke="${c}" stroke-width="20" stroke-linecap="square" opacity="0.22"/>`);
+const flakes = pts => pts.map(([x, y, s]) => at(x, y, s, 0, `<path d="M0-10V10M-9-5L9 5M-9 5L9-5" stroke="#fff" stroke-width="3" stroke-linecap="round" opacity="0.8"/>`)).join('');
+
+function scene(sport, desc, extra, body, wall = ['#141414', '#2e2e2e']) {
+  const c = COL[sport];
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 350" width="800" height="350" aria-hidden="true">
+  <!-- ${desc} -->
+  ${defs(c, lin('wall', wall[0], wall[1]) + glow('light', 440, -60, 460, c[0]) + extra)}
+  <rect width="800" height="350" fill="url(#wall)"/><rect width="800" height="350" fill="url(#light)"/>
+  ${body}
+</svg>`;
+}
+
+// ---------- Eigene Teile ----------
+// Aufgerollte Bandage
+const roll = (r, fill) => `<g><circle r="${r}" fill="${fill}" ${o()}/>
+  <circle r="${(r * 0.72).toFixed(1)}" fill="none" stroke="${K}" stroke-width="2.5" opacity="0.35"/>
+  <circle r="${(r * 0.44).toFixed(1)}" fill="none" stroke="${K}" stroke-width="2.5" opacity="0.35"/>
+  <circle r="${(r * 0.17).toFixed(1)}" fill="${K}" opacity="0.6"/>
+  ${shine(`M${-r * 0.62} ${-r * 0.62}a${r * 0.88} ${r * 0.88} 0 0 1 ${r * 0.74} ${-r * 0.22}`, 6, 0.4)}</g>`;
+
+// MMA-Handschuh mit unterschiedlich dickem Polster über den Knöcheln
+const mma = pad => `<g transform="translate(-60 -86)">
+  <g fill="#f1cdb1" ${o(3.5)}><rect x="26" y="0" width="17" height="40" rx="8.5"/><rect x="45" y="-6" width="17" height="46" rx="8.5"/><rect x="64" y="-4" width="17" height="44" rx="8.5"/><rect x="83" y="4" width="16" height="36" rx="8"/></g>
+  <path d="M14 70C4 66 0 84 8 96L22 112 28 82Z" fill="#f1cdb1" ${o(3.5)}/>
+  <path d="M22 50H104C110 50 112 56 112 62V108C112 120 104 128 92 128H38C28 128 22 120 22 110Z" fill="url(#gm)" ${o()}/>
+  <rect x="${18 - pad / 6}" y="${42 - pad}" width="${98 + pad / 3}" height="${30 + pad}" rx="${10 + pad / 3}" fill="url(#gm)" ${o()}/>
+  ${shine(`M30 ${50 - pad}H${98 + pad / 6}`, 6, 0.4)}
+  <path d="M30 96H104" stroke="#000" stroke-width="2.5" opacity="0.2"/>
+  <rect x="24" y="126" width="88" height="44" rx="8" fill="url(#gk)" ${o()}/>
+  <rect x="24" y="136" width="88" height="20" fill="#fff" opacity="0.9"/>
+  <path d="M30 140h76M30 152h76" stroke="${K}" stroke-width="1.5" stroke-dasharray="3 3" opacity="0.5"/></g>`;
+
+// Sohle von unten mit Profil
+const SOLE = 'M0-134C42-134 54-92 52-52 50-12 38 8 38 40 38 82 46 112 32 130 20 142-20 142-32 130-46 112-38 82-38 40-38 8-50-12-52-52-54-92-42-134 0-134Z';
+let soleId = 0;
+function sole(kind) {
+  const id = 'so' + (++soleId);
+  let p = '';
+  const herring = (y0, y1, step, w = 5) => { let s = ''; for (let y = y0; y <= y1; y += step) s += `M-60 ${y}L0 ${y + 12}L60 ${y}`; return `<path d="${s}" fill="none" stroke="#3a3a3a" stroke-width="${w}" stroke-linejoin="round"/>`; };
+  if (kind === 'sand') p = herring(-150, 150, 13);
+  if (kind === 'hart') p = herring(-20, 150, 15) + `<circle cy="-80" r="24" fill="none" stroke="#3a3a3a" stroke-width="5"/><circle cy="-80" r="12" fill="none" stroke="#3a3a3a" stroke-width="4"/>` +
+    `<path d="M-50-130L50-110M-50-112L50-92M-50-48L50-30" stroke="#3a3a3a" stroke-width="5"/>`;
+  if (kind === 'halle') p = `<path d="M-50-100C-20-110 20-90 50-100M-50-40C-20-50 20-30 50-40M-50 30C-20 20 20 40 50 30M-50 100C-20 90 20 110 50 100" fill="none" stroke="#8a8a8a" stroke-width="2.5"/>`;
+  if (kind === 'padel') { p = herring(-150, 150, 16, 4); for (let y = -120; y <= 120; y += 24) p += `<circle cx="-40" cy="${y}" r="4" fill="#3a3a3a"/><circle cx="40" cy="${y + 12}" r="4" fill="#3a3a3a"/>`; }
+  return `<g><clipPath id="${id}"><path d="${SOLE}"/></clipPath>
+    <path d="${SOLE}" fill="url(#sole)" ${o()}/>
+    <g clip-path="url(#${id})">${p}</g>
+    <path d="${SOLE}" fill="none" ${o()}/>
+    ${shine('M-34-110C-22-126 4-128 22-122', 4, 0.5)}</g>`;
+}
+
+// Faltschloss: Glieder im Zickzack
+function foldLock(n = 6, len = 62) {
+  let pts = [[0, 0]], a = -0.6, s = '';
+  for (let i = 0; i < n; i++) { a = i % 2 ? -0.62 : 0.62; const [x, y] = pts[pts.length - 1]; pts.push([x + Math.cos(a) * len, y + Math.sin(a) * len]); }
+  for (let i = 0; i < n; i++) { const [x1, y1] = pts[i], [x2, y2] = pts[i + 1]; s += `<path d="M${x1} ${y1}L${x2} ${y2}" stroke="${K}" stroke-width="22" stroke-linecap="round"/><path d="M${x1} ${y1}L${x2} ${y2}" stroke="url(#gm)" stroke-width="14" stroke-linecap="round"/>`; }
+  s += pts.map(([x, y]) => `<circle cx="${x}" cy="${y}" r="6" fill="url(#gs)" stroke="${K}" stroke-width="2.5"/>`).join('');
+  const [ex, ey] = pts[pts.length - 1];
+  s += `<rect x="${ex - 4}" y="${ey - 18}" width="44" height="36" rx="8" fill="url(#gk)" ${o(3.5)}/><circle cx="${ex + 18}" cy="${ey}" r="5" fill="url(#gs)"/>`;
+  return `<g>${s}</g>`;
+}
+
+// ---------- Szenen ----------
+const ART = {};
+
+ART['handbandagen'] = () => {
+  const c = COL.kampfsport;
+  return scene('kampfsport', 'Ratgeber Handbandagen: Boxhandschuh, zwei aufgerollte Handbandagen, eine ausgerollte Bandage mit Daumenschlaufe und Längenangabe 4,5 m, daneben eine Rolle Sporttape', '',
+  `<rect y="236" width="800" height="14" fill="${c[1]}"/><rect y="250" width="800" height="4" fill="${K}"/>
+   <rect y="254" width="800" height="96" fill="#161616"/>
+   ${tick(612, 96, c[1])}
+   ${at(140, 166, 0.95, -6, T.glove())}
+   <path d="M322 326C430 334 520 308 690 316" fill="none" stroke="${K}" stroke-width="30"/>
+   <path d="M322 326C430 334 520 308 690 316" fill="none" stroke="url(#gm)" stroke-width="22"/>
+   <path d="M340 327C430 334 520 309 684 316" fill="none" stroke="#fff" stroke-width="2" stroke-dasharray="6 7" opacity="0.45"/>
+   <ellipse cx="716" cy="314" rx="26" ry="14" fill="none" stroke="${K}" stroke-width="13"/>
+   <ellipse cx="716" cy="314" rx="26" ry="14" fill="none" stroke="url(#gm)" stroke-width="7"/>
+   ${at(236, 300, 1, 0, roll(34, 'url(#gk)'))}
+   ${at(326, 282, 1, 0, roll(46, 'url(#gm)'))}
+   <path d="M396 282H736M396 274v16M736 274v16" stroke="#cfcfcf" stroke-width="3" stroke-dasharray="7 6"/>
+   ${label(566, 278, '4,5 M', { size: 20, bg: K, stroke: true })}
+   <g transform="translate(616 220)"><circle r="30" fill="url(#gw)" ${o()}/><circle r="13" fill="#262626" ${o(3)}/>
+     <path d="M22 20L48 30V44L18 32" fill="url(#gw)" ${o(3)}/>${shine('M-20-14a24 24 0 0 1 16-12', 4, 0.6)}</g>`);
+};
+
+ART['mma-handschuhe'] = () => {
+  const c = COL.kampfsport;
+  return scene('kampfsport', 'Ratgeber MMA-Handschuhe: drei offene MMA-Handschuhe nebeneinander, vom dünnen Wettkampfhandschuh über den Trainingshandschuh bis zum dick gepolsterten Sparringhandschuh', '',
+  `<rect y="262" width="800" height="12" fill="${c[1]}"/><rect y="274" width="800" height="76" fill="url(#gk)"/>
+   <path d="M0 300H800M0 326H800" stroke="#fff" stroke-width="2" stroke-dasharray="10 12" opacity="0.12"/>
+   ${tick(52, 140, c[1])}
+   ${at(214, 186, 0.92, -5, mma(4))}
+   ${at(400, 180, 1, 0, mma(12))}
+   ${at(588, 174, 1.06, 5, mma(24))}
+   ${label(214, 46, 'WETTKAMPF', { size: 18, bg: K, stroke: true, wf: 0.7 })}
+   ${label(400, 46, 'TRAINING', { size: 18, bg: K, stroke: true, wf: 0.7 })}
+   ${label(588, 46, 'SPARRING', { size: 18, bg: c[1], stroke: true, wf: 0.7 })}
+   ${label(214, 300, '≈ 4 OZ', { size: 15, bg: '#fff', fg: K, stroke: true })}
+   ${label(588, 300, '6–7 OZ', { size: 15, bg: '#fff', fg: K, stroke: true })}`);
+};
+
+ART['klimmzugstange'] = () => {
+  const c = COL.fitness;
+  return scene('fitness', 'Ratgeber Klimmzugstange: drei Varianten nebeneinander, Stange im Türrahmen, an die Wand geschraubte Stange und freistehender Klimmzugturm mit Dip-Griffen', '',
+  `<rect y="292" width="800" height="10" fill="${c[1]}"/><rect y="302" width="800" height="48" fill="url(#gwood)"/><rect y="302" width="800" height="4" fill="${K}" opacity="0.6"/>
+   <path d="M60 322H230M300 330H520M590 318H760" stroke="#7a4a24" stroke-width="2" opacity="0.6"/>
+   <!-- Türrahmen -->
+   <rect x="96" y="54" width="118" height="238" fill="#0c0c0c"/>
+   <rect x="74" y="34" width="22" height="258" fill="url(#gw)" ${o(3.5)}/><rect x="214" y="34" width="22" height="258" fill="url(#gw)" ${o(3.5)}/>
+   <rect x="68" y="22" width="174" height="24" rx="3" fill="url(#gw)" ${o(3.5)}/>
+   <path d="M104 22V8H120M206 22V8H190" fill="none" stroke="${K}" stroke-width="8" stroke-linecap="round"/>
+   <path d="M104 22V8H120M206 22V8H190" fill="none" stroke="url(#gs)" stroke-width="4" stroke-linecap="round"/>
+   <path d="M108 46L100 84M202 46L210 84" stroke="${K}" stroke-width="12" stroke-linecap="round"/>
+   <path d="M108 46L100 84M202 46L210 84" stroke="url(#gs)" stroke-width="6" stroke-linecap="round"/>
+   ${at(155, 92, 0.8, 0, T.pullupbar(250))}
+   ${label(155, 324, 'TÜRRAHMEN', { size: 16, bg: K, stroke: true, wf: 0.7 })}
+   <!-- Wand -->
+   <rect x="300" y="60" width="200" height="232" fill="#3a3a3a" opacity="0.5"/>
+   <path d="M300 104H500M300 148H500M300 192H500M300 236H500M350 60V104M450 60V104M400 104V148M330 148V192M470 148V192M380 192V236M440 236V292" stroke="#555" stroke-width="2" opacity="0.6"/>
+   <rect x="322" y="82" width="22" height="78" rx="4" fill="url(#gk)" ${o(3.5)}/><rect x="456" y="82" width="22" height="78" rx="4" fill="url(#gk)" ${o(3.5)}/>
+   <g fill="url(#gs)" stroke="${K}" stroke-width="2"><circle cx="333" cy="94" r="4.5"/><circle cx="333" cy="148" r="4.5"/><circle cx="467" cy="94" r="4.5"/><circle cx="467" cy="148" r="4.5"/></g>
+   <ellipse cx="400" cy="152" rx="96" ry="8" fill="#000" opacity="0.3"/>
+   ${at(400, 130, 0.72, 0, T.pullupbar(230))}
+   ${label(400, 324, 'WAND', { size: 16, bg: K, stroke: true, wf: 0.7 })}
+   <!-- Turm -->
+   <path d="M584 292L606 70M736 292L714 70" stroke="${K}" stroke-width="20" stroke-linecap="round"/>
+   <path d="M584 292L606 70M736 292L714 70" stroke="url(#gk)" stroke-width="12" stroke-linecap="round"/>
+   <rect x="560" y="284" width="200" height="14" rx="6" fill="url(#gk)" ${o(3.5)}/>
+   <rect x="636" y="138" width="48" height="84" rx="10" fill="url(#gk)" ${o(3.5)}/>${shine('M646 150V208', 4, 0.25)}
+   <rect x="558" y="176" width="48" height="16" rx="7" fill="url(#gm)" ${o(3)}/><rect x="714" y="176" width="48" height="16" rx="7" fill="url(#gm)" ${o(3)}/>
+   ${at(660, 70, 0.78, 0, T.pullupbar(230))}
+   ${label(660, 324, 'TURM', { size: 16, bg: c[1], stroke: true, wf: 0.7 })}`);
+};
+
+ART['laufen-im-winter'] = () => {
+  const c = COL.running;
+  return scene('running', 'Ratgeber Laufen im Winter: Nachtszene im Schnee mit Laufjacke mit Reflektorstreifen, Thermo-Lauftights, leuchtender Stirnlampe und Thermometer bei null Grad',
+  lin('snow', '#ffffff', '#c9d6e6') + `<linearGradient id="beam" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff6b0" stop-opacity="0.75"/><stop offset="1" stop-color="#fff6b0" stop-opacity="0"/></linearGradient>`,
+  `<circle cx="96" cy="62" r="26" fill="#f4f1de" ${o(3)}/><circle cx="88" cy="56" r="5" fill="#d9d4ba"/><circle cx="104" cy="70" r="4" fill="#d9d4ba"/>
+   ${[[180, 40], [260, 90], [330, 30], [620, 36], [700, 96], [760, 50], [40, 140], [430, 70]].map(([x, y]) => `<circle cx="${x}" cy="${y}" r="2" fill="#fff" opacity="0.7"/>`).join('')}
+   <path d="M0 270C120 254 240 280 400 266S640 252 800 268V350H0Z" fill="url(#snow)" ${o(3)}/>
+   <path d="M480 148L380 300H640Z" fill="url(#beam)"/>
+   ${at(190, 166, 0.82, -4, T.jacket('url(#gm)'))}
+   ${at(190, 166, 0.82, -4, `<path d="M-46 30H-6M6 30H46" stroke="#fff" stroke-width="8"/><path d="M-46 30H-6M6 30H46" stroke="#cfd8e3" stroke-width="2" stroke-dasharray="2 4"/><path d="M-96 0L-90 22M96 0L90 22" stroke="#fff" stroke-width="7"/>`)}
+   ${at(352, 176, 0.78, 3, `<path d="M-46-100H46L52-78 42 108H8L2-36H-2L-8 108H-42L-52-78Z" fill="url(#gk)" ${o()}/><rect x="-47" y="-100" width="94" height="16" fill="url(#gm)" ${o(3)}/><path d="M-40 86H-10M10 86H40" stroke="#fff" stroke-width="6"/>${shine('M-34-70L-38 60', 8, 0.18)}`)}
+   ${at(486, 104, 0.74, 0, T.headlamp())}
+   <g transform="translate(676 160)"><rect x="-15" y="-96" width="30" height="150" rx="15" fill="url(#gw)" ${o()}/>
+     <rect x="-5" y="-12" width="10" height="62" fill="#38bdf8"/><circle cy="70" r="24" fill="#38bdf8" ${o()}/>
+     <path d="M15-80h10M15-56h10M15-32h10M15-8h16M15 16h10" stroke="${K}" stroke-width="3"/>${shine('M-6-80V-30', 4, 0.6)}</g>
+   ${label(676, 300, '0 °C', { size: 20, bg: K, stroke: true })}
+   ${flakes([[250, 46, 0.8], [560, 60, 1], [740, 160, 0.7], [420, 200, 0.6], [60, 200, 0.8], [600, 210, 0.6]])}`,
+   ['#0b1220', '#1f2a3a']);
+};
+
+ART['fahrradschloss'] = () => {
+  const c = COL.radsport;
+  return scene('radsport', 'Ratgeber Fahrradschloss: Velobügel mit angeschlossenem Bügelschloss und Vorderrad, daneben ein Faltschloss und ein Kettenschloss in Stoffhülle', '',
+  `<rect y="276" width="800" height="10" fill="${c[1]}"/><rect y="286" width="800" height="64" fill="#26262a"/>
+   <path d="M0 318H800" stroke="#fff" stroke-width="3" stroke-dasharray="26 22" opacity="0.15"/>
+   <g transform="translate(150 196)"><circle r="88" fill="none" stroke="${K}" stroke-width="20"/><circle r="88" fill="none" stroke="#2c2c2c" stroke-width="13"/>
+     <circle r="74" fill="none" stroke="url(#gs)" stroke-width="6"/>
+     <path d="${Array.from({ length: 16 }, (_, i) => { const a = i * Math.PI / 8; return `M0 0L${(Math.cos(a) * 72).toFixed(1)} ${(Math.sin(a) * 72).toFixed(1)}`; }).join('')}" stroke="#bdbdbd" stroke-width="2"/>
+     <circle r="12" fill="url(#gs)" ${o(3)}/></g>
+   <path d="M262 290V136A58 58 0 0 1 378 136V290" fill="none" stroke="${K}" stroke-width="24"/>
+   <path d="M262 290V136A58 58 0 0 1 378 136V290" fill="none" stroke="url(#gsh)" stroke-width="15"/>
+   ${at(270, 218, 0.72, -18, T.ulock())}
+   ${label(320, 318, 'BÜGEL', { size: 16, bg: K, stroke: true, wf: 0.72 })}
+   ${at(436, 236, 1, 0, foldLock(5, 52))}
+   ${label(520, 318, 'FALT', { size: 16, bg: K, stroke: true, wf: 0.72 })}
+   <path d="M640 270C610 240 640 196 690 200S768 240 744 272 664 290 640 270" fill="none" stroke="${K}" stroke-width="28" stroke-linecap="round"/>
+   <path d="M640 270C610 240 640 196 690 200S768 240 744 272 664 290 640 270" fill="none" stroke="url(#gk)" stroke-width="19" stroke-linecap="round"/>
+   <path d="M640 270C610 240 640 196 690 200S768 240 744 272 664 290 640 270" fill="none" stroke="#a9a9a9" stroke-width="9" stroke-dasharray="11 6"/>
+   <path d="M640 270C610 240 640 196 690 200S768 240 744 272 664 290 640 270" fill="none" stroke="#2a2a2a" stroke-width="3" stroke-dasharray="11 6"/>
+   <g transform="translate(616 240)"><path d="M-10-12V-26A10 10 0 0 1 10-26V-12" fill="none" stroke="${K}" stroke-width="9"/><path d="M-10-12V-26A10 10 0 0 1 10-26V-12" fill="none" stroke="url(#gs)" stroke-width="5"/>
+     <rect x="-18" y="-14" width="36" height="32" rx="7" fill="url(#gm)" ${o(3.5)}/><circle cy="2" r="4" fill="${K}"/></g>
+   ${label(696, 318, 'KETTE', { size: 16, bg: c[1], stroke: true, wf: 0.72 })}
+   ${tick(560, 70, c[1])}`);
+};
+
+ART['trainingshilfen-schwimmen'] = () => {
+  const c = COL.schwimmen;
+  return scene('schwimmen', 'Ratgeber Trainingshilfen Schwimmen: am Beckenrand liegen Schwimmbrett, Pull Buoy, zwei Hand-Paddles, kurze Flossen und ein Frontschnorchel, davor das Becken mit Bahnleine',
+  lin('water', '#3b82f6', '#123a8a') + lin('tile', '#eef3f8', '#cfdbe8'),
+  `<rect y="226" width="800" height="30" fill="url(#tile)"/>
+   <path d="M0 226H800M60 226V256M140 226V256M220 226V256M300 226V256M380 226V256M460 226V256M540 226V256M620 226V256M700 226V256M780 226V256" stroke="#b9c7d6" stroke-width="2"/>
+   <rect y="256" width="800" height="8" fill="${K}"/><rect y="264" width="800" height="86" fill="url(#water)"/>
+   <path d="M0 286C40 280 80 292 120 286S200 280 240 286 320 292 360 286 440 280 480 286 560 292 600 286 680 280 720 286 800 292 800 292M0 334C40 328 80 340 120 334S200 328 240 334 320 340 360 334 440 328 480 334 560 340 600 334 680 328 720 334 800 340 800 340" fill="none" stroke="#fff" stroke-width="3" opacity="0.25"/>
+   ${Array.from({ length: 27 }, (_, i) => `<ellipse cx="${i * 31 + 6}" cy="310" rx="13" ry="9" fill="${['#fff', c[0], '#e0262b'][i % 3]}" ${o(2.5)}/>`).join('')}
+   ${tick(330, 70, c[1])}
+   ${at(108, 160, 0.78, -8, `<path d="M-60-56C-60-96 60-96 60-56V72C60 80 54 86 46 86H-46C-54 86-60 80-60 72Z" fill="url(#gm)" ${o()}/><ellipse cx="-26" cy="-58" rx="14" ry="8" fill="${K}" opacity="0.55"/><ellipse cx="26" cy="-58" rx="14" ry="8" fill="${K}" opacity="0.55"/>${shine('M-44-30V60', 8, 0.3)}`)}
+   ${at(238, 164, 0.72, 0, T.pullbuoy())}
+   ${at(360, 168, 0.6, -12, T.paddle())}
+   ${at(414, 176, 0.6, 10, T.paddle())}
+   ${at(530, 162, 0.6, -10, T.fin())}
+   ${at(588, 170, 0.6, 12, T.fin())}
+   <g transform="translate(712 150)">
+     <ellipse cy="-30" rx="42" ry="26" fill="none" stroke="${K}" stroke-width="11"/><ellipse cy="-30" rx="42" ry="26" fill="none" stroke="#2b2b2b" stroke-width="6"/>
+     <path d="M0-96V40C0 64-22 74-40 66" fill="none" stroke="${K}" stroke-width="18" stroke-linecap="round"/>
+     <path d="M0-96V40C0 64-22 74-40 66" fill="none" stroke="url(#gm)" stroke-width="11" stroke-linecap="round"/>
+     <rect x="-12" y="-62" width="24" height="18" rx="5" fill="url(#gk)" ${o(3)}/><rect x="-50" y="56" width="22" height="18" rx="6" fill="url(#gk)" ${o(3)}/></g>`);
+};
+
+ART['tennisschuhe-padelschuhe'] = () => {
+  const c = COL.racket;
+  const cols = [['sand', 'SAND', '#c8693a', 110], ['hart', 'HARTPLATZ', '#3b6fb6', 300], ['halle', 'HALLE', '#9a3b3b', 490], ['padel', 'PADEL', '#3e8a54', 680]];
+  return scene('racket', 'Ratgeber Tennis- und Padelschuhe: vier Schuhsohlen von unten über ihrem Belag, Fischgrätprofil für Sand, Allcourt-Sohle für Hartplatz, glatte Sohle für die Teppichhalle und Padelsohle für Kunstrasen mit Sand',
+  lin('sole', '#f2f2f2', '#bdbdbd'),
+  `${cols.map(([k, , col, x], i) => `<rect x="${x - 95}" y="274" width="190" height="76" fill="${col}"/>${k === 'padel' ? Array.from({ length: 40 }, (_, j) => `<circle cx="${x - 88 + (j * 37) % 180}" cy="${282 + (j * 17) % 64}" r="2" fill="#f3e2b8" opacity="0.8"/>`).join('') : ''}${k === 'sand' ? Array.from({ length: 30 }, (_, j) => `<circle cx="${x - 88 + (j * 41) % 180}" cy="${280 + (j * 23) % 66}" r="1.8" fill="#8e4320" opacity="0.6"/>`).join('') : ''}`).join('')}
+   <rect y="270" width="800" height="6" fill="${K}"/><path d="M0 300H800" stroke="#fff" stroke-width="5" opacity="0.85"/>
+   <path d="M205 274V350M395 274V350M585 274V350" stroke="${K}" stroke-width="3" opacity="0.5"/>
+   ${cols.map(([k, , , x], i) => at(x, 148, 0.74, i % 2 ? 6 : -6, sole(k))).join('')}
+   ${cols.map(([, t, , x]) => label(x, 326, t, { size: 15, bg: K, stroke: true, wf: 0.72 })).join('')}
+   ${at(176, 252, 0.6, 0, T.tennisball())}
+   ${at(742, 252, 0.6, 0, T.tennisball())}`);
+};
+
+// Ausgabe
+for (const slug of Object.keys(ART)) {
+  const ta = document.createElement('textarea');
+  ta.id = 'out-' + slug;
+  ta.textContent = ART[slug]();
+  document.body.appendChild(ta);
+}
+// Vorschau, wenn die Seite direkt im Browser geöffnet wird
+for (const slug of Object.keys(ART)) {
+  const d = document.createElement('div');
+  d.style.cssText = 'display:inline-block;margin:6px;width:400px';
+  d.innerHTML = ART[slug]().replace('width="800" height="350"', 'width="400" height="175"');
+  document.body.appendChild(d);
+}
+</script>
+</body></html>
